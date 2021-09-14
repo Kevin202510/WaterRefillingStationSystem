@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Views.MainDashboard;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,7 +52,7 @@ public class AuthenticationController {
     public void authenticationLogin(String authUsername,String authPassword){
         try {
             Connection con = sql.getConnection();
-            String tanong = "Select * from users INNER JOIN roles ON users.Role_id = roles.Id where Username= ? AND Password= ?";
+            String tanong = "Select * from users INNER JOIN roles ON users.Role_id = roles.Role_id where Username= ? AND Password= ?";
             PreparedStatement st = con.prepareStatement(tanong);
             st.setString(1,authUsername);
             st.setString(2,encrypt(authPassword));
@@ -59,6 +60,7 @@ public class AuthenticationController {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null,rs.getString("Fname"));
                 frametoClose.dispose();
+                new MainDashboard(rs.getInt("Role_id")).setVisible(true);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AuthenticationController.class.getName()).log(Level.SEVERE, null, ex);

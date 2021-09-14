@@ -66,11 +66,15 @@ public class UserController {
 //            model.addRow(row);
          }
     }
-     
-    public static void main(String[] args) {
-        UserController test = new UserController();   
-        test.showUsers();
+     public String encrypt(String str){
+	String storen = "";
+		
+        for(int i = 0; i<str.length(); i++){
+            char c = str.charAt(i);
+		
+            int asci = (int)c + 5;
+	    storen += (char) asci;
+        }
+        return storen;
     }
-    
-    
 }
