@@ -30,11 +30,22 @@ public class ButtonsController {
     }
     
     public void SalesButton(JLabel sales){
-        new ContainerController(lalagyanan,new Users());
+        new ContainerController(lalagyanan,new Sales());
     }
     
     public void GallonsButton(JLabel gallon){
         new ContainerController(lalagyanan,new Gallons());
+    }
+    
+    public void UsersButton(JLabel users){
+        new ContainerController(lalagyanan,new Users());
+    }
+    
+//    public void EmployeesButton(JLabel employees){
+//        new ContainerController(lalagyanan,new EmployeesButton());
+//    }
+    public void SupplierButton(JLabel supplier){
+        new ContainerController(lalagyanan,new Supplier());
     }
      
     public void setC(JPanel kev){
