@@ -137,7 +137,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_dashboardMouseExited
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        // TODO add your handling code here:
+        buttonControll.SalesButton(users);
     }//GEN-LAST:event_usersMouseClicked
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered

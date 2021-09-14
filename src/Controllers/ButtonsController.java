@@ -8,6 +8,7 @@ package Controllers;
 import Views.Dashboard;
 import Views.Gallons;
 import Views.Sales;
+import Views.Users;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -29,7 +30,7 @@ public class ButtonsController {
     }
     
     public void SalesButton(JLabel sales){
-        new ContainerController(lalagyanan,new Sales());
+        new ContainerController(lalagyanan,new Users());
     }
     
     public void GallonsButton(JLabel gallon){
