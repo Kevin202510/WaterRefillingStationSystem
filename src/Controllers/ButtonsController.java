@@ -8,6 +8,7 @@ package Controllers;
 import Views.Dashboard;
 import Views.Gallons;
 import Views.Sales;
+import Views.Supplier;
 import Views.Users;
 import java.awt.Color;
 import javax.swing.JLabel;
