@@ -134,7 +134,7 @@ public class Dashboard extends javax.swing.JPanel {
     }//GEN-LAST:event_gallonsMouseExited
 
     private void saleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseClicked
-        buttonControll.SalesButton(gallons);
+        buttonControll.SalesButton(sale);
     }//GEN-LAST:event_saleMouseClicked
 
     private void saleMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseEntered
