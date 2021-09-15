@@ -47,6 +47,8 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         sale = new javax.swing.JLabel();
         hovEmployees = new javax.swing.JPanel();
         employees = new javax.swing.JLabel();
+        hovSupplier = new javax.swing.JPanel();
+        supplier = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 204, 255));
         setPreferredSize(new java.awt.Dimension(250, 700));
@@ -249,6 +251,45 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         );
 
         add(hovEmployees, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 250, -1));
+
+        hovSupplier.setBackground(new java.awt.Color(83, 140, 198));
+        hovSupplier.setPreferredSize(new java.awt.Dimension(250, 50));
+
+        supplier.setBackground(new java.awt.Color(51, 51, 255));
+        supplier.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        supplier.setForeground(new java.awt.Color(255, 255, 255));
+        supplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        supplier.setText("Supplier");
+        supplier.setIconTextGap(10);
+        supplier.setPreferredSize(new java.awt.Dimension(250, 50));
+        supplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                supplierMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                supplierMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                supplierMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hovSupplierLayout = new javax.swing.GroupLayout(hovSupplier);
+        hovSupplier.setLayout(hovSupplierLayout);
+        hovSupplierLayout.setHorizontalGroup(
+            hovSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovSupplierLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(supplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        hovSupplierLayout.setVerticalGroup(
+            hovSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovSupplierLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(supplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(hovSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
@@ -311,6 +352,18 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         
     }//GEN-LAST:event_employeesMouseExited
 
+    private void supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierMouseClicked
+       buttonControll.SupplierButton(supplier);
+    }//GEN-LAST:event_supplierMouseClicked
+
+    private void supplierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierMouseEntered
+        buttonControll.setC(hovSupplier);
+    }//GEN-LAST:event_supplierMouseEntered
+
+    private void supplierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierMouseExited
+        buttonControll.resetC(hovSupplier);
+    }//GEN-LAST:event_supplierMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dashboard;
@@ -320,9 +373,11 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovEmployees;
     private javax.swing.JPanel hovGallons;
     private javax.swing.JPanel hovSales;
+    private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel sale;
+    private javax.swing.JLabel supplier;
     private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables
 }

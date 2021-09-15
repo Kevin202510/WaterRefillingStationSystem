@@ -48,33 +48,12 @@ public class UserController {
         return userList;   
     }
     
-//    JTable jTable1
+
      public void showUsers(){
-//         ArrayList<Users> list = userList();
-//         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-//         Object[] row = new Object[8];
+
          for (int i = 0; i < userList.size(); i++) {
              JOptionPane.showMessageDialog(null,userList.get(i).getFname());
-//            row[0] = list.get(i).getuser_id();
-//            row[1] = list.get(i).getrole_displayname();
-//            row[2] = "<html>"+list.get(i).getuser_fullname()+"</html> ";
-//            row[3] = list.get(i).getuser_address();
-//            row[4] = list.get(i).getuser_DOB();
-//            row[5] = list.get(i).getuser_contactnum();
-//            row[6] = list.get(i).getuser_username();
-//            row[7] = list.get(i).getuser_password();
-//            model.addRow(row);
+
          }
-    }
-     public String encrypt(String str){
-	String storen = "";
-		
-        for(int i = 0; i<str.length(); i++){
-            char c = str.charAt(i);
-		
-            int asci = (int)c + 5;
-	    storen += (char) asci;
-        }
-        return storen;
     }
 }

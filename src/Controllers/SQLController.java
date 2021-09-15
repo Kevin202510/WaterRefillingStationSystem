@@ -30,8 +30,5 @@ public class SQLController {
         return null;
        }
     
-    public static void main(String[] args) {
-        SQLController test = new SQLController();
-        test.getConnection();
-    }
+
 }
