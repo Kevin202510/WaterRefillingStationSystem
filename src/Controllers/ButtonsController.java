@@ -39,7 +39,7 @@ public class ButtonsController {
     }
     
     public void UsersButton(JLabel users){
-        new ContainerController(lalagyanan,new Users());
+        new ContainerController(lalagyanan,new Users(lalagyanan));
     }
     
 //    public void EmployeesButton(JLabel employees){

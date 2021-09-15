@@ -32,6 +32,9 @@ public class UserModel {
     }public int getRole_id(){
         return Role_id;
     }public String getProfile(){
+        if (Profile == null) {
+           Profile = "sampleuser.jpg";
+        }
         return Profile;
     }public String getFname(){
         return Fname;
