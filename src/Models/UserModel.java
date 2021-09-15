@@ -49,7 +49,7 @@ public class UserModel {
         return Username;
     }public String getPassword(){
         return Password;
-    }public String getfullname(){
+    }public String getFullname(){
         String fullname = Fname + " " + Mname + " " + Lname;
         return fullname;
     }

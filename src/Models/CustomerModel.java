@@ -24,6 +24,7 @@ public class CustomerModel {
         this.Suki=Suki;
         
     }
+        
         public int getId(){
         return Id;
     }   public String getLname(){
@@ -36,7 +37,7 @@ public class CustomerModel {
         return Address;
     }   public String getContact_num(){
         return Contact_num;
-    }   public int Suki(){
+    }   public int getSuki(){
         return Suki;
     }
     

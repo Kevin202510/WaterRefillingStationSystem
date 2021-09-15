@@ -20,10 +20,17 @@ public class MainDashboard extends javax.swing.JFrame {
     
     public MainDashboard(int Role_id) {
         initComponents();
-        new ContainerController(jpnl_userButtons,new DeveloperAndAdminButtons(jpnl_container));
         this.Role_id = Role_id;
-        JOptionPane.showMessageDialog(this,Role_id);
+        checkRole(Role_id);
 //        new ContainerController(jpnl_container,new Dashboard());
+    }
+    
+    private void checkRole(int Role_id){
+        if (Role_id==1 || Role_id==2) {
+            new ContainerController(jpnl_userButtons,new DeveloperAndAdminButtons(jpnl_container));
+        }else if(Role_id==3) {
+            new ContainerController(jpnl_userButtons,new EmployeesButtons(jpnl_container));
+        }
     }
     
     
