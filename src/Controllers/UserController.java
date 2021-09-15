@@ -121,12 +121,12 @@ public class UserController {
             while(rs.next()){
                 String prof = rs.getString("Profile");
                 if (prof==null) {
-                    ImageIcon vins = new ImageIcon(getClass().getResource("../Images/Profile/sampleuser.jpg"));
+                    ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Profile/sampleuser.jpg"));
                     Image kev = vins.getImage().getScaledInstance(210, 120, Image.SCALE_SMOOTH);
                     ImageIcon shit = new ImageIcon(kev);
                     Profile.setIcon(shit);
                 }else{
-                    ImageIcon vins = new ImageIcon(getClass().getResource("../Images/Profile/"+prof));
+                    ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Profile/"+prof));
                     Profile.setIcon(vins);
                 }
                 Role_id.setText(String.valueOf(rs.getInt("role_id")));

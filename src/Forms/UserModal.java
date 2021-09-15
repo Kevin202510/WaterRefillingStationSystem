@@ -43,7 +43,7 @@ public class UserModal extends javax.swing.JFrame {
         if (btn_id==0) {
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
-            ImageIcon vins = new ImageIcon(getClass().getResource("../Images/Profile/sampleuser.jpg"));
+            ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Profile/sampleuser.jpg"));
             Image kev = vins.getImage().getScaledInstance(210, 120, Image.SCALE_SMOOTH);
             userProfile.setIcon(new ImageIcon(kev));
         }else{
