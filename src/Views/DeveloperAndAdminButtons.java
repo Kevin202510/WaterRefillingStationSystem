@@ -45,10 +45,16 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         gallons = new javax.swing.JLabel();
         hovSales = new javax.swing.JPanel();
         sale = new javax.swing.JLabel();
-        hovEmployees = new javax.swing.JPanel();
-        employees = new javax.swing.JLabel();
+        hovRefilled = new javax.swing.JPanel();
+        refilled = new javax.swing.JLabel();
         hovSupplier = new javax.swing.JPanel();
         supplier = new javax.swing.JLabel();
+        hovPromos = new javax.swing.JPanel();
+        Promos = new javax.swing.JLabel();
+        hovDeliveries = new javax.swing.JPanel();
+        Deliveries = new javax.swing.JLabel();
+        hovCustomer = new javax.swing.JPanel();
+        Customer = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 204, 255));
         setPreferredSize(new java.awt.Dimension(250, 700));
@@ -213,44 +219,44 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, -1));
 
-        hovEmployees.setBackground(new java.awt.Color(83, 140, 198));
-        hovEmployees.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovRefilled.setBackground(new java.awt.Color(83, 140, 198));
+        hovRefilled.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        employees.setBackground(new java.awt.Color(51, 51, 255));
-        employees.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        employees.setForeground(new java.awt.Color(255, 255, 255));
-        employees.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        employees.setText("Employees");
-        employees.setIconTextGap(10);
-        employees.setPreferredSize(new java.awt.Dimension(250, 50));
-        employees.addMouseListener(new java.awt.event.MouseAdapter() {
+        refilled.setBackground(new java.awt.Color(51, 51, 255));
+        refilled.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        refilled.setForeground(new java.awt.Color(255, 255, 255));
+        refilled.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        refilled.setText("Refilled Gallons");
+        refilled.setIconTextGap(10);
+        refilled.setPreferredSize(new java.awt.Dimension(250, 50));
+        refilled.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                employeesMouseClicked(evt);
+                refilledMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                employeesMouseEntered(evt);
+                refilledMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                employeesMouseExited(evt);
+                refilledMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout hovEmployeesLayout = new javax.swing.GroupLayout(hovEmployees);
-        hovEmployees.setLayout(hovEmployeesLayout);
-        hovEmployeesLayout.setHorizontalGroup(
-            hovEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovEmployeesLayout.createSequentialGroup()
+        javax.swing.GroupLayout hovRefilledLayout = new javax.swing.GroupLayout(hovRefilled);
+        hovRefilled.setLayout(hovRefilledLayout);
+        hovRefilledLayout.setHorizontalGroup(
+            hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovRefilledLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(employees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(refilled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        hovEmployeesLayout.setVerticalGroup(
-            hovEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovEmployeesLayout.createSequentialGroup()
+        hovRefilledLayout.setVerticalGroup(
+            hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovRefilledLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(employees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(refilled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovEmployees, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 250, -1));
+        add(hovRefilled, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 250, -1));
 
         hovSupplier.setBackground(new java.awt.Color(83, 140, 198));
         hovSupplier.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -290,6 +296,123 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         );
 
         add(hovSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, -1));
+
+        hovPromos.setBackground(new java.awt.Color(83, 140, 198));
+        hovPromos.setPreferredSize(new java.awt.Dimension(250, 50));
+
+        Promos.setBackground(new java.awt.Color(51, 51, 255));
+        Promos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        Promos.setForeground(new java.awt.Color(255, 255, 255));
+        Promos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Promos.setText("Promos");
+        Promos.setIconTextGap(10);
+        Promos.setPreferredSize(new java.awt.Dimension(250, 50));
+        Promos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PromosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PromosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PromosMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hovPromosLayout = new javax.swing.GroupLayout(hovPromos);
+        hovPromos.setLayout(hovPromosLayout);
+        hovPromosLayout.setHorizontalGroup(
+            hovPromosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPromosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Promos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        hovPromosLayout.setVerticalGroup(
+            hovPromosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPromosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Promos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(hovPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 250, -1));
+
+        hovDeliveries.setBackground(new java.awt.Color(83, 140, 198));
+        hovDeliveries.setPreferredSize(new java.awt.Dimension(250, 50));
+
+        Deliveries.setBackground(new java.awt.Color(51, 51, 255));
+        Deliveries.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        Deliveries.setForeground(new java.awt.Color(255, 255, 255));
+        Deliveries.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Deliveries.setText("Deliveries");
+        Deliveries.setIconTextGap(10);
+        Deliveries.setPreferredSize(new java.awt.Dimension(250, 50));
+        Deliveries.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeliveriesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DeliveriesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DeliveriesMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hovDeliveriesLayout = new javax.swing.GroupLayout(hovDeliveries);
+        hovDeliveries.setLayout(hovDeliveriesLayout);
+        hovDeliveriesLayout.setHorizontalGroup(
+            hovDeliveriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovDeliveriesLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        hovDeliveriesLayout.setVerticalGroup(
+            hovDeliveriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovDeliveriesLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(hovDeliveries, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 250, -1));
+
+        hovCustomer.setBackground(new java.awt.Color(83, 140, 198));
+        hovCustomer.setPreferredSize(new java.awt.Dimension(250, 50));
+
+        Customer.setBackground(new java.awt.Color(51, 51, 255));
+        Customer.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        Customer.setForeground(new java.awt.Color(255, 255, 255));
+        Customer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Customer.setText("Customer");
+        Customer.setIconTextGap(10);
+        Customer.setPreferredSize(new java.awt.Dimension(250, 50));
+        Customer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CustomerMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CustomerMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CustomerMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hovCustomerLayout = new javax.swing.GroupLayout(hovCustomer);
+        hovCustomer.setLayout(hovCustomerLayout);
+        hovCustomerLayout.setHorizontalGroup(
+            hovCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomerLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Customer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        hovCustomerLayout.setVerticalGroup(
+            hovCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomerLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Customer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(hovCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 250, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
@@ -340,17 +463,17 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovSales);
     }//GEN-LAST:event_saleMouseExited
 
-    private void employeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesMouseClicked
+    private void refilledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseClicked
        
-    }//GEN-LAST:event_employeesMouseClicked
+    }//GEN-LAST:event_refilledMouseClicked
 
-    private void employeesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesMouseEntered
+    private void refilledMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseEntered
        
-    }//GEN-LAST:event_employeesMouseEntered
+    }//GEN-LAST:event_refilledMouseEntered
 
-    private void employeesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesMouseExited
+    private void refilledMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseExited
         
-    }//GEN-LAST:event_employeesMouseExited
+    }//GEN-LAST:event_refilledMouseExited
 
     private void supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierMouseClicked
        buttonControll.SupplierButton(supplier);
@@ -364,18 +487,60 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovSupplier);
     }//GEN-LAST:event_supplierMouseExited
 
+    private void PromosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PromosMouseClicked
+        
+    }//GEN-LAST:event_PromosMouseClicked
+
+    private void PromosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PromosMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PromosMouseEntered
+
+    private void PromosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PromosMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PromosMouseExited
+
+    private void DeliveriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeliveriesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeliveriesMouseClicked
+
+    private void DeliveriesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeliveriesMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeliveriesMouseEntered
+
+    private void DeliveriesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeliveriesMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeliveriesMouseExited
+
+    private void CustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerMouseClicked
+
+    private void CustomerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerMouseEntered
+
+    private void CustomerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Customer;
+    private javax.swing.JLabel Deliveries;
+    private javax.swing.JLabel Promos;
     private javax.swing.JLabel dashboard;
-    private javax.swing.JLabel employees;
     private javax.swing.JLabel gallons;
+    private javax.swing.JPanel hovCustomer;
     private javax.swing.JPanel hovDashboard;
-    private javax.swing.JPanel hovEmployees;
+    private javax.swing.JPanel hovDeliveries;
     private javax.swing.JPanel hovGallons;
+    private javax.swing.JPanel hovPromos;
+    private javax.swing.JPanel hovRefilled;
     private javax.swing.JPanel hovSales;
     private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel refilled;
     private javax.swing.JLabel sale;
     private javax.swing.JLabel supplier;
     private javax.swing.JLabel users;

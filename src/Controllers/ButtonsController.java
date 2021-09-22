@@ -56,4 +56,9 @@ public class ButtonsController {
     public void resetC(JPanel kev1){
            kev1.setBackground(new Color(83,140,198));
     }
+    
+     public void RefilledGallonsButton(JLabel gallon){
+        new ContainerController(lalagyanan,new Gallons());
+    }
+    
 }

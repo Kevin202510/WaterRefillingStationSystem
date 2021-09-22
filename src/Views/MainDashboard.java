@@ -20,8 +20,8 @@ public class MainDashboard extends javax.swing.JFrame {
     
     public MainDashboard(int Role_id) {
         initComponents();
-        this.Role_id = Role_id;
-        checkRole(Role_id);
+        this.Role_id = 1;
+        checkRole(3);
 //        new ContainerController(jpnl_container,new Dashboard());
     }
     
@@ -32,9 +32,6 @@ public class MainDashboard extends javax.swing.JFrame {
             new ContainerController(jpnl_userButtons,new EmployeesButtons(jpnl_container));
         }
     }
-    
-    
-
 /**
      * Creates new form Dashboard
      */
