@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2021 at 10:16 AM
+-- Generation Time: Sep 22, 2021 at 01:09 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -20,6 +20,54 @@ SET time_zone = "+00:00";
 --
 -- Database: `wrs`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `Id` int(11) NOT NULL,
+  `Fname` varchar(50) NOT NULL,
+  `Mname` varchar(50) DEFAULT NULL,
+  `Lname` varchar(50) NOT NULL,
+  `Address` varchar(50) NOT NULL,
+  `Contact` varchar(50) NOT NULL,
+  `isBorrowed_Gallons` int(11) NOT NULL,
+  `Gallon_Id` int(11) NOT NULL,
+  `Gallon_Quantity` int(11) NOT NULL,
+  `isSuki` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`Id`, `Fname`, `Mname`, `Lname`, `Address`, `Contact`, `isBorrowed_Gallons`, `Gallon_Id`, `Gallon_Quantity`, `isSuki`) VALUES
+(1, 'Kevin', NULL, 'Lixfe', 'bago general tinio ne', '09261364720', 1, 2, 5, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deliviries`
+--
+
+CREATE TABLE `deliviries` (
+  `Id` int(11) NOT NULL,
+  `Customer_Id` int(11) NOT NULL,
+  `Date_Delivered` date NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Promo_Id` int(11) DEFAULT NULL,
+  `Status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `deliviries`
+--
+
+INSERT INTO `deliviries` (`Id`, `Customer_Id`, `Date_Delivered`, `Quantity`, `Promo_Id`, `Status`) VALUES
+(2, 1, '2021-09-21', 4, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -46,6 +94,27 @@ CREATE TABLE `gallons` (
 INSERT INTO `gallons` (`Id`, `Name`, `Size`, `Color`, `Gallon_Type`, `Supplier_id`, `Date_delivered`, `Price`, `Stocks`) VALUES
 (1, 'SLIM', '19 Liters', 'Blue', 'Slim with handle', 1, '2021-09-12', 50, 100),
 (2, 'ROUND', '19 Liters', 'Blue', 'Round', 1, '2021-09-13', 50, 100);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `promos`
+--
+
+CREATE TABLE `promos` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Description` varchar(50) NOT NULL,
+  `Date_Started` date NOT NULL,
+  `Date_End` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `promos`
+--
+
+INSERT INTO `promos` (`Id`, `Name`, `Description`, `Date_Started`, `Date_End`) VALUES
+(1, 'HOLA', '5 + 1', '2021-09-01', '2021-09-25');
 
 -- --------------------------------------------------------
 
@@ -103,8 +172,8 @@ CREATE TABLE `users` (
   `DOB` date NOT NULL,
   `Address` varchar(100) NOT NULL,
   `Contact` varchar(11) NOT NULL,
-  `Username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `Username` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `password` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -120,11 +189,32 @@ INSERT INTO `users` (`Id`, `Role_id`, `Profile`, `Fname`, `Mname`, `Lname`, `DOB
 --
 
 --
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `customers_barrowed_gallon_id` (`Gallon_Id`);
+
+--
+-- Indexes for table `deliviries`
+--
+ALTER TABLE `deliviries`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `deliviries_customer_id` (`Customer_Id`),
+  ADD KEY `deliviries_promo_id` (`Promo_Id`);
+
+--
 -- Indexes for table `gallons`
 --
 ALTER TABLE `gallons`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `gallons_supplier_id` (`Supplier_id`);
+
+--
+-- Indexes for table `promos`
+--
+ALTER TABLE `promos`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `roles`
@@ -150,10 +240,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `deliviries`
+--
+ALTER TABLE `deliviries`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `gallons`
 --
 ALTER TABLE `gallons`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `promos`
+--
+ALTER TABLE `promos`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -176,6 +284,19 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `customers`
+--
+ALTER TABLE `customers`
+  ADD CONSTRAINT `customers_barrowed_gallon_id` FOREIGN KEY (`Gallon_Id`) REFERENCES `gallons` (`Id`);
+
+--
+-- Constraints for table `deliviries`
+--
+ALTER TABLE `deliviries`
+  ADD CONSTRAINT `deliviries_customer_id` FOREIGN KEY (`Customer_Id`) REFERENCES `customers` (`Id`),
+  ADD CONSTRAINT `deliviries_promo_id` FOREIGN KEY (`Promo_Id`) REFERENCES `promos` (`Id`);
 
 --
 -- Constraints for table `gallons`
