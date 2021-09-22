@@ -43,7 +43,7 @@ public class Promos extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Fullname", "Company Name"
+                "Id", "Name", "Description", "Date Started", "Date End"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

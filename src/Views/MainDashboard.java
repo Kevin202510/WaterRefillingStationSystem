@@ -20,8 +20,8 @@ public class MainDashboard extends javax.swing.JFrame {
     
     public MainDashboard(int Role_id) {
         initComponents();
-        this.Role_id = 1;
-        checkRole(3);
+        this.Role_id = Role_id;
+        checkRole(Role_id);
 //        new ContainerController(jpnl_container,new Dashboard());
     }
     

@@ -5,8 +5,12 @@
  */
 package Controllers;
 
+import Views.Customers;
 import Views.Dashboard;
+import Views.Deliveries;
 import Views.Gallons;
+import Views.Promos;
+import Views.RefilledGallon;
 import Views.Sales;
 import Views.Supplier;
 import Views.Users;
@@ -49,6 +53,22 @@ public class ButtonsController {
         new ContainerController(lalagyanan,new Supplier());
     }
      
+     public void PromosButton(JLabel promos){
+        new ContainerController(lalagyanan,new Promos());
+    }
+     
+     public void CustomerButton(JLabel customer){
+        new ContainerController(lalagyanan,new Customers());
+    }
+     
+     public void DeliveriesButton(JLabel deliveries){
+        new ContainerController(lalagyanan,new Deliveries());
+    }
+     
+     public void RefilledGallonsButton(JLabel refilled){
+        new ContainerController(lalagyanan,new RefilledGallon());
+    }
+     
     public void setC(JPanel kev){
        kev.setBackground(new Color(102, 140, 255));
     }
@@ -57,8 +77,6 @@ public class ButtonsController {
            kev1.setBackground(new Color(83,140,198));
     }
     
-     public void RefilledGallonsButton(JLabel gallon){
-        new ContainerController(lalagyanan,new Gallons());
-    }
+    
     
 }

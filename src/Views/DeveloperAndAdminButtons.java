@@ -50,11 +50,11 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovSupplier = new javax.swing.JPanel();
         supplier = new javax.swing.JLabel();
         hovPromos = new javax.swing.JPanel();
-        Promos = new javax.swing.JLabel();
+        promos = new javax.swing.JLabel();
         hovDeliveries = new javax.swing.JPanel();
-        Deliveries = new javax.swing.JLabel();
+        deliveries = new javax.swing.JLabel();
         hovCustomer = new javax.swing.JPanel();
-        Customer = new javax.swing.JLabel();
+        customer = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 204, 255));
         setPreferredSize(new java.awt.Dimension(250, 700));
@@ -300,22 +300,22 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovPromos.setBackground(new java.awt.Color(83, 140, 198));
         hovPromos.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        Promos.setBackground(new java.awt.Color(51, 51, 255));
-        Promos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        Promos.setForeground(new java.awt.Color(255, 255, 255));
-        Promos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Promos.setText("Promos");
-        Promos.setIconTextGap(10);
-        Promos.setPreferredSize(new java.awt.Dimension(250, 50));
-        Promos.addMouseListener(new java.awt.event.MouseAdapter() {
+        promos.setBackground(new java.awt.Color(51, 51, 255));
+        promos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        promos.setForeground(new java.awt.Color(255, 255, 255));
+        promos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        promos.setText("Promos");
+        promos.setIconTextGap(10);
+        promos.setPreferredSize(new java.awt.Dimension(250, 50));
+        promos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PromosMouseClicked(evt);
+                promosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PromosMouseEntered(evt);
+                promosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                PromosMouseExited(evt);
+                promosMouseExited(evt);
             }
         });
 
@@ -325,13 +325,13 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
             hovPromosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPromosLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Promos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(promos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         hovPromosLayout.setVerticalGroup(
             hovPromosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPromosLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Promos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(promos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(hovPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 250, -1));
@@ -339,22 +339,22 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovDeliveries.setBackground(new java.awt.Color(83, 140, 198));
         hovDeliveries.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        Deliveries.setBackground(new java.awt.Color(51, 51, 255));
-        Deliveries.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        Deliveries.setForeground(new java.awt.Color(255, 255, 255));
-        Deliveries.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Deliveries.setText("Deliveries");
-        Deliveries.setIconTextGap(10);
-        Deliveries.setPreferredSize(new java.awt.Dimension(250, 50));
-        Deliveries.addMouseListener(new java.awt.event.MouseAdapter() {
+        deliveries.setBackground(new java.awt.Color(51, 51, 255));
+        deliveries.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        deliveries.setForeground(new java.awt.Color(255, 255, 255));
+        deliveries.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        deliveries.setText("Deliveries");
+        deliveries.setIconTextGap(10);
+        deliveries.setPreferredSize(new java.awt.Dimension(250, 50));
+        deliveries.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DeliveriesMouseClicked(evt);
+                deliveriesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                DeliveriesMouseEntered(evt);
+                deliveriesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                DeliveriesMouseExited(evt);
+                deliveriesMouseExited(evt);
             }
         });
 
@@ -364,13 +364,13 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
             hovDeliveriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovDeliveriesLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         hovDeliveriesLayout.setVerticalGroup(
             hovDeliveriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovDeliveriesLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(hovDeliveries, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 250, -1));
@@ -378,22 +378,22 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovCustomer.setBackground(new java.awt.Color(83, 140, 198));
         hovCustomer.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        Customer.setBackground(new java.awt.Color(51, 51, 255));
-        Customer.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        Customer.setForeground(new java.awt.Color(255, 255, 255));
-        Customer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Customer.setText("Customer");
-        Customer.setIconTextGap(10);
-        Customer.setPreferredSize(new java.awt.Dimension(250, 50));
-        Customer.addMouseListener(new java.awt.event.MouseAdapter() {
+        customer.setBackground(new java.awt.Color(51, 51, 255));
+        customer.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        customer.setForeground(new java.awt.Color(255, 255, 255));
+        customer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        customer.setText("Customer");
+        customer.setIconTextGap(10);
+        customer.setPreferredSize(new java.awt.Dimension(250, 50));
+        customer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CustomerMouseClicked(evt);
+                customerMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                CustomerMouseEntered(evt);
+                customerMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                CustomerMouseExited(evt);
+                customerMouseExited(evt);
             }
         });
 
@@ -403,13 +403,13 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
             hovCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomerLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Customer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(customer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         hovCustomerLayout.setVerticalGroup(
             hovCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomerLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Customer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(customer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(hovCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 250, 50));
@@ -464,15 +464,15 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_saleMouseExited
 
     private void refilledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseClicked
-       
+        buttonControll.RefilledGallonsButton(refilled);
     }//GEN-LAST:event_refilledMouseClicked
 
     private void refilledMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseEntered
-       
+       buttonControll.setC(hovRefilled);
     }//GEN-LAST:event_refilledMouseEntered
 
     private void refilledMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseExited
-        
+         buttonControll.resetC(hovRefilled);
     }//GEN-LAST:event_refilledMouseExited
 
     private void supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierMouseClicked
@@ -487,48 +487,47 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovSupplier);
     }//GEN-LAST:event_supplierMouseExited
 
-    private void PromosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PromosMouseClicked
-        
-    }//GEN-LAST:event_PromosMouseClicked
+    private void promosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosMouseClicked
+        buttonControll.PromosButton(promos);
+    }//GEN-LAST:event_promosMouseClicked
 
-    private void PromosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PromosMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PromosMouseEntered
+    private void promosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosMouseEntered
+        buttonControll.setC(hovPromos);
+    }//GEN-LAST:event_promosMouseEntered
 
-    private void PromosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PromosMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PromosMouseExited
+    private void promosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosMouseExited
+        buttonControll.resetC(hovPromos);
+    }//GEN-LAST:event_promosMouseExited
 
-    private void DeliveriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeliveriesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeliveriesMouseClicked
+    private void deliveriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesMouseClicked
+        buttonControll.DeliveriesButton(deliveries);
+    }//GEN-LAST:event_deliveriesMouseClicked
 
-    private void DeliveriesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeliveriesMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeliveriesMouseEntered
+    private void deliveriesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesMouseEntered
+        buttonControll.setC(hovDeliveries);
+    }//GEN-LAST:event_deliveriesMouseEntered
 
-    private void DeliveriesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeliveriesMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeliveriesMouseExited
+    private void deliveriesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesMouseExited
+        buttonControll.resetC(hovDeliveries);
+    }//GEN-LAST:event_deliveriesMouseExited
 
-    private void CustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CustomerMouseClicked
+    private void customerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerMouseClicked
+        buttonControll.CustomerButton(customer);
+    }//GEN-LAST:event_customerMouseClicked
 
-    private void CustomerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CustomerMouseEntered
+    private void customerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerMouseEntered
+        buttonControll.setC(hovCustomer);
+    }//GEN-LAST:event_customerMouseEntered
 
-    private void CustomerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CustomerMouseExited
+    private void customerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerMouseExited
+         buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_customerMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Customer;
-    private javax.swing.JLabel Deliveries;
-    private javax.swing.JLabel Promos;
+    private javax.swing.JLabel customer;
     private javax.swing.JLabel dashboard;
+    private javax.swing.JLabel deliveries;
     private javax.swing.JLabel gallons;
     private javax.swing.JPanel hovCustomer;
     private javax.swing.JPanel hovDashboard;
@@ -540,6 +539,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel promos;
     private javax.swing.JLabel refilled;
     private javax.swing.JLabel sale;
     private javax.swing.JLabel supplier;

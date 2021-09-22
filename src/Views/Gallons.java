@@ -48,7 +48,7 @@ public class Gallons extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Name", "Size", "Color", "Gallon Type", "Supplier Id", "Date Delivered", "Price", "Stocks"
+                "Gallon Code", "Name", "Size", "Color", "Gallon Type", "Supplier Id", "Date Delivered", "Price", "Stocks"
             }
         ) {
             boolean[] canEdit = new boolean [] {
