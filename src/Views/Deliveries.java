@@ -34,7 +34,7 @@ public class Deliveries extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel1.setText("Deliviries");
+        jLabel1.setText("Deliveries");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

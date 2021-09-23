@@ -58,7 +58,7 @@ public class AuthenticationController {
             st.setString(2,encrypt(authPassword));
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null,rs.getString("Fname"));
+//                JOptionPane.showMessageDialog(null,rs.getString("Fname"));
                 frametoClose.dispose();
                 new MainDashboard(rs.getInt("Role_id")).setVisible(true);
             }
