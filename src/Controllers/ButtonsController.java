@@ -58,7 +58,7 @@ public class ButtonsController {
     }
      
      public void CustomerButton(JLabel customer){
-        new ContainerController(lalagyanan,new Customers());
+        new ContainerController(lalagyanan,new Customers(lalagyanan));
     }
      
      public void DeliveriesButton(JLabel deliveries){

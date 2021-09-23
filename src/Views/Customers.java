@@ -5,6 +5,12 @@
  */
 package Views;
 
+import Controllers.CustomerController;
+import Forms.CustomersModal;
+import javax.swing.JPanel;
+import javax.swing.JPanel;
+import Controllers.CustomerController;
+
 /**
  *
  * @author ChelseaTorres
@@ -14,8 +20,17 @@ public class Customers extends javax.swing.JPanel {
     /**
      * Creates new form Customers
      */
-    public Customers() {
+    CustomerController customerControll = new CustomerController();
+    JPanel lalagyanan;
+    
+    public Customers(JPanel lalagyanan) {
         initComponents();
+        this.lalagyanan = lalagyanan;
+        InitRun();
+    }
+    
+    private void InitRun(){
+        customerControll.showCustomers(customersTable);
     }
 
     /**
@@ -29,7 +44,8 @@ public class Customers extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        customersTable = new javax.swing.JTable();
+        addBtn = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -37,7 +53,7 @@ public class Customers extends javax.swing.JPanel {
         jLabel1.setText("Customers");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        customersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -53,15 +69,41 @@ public class Customers extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        customersTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customersTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(customersTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, 1080, -1));
+
+        addBtn.setBackground(new java.awt.Color(0, 204, 51));
+        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 61, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        new CustomersModal(0,customersTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void customersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersTableMouseClicked
+       int id = (int) customersTable.getValueAt(customersTable.getSelectedRow(),0);
+        new CustomersModal(id,customersTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_customersTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
+    private javax.swing.JTable customersTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
