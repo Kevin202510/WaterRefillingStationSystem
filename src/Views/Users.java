@@ -7,7 +7,8 @@ package Views;
 
 import Controllers.ContainerController;
 import Controllers.UserController;
-import Forms.UserModal;
+import Forms.FrameFormModal;
+import Forms.UserFormModal;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -92,12 +93,13 @@ public class Users extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        new UserModal(0,userTable,lalagyanan).setVisible(true);
+//        new UserModal(0,userTable,lalagyanan).setVisible(true);
+        new FrameFormModal(2,0,userTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
         int id = (int) userTable.getValueAt(userTable.getSelectedRow(),0);
-        new UserModal(id,userTable,lalagyanan).setVisible(true);
+        new FrameFormModal(2,id,userTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_userTableMouseClicked
 
 

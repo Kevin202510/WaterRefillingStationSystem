@@ -10,10 +10,9 @@ package Models;
  * @author ChelseaTorres
  */
 public class CustomerModel {
-                 private int Id,Suki;
-                 private String Fname,Mname,Lname,Address,Contact_num;
+        private int Id,Suki;
+        private String Fname,Mname,Lname,Address,Contact_num;
     
-        
         public CustomerModel(int Id,String Fname,String Mname,String Lname,String Address,String Contact_num,int Suki){
         this.Id=Id;
         this.Fname=Fname;

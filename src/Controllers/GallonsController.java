@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,34 +43,29 @@ public class GallonsController {
         GallonsModel gallons;
         
         while(rs.next()){
-            gallons=new GallonsModel(rs.getInt("Id"),rs.getString("Name"),rs.getString("Size"),rs.getString("Color"),rs.getString("Gallon_Type"),rs.getInt("Supplier_id"),rs.getString("Date_delivered"),rs.getInt("Price"),rs.getInt("Stocks"));
+            gallons=new GallonsModel(rs.getInt("Gallon_Code"),rs.getString("Name"),rs.getString("Size"),rs.getString("Color"),rs.getString("Gallon_Type"),rs.getInt("Supplier_id"),rs.getString("Date_delivered"),rs.getInt("Price"),rs.getInt("Stocks"));
             gallonList.add(gallons);
         }
         return gallonList;   
     }
     
 //    JTable jTable1
-     public void showGallons(){
-//         ArrayList<Users> list = userList();
-//         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-//         Object[] row = new Object[8];
+     public void showGallons(JTable gallonsTable){
+         DefaultTableModel model = (DefaultTableModel)gallonsTable.getModel();
+         Object[] row = new Object[9];
          for (int i = 0; i < gallonList.size(); i++) {
-             JOptionPane.showMessageDialog(null,gallonList.get(i).getColor());
-//            row[0] = list.get(i).getuser_id();
-//            row[1] = list.get(i).getrole_displayname();
-//            row[2] = "<html>"+list.get(i).getuser_fullname()+"</html> ";
-//            row[3] = list.get(i).getuser_address();
-//            row[4] = list.get(i).getuser_DOB();
-//            row[5] = list.get(i).getuser_contactnum();
-//            row[6] = list.get(i).getuser_username();
-//            row[7] = list.get(i).getuser_password();
-//            model.addRow(row);
+//             JOptionPane.showMessageDialog(null,gallonList.get(i).getColor());
+            row[0] = gallonList.get(i).getId();
+            row[1] = gallonList.get(i).getName();
+            row[2] = gallonList.get(i).getSize();
+            row[3] = gallonList.get(i).getColor();
+            row[4] = gallonList.get(i).getGallon_Type();
+            row[5] = gallonList.get(i).getSupplier_id();
+            row[6] = gallonList.get(i).getDate_delivered();
+            row[7] = gallonList.get(i).getPrice();
+            row[8] = gallonList.get(i).getStocks();
+            model.addRow(row);
          }
-    }
-     
-    public static void main(String[] args) {
-        GallonsController test = new GallonsController();
-        test.showGallons();
     }
 }
 

@@ -5,6 +5,11 @@
  */
 package Views;
 
+import Controllers.PromosController;
+import Forms.PromosModal;
+import Forms.FrameFormModal;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ChelseaTorres
@@ -14,8 +19,17 @@ public class Promos extends javax.swing.JPanel {
     /**
      * Creates new form Promos
      */
-    public Promos() {
+    PromosController promoControll = new PromosController();
+    JPanel lalagyanan;
+    
+    public Promos(JPanel lalagyanan) {
         initComponents();
+        this.lalagyanan = lalagyanan;
+        InitRun();
+    }
+    
+     private void InitRun(){
+        promoControll.showPromos(promosTable);
     }
 
     /**
@@ -29,7 +43,8 @@ public class Promos extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        promosTable = new javax.swing.JTable();
+        addBtn = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1090, 589));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -38,7 +53,7 @@ public class Promos extends javax.swing.JPanel {
         jLabel1.setText("Promos");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 180, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        promosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -46,15 +61,32 @@ public class Promos extends javax.swing.JPanel {
                 "Id", "Name", "Description", "Date Started", "Date End"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(promosTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, -1));
+
+        addBtn.setBackground(new java.awt.Color(0, 204, 51));
+        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 61, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+//        new PromosModal(0,promosTable,lalagyanan).setVisible(true);
+        new FrameFormModal(7,0,promosTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable promosTable;
     // End of variables declaration//GEN-END:variables
 }

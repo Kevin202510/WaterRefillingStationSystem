@@ -39,7 +39,7 @@ public class ButtonsController {
     }
     
     public void GallonsButton(JLabel gallon){
-        new ContainerController(lalagyanan,new Gallons());
+        new ContainerController(lalagyanan,new Gallons(lalagyanan));
     }
     
     public void UsersButton(JLabel users){
@@ -54,7 +54,7 @@ public class ButtonsController {
     }
      
      public void PromosButton(JLabel promos){
-        new ContainerController(lalagyanan,new Promos());
+        new ContainerController(lalagyanan,new Promos(lalagyanan));
     }
      
      public void CustomerButton(JLabel customer){

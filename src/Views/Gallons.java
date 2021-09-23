@@ -5,6 +5,10 @@
  */
 package Views;
 
+import Controllers.GallonsController;
+import Forms.FrameFormModal;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kevin Felix Caluag
@@ -15,12 +19,17 @@ public class Gallons extends javax.swing.JPanel {
      * Creates new form Gallons
      */
     
-    public Gallons() {
+    GallonsController gallonControll = new GallonsController();
+   JPanel lalagyanan;
+    
+    public Gallons(JPanel lalagyanan) {
         initComponents();
+        this.lalagyanan = lalagyanan;
+        InitRun();
     }
     
     private void InitRun(){
-//        userControll.showUsers(jTable1);
+        gallonControll.showGallons(gallonTable);
     }
 
     /**
@@ -34,7 +43,8 @@ public class Gallons extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        gallonTable = new javax.swing.JTable();
+        addBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,7 +53,7 @@ public class Gallons extends javax.swing.JPanel {
         jLabel1.setText("GALLONS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 234, 96));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        gallonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -59,15 +69,42 @@ public class Gallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        gallonTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gallonTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(gallonTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, -1));
+
+        addBtn.setBackground(new java.awt.Color(0, 204, 51));
+        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 61, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        //        new UserModal(0,userTable,lalagyanan).setVisible(true);
+        new FrameFormModal(3,0,gallonTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void gallonTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonTableMouseClicked
+        int id = (int) gallonTable.getValueAt(gallonTable.getSelectedRow(),0);
+        new FrameFormModal(3,id,gallonTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_gallonTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
+    private javax.swing.JTable gallonTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
