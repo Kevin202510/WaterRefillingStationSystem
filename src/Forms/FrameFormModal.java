@@ -6,6 +6,7 @@
 package Forms;
 
 import Controllers.ContainerController;
+import Controllers.FormsControllers;
 import Controllers.PromosController;
 import Models.PromosModel;
 import Views.DeveloperAndAdminButtons;
@@ -26,9 +27,9 @@ public class FrameFormModal extends javax.swing.JFrame {
      */
     static int containernum;
     static int btn_id;
-    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     static JTable jtablename;
     static JPanel lalagyanan;
+    FormsControllers formControll;
     
     public FrameFormModal(int containernum,int btn_id,JTable jtablename,JPanel lalagyanan) {
         initComponents();
@@ -36,15 +37,7 @@ public class FrameFormModal extends javax.swing.JFrame {
         this.btn_id = btn_id;
         this.jtablename = jtablename;
         this.lalagyanan = lalagyanan;
-        checkPanelNum();
-    }
-    
-    private void checkPanelNum(){
-        if (containernum==2) {
-            new ContainerController(jPanel1,new UserFormModal(this,btn_id,jtablename,lalagyanan));
-        }else if (containernum==3) {
-            new ContainerController(jPanel1,new GallonsFormModal(this,btn_id,jtablename,lalagyanan));
-        }
+        this.formControll =  new FormsControllers(containernum,btn_id,jtablename,lalagyanan,formContainer,this);
     }
 
     /**
@@ -56,14 +49,14 @@ public class FrameFormModal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        formContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(350, 600));
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        formContainer.setPreferredSize(new java.awt.Dimension(350, 600));
+        formContainer.setLayout(new javax.swing.BoxLayout(formContainer, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(formContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -106,6 +99,6 @@ public class FrameFormModal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel formContainer;
     // End of variables declaration//GEN-END:variables
 }

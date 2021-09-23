@@ -62,7 +62,7 @@ public class ButtonsController {
     }
      
      public void DeliveriesButton(JLabel deliveries){
-        new ContainerController(lalagyanan,new Deliveries());
+        new ContainerController(lalagyanan,new Deliveries(lalagyanan));
     }
      
      public void RefilledGallonsButton(JLabel refilled){

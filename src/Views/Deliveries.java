@@ -5,6 +5,9 @@
  */
 package Views;
 
+import Controllers.DeliveriesController;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ChelseaTorres
@@ -12,10 +15,19 @@ package Views;
 public class Deliveries extends javax.swing.JPanel {
 
     /**
-     * Creates new form Deliviries
+     * Creates new form Deliveries
      */
-    public Deliveries() {
+    JPanel lalagyanan;
+    DeliveriesController deliveriesControll = new DeliveriesController();
+    
+    public Deliveries(JPanel lalagyanan) {
         initComponents();
+        this.lalagyanan = lalagyanan;
+        InitRun();
+    }
+    
+    private void InitRun(){
+        deliveriesControll.showDeliveries(deliveriesTable);
     }
 
     /**
@@ -29,7 +41,7 @@ public class Deliveries extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        deliveriesTable = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -37,7 +49,7 @@ public class Deliveries extends javax.swing.JPanel {
         jLabel1.setText("Deliveries");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -53,15 +65,15 @@ public class Deliveries extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(deliveriesTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, 1080, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable deliveriesTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

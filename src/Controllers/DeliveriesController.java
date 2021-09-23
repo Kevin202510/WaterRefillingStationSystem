@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -46,16 +48,19 @@ public final class DeliveriesController {
         }
         return deliveriesList;   
     }
-       public void showDeliveries(){
-
+       public void showDeliveries(JTable deliveriesTable){
+         DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
+         Object[] row = new Object[8];
          for (int i = 0; i < deliveriesList.size(); i++) {
-             JOptionPane.showMessageDialog(null,deliveriesList.get(i).getDate_Delivered());
-
+            row[0] = deliveriesList.get(i).getId();
+            row[1] = deliveriesList.get(i).getCustomer_Id();
+            row[2] = deliveriesList.get(i).getDate_Delivered();
+            row[3] = deliveriesList.get(i).getQuantity();
+            row[4] = deliveriesList.get(i).getPromo_Id();
+            row[5] = deliveriesList.get(i).getStatus();
+            row[6] = deliveriesList.get(i).getUser_Id();
+            model.addRow(row);
          }
-    }
-       public static void main(String[] args) {
-        DeliveriesController test = new DeliveriesController();
-        test.showDeliveries();
     }
     
 }
