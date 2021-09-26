@@ -26,7 +26,6 @@ public class PromosModal extends javax.swing.JFrame {
      * Creates new form PromosModal
      */
     static int btn_id;
-    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     PromosModel promosmodel;
     PromosController promoControll = new PromosController();
     static JTable promoTable;

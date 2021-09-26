@@ -42,6 +42,12 @@ public class Authentication extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 102));
 
+        authPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                authPasswordKeyPressed(evt);
+            }
+        });
+
         jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +92,12 @@ public class Authentication extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        authControll.checkField(this,authUsername, authPassword);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void authPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_authPasswordKeyPressed
+        if (evt.getKeyCode()==10) {
+            authControll.checkField(this,authUsername, authPassword);
+        }
+    }//GEN-LAST:event_authPasswordKeyPressed
 
     /**
      * @param args the command line arguments
