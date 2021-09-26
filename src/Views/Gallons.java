@@ -92,12 +92,12 @@ public class Gallons extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         //        new UserModal(0,userTable,lalagyanan).setVisible(true);
-        new FrameFormModal(3,0,gallonTable,lalagyanan).setVisible(true);
+        new FrameFormModal(4,0,gallonTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void gallonTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonTableMouseClicked
         int id = (int) gallonTable.getValueAt(gallonTable.getSelectedRow(),0);
-        new FrameFormModal(3,id,gallonTable,lalagyanan).setVisible(true);
+        new FrameFormModal(4,id,gallonTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_gallonTableMouseClicked
 
 

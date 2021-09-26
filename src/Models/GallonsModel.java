@@ -11,11 +11,11 @@ package Models;
  */
 public class GallonsModel {
     
-      private int Id,Supplier_id,Price,Stocks;
+      private int Gallon_Code,Supplier_id,Price,Stocks;
     private String Gallon_Type, Date_delivered,Name,Size,Color;
     
-    public GallonsModel(int Id,String Name ,String Size ,String Color ,String Gallon_Type,int Supplier_id,String Date_delivered,int Price, int Stocks ){
-        this.Id=Id;
+    public GallonsModel(int Gallon_Code,String Name ,String Size ,String Color ,String Gallon_Type,int Supplier_id,String Date_delivered,int Price, int Stocks ){
+        this.Gallon_Code=Gallon_Code;
         this.Name=Name;
         this.Size=Size;
         this.Color=Color;
@@ -26,8 +26,8 @@ public class GallonsModel {
         this.Stocks=Stocks;
     }
     
-    public int getId(){
-        return Id;
+    public int getGallon_Code(){
+        return Gallon_Code;
     }public int getSupplier_id(){
         return Supplier_id;
     }public String getName(){
