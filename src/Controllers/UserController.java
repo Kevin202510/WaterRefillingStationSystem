@@ -67,18 +67,25 @@ public class UserController {
      public void showUsers(JTable jTable1){
         
          DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-         Object[] row = new Object[8];
+         Object[] newIdentifiers = new Object[8];
+         jTable1.setFillsViewportHeight(true);
+         jTable1.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer(jTable1));
          for (int i = 0; i < userList.size(); i++) {
-            row[0] = userList.get(i).getId();
-            row[1] = userList.get(i).getRole_id();
-            row[2] = userList.get(i).getProfile();
-            row[3] = "<html>"+userList.get(i).getFullname()+"</html> ";
-            row[4] = userList.get(i).getDOB();
-            row[5] = userList.get(i).getAddress();
-            row[6] = userList.get(i).getContact();
-            row[7] = userList.get(i).getUsername();
+            JLabel imageLabel = new JLabel();
+            newIdentifiers[0] = userList.get(i).getId();
+            newIdentifiers[1] = userList.get(i).getrole_displayname();
+            ImageIcon imageicon = new ImageIcon(getClass().getResource("/Images/Profile/"+userList.get(i).getProfile()));
+            Image img = imageicon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+            imageLabel.setIcon(new ImageIcon(img));
+            imageLabel = imageLabel;
+            newIdentifiers[2] = imageLabel;
+            newIdentifiers[3] = "<html>"+userList.get(i).getFullname()+"</html> ";
+            newIdentifiers[4] = userList.get(i).getDOB();
+            newIdentifiers[5] = userList.get(i).getAddress();
+            newIdentifiers[6] = userList.get(i).getContact();
+            newIdentifiers[7] = userList.get(i).getUsername();
 //            row[7] = test;
-            model.addRow(row);
+            model.addRow(newIdentifiers);
          }
     }
      

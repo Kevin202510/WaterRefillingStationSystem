@@ -57,16 +57,16 @@ public class UserModel {
         return fullname;
     }
     
-//    public String getrole_displayname(){
-//        
-//            if (Role_id==1) {
-//                role_displayname = "Administrator";
-//            }else if(Role_id==2) {
-//                role_displayname = "Manager";
-//            }else{
-//                role_displayname = "Staff";
-//            }
-//        return role_displayname;
-//        
-//    }
+    public String getrole_displayname(){
+        
+        if (Role_id==1) {
+            Role_displayname = "Developer";
+        }else if(Role_id==2) {
+            Role_displayname = "Owner";
+        }else{
+            Role_displayname = "Employee";
+        }
+        return Role_displayname;
+        
+    }
 }

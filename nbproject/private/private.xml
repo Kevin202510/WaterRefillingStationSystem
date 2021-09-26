@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/PromosModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/SalesModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/GallonsFormModal.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Controllers/DeliveriesController.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/DeliveriesModal.java</file>
             <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/UserFormModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/CustomersModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Models/CustomerModel.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Controllers/UserController.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Models/DeliveriesModel.java</file>
         </group>
     </open-files>
 </project-private>
