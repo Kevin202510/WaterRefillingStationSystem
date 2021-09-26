@@ -5,9 +5,11 @@
         <group>
             <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Controllers/DeliveriesController.java</file>
             <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/DeliveriesModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/UserFormModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Controllers/UserController.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Models/DeliveriesModel.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Views/Promos.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Controllers/PromosController.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Models/PromosModel.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Forms/PromoFormModal.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/JavaActivities/WaterRefillingStationSystem/src/Views/Deliveries.java</file>
         </group>
     </open-files>
 </project-private>

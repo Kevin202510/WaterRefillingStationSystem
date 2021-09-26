@@ -52,7 +52,12 @@ public class DeliveriesModel {
         return Promo_Id;
     } public int getStatus(){
         return Status;
-    } public int getUser_Id(){
+    }public String getStat(){
+        if (Status==0) {
+            return "Pending";
+        }return "Delivered";
+    }
+    public int getUser_Id(){
         return User_Id;
     }
     
