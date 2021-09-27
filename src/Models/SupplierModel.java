@@ -32,6 +32,9 @@ public class SupplierModel {
         return Mname;
     }   public String getCompany_name(){
         return Company_name;
+    }   public String getFullname(){
+         String fullname = Fname + " " + Mname + " " + Lname;
+         return fullname;
     }
     
 }

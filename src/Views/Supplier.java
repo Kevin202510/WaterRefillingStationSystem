@@ -5,17 +5,28 @@
  */
 package Views;
 
+import Controllers.SupplierController;
+import Forms.FrameFormModal;
+import Forms.SuppliersFormModal;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ChelseaTorres
  */
+
 public class Supplier extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Supplier
-     */
-    public Supplier() {
+    SupplierController suplierControll = new SupplierController();
+    JPanel lalagyanan;
+    
+    public Supplier(JPanel lalagyanan) {
         initComponents();
+        this.lalagyanan = lalagyanan;
+        InitRun();
+    }
+    private void InitRun(){
+        suplierControll.showSuppliers(suppliersTable);
     }
 
     /**
@@ -29,9 +40,10 @@ public class Supplier extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        suppliersTable = new javax.swing.JTable();
+        addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 51, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1100, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -41,23 +53,59 @@ public class Supplier extends javax.swing.JPanel {
         jLabel1.setText("SUPPLIER");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 11, 140, 24));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        suppliersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Fullname", "Company Name"
+                "Id", "Full Name", "Company Name"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        suppliersTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                suppliersTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(suppliersTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, 1080, -1));
+
+        addBtn.setBackground(new java.awt.Color(0, 204, 51));
+        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 61, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        //       new SuppliersFormModal(0,suppliersTable,lalagyanan).setVisible(true);
+    // int id = (int) suppliersTable.getValueAt(suppliersTable.getSelectedRow(),0);
+           new FrameFormModal(7,0,suppliersTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void suppliersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suppliersTableMouseClicked
+         int id = (int) suppliersTable.getValueAt(suppliersTable.getSelectedRow(),0);
+        new FrameFormModal(7,id,suppliersTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_suppliersTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable suppliersTable;
     // End of variables declaration//GEN-END:variables
 }

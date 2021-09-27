@@ -50,7 +50,7 @@ public class ButtonsController {
 //        new ContainerController(lalagyanan,new EmployeesButton());
 //    }
     public void SupplierButton(JLabel supplier){
-        new ContainerController(lalagyanan,new Supplier());
+        new ContainerController(lalagyanan,new Supplier(lalagyanan));
     }
      
      public void PromosButton(JLabel promos){
