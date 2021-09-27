@@ -8,6 +8,7 @@ package Controllers;
 import Forms.DeliveriesModal;
 import Forms.GallonsFormModal;
 import Forms.SuppliersFormModal;
+import Forms.PromoFormModal;
 import Forms.UserFormModal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -47,9 +48,9 @@ public class FormsControllers {
         }else if (containernum==5) {
             new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==6) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+           new ContainerController(lalagyananForms,new SuppliersFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==7) {
-            new ContainerController(lalagyananForms,new SuppliersFormModal(out,btn_id,jtablename,lalagyanan));
+            new ContainerController(lalagyananForms,new PromoFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==8) {
             new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==9) {

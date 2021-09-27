@@ -93,12 +93,12 @@ public class Supplier extends javax.swing.JPanel {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         //       new SuppliersFormModal(0,suppliersTable,lalagyanan).setVisible(true);
     // int id = (int) suppliersTable.getValueAt(suppliersTable.getSelectedRow(),0);
-           new FrameFormModal(7,0,suppliersTable,lalagyanan).setVisible(true);
+           new FrameFormModal(6,0,suppliersTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void suppliersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suppliersTableMouseClicked
          int id = (int) suppliersTable.getValueAt(suppliersTable.getSelectedRow(),0);
-        new FrameFormModal(7,id,suppliersTable,lalagyanan).setVisible(true);
+        new FrameFormModal(6,id,suppliersTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_suppliersTableMouseClicked
 
 

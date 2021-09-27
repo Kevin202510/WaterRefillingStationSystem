@@ -61,6 +61,11 @@ public class Promos extends javax.swing.JPanel {
                 "Id", "Name", "Description", "Date Started", "Date End"
             }
         ));
+        promosTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                promosTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(promosTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, -1));
@@ -81,6 +86,11 @@ public class Promos extends javax.swing.JPanel {
 //        new PromosModal(0,promosTable,lalagyanan).setVisible(true);
         new FrameFormModal(7,0,promosTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
+
+    private void promosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosTableMouseClicked
+        int id = (int) promosTable.getValueAt(promosTable.getSelectedRow(),0);
+        new FrameFormModal(7,id,promosTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_promosTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

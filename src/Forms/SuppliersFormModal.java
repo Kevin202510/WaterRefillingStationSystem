@@ -73,6 +73,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Mname = new javax.swing.JTextField();
         Lname = new javax.swing.JTextField();
         Company_name = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,6 +128,16 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 220, 30));
         add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 220, 30));
         add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 220, 30));
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("X");
+        jButton3.setBorderPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
@@ -157,6 +168,10 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
         // TODO add your handling code here:
     }//GEN-LAST:event_FnameActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        out.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Company_name;
@@ -165,6 +180,8 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
     private javax.swing.JTextField Mname;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;

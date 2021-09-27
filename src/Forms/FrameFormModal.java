@@ -52,6 +52,7 @@ public class FrameFormModal extends javax.swing.JFrame {
         formContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         formContainer.setPreferredSize(new java.awt.Dimension(350, 600));

@@ -118,7 +118,7 @@ public final class DeliveriesController {
             row[2] = deliveriesList.get(i).getDate_Delivered();
             row[3] = deliveriesList.get(i).getQuantity();
             row[4] = deliveriesList.get(i).getPromo_Description();
-            row[5] = deliveriesList.get(i).getStatus();
+            row[5] = deliveriesList.get(i).getStat();
             row[6] = deliveriesList.get(i).getUser_Fullname();
             model.addRow(row);
          }
@@ -151,7 +151,6 @@ public final class DeliveriesController {
        
     public void getDeliveriesInfo(int id,JComboBox Customer_Id,JDateChooser Date_Delivered,JSpinner Quantity,JComboBox Promo_Id,JComboBox Status,JComboBox User_Id){
           try {
-              CustomerController customerControll = new CustomerController();
               Statement st = con.createStatement();
               ResultSet rs = st.executeQuery("SELECT * FROM `deliveries`\n" +
                                                 "LEFT JOIN customers ON customers.Id = deliveries.Customer_Id\n" +
