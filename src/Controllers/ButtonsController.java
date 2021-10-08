@@ -70,11 +70,11 @@ public class ButtonsController {
     }
      
     public void setC(JPanel kev){
-       kev.setBackground(new Color(102, 140, 255));
+       kev.setBackground(new Color(85,65,118));
     }
     
     public void resetC(JPanel kev1){
-           kev1.setBackground(new Color(83,140,198));
+           kev1.setBackground(new Color(64,43,100));
     }
     
     
