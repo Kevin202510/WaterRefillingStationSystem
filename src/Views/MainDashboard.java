@@ -7,6 +7,7 @@ package Views;
 
 import Controllers.ButtonsController;
 import Controllers.ContainerController;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -46,6 +47,8 @@ public class MainDashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        btn_close = new javax.swing.JButton();
         jpnl_userButtons = new javax.swing.JPanel();
         jpnl_container = new javax.swing.JPanel();
 
@@ -60,6 +63,31 @@ public class MainDashboard extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Water Refilling Management System");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 570, 40));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_close.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn_close.setText("X");
+        btn_close.setBorder(null);
+        btn_close.setBorderPainted(false);
+        btn_close.setContentAreaFilled(false);
+        btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_closeMouseExited(evt);
+            }
+        });
+        btn_close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_closeActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 50, 40));
+
+        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1100, 100));
 
@@ -76,6 +104,24 @@ public class MainDashboard extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    Color btn_hov_enter_color = new Color(255,0,255);
+    Color btn_hov_exit_color = new Color(102,102,255);
+    
+    private void btn_closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseEntered
+        btn_close.setBackground(btn_hov_enter_color);
+        btn_close.setOpaque(true);
+    }//GEN-LAST:event_btn_closeMouseEntered
+
+    private void btn_closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseExited
+        btn_close.setBackground(btn_hov_exit_color);
+        btn_close.setOpaque(true);
+    }//GEN-LAST:event_btn_closeMouseExited
+
+    private void btn_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeActionPerformed
+        this.dispose();
+        new Authentication().setVisible(true);
+    }//GEN-LAST:event_btn_closeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,9 +160,11 @@ public class MainDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_close;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jpnl_container;
     private javax.swing.JPanel jpnl_userButtons;
+    private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,9 +36,8 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        hovDashboard = new javax.swing.JPanel();
-        dashboard = new javax.swing.JLabel();
         hovUsers = new javax.swing.JPanel();
         users = new javax.swing.JLabel();
         hovGallons = new javax.swing.JPanel();
@@ -55,52 +54,20 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         deliveries = new javax.swing.JLabel();
         hovCustomer = new javax.swing.JPanel();
         customer = new javax.swing.JLabel();
+        hovDashboard = new keeptoo.KGradientPanel();
+        dashboard = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 204, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(250, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(102, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>DEVELOPER AND ADMINISTRATOR <br> <center>BUTTONS</center></html>");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 1, 2, 1, new java.awt.Color(0, 0, 255)));
         jLabel1.setPreferredSize(new java.awt.Dimension(250, 100));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 100));
-
-        hovDashboard.setBackground(new java.awt.Color(83, 140, 198));
-        hovDashboard.setPreferredSize(new java.awt.Dimension(250, 50));
-
-        dashboard.setBackground(new java.awt.Color(51, 51, 255));
-        dashboard.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        dashboard.setForeground(new java.awt.Color(255, 255, 255));
-        dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dashboard.setText("Dashboard");
-        dashboard.setIconTextGap(10);
-        dashboard.setPreferredSize(new java.awt.Dimension(250, 50));
-        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dashboardMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dashboardMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dashboardMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout hovDashboardLayout = new javax.swing.GroupLayout(hovDashboard);
-        hovDashboard.setLayout(hovDashboardLayout);
-        hovDashboardLayout.setHorizontalGroup(
-            hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        hovDashboardLayout.setVerticalGroup(
-            hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        add(hovDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 250, 50));
 
         hovUsers.setBackground(new java.awt.Color(83, 140, 198));
         hovUsers.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -139,8 +106,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addComponent(users, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 250, 50));
-
         hovGallons.setBackground(new java.awt.Color(83, 140, 198));
         hovGallons.setPreferredSize(new java.awt.Dimension(250, 50));
 
@@ -177,8 +142,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(gallons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        add(hovGallons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, -1));
 
         hovSales.setBackground(new java.awt.Color(83, 140, 198));
         hovSales.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -217,8 +180,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addComponent(sale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, -1));
-
         hovRefilled.setBackground(new java.awt.Color(83, 140, 198));
         hovRefilled.setPreferredSize(new java.awt.Dimension(250, 50));
 
@@ -255,8 +216,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(refilled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        add(hovRefilled, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 250, -1));
 
         hovSupplier.setBackground(new java.awt.Color(83, 140, 198));
         hovSupplier.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -295,8 +254,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addComponent(supplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, -1));
-
         hovPromos.setBackground(new java.awt.Color(83, 140, 198));
         hovPromos.setPreferredSize(new java.awt.Dimension(250, 50));
 
@@ -333,8 +290,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(promos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        add(hovPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 250, -1));
 
         hovDeliveries.setBackground(new java.awt.Color(83, 140, 198));
         hovDeliveries.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -373,8 +328,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addComponent(deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovDeliveries, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 250, -1));
-
         hovCustomer.setBackground(new java.awt.Color(83, 140, 198));
         hovCustomer.setPreferredSize(new java.awt.Dimension(250, 50));
 
@@ -412,7 +365,94 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addComponent(customer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 250, 50));
+        hovDashboard.setPreferredSize(new java.awt.Dimension(250, 50));
+
+        dashboard.setBackground(new java.awt.Color(51, 51, 255));
+        dashboard.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        dashboard.setForeground(new java.awt.Color(255, 255, 255));
+        dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dashboard.setText("Dashboard");
+        dashboard.setIconTextGap(10);
+        dashboard.setPreferredSize(new java.awt.Dimension(250, 50));
+        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hovDashboardLayout = new javax.swing.GroupLayout(hovDashboard);
+        hovDashboard.setLayout(hovDashboardLayout);
+        hovDashboardLayout.setHorizontalGroup(
+            hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+            .addGroup(hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+        );
+        hovDashboardLayout.setVerticalGroup(
+            hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addComponent(hovDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovGallons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovRefilled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovPromos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hovDeliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(143, Short.MAX_VALUE)
+                .addComponent(hovDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(507, 507, 507))
+            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(80, 80, 80)
+                    .addComponent(hovUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(hovGallons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(hovSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(hovRefilled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(hovSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(hovPromos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(hovCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addComponent(hovDeliveries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
@@ -530,7 +570,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JLabel deliveries;
     private javax.swing.JLabel gallons;
     private javax.swing.JPanel hovCustomer;
-    private javax.swing.JPanel hovDashboard;
+    private keeptoo.KGradientPanel hovDashboard;
     private javax.swing.JPanel hovDeliveries;
     private javax.swing.JPanel hovGallons;
     private javax.swing.JPanel hovPromos;
@@ -539,6 +579,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
     private javax.swing.JLabel jLabel1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel promos;
     private javax.swing.JLabel refilled;
     private javax.swing.JLabel sale;

@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -58,26 +59,27 @@ public class AuthenticationController {
             st.setString(2,encrypt(authPassword));
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-//                JOptionPane.showMessageDialog(null,rs.getString("Fname"));
                 frametoClose.dispose();
                 new MainDashboard(rs.getInt("Role_id")).setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(frametoClose,"Username And Password is Incorrect ! ", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AuthenticationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void checkField(JFrame frame,JTextField authUsername,JTextField authPassword){
+    public void checkField(JFrame frame,JTextField authUsername,JPasswordField authPassword){
         String alertMessage = "You Cannot Leave The Field Empty";
         if (authUsername.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,alertMessage);
             authUsername.requestFocusInWindow();
-        }else if (authPassword.getText().isEmpty()) {
+        }else if (authPassword.getPassword().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null,alertMessage);
             authPassword.requestFocusInWindow();
         }else{
             this.frametoClose = frame;
-            authenticationLogin(authUsername.getText(),authPassword.getText());
+            authenticationLogin(authUsername.getText(),String.valueOf(authPassword.getPassword()));
         }
     }
 }

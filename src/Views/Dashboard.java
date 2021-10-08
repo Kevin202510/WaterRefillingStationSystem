@@ -41,7 +41,7 @@ public class Dashboard extends javax.swing.JPanel {
         hovSales = new javax.swing.JPanel();
         sale = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 51));
+        setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(1100, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
