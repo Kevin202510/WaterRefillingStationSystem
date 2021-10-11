@@ -40,6 +40,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         hovUsers = new javax.swing.JPanel();
         users = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         hovGallons = new javax.swing.JPanel();
         gallons = new javax.swing.JLabel();
         hovSales = new javax.swing.JPanel();
@@ -56,6 +57,8 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         customer = new javax.swing.JLabel();
         hovDashboard = new javax.swing.JPanel();
         dashboard = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(250, 700));
@@ -65,15 +68,16 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         kGradientPanel1.setkStartColor(new java.awt.Color(64, 43, 100));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html>DEVELOPER AND ADMINISTRATOR <br> <center>BUTTONS</center></html>");
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 1, 2, 1, new java.awt.Color(0, 0, 255)));
+        jLabel1.setText("<html><center>Water Refilling <br> System </center></html>");
         jLabel1.setPreferredSize(new java.awt.Dimension(250, 100));
-        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, -1, -1));
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, 90));
 
         hovUsers.setBackground(new java.awt.Color(64, 43, 100));
         hovUsers.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         users.setBackground(new java.awt.Color(64, 43, 100));
         users.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
@@ -87,23 +91,13 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 usersMouseClicked(evt);
             }
         });
+        hovUsers.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        javax.swing.GroupLayout hovUsersLayout = new javax.swing.GroupLayout(hovUsers);
-        hovUsers.setLayout(hovUsersLayout);
-        hovUsersLayout.setHorizontalGroup(
-            hovUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovUsersLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(users, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        hovUsersLayout.setVerticalGroup(
-            hovUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovUsersLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(users, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/56-removebg-preview.png"))); // NOI18N
+        hovUsers.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, -1));
 
-        kGradientPanel1.add(hovUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, -1, -1));
+        kGradientPanel1.add(hovUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 250, -1));
 
         hovGallons.setBackground(new java.awt.Color(64, 43, 100));
         hovGallons.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -127,7 +121,8 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
             hovGallonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovGallonsLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(gallons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(gallons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(256, 256, 256))
         );
         hovGallonsLayout.setVerticalGroup(
             hovGallonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,22 +347,32 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/ss-removebg-preview-removebg-preview.png"))); // NOI18N
+
         javax.swing.GroupLayout hovDashboardLayout = new javax.swing.GroupLayout(hovDashboard);
         hovDashboard.setLayout(hovDashboardLayout);
         hovDashboardLayout.setHorizontalGroup(
             hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGroup(hovDashboardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(197, Short.MAX_VALUE))
             .addGroup(hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         hovDashboardLayout.setVerticalGroup(
             hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(hovDashboardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(dashboard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         kGradientPanel1.add(hovDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 50));
+        kGradientPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 210, 10));
 
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 700));
     }// </editor-fold>//GEN-END:initComponents
@@ -505,6 +510,9 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSeparator jSeparator1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel promos;
     private javax.swing.JLabel refilled;
