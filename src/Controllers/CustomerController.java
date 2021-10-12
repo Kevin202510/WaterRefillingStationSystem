@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -102,7 +103,7 @@ public class CustomerController {
      }
       
        public void getCustomerInfo(int id,JTextField Fname,JTextField Mname,JTextField Lname,
-                                JTextField Address,JTextField Contact,JTextField isBorrowed_Gallons,JTextField Gallon_Id,JTextField Gallon_Quantity,JTextField isSuki){
+                                JTextField Address,JTextField Contact,JComboBox isBorrowed_Gallons,JComboBox Gallon_Id,JTextField Gallon_Quantity,JComboBox isSuki){
         String kuninAngCustomer = "SELECT * FROM customers where Id = '" + id + "'";
         try {
             Statement st = con.createStatement();
@@ -113,10 +114,10 @@ public class CustomerController {
                 Lname.setText(rs.getString("Lname"));
                 Address.setText(rs.getString("Address"));
                 Contact.setText(rs.getString("Contact"));
-                isBorrowed_Gallons.setText(String.valueOf(rs.getInt("isBorrowed_Gallons")));
-                Gallon_Id.setText(String.valueOf(rs.getInt("Gallon_Id")));
+                isBorrowed_Gallons.setSelectedIndex(rs.getInt("isBorrowed_Gallons")-1);
+                Gallon_Id.setSelectedIndex(rs.getInt("Gallon_Id")-1);
                 Gallon_Quantity.setText(String.valueOf(rs.getInt("Gallon_Quantity")));
-                isSuki.setText(String.valueOf(rs.getInt("isSuki")));
+                isSuki.setSelectedIndex(rs.getInt("isSuki")-1);
             }
         } catch (SQLException ex) {
             Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
@@ -168,6 +169,18 @@ public class CustomerController {
             Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
+     }
+         public void showGallonId(JComboBox gallons){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM `gallons`");
+            
+            while(rs.next()){
+                gallons.addItem(rs.getString("Name"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
      }
      
      

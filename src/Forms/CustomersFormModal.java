@@ -46,6 +46,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         this.out = out;
         initComponents();
+        customersControll.showGallonId(customerGallonId);
        checkBtn(btn_id);
    }
     
@@ -82,22 +83,21 @@ public class CustomersFormModal extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         customerContact = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        customerIsBorrowed = new javax.swing.JTextField();
-        customerGallonId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         customerGallonQuantity = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         customerMname = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        customerSuki = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        profilename = new javax.swing.JTextField();
         customerLname = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        customerGallonId = new javax.swing.JComboBox<>();
+        customerSuki = new javax.swing.JComboBox<>();
+        customerIsBorrowed = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.setMinimumSize(new java.awt.Dimension(350, 600));
-        jPanel1.setPreferredSize(new java.awt.Dimension(310, 540));
+        jPanel1.setPreferredSize(new java.awt.Dimension(350, 610));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updatebtn.setText("UPDATE");
@@ -141,10 +141,8 @@ public class CustomersFormModal extends javax.swing.JPanel {
 
         jLabel6.setText("isBorrowed");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
-        jPanel1.add(customerIsBorrowed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 190, 30));
-        jPanel1.add(customerGallonId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 190, 30));
 
-        jLabel7.setText("isSuki");
+        jLabel7.setText("Suki");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 80, 30));
         jPanel1.add(customerGallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 190, 30));
 
@@ -154,7 +152,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
 
         jLabel9.setText("Middle Name");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, 30));
-        jPanel1.add(customerSuki, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 190, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("X");
@@ -164,17 +161,19 @@ public class CustomersFormModal extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 40, 30));
-
-        profilename.setEditable(false);
-        profilename.setBorder(null);
-        profilename.setEnabled(false);
-        profilename.setOpaque(false);
-        jPanel1.add(profilename, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 40, 30));
         jPanel1.add(customerLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 190, 30));
 
         jLabel10.setText("Gallon Id");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
+
+        jPanel1.add(customerGallonId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 190, 30));
+
+        customerSuki.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suki", "Not Suki" }));
+        jPanel1.add(customerSuki, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 190, 30));
+
+        customerIsBorrowed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Is Barrow Gallon", "Not Barrow Gallon" }));
+        jPanel1.add(customerIsBorrowed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -189,7 +188,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -201,8 +200,8 @@ public class CustomersFormModal extends javax.swing.JPanel {
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
 
             customermodel = new CustomerModel(btn_id,customerFname.getText(),
-            customerMname.getText(),customerLname.getText(),customerAddress.getText(),customerContact.getText(),Integer.parseInt(customerIsBorrowed.getText())
-            ,Integer.parseInt(customerGallonId.getText()),Integer.parseInt(customerGallonQuantity.getText()),Integer.parseInt(customerSuki.getText()));
+            customerMname.getText(),customerLname.getText(),customerAddress.getText(),customerContact.getText(),customerIsBorrowed.getSelectedIndex()+1
+            ,customerGallonId.getSelectedIndex()+1,Integer.parseInt(customerGallonQuantity.getText()),customerSuki.getSelectedIndex()+1);
         if (customersControll.updateCustomer(customermodel, customersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
@@ -218,7 +217,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
         customermodel = new CustomerModel(0,customerFname.getText(),customerMname.getText(),customerLname.getText(),
-            customerAddress.getText(),customerContact.getText(),Integer.parseInt(customerIsBorrowed.getText()),Integer.parseInt(customerGallonId.getText()),Integer.parseInt(customerGallonQuantity.getText()),Integer.parseInt(customerSuki.getText()));
+            customerAddress.getText(),customerContact.getText(),customerIsBorrowed.getSelectedIndex()+1,customerGallonId.getSelectedIndex()+1,Integer.parseInt(customerGallonQuantity.getText()),customerSuki.getSelectedIndex()+1);
         if (customersControll.addCustomer(customermodel,customersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
@@ -235,12 +234,12 @@ public class CustomersFormModal extends javax.swing.JPanel {
     private javax.swing.JTextField customerAddress;
     private javax.swing.JTextField customerContact;
     private javax.swing.JTextField customerFname;
-    private javax.swing.JTextField customerGallonId;
+    private javax.swing.JComboBox<String> customerGallonId;
     private javax.swing.JTextField customerGallonQuantity;
-    private javax.swing.JTextField customerIsBorrowed;
+    private javax.swing.JComboBox<String> customerIsBorrowed;
     private javax.swing.JTextField customerLname;
     private javax.swing.JTextField customerMname;
-    private javax.swing.JTextField customerSuki;
+    private javax.swing.JComboBox<String> customerSuki;
     public javax.swing.JButton deletebtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
@@ -253,7 +252,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField profilename;
     public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

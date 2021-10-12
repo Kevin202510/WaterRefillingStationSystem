@@ -42,10 +42,10 @@ public class CustomerModel {
         return Contact;
     }   public String getisBorrowed_Gallons(){
         if (isBorrowed_Gallons==1){
-            return "true";
+            return "Yes";
         }
         else{
-            return "false";
+            return "No";
         }
     }  public int getGallon_Id(){
         return Gallon_Id;
@@ -53,10 +53,10 @@ public class CustomerModel {
         return Gallon_Quantity;
     }  public String getisSuki(){
         if (isSuki==1){
-            return "true";
+            return "Is Suki";
         }
         else{
-            return "false";
+            return "Not Suki";
         }
     } public String getFullname(){
         String fullname = Fname + " " + Mname + " " + Lname;
