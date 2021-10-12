@@ -92,7 +92,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("GALLONS");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 22, 177, 37));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 177, 37));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {

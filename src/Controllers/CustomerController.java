@@ -151,7 +151,7 @@ public class CustomerController {
         }
         return true;
      }
-        public boolean deleteUser(int id,JTable customertable){
+        public boolean deleteCustomer(int id,JTable customertable){
         try {
             PreparedStatement st = con.prepareStatement(tanggalinAngCustomer);
             st.setInt(1, id);
