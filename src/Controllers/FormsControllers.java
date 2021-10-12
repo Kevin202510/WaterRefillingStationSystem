@@ -7,10 +7,8 @@ package Controllers;
 
 import Forms.CustomersFormModal;
 import Forms.DeliveriesModal;
-import Forms.GallonsFormModal;
 import Forms.SuppliersFormModal;
 import Forms.PromoFormModal;
-import Forms.UserFormModal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
@@ -40,15 +38,16 @@ public class FormsControllers {
     }
     
     private void checkPanelNum(){
-        if (containernum==2) {
-            new ContainerController(lalagyananForms,new UserFormModal(out,btn_id,jtablename,lalagyanan));
-        }else if (containernum==3) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
-        }else if (containernum==4) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
-        }else if (containernum==5) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
-        }else if (containernum==6) {
+//        if (containernum==2) {
+//            new ContainerController(lalagyananForms,new UserFormModal(out,btn_id,jtablename,lalagyanan));
+//        }else if (containernum==3) {
+//            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+//        }else if (containernum==4) {
+//            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+//        }else if (containernum==5) {
+//            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+//        }else 
+            if (containernum==6) {
            new ContainerController(lalagyananForms,new SuppliersFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==7) {
             new ContainerController(lalagyananForms,new PromoFormModal(out,btn_id,jtablename,lalagyanan));

@@ -7,25 +7,17 @@ package Views;
 
 import Controllers.ContainerController;
 import Controllers.UserController;
-import Forms.FrameFormModal;
-import Forms.UserFormModal;
 import Models.UserModel;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 /**
  *

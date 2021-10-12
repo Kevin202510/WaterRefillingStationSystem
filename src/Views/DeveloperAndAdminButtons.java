@@ -7,7 +7,6 @@ package Views;
 
 import Controllers.ButtonsController;
 import Forms.FrameFormModal;
-import Forms.ProfileSettingModal;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -531,7 +530,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_profilesettingMouseClicked
 
     private void profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseClicked
-        new ProfileSettingModal(lalagyanan,lalagyananbut,userID).setVisible(true);
+//        new ProfileSettingModal(lalagyanan,lalagyananbut,userID).setVisible(true);
     }//GEN-LAST:event_profileMouseClicked
 
 
