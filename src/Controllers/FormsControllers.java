@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Forms.CustomersFormModal;
 import Forms.DeliveriesModal;
 import Forms.GallonsFormModal;
 import Forms.SuppliersFormModal;
@@ -52,7 +53,7 @@ public class FormsControllers {
         }else if (containernum==7) {
             new ContainerController(lalagyananForms,new PromoFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==8) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+            new ContainerController(lalagyananForms,new CustomersFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==9) {
             new ContainerController(lalagyananForms,new DeliveriesModal(out,btn_id,jtablename,lalagyanan));
         }

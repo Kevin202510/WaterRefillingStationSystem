@@ -390,83 +390,18 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_dashboardMouseClicked
 
-    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        buttonControll.UsersButton(users);
-        buttonControll.setC(hovUsers);
-        buttonControll.resetC(hovDashboard);
-        buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
-        buttonControll.resetC(hovRefilled);
-        buttonControll.resetC(hovSupplier);
-        buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
-        buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_usersMouseClicked
-
-    private void gallonsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonsMouseClicked
-        buttonControll.GallonsButton(gallons);
-        buttonControll.setC(hovGallons);
-        buttonControll.resetC(hovDashboard);
-        buttonControll.resetC(hovUsers);
-        buttonControll.resetC(hovSales);
-        buttonControll.resetC(hovRefilled);
-        buttonControll.resetC(hovSupplier);
-        buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
-        buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_gallonsMouseClicked
-
-    private void saleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseClicked
-       buttonControll.SalesButton(sale);
-       buttonControll.setC(hovSales);
-        buttonControll.resetC(hovDashboard);
-        buttonControll.resetC(hovUsers);
-        buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovRefilled);
-        buttonControll.resetC(hovSupplier);
-        buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
-        buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_saleMouseClicked
-
-    private void refilledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseClicked
-        buttonControll.RefilledGallonsButton(refilled);
-        buttonControll.setC(hovRefilled);
+    private void customerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerMouseClicked
+        buttonControll.CustomerButton(customer);
+        buttonControll.setC(hovCustomer);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
         buttonControll.resetC(hovSales);
-        buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
-        buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_refilledMouseClicked
-
-    private void supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierMouseClicked
-       buttonControll.SupplierButton(supplier);
-       buttonControll.setC(hovSupplier);
-        buttonControll.resetC(hovDashboard);
-        buttonControll.resetC(hovUsers);
-        buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
-        buttonControll.resetC(hovRefilled);
-        buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
-        buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_supplierMouseClicked
-
-    private void promosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosMouseClicked
-        buttonControll.PromosButton(promos);
-        buttonControll.setC(hovPromos);
-        buttonControll.resetC(hovDashboard);
-        buttonControll.resetC(hovUsers);
-        buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovDeliveries);
-        buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_promosMouseClicked
+    }//GEN-LAST:event_customerMouseClicked
 
     private void deliveriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesMouseClicked
         buttonControll.DeliveriesButton(deliveries);
@@ -481,18 +416,83 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_deliveriesMouseClicked
 
-    private void customerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerMouseClicked
-        buttonControll.CustomerButton(customer);
-        buttonControll.setC(hovCustomer);
+    private void promosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosMouseClicked
+        buttonControll.PromosButton(promos);
+        buttonControll.setC(hovPromos);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
         buttonControll.resetC(hovSales);
-        buttonControll.resetC(hovPromos);
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovDeliveries);
-    }//GEN-LAST:event_customerMouseClicked
+        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_promosMouseClicked
+
+    private void supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierMouseClicked
+        buttonControll.SupplierButton(supplier);
+        buttonControll.setC(hovSupplier);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovUsers);
+        buttonControll.resetC(hovGallons);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovRefilled);
+        buttonControll.resetC(hovPromos);
+        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_supplierMouseClicked
+
+    private void refilledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseClicked
+        buttonControll.RefilledGallonsButton(refilled);
+        buttonControll.setC(hovRefilled);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovUsers);
+        buttonControll.resetC(hovGallons);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovSupplier);
+        buttonControll.resetC(hovPromos);
+        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_refilledMouseClicked
+
+    private void saleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseClicked
+        buttonControll.SalesButton(sale);
+        buttonControll.setC(hovSales);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovUsers);
+        buttonControll.resetC(hovGallons);
+        buttonControll.resetC(hovRefilled);
+        buttonControll.resetC(hovSupplier);
+        buttonControll.resetC(hovPromos);
+        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_saleMouseClicked
+
+    private void gallonsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonsMouseClicked
+        buttonControll.GallonsButton(gallons);
+        buttonControll.setC(hovGallons);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovUsers);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovRefilled);
+        buttonControll.resetC(hovSupplier);
+        buttonControll.resetC(hovPromos);
+        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_gallonsMouseClicked
+
+    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
+        buttonControll.UsersButton(users);
+        buttonControll.setC(hovUsers);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovGallons);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovRefilled);
+        buttonControll.resetC(hovSupplier);
+        buttonControll.resetC(hovPromos);
+        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_usersMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

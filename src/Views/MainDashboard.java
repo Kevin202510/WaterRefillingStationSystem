@@ -52,6 +52,7 @@ public class MainDashboard extends javax.swing.JFrame {
         jpnl_container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,8 +137,6 @@ public class MainDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_close;
-    private javax.swing.JButton btn_close1;
     private javax.swing.JButton btn_close2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

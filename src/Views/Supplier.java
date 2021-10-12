@@ -38,20 +38,26 @@ public class Supplier extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         suppliersTable = new javax.swing.JTable();
-        addBtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        updatebtn = new javax.swing.JButton();
+        addbtn = new javax.swing.JButton();
+        deletebtn = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        Fname = new javax.swing.JTextField();
+        Mname = new javax.swing.JTextField();
+        Lname = new javax.swing.JTextField();
+        Company_name = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1100, 600));
+        setBackground(new java.awt.Color(204, 204, 204));
+        setPreferredSize(new java.awt.Dimension(1100, 640));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SUPPLIER");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 11, 140, 24));
 
         suppliersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,36 +82,121 @@ public class Supplier extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(suppliersTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, 1080, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 92, 760, 540));
 
-        addBtn.setBackground(new java.awt.Color(0, 204, 51));
-        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        addBtn.setText("+");
-        addBtn.setBorderPainted(false);
-        addBtn.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setPreferredSize(new java.awt.Dimension(310, 540));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        updatebtn.setText("UPDATE");
+        updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtnActionPerformed(evt);
+                updatebtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 61, 40));
-    }// </editor-fold>//GEN-END:initComponents
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 100, 43));
 
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        //       new SuppliersFormModal(0,suppliersTable,lalagyanan).setVisible(true);
-    // int id = (int) suppliersTable.getValueAt(suppliersTable.getSelectedRow(),0);
-           new FrameFormModal(6,0,suppliersTable,lalagyanan).setVisible(true);
-    }//GEN-LAST:event_addBtnActionPerformed
+        addbtn.setText("ADD");
+        addbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 100, 43));
+
+        deletebtn.setText("DELETE");
+        deletebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletebtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 100, 43));
+
+        jLabel7.setText("First Name");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 30));
+
+        jLabel8.setText("Last Name");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 80, 30));
+
+        jLabel9.setText("Midle Name");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 30));
+
+        jLabel10.setText("Company Name");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 80, 30));
+
+        Fname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FnameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 180, 30));
+        jPanel1.add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 180, 30));
+        jPanel1.add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 30));
+        jPanel1.add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 180, 30));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("SUPPLIER");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 14, 140, 50));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 80));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void suppliersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suppliersTableMouseClicked
          int id = (int) suppliersTable.getValueAt(suppliersTable.getSelectedRow(),0);
         new FrameFormModal(6,id,suppliersTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_suppliersTableMouseClicked
 
+    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
+//        suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText());
+//        if (suliersControll.updateSupplier(suppliermodel,suppliersTable)) {
+//            out.dispose();
+//            new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
+//        }
+    }//GEN-LAST:event_updatebtnActionPerformed
+
+    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
+//        suppliermodel = new SupplierModel(0,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText());
+//        if (suliersControll.addSupplier(suppliermodel,suppliersTable)) {
+//            out.dispose();
+//            new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
+//        }
+    }//GEN-LAST:event_addbtnActionPerformed
+
+    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
+//        if(suliersControll.deleteSupplier(btn_id,suppliersTable)){
+//            out.dispose();
+//            new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
+//        }
+    }//GEN-LAST:event_deletebtnActionPerformed
+
+    private void FnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FnameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBtn;
+    private javax.swing.JTextField Company_name;
+    private javax.swing.JTextField Fname;
+    private javax.swing.JTextField Lname;
+    private javax.swing.JTextField Mname;
+    public javax.swing.JButton addbtn;
+    public javax.swing.JButton deletebtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable suppliersTable;
+    public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

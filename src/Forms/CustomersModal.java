@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -28,12 +29,14 @@ public class CustomersModal extends javax.swing.JFrame {
     CustomerModel customermodel;
     CustomerController customersControll = new CustomerController();
     static JTable customersTable;
+     static JFrame out;
     static JPanel lalagyanan;
     
     public CustomersModal(int btn_id,JTable customersTable,JPanel lalagyanan) {
         this.btn_id = btn_id;
         this.customersTable = customersTable;
         this.lalagyanan = lalagyanan;
+         this.out = out;
         initComponents();
         checkBtn(btn_id);
     }
@@ -187,14 +190,14 @@ public class CustomersModal extends javax.swing.JFrame {
                     customerMname.getText(),customerLname.getText(),customerAddress.getText(),customerContact.getText(),Integer.parseInt(customerIsBorrowed.getText())
                     ,Integer.parseInt(customerGallonId.getText()),Integer.parseInt(customerGallonQuantity.getText()),Integer.parseInt(customerSuki.getText()));
         if (customersControll.updateCustomer(customermodel, customersTable)) {
-            this.dispose();
+            out.dispose();
             new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
-        if(customersControll.deleteUser(btn_id,customersTable)){
-            this.dispose();
+        if(customersControll.deleteCustomer(btn_id,customersTable)){
+            out.dispose();
             new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
@@ -203,7 +206,7 @@ public class CustomersModal extends javax.swing.JFrame {
         customermodel = new CustomerModel(0,customerFname.getText(),customerMname.getText(),customerLname.getText(),
             customerAddress.getText(),customerContact.getText(),Integer.parseInt(customerIsBorrowed.getText()),Integer.parseInt(customerGallonId.getText()),Integer.parseInt(customerGallonQuantity.getText()),Integer.parseInt(customerSuki.getText()));
         if (customersControll.addCustomer(customermodel,customersTable)) {
-            this.dispose();
+            out.dispose();
             new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed

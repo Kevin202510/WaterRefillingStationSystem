@@ -37,10 +37,14 @@ public class EmployeesButtons extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         hovDashboard = new javax.swing.JPanel();
         dashboard = new javax.swing.JLabel();
-        hovStucks = new javax.swing.JPanel();
-        stucks = new javax.swing.JLabel();
-        hovGallons = new javax.swing.JPanel();
-        gallons = new javax.swing.JLabel();
+        hovCustomers = new javax.swing.JPanel();
+        customers = new javax.swing.JLabel();
+        hovSales = new javax.swing.JPanel();
+        sales = new javax.swing.JLabel();
+        hovRefilled = new javax.swing.JPanel();
+        refilled = new javax.swing.JLabel();
+        hovTransaction = new javax.swing.JPanel();
+        transaction = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 204, 255));
         setMinimumSize(new java.awt.Dimension(250, 230));
@@ -54,10 +58,10 @@ public class EmployeesButtons extends javax.swing.JPanel {
         jLabel1.setPreferredSize(new java.awt.Dimension(250, 100));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 100));
 
-        hovDashboard.setBackground(new java.awt.Color(83, 140, 198));
+        hovDashboard.setBackground(new java.awt.Color(85, 65, 118));
         hovDashboard.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        dashboard.setBackground(new java.awt.Color(51, 51, 255));
+        dashboard.setBackground(new java.awt.Color(85, 65, 118));
         dashboard.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         dashboard.setForeground(new java.awt.Color(255, 255, 255));
         dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -89,129 +93,225 @@ public class EmployeesButtons extends javax.swing.JPanel {
 
         add(hovDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 250, 50));
 
-        hovStucks.setBackground(new java.awt.Color(83, 140, 198));
-        hovStucks.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovCustomers.setBackground(new java.awt.Color(85, 65, 118));
+        hovCustomers.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        stucks.setBackground(new java.awt.Color(51, 51, 255));
-        stucks.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        stucks.setForeground(new java.awt.Color(255, 255, 255));
-        stucks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        stucks.setText("Stucks");
-        stucks.setIconTextGap(10);
-        stucks.setPreferredSize(new java.awt.Dimension(250, 50));
-        stucks.addMouseListener(new java.awt.event.MouseAdapter() {
+        customers.setBackground(new java.awt.Color(85, 65, 118));
+        customers.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        customers.setForeground(new java.awt.Color(255, 255, 255));
+        customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        customers.setText("Customers");
+        customers.setIconTextGap(10);
+        customers.setPreferredSize(new java.awt.Dimension(250, 50));
+        customers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                stucksMouseClicked(evt);
+                customersMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                stucksMouseEntered(evt);
+                customersMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                stucksMouseExited(evt);
+                customersMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout hovStucksLayout = new javax.swing.GroupLayout(hovStucks);
-        hovStucks.setLayout(hovStucksLayout);
-        hovStucksLayout.setHorizontalGroup(
-            hovStucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovStucksLayout.createSequentialGroup()
+        javax.swing.GroupLayout hovCustomersLayout = new javax.swing.GroupLayout(hovCustomers);
+        hovCustomers.setLayout(hovCustomersLayout);
+        hovCustomersLayout.setHorizontalGroup(
+            hovCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomersLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(stucks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(customers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        hovStucksLayout.setVerticalGroup(
-            hovStucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovStucksLayout.createSequentialGroup()
+        hovCustomersLayout.setVerticalGroup(
+            hovCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomersLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(stucks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(customers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovStucks, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 50));
+        add(hovCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 50));
 
-        hovGallons.setBackground(new java.awt.Color(83, 140, 198));
-        hovGallons.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovSales.setBackground(new java.awt.Color(64, 43, 100));
+        hovSales.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        gallons.setBackground(new java.awt.Color(51, 51, 255));
-        gallons.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        gallons.setForeground(new java.awt.Color(255, 255, 255));
-        gallons.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        gallons.setText("Gallons");
-        gallons.setIconTextGap(10);
-        gallons.setPreferredSize(new java.awt.Dimension(250, 50));
-        gallons.addMouseListener(new java.awt.event.MouseAdapter() {
+        sales.setBackground(new java.awt.Color(85, 65, 118));
+        sales.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        sales.setForeground(new java.awt.Color(255, 255, 255));
+        sales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sales.setText("Sales");
+        sales.setIconTextGap(10);
+        sales.setPreferredSize(new java.awt.Dimension(250, 50));
+        sales.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gallonsMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                gallonsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                gallonsMouseExited(evt);
+                salesMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout hovGallonsLayout = new javax.swing.GroupLayout(hovGallons);
-        hovGallons.setLayout(hovGallonsLayout);
-        hovGallonsLayout.setHorizontalGroup(
-            hovGallonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovGallonsLayout.createSequentialGroup()
+        javax.swing.GroupLayout hovSalesLayout = new javax.swing.GroupLayout(hovSales);
+        hovSales.setLayout(hovSalesLayout);
+        hovSalesLayout.setHorizontalGroup(
+            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovSalesLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(gallons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(256, 256, 256))
         );
-        hovGallonsLayout.setVerticalGroup(
-            hovGallonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovGallonsLayout.createSequentialGroup()
+        hovSalesLayout.setVerticalGroup(
+            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovSalesLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(gallons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovGallons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 250, 50));
+        add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 265, -1, -1));
+
+        hovRefilled.setBackground(new java.awt.Color(64, 43, 100));
+        hovRefilled.setPreferredSize(new java.awt.Dimension(250, 50));
+
+        refilled.setBackground(new java.awt.Color(85, 65, 118));
+        refilled.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        refilled.setForeground(new java.awt.Color(255, 255, 255));
+        refilled.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        refilled.setText("Refilled Gallons");
+        refilled.setIconTextGap(10);
+        refilled.setPreferredSize(new java.awt.Dimension(250, 50));
+        refilled.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                refilledMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hovRefilledLayout = new javax.swing.GroupLayout(hovRefilled);
+        hovRefilled.setLayout(hovRefilledLayout);
+        hovRefilledLayout.setHorizontalGroup(
+            hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(refilled, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        hovRefilledLayout.setVerticalGroup(
+            hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovRefilledLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(refilled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(hovRefilled, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
+
+        hovTransaction.setBackground(new java.awt.Color(64, 43, 100));
+        hovTransaction.setPreferredSize(new java.awt.Dimension(250, 50));
+
+        transaction.setBackground(new java.awt.Color(85, 65, 118));
+        transaction.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        transaction.setForeground(new java.awt.Color(255, 255, 255));
+        transaction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        transaction.setText("Transaction");
+        transaction.setIconTextGap(10);
+        transaction.setPreferredSize(new java.awt.Dimension(250, 50));
+        transaction.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                transactionMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hovTransactionLayout = new javax.swing.GroupLayout(hovTransaction);
+        hovTransaction.setLayout(hovTransactionLayout);
+        hovTransactionLayout.setHorizontalGroup(
+            hovTransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovTransactionLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(transaction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        hovTransactionLayout.setVerticalGroup(
+            hovTransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovTransactionLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(transaction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(hovTransaction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
-        buttonControll.DashboardButton(dashboard);
+   buttonControll.DashboardButton(dashboard);
+        buttonControll.setC(hovDashboard);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovTransaction);
+        buttonControll.resetC(hovCustomers);
+        buttonControll.resetC(hovRefilled);
     }//GEN-LAST:event_dashboardMouseClicked
 
     private void dashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseEntered
-        buttonControll.setC(hovDashboard);
+
     }//GEN-LAST:event_dashboardMouseEntered
 
     private void dashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseExited
-        buttonControll.resetC(hovDashboard);
+  
     }//GEN-LAST:event_dashboardMouseExited
 
-    private void stucksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stucksMouseClicked
-        buttonControll.SalesButton(stucks);
-    }//GEN-LAST:event_stucksMouseClicked
+    private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
+        buttonControll.CustomerButton(customers);
+        buttonControll.setC(hovCustomers);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovTransaction);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovRefilled);
+    }//GEN-LAST:event_customersMouseClicked
 
-    private void stucksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stucksMouseEntered
-        buttonControll.setC(hovStucks);
-    }//GEN-LAST:event_stucksMouseEntered
+    private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
 
-    private void stucksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stucksMouseExited
-        buttonControll.resetC(hovStucks);
-    }//GEN-LAST:event_stucksMouseExited
+    }//GEN-LAST:event_customersMouseEntered
 
-    private void gallonsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonsMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gallonsMouseClicked
+    private void customersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseExited
 
-    private void gallonsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonsMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gallonsMouseEntered
+    }//GEN-LAST:event_customersMouseExited
 
-    private void gallonsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonsMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gallonsMouseExited
+    private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
+        buttonControll.SalesButton(sales);
+        buttonControll.setC(hovSales);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovTransaction);
+        buttonControll.resetC(hovCustomers);
+        buttonControll.resetC(hovRefilled);
+//        buttonControll.resetC(hovSupplier);
+//        buttonControll.resetC(hovPromos);
+//        buttonControll.resetC(hovDeliveries);
+//        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_salesMouseClicked
+
+    private void refilledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseClicked
+        buttonControll.RefilledGallonsButton(refilled);
+        buttonControll.setC(hovRefilled);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovTransaction);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovCustomers);
+//        buttonControll.resetC(hovSupplier);
+//        buttonControll.resetC(hovPromos);
+//        buttonControll.resetC(hovDeliveries);
+//        buttonControll.resetC(hovCustomer);
+    }//GEN-LAST:event_refilledMouseClicked
+
+    private void transactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactionMouseClicked
+        buttonControll.TransactionsButton(transaction);
+        buttonControll.setC(hovTransaction);
+        buttonControll.resetC(hovDashboard);
+        buttonControll.resetC(hovRefilled);
+        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovCustomers);
+    }//GEN-LAST:event_transactionMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel customers;
     private javax.swing.JLabel dashboard;
-    private javax.swing.JLabel gallons;
+    private javax.swing.JPanel hovCustomers;
     private javax.swing.JPanel hovDashboard;
-    private javax.swing.JPanel hovGallons;
-    private javax.swing.JPanel hovStucks;
+    private javax.swing.JPanel hovRefilled;
+    private javax.swing.JPanel hovSales;
+    private javax.swing.JPanel hovTransaction;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel stucks;
+    private javax.swing.JLabel refilled;
+    private javax.swing.JLabel sales;
+    private javax.swing.JLabel transaction;
     // End of variables declaration//GEN-END:variables
 }

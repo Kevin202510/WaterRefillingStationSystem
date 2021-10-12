@@ -40,16 +40,29 @@ public class Deliveries extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deliveriesTable = new javax.swing.JTable();
-        addBtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        Customer_Id = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        Date_Delivered = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        Quantity = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        Promo_Id = new javax.swing.JComboBox<>();
+        lbls = new javax.swing.JLabel();
+        Status = new javax.swing.JComboBox<>();
+        lbls1 = new javax.swing.JLabel();
+        User_Id = new javax.swing.JComboBox<>();
+        updatebtn = new javax.swing.JButton();
+        addbtn = new javax.swing.JButton();
+        deletebtn = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(1100, 640));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel1.setText("Deliveries");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,35 +87,159 @@ public class Deliveries extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveriesTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, 1080, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 760, 540));
 
-        addBtn.setBackground(new java.awt.Color(0, 204, 51));
-        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        addBtn.setText("+");
-        addBtn.setBorderPainted(false);
-        addBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtnActionPerformed(evt);
+        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setPreferredSize(new java.awt.Dimension(310, 540));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Customer_Id.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Customer_IdMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Customer_IdMousePressed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 61, 40));
-    }// </editor-fold>//GEN-END:initComponents
+        Customer_Id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Customer_IdActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 180, 40));
 
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        //        new UserModal(0,userTable,lalagyanan).setVisible(true);
-        new FrameFormModal(9,0,deliveriesTable,lalagyanan).setVisible(true);
-    }//GEN-LAST:event_addBtnActionPerformed
+        jLabel2.setText("Quantity");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 80, 40));
+
+        jLabel3.setText("Customer Name");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 40));
+        jPanel1.add(Date_Delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 180, 40));
+
+        jLabel4.setText("Date Delivered");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 40));
+        jPanel1.add(Quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 90, 40));
+
+        jLabel5.setText("Promo");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 80, 40));
+
+        jPanel1.add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 180, 40));
+
+        lbls.setText("Status");
+        jPanel1.add(lbls, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 40));
+
+        Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Delivered" }));
+        jPanel1.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 180, 40));
+
+        lbls1.setText("Delivered By");
+        jPanel1.add(lbls1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 40));
+
+        jPanel1.add(User_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 40));
+
+        updatebtn.setText("UPDATE");
+        updatebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatebtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 110, 43));
+
+        addbtn.setText("ADD");
+        addbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 110, 43));
+
+        deletebtn.setText("DELETE");
+        deletebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletebtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 110, 43));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setText("Deliveries");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 80));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void deliveriesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesTableMouseClicked
         int id = (int) deliveriesTable.getValueAt(deliveriesTable.getSelectedRow(),0);
         new FrameFormModal(9,id,deliveriesTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_deliveriesTableMouseClicked
 
+    private void Customer_IdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Customer_IdMouseClicked
+
+    }//GEN-LAST:event_Customer_IdMouseClicked
+
+    private void Customer_IdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Customer_IdMousePressed
+
+    }//GEN-LAST:event_Customer_IdMousePressed
+
+    private void Customer_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customer_IdActionPerformed
+        //        JOptionPane.showMessageDialog(null,"ge");
+    }//GEN-LAST:event_Customer_IdActionPerformed
+
+    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
+//        try {
+//            deliveriesModel = new DeliveriesModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getId(),dateFormat.format(Date_Delivered.getDate()), (int) Quantity.getValue(),promoControll.promosList().get(Promo_Id.getSelectedIndex()).getId(),Status.getSelectedIndex(),userControll.userList().get(User_Id.getSelectedIndex()).getId());
+//            if (deliveriesControll.updateDeliveries(deliveriesModel, promoTable)) {
+//                out.dispose();
+//                new ContainerController(lalagyanan,new Views.Deliveries(lalagyanan));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DeliveriesModal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }//GEN-LAST:event_updatebtnActionPerformed
+
+    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
+//        try {
+//            deliveriesModel = new DeliveriesModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getId(),dateFormat.format(Date_Delivered.getDate()), (int) Quantity.getValue(),promoControll.promosList().get(Promo_Id.getSelectedIndex()).getId(),Status.getSelectedIndex(),userControll.userList().get(User_Id.getSelectedIndex()).getId());
+//            if (deliveriesControll.addDeliveries(deliveriesModel, promoTable)) {
+//                out.dispose();
+//                new ContainerController(lalagyanan,new Views.Deliveries(lalagyanan));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DeliveriesModal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }//GEN-LAST:event_addbtnActionPerformed
+
+    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
+//        if (deliveriesControll.deleteUser(btn_id, promoTable)) {
+//            out.dispose();
+//            new ContainerController(lalagyanan,new Views.Deliveries(lalagyanan));
+//        }
+    }//GEN-LAST:event_deletebtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBtn;
+    private javax.swing.JComboBox<String> Customer_Id;
+    private com.toedter.calendar.JDateChooser Date_Delivered;
+    private javax.swing.JComboBox<String> Promo_Id;
+    private javax.swing.JSpinner Quantity;
+    private javax.swing.JComboBox<String> Status;
+    private javax.swing.JComboBox<String> User_Id;
+    public javax.swing.JButton addbtn;
+    public javax.swing.JButton deletebtn;
     private javax.swing.JTable deliveriesTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbls;
+    private javax.swing.JLabel lbls1;
+    public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }
