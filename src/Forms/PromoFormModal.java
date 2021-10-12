@@ -76,16 +76,16 @@ public class PromoFormModal extends javax.swing.JPanel {
         updatebtn = new javax.swing.JButton();
         addbtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(310, 540));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 81, 30));
-        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 196, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 143, 81, 30));
+        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 143, 196, 30));
 
         jLabel2.setText("Date Started");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 81, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 81, 30));
 
         Description.setColumns(20);
         Description.setLineWrap(true);
@@ -93,15 +93,15 @@ public class PromoFormModal extends javax.swing.JPanel {
         Description.setTabSize(5);
         jScrollPane1.setViewportView(Description);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 200, 130));
-        add(Date_Started, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 200, 30));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 200, 130));
+        add(Date_Started, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 200, 30));
 
         jLabel3.setText("Description");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 81, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 81, 30));
 
         jLabel4.setText("Date End");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 81, 30));
-        add(Date_End, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 200, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 81, 30));
+        add(Date_End, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 200, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,7 +114,7 @@ public class PromoFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 100, 43));
+        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 546, 100, 43));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +122,7 @@ public class PromoFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 100, 43));
+        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 100, 43));
 
         deletebtn.setText("DELETE");
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,17 @@ public class PromoFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 100, 43));
+        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 546, 100, 43));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("X");
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
@@ -156,6 +166,10 @@ public class PromoFormModal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        out.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser Date_End;
@@ -164,6 +178,7 @@ public class PromoFormModal extends javax.swing.JPanel {
     private javax.swing.JTextField Name;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

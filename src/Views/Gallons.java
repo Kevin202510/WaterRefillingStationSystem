@@ -5,12 +5,8 @@
  */
 package Views;
 
-import Controllers.ContainerController;
 import Controllers.GallonsController;
 import Forms.FrameFormModal;
-import Models.GallonsModel;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import javax.swing.JPanel;
 
 /**
@@ -23,10 +19,8 @@ public class Gallons extends javax.swing.JPanel {
      * Creates new form Gallons
      */
     
-   GallonsController gallonControll = new GallonsController();
+    GallonsController gallonControll = new GallonsController();
    JPanel lalagyanan;
-   GallonsModel gallonsmodel;
-   DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     
     public Gallons(JPanel lalagyanan) {
         initComponents();
@@ -36,17 +30,6 @@ public class Gallons extends javax.swing.JPanel {
     
     private void InitRun(){
         gallonControll.showGallons(gallonTable);
-        hidebtn();
-    }
-    private void hidebtn(){
-        updatebtn.setVisible(false);
-        deletebtn.setVisible(false);
-        addbtn.setVisible(true);
-    }
-    private void showbtn(){
-        updatebtn.setVisible(true);
-        deletebtn.setVisible(true);
-        addbtn.setVisible(false);
     }
 
     /**
@@ -58,35 +41,17 @@ public class Gallons extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         gallonTable = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        updatebtn = new javax.swing.JButton();
-        addbtn = new javax.swing.JButton();
-        deletebtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        Size = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        Color = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        Gallon_Type = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        Name = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        Price = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        Supplier_Id = new javax.swing.JComboBox<>();
-        Date_delivered = new com.toedter.calendar.JDateChooser();
-        Stocks = new javax.swing.JSpinner();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
-        setPreferredSize(new java.awt.Dimension(1100, 640));
+        setBackground(new java.awt.Color(255, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setText("GALLONS");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 234, 96));
 
         gallonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,162 +76,35 @@ public class Gallons extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(gallonTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 760, 540));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, -1));
 
-        jPanel2.setBackground(new java.awt.Color(85, 64, 118));
-        jPanel2.setPreferredSize(new java.awt.Dimension(310, 540));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("GALLONS");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 22, 177, 37));
-
-        updatebtn.setText("UPDATE");
-        updatebtn.addActionListener(new java.awt.event.ActionListener() {
+        addBtn.setBackground(new java.awt.Color(0, 204, 51));
+        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updatebtnActionPerformed(evt);
+                addBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 100, 43));
-
-        addbtn.setText("ADD");
-        addbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addbtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 100, 43));
-
-        deletebtn.setText("DELETE");
-        deletebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletebtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 100, 43));
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Date Delivered");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 80, 30));
-        jPanel2.add(Size, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 180, 30));
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Size");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
-        jPanel2.add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 180, 30));
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Color");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
-        jPanel2.add(Gallon_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 180, 30));
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Gallon Type");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 30));
-
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Price");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 30));
-        jPanel2.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Name");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 30));
-        jPanel2.add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 30));
-
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Supplier");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 30));
-
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Stocks");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, 30));
-
-        Supplier_Id.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(Supplier_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 180, -1));
-        jPanel2.add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 180, 30));
-        jPanel2.add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, 30));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 310, 540));
-
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel10.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Manage Gallon");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 270, 50));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 80));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 61, 40));
     }// </editor-fold>//GEN-END:initComponents
 
-    int selected_id;
-            
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        //        new UserModal(0,userTable,lalagyanan).setVisible(true);
+        new FrameFormModal(4,0,gallonTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
+
     private void gallonTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonTableMouseClicked
-        if (evt.getClickCount()==2) {
-            hidebtn();
-            gallonControll.clearGallonForm(Name, Size, Color, Gallon_Type, Supplier_Id, Date_delivered, Price, Stocks);
-        }else{
-            selected_id = (int) gallonTable.getValueAt(gallonTable.getSelectedRow(),0);
-            gallonControll.getGallonInfo(selected_id, Name, Size, Color, Gallon_Type,Supplier_Id, Date_delivered, Price, Stocks);
-            showbtn();
-        }
+        int id = (int) gallonTable.getValueAt(gallonTable.getSelectedRow(),0);
+        new FrameFormModal(4,id,gallonTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_gallonTableMouseClicked
-
-    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-
-        gallonsmodel = new GallonsModel(selected_id,Name.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
-        if (gallonControll.updateGallon(gallonsmodel,gallonTable)) {
-//            out.dispose();
-            new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
-
-        }
-    }//GEN-LAST:event_updatebtnActionPerformed
-
-    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        gallonsmodel = new GallonsModel(0,Name.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
-        if (gallonControll.addGallons(gallonsmodel,gallonTable)) {
-//            out.dispose();
-            new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
-        }
-    }//GEN-LAST:event_addbtnActionPerformed
-
-    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
-        if(gallonControll.deleteGallon(selected_id,gallonTable)){
-//            out.dispose();
-            new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
-        }
-
-    }//GEN-LAST:event_deletebtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Color;
-    private com.toedter.calendar.JDateChooser Date_delivered;
-    private javax.swing.JTextField Gallon_Type;
-    private javax.swing.JTextField Name;
-    private javax.swing.JTextField Price;
-    private javax.swing.JTextField Size;
-    private javax.swing.JSpinner Stocks;
-    private javax.swing.JComboBox<String> Supplier_Id;
-    public javax.swing.JButton addbtn;
-    public javax.swing.JButton deletebtn;
+    private javax.swing.JButton addBtn;
     private javax.swing.JTable gallonTable;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

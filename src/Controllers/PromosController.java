@@ -82,6 +82,13 @@ public final class PromosController {
          }
      }
      
+      public void clearPromosForm(JTextField Name,JTextArea Description,JDateChooser Date_Started,JDateChooser Date_End){
+               Name.setText("");
+                 Description.setText("");
+                 Date_Started.setDate(null);
+                 Date_End.setDate(null);
+    }
+     
     public boolean addPromos(PromosModel promosModel,JTable promosTable){
         try {
             PreparedStatement st = con.prepareStatement("INSERT INTO `promos`(`Name`, `Description`, `Date_Started`, `Date_End`) VALUES (?,?,?,?)");

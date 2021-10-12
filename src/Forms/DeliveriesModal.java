@@ -74,6 +74,7 @@ public class DeliveriesModal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         Customer_Id = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -89,10 +90,14 @@ public class DeliveriesModal extends javax.swing.JPanel {
         updatebtn = new javax.swing.JButton();
         addbtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(64, 43, 100));
-        setPreferredSize(new java.awt.Dimension(310, 540));
+        setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Deliveries Form");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 230, 40));
 
         Customer_Id.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -107,34 +112,34 @@ public class DeliveriesModal extends javax.swing.JPanel {
                 Customer_IdActionPerformed(evt);
             }
         });
-        add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 180, 40));
+        add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 190, 40));
 
         jLabel2.setText("Quantity");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 80, 40));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 80, 40));
 
         jLabel3.setText("Customer Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 40));
-        add(Date_Delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 180, 40));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 80, 40));
+        add(Date_Delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 200, 40));
 
         jLabel4.setText("Date Delivered");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 40));
-        add(Quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 90, 40));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 80, 40));
+        add(Quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 90, 40));
 
         jLabel5.setText("Promo");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 80, 40));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 40));
 
-        add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 180, 40));
+        add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 190, 40));
 
         lbls.setText("Status");
-        add(lbls, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 40));
+        add(lbls, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 80, 40));
 
         Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Delivered" }));
-        add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 180, 40));
+        add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 190, 40));
 
         lbls1.setText("Delivered By");
-        add(lbls1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 40));
+        add(lbls1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 80, 40));
 
-        add(User_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 40));
+        add(User_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 190, 40));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +147,7 @@ public class DeliveriesModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 110, 43));
+        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 546, 100, 43));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +155,7 @@ public class DeliveriesModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 110, 43));
+        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 100, 43));
 
         deletebtn.setText("DELETE");
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +163,17 @@ public class DeliveriesModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 110, 43));
+        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 546, 100, 43));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("X");
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
@@ -192,6 +207,10 @@ public class DeliveriesModal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        out.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void Customer_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customer_IdActionPerformed
 //        JOptionPane.showMessageDialog(null,"ge");
     }//GEN-LAST:event_Customer_IdActionPerformed
@@ -214,6 +233,8 @@ public class DeliveriesModal extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> User_Id;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

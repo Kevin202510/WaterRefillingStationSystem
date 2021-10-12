@@ -54,7 +54,6 @@ public class MainDashboard extends javax.swing.JFrame {
         jpnl_container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -87,7 +86,6 @@ public class MainDashboard extends javax.swing.JFrame {
 
         jpnl_container.setBackground(new java.awt.Color(255, 255, 255));
         jpnl_container.setPreferredSize(new java.awt.Dimension(1100, 640));
-        jpnl_container.setRequestFocusEnabled(false);
         jpnl_container.setLayout(new javax.swing.BoxLayout(jpnl_container, javax.swing.BoxLayout.LINE_AXIS));
         getContentPane().add(jpnl_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 1100, 640));
 

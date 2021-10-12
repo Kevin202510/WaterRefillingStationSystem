@@ -33,6 +33,8 @@ public class FrameFormModal extends javax.swing.JFrame {
     
     public FrameFormModal(int containernum,int btn_id,JTable jtablename,JPanel lalagyanan) {
         initComponents();
+        this.setLocationRelativeTo(null);
+//        this.setOpacity(0.9f);
         this.containernum = containernum;
         this.btn_id = btn_id;
         this.jtablename = jtablename;
@@ -53,6 +55,18 @@ public class FrameFormModal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                formWindowLostFocus(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         formContainer.setPreferredSize(new java.awt.Dimension(350, 600));
@@ -62,6 +76,15 @@ public class FrameFormModal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
+
+//        this.dispose();
+    }//GEN-LAST:event_formWindowLostFocus
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       this.toFront();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

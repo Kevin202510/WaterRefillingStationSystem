@@ -8,6 +8,7 @@ package Controllers;
 
 import Models.GallonsModel;
 import Models.SupplierModel;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,36 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 ;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -124,6 +154,16 @@ public class SupplierController {
         
         
      }
+      
+      
+       public void clearSuppliertForm(JTextField Fname,JTextField Mname,JTextField Lname,JTextField Company_name){
+                Fname.setText("");
+                Mname.setText("");
+                Lname.setText("");
+                Company_name.setText("");;
+    }
+       
+       
       public boolean updateSupplier(SupplierModel suppliermodel,JTable suppliersTable){
         try {
             String updates = "UPDATE suppliers SET Id = ? , Fname = ? ,Mname = ?, Lname = ?,Company_name = ? WHERE Id = '" +suppliermodel.getId() + "'";

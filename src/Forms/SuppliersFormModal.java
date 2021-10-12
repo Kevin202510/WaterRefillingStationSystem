@@ -8,6 +8,9 @@ package Forms;
 import Controllers.ContainerController;
 import Controllers.SupplierController;
 import Controllers.PromosController;
+import static Forms.GallonsFormModal.gallonTable;
+import static Forms.GallonsFormModal.lalagyanan;
+import static Forms.GallonsFormModal.out;
 import Models.GallonsModel;
 import Models.SupplierModel;
 import javax.swing.JFrame;
@@ -58,6 +61,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         updatebtn = new javax.swing.JButton();
         addbtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
@@ -69,10 +73,15 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Mname = new javax.swing.JTextField();
         Lname = new javax.swing.JTextField();
         Company_name = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(64, 43, 100));
-        setPreferredSize(new java.awt.Dimension(310, 540));
+        setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Suppliers");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 22, 177, 37));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +89,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 100, 43));
+        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 546, 100, 43));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +97,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 100, 43));
+        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 100, 43));
 
         deletebtn.setText("DELETE");
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +105,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 100, 43));
+        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 546, 100, 43));
 
         jLabel7.setText("First Name");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 30));
@@ -115,10 +124,20 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 FnameActionPerformed(evt);
             }
         });
-        add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 180, 30));
-        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 180, 30));
-        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 30));
-        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 180, 30));
+        add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 220, 30));
+        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 220, 30));
+        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 220, 30));
+        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 220, 30));
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("X");
+        jButton3.setBorderPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
@@ -149,6 +168,10 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
         // TODO add your handling code here:
     }//GEN-LAST:event_FnameActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        out.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Company_name;
@@ -157,6 +180,9 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
     private javax.swing.JTextField Mname;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

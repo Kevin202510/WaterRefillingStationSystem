@@ -41,26 +41,17 @@ public class Promos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         promosTable = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        Name = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Description = new javax.swing.JTextArea();
-        Date_Started = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        Date_End = new com.toedter.calendar.JDateChooser();
-        updatebtn = new javax.swing.JButton();
-        addbtn = new javax.swing.JButton();
-        deletebtn = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(1100, 640));
+        setPreferredSize(new java.awt.Dimension(1090, 589));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setText("Promos");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 180, -1));
 
         promosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,117 +68,35 @@ public class Promos extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(promosTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 760, 540));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, -1));
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
-        jPanel1.setPreferredSize(new java.awt.Dimension(310, 540));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setText("Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 81, 30));
-        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 196, 30));
-
-        jLabel3.setText("Date Started");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 81, 30));
-
-        Description.setColumns(20);
-        Description.setLineWrap(true);
-        Description.setRows(5);
-        Description.setTabSize(5);
-        jScrollPane2.setViewportView(Description);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 200, 130));
-        jPanel1.add(Date_Started, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 200, 30));
-
-        jLabel4.setText("Description");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 81, 30));
-
-        jLabel5.setText("Date End");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 81, 30));
-        jPanel1.add(Date_End, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 200, 30));
-
-        updatebtn.setText("UPDATE");
-        updatebtn.addActionListener(new java.awt.event.ActionListener() {
+        addBtn.setBackground(new java.awt.Color(0, 204, 51));
+        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updatebtnActionPerformed(evt);
+                addBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 100, 43));
-
-        addbtn.setText("ADD");
-        addbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addbtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 100, 43));
-
-        deletebtn.setText("DELETE");
-        deletebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletebtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 100, 43));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-
-        jPanel2.setBackground(new java.awt.Color(64, 43, 100));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel1.setText("Promos");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, -1));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 80));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 61, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+//        new PromosModal(0,promosTable,lalagyanan).setVisible(true);
+        new FrameFormModal(7,0,promosTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
 
     private void promosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosTableMouseClicked
         int id = (int) promosTable.getValueAt(promosTable.getSelectedRow(),0);
         new FrameFormModal(7,id,promosTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_promosTableMouseClicked
 
-    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-//        promosModel = new PromosModel(btn_id,Name.getText(),Description.getText(),dateFormat.format(Date_Started.getDate()),dateFormat.format(Date_End.getDate()));
-//        if(promosControll.updatePromos(promosModel, promoTable)){
-//            out.dispose();
-//            new ContainerController(lalagyanan,new Views.Promos(lalagyanan));
-//        }
-    }//GEN-LAST:event_updatebtnActionPerformed
-
-    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-//        promosModel = new PromosModel(0,Name.getText(),Description.getText(),dateFormat.format(Date_Started.getDate()),dateFormat.format(Date_End.getDate()));
-//        if(promosControll.addPromos(promosModel, promoTable)){
-//            out.dispose();
-//            new ContainerController(lalagyanan,new Views.Promos(lalagyanan));
-//        }
-    }//GEN-LAST:event_addbtnActionPerformed
-
-    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
-//        if(promosControll.deletePromos(btn_id, promoTable)){
-//            out.dispose();
-//            new ContainerController(lalagyanan,new Views.Promos(lalagyanan));
-//        }
-    }//GEN-LAST:event_deletebtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser Date_End;
-    private com.toedter.calendar.JDateChooser Date_Started;
-    private javax.swing.JTextArea Description;
-    private javax.swing.JTextField Name;
-    public javax.swing.JButton addbtn;
-    public javax.swing.JButton deletebtn;
+    private javax.swing.JButton addBtn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable promosTable;
-    public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

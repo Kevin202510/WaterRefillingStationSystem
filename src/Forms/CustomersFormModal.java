@@ -48,14 +48,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
         initComponents();
        checkBtn(btn_id);
    }
-
-    //public CustomersFormModal(int btn_id,JTable customersTable,JPanel lalagyanan) {
-      //  this.btn_id = btn_id;
-      //  this.customersTable = customersTable;
-      //  this.lalagyanan = lalagyanan;
-      //  initComponents();
-      //  checkBtn(btn_id);
-    //}
+    
     private void checkBtn(int btn_id){
         if (btn_id==0) {
             updatebtn.setVisible(false);
