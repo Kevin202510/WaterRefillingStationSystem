@@ -73,7 +73,7 @@ public class Customers extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(customersTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, 1080, 380));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, 1080, 490));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,7 +81,7 @@ public class Customers extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Custumers");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 200, 40));
 
         addBtn.setBackground(new java.awt.Color(64, 43, 100));
         addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -92,7 +92,7 @@ public class Customers extends javax.swing.JPanel {
                 addBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 61, 40));
+        jPanel1.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 61, 40));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 110));
     }// </editor-fold>//GEN-END:initComponents
