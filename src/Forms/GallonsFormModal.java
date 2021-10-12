@@ -84,9 +84,9 @@ public class GallonsFormModal extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         Supplier_Id = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(350, 600));
+        setBackground(new java.awt.Color(85, 64, 118));
+        setPreferredSize(new java.awt.Dimension(350, 590));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -100,7 +100,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 546, 100, 43));
+        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 100, 43));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 100, 43));
+        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 100, 43));
 
         deletebtn.setText("DELETE");
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -116,56 +116,42 @@ public class GallonsFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 546, 100, 43));
+        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 100, 43));
 
         jLabel2.setText("Date Delivered");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 80, 30));
-        add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 180, 30));
-        add(Size, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 180, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 80, 30));
+        add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 180, 30));
+        add(Size, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 180, 30));
 
         jLabel3.setText("Size");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 80, 30));
-        add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 180, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 80, 30));
+        add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 180, 30));
 
         jLabel4.setText("Color");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 80, 30));
-        add(Gallon_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 180, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, 30));
+        add(Gallon_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 180, 30));
 
         jLabel5.setText("Gallon Type");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 80, 30));
-        add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 180, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 80, 30));
+        add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 180, 30));
 
         jLabel6.setText("Price");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 80, 30));
-        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 180, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 80, 30));
+        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 180, 30));
 
         jLabel7.setText("Name");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 80, 30));
-        add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 180, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 30));
+        add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 180, 30));
 
         jLabel8.setText("Supplier");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 80, 30));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 80, 30));
 
         jLabel9.setText("Stocks");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 80, 30));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 80, 30));
 
         Supplier_Id.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(Supplier_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 180, -1));
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("X");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        add(Supplier_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 180, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        out.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
          gallonsmodel = new GallonsModel(0,Name.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),1,Date_delivered.getText(),Integer.parseInt(Price.getText()),Integer.parseInt(Stocks.getText()));
@@ -206,7 +192,6 @@ public class GallonsFormModal extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> Supplier_Id;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

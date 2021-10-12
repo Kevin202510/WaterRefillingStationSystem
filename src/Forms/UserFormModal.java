@@ -8,9 +8,16 @@ package Forms;
 import Controllers.ContainerController;
 import Controllers.UserController;
 import Models.UserModel;
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,6 +39,8 @@ public class UserFormModal extends javax.swing.JPanel {
     static JTable userTable;
     static JFrame out;
     static JPanel lalagyanan;
+    Webcam wc;
+    String path = System.getProperty("user.dir");
     
     public UserFormModal(JFrame out,int btn_id,JTable userTable,JPanel lalagyanan) {
         initComponents();
@@ -39,8 +48,11 @@ public class UserFormModal extends javax.swing.JPanel {
         this.userTable = userTable;
         this.lalagyanan = lalagyanan;
         this.out = out;
+        wc = Webcam.getDefault();
+        wc.setViewSize(WebcamResolution.VGA.getSize());
         checkBtn(btn_id);
     }
+    
     private void checkBtn(int btn_id){
         if (btn_id==0) {
             updatebtn.setVisible(false);
@@ -49,7 +61,7 @@ public class UserFormModal extends javax.swing.JPanel {
             Image kev = vins.getImage().getScaledInstance(210, 120, Image.SCALE_SMOOTH);
             userProfile.setIcon(new ImageIcon(kev));
         }else{
-            userControll.getUserInfo(btn_id, userRole_id, userProfile, userFname, userMname, userLname, userDOB, userAddress, userContact, userUsername, userPassword);
+            userControll.getUserInfo(btn_id, userRole_id, profilename , userProfile, userFname, userMname, userLname, userDOB, userAddress, userContact, userUsername, userPassword);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -89,6 +101,7 @@ public class UserFormModal extends javax.swing.JPanel {
         userFname = new javax.swing.JTextField();
         userPassword = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jbtn_addpic = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 0));
 
@@ -147,11 +160,25 @@ public class UserFormModal extends javax.swing.JPanel {
 
         jLabel2.setText("First Name");
 
+        jbtn_addpic.setBackground(new java.awt.Color(0, 204, 204));
+        jbtn_addpic.setFont(new java.awt.Font("Arial Narrow", 0, 1)); // NOI18N
+        jbtn_addpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/cams.jpg"))); // NOI18N
+        jbtn_addpic.setText("1");
+        jbtn_addpic.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        jbtn_addpic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_addpicActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(262, Short.MAX_VALUE)
+                .addComponent(jbtn_addpic, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -223,7 +250,10 @@ public class UserFormModal extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jbtn_addpic, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(448, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -287,9 +317,10 @@ public class UserFormModal extends javax.swing.JPanel {
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         String profile;
-        if (profilename.getText().isEmpty()) {
-            profile = null;
+        if (profilename.getText().isEmpty() || profilename.getText() == "null") {
+            profile = "sampleuser";
         }else{
+            profilename.setText(userFname.getText());
             profile = profilename.getText();
         }
         usermodel = new UserModel(btn_id,Integer.parseInt(userRole_id.getText()),profile,userFname.getText(),userMname.getText(),
@@ -308,7 +339,7 @@ public class UserFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_deletebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        usermodel = new UserModel(0,Integer.parseInt(userRole_id.getText()),null,userFname.getText(),userMname.getText(),
+        usermodel = new UserModel(0,Integer.parseInt(userRole_id.getText()),userFname.getText(),userFname.getText(),userMname.getText(),
             userLname.getText(),df.format(userDOB.getDate()),userAddress.getText(),userContact.getText(),userUsername.getText(),userPassword.getText());
         if (userControll.addUser(usermodel,userTable)) {
             out.dispose();
@@ -316,6 +347,36 @@ public class UserFormModal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_addbtnActionPerformed
 
+    private void jbtn_addpicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_addpicActionPerformed
+         if (jbtn_addpic.getText().equals("1")) {
+            wc.open();
+            jbtn_addpic.setText("0");
+            new VideoFeeder().start();  
+        }else{
+            try {
+                ImageIO.write(wc.getImage(), "JPG", new File(path + "/Images/Profile/" + userFname.getText() + ".jpg"));
+               wc.close();
+           } catch (IOException ex) {
+               java.util.logging.Logger.getLogger(UserFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+           }
+        }
+    }//GEN-LAST:event_jbtn_addpicActionPerformed
+
+    Image img;
+    
+    class VideoFeeder extends Thread {
+    
+          public void run(){
+          
+               while(true){
+                   img = wc.getImage();
+                   userProfile.setIcon(new ImageIcon(img));
+//                       Thread.sleep(5000);
+                }
+          
+          }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addbtn;
@@ -330,6 +391,7 @@ public class UserFormModal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jbtn_addpic;
     private javax.swing.JTextField profilename;
     public javax.swing.JButton updatebtn;
     private javax.swing.JTextField userAddress;

@@ -5,6 +5,8 @@
  */
 package Models;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin Felix Caluag
@@ -33,7 +35,7 @@ public class UserModel {
         return Role_id;
     }public String getProfile(){
         if (Profile == null) {
-           Profile = "sampleuser.jpg";
+           Profile = "sampleuser";
         }
         return Profile;
     }public String getFname(){
@@ -64,7 +66,7 @@ public class UserModel {
         }else if(Role_id==2) {
             Role_displayname = "Owner";
         }else{
-            Role_displayname = "Employee";
+            Role_displayname = "Refiller";
         }
         return Role_displayname;
         

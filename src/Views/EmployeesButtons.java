@@ -19,7 +19,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
     ButtonsController buttonControll;
     JPanel lalagyanan;
     
-    public EmployeesButtons(JPanel lalagyanan) {
+    public EmployeesButtons(JPanel lalagyanan,String Profile) {
         initComponents();
         buttonControll = new ButtonsController(lalagyanan);
         buttonControll.DashboardButton(dashboard);

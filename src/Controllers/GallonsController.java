@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -108,7 +109,7 @@ public class GallonsController {
      }
      
          public void getGallonInfo(int id,JTextField Name,JTextField Size,JTextField Color,JTextField Gallon_Type,JComboBox<String> Supplier_Id,
-                            JTextField Date_delivered ,JTextField Price , JTextField Stocks){
+                            JDateChooser Date_delivered ,JTextField Price , JSpinner Stocks){
         String kuninAnggallon = "SELECT * FROM gallons where Gallon_Code = '" + id + "'";
         
         try {
@@ -122,15 +123,27 @@ public class GallonsController {
                 Color.setText(rs.getString("Color"));
                 Gallon_Type.setText(rs.getString("Gallon_Type"));
 //                Supplier_id.setText(String.valueOf(rs.getInt("Supplier_id")));
-                Date_delivered.setText(rs.getString("Date_delivered"));
+                Date_delivered.setDate(rs.getDate("Date_delivered"));
               Price.setText(String.valueOf(rs.getInt("Price")));
-              Stocks.setText(String.valueOf(rs.getInt("Stocks")));
+              Stocks.setValue(rs.getInt("Stocks"));
                }
         }   
          catch (SQLException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
+         
+    public void clearGallonForm(JTextField Name,JTextField Size,JTextField Color,JTextField Gallon_Type,JComboBox Supplier_Id,
+                            JDateChooser Date_delivered ,JTextField Price , JSpinner Stocks){
+        Name.setText("");
+        Size.setText("");
+        Color.setText("");
+        Gallon_Type.setText("");
+        Supplier_Id.setSelectedIndex(0);
+        Date_delivered.setDate(null);
+        Price.setText("");
+        Stocks.setValue(0);
+    }
      
      public boolean updateGallon(GallonsModel gallonsmodel,JTable gallontable){
         try {
@@ -138,8 +151,8 @@ public class GallonsController {
             PreparedStatement st = con.prepareStatement(updates);
             st.setInt(1, gallonsmodel.getGallon_Code());
             st.setString(2, gallonsmodel.getName());
-            st.setString(3, gallonsmodel.getColor());
-            st.setString(4, gallonsmodel.getSize());
+            st.setString(3, gallonsmodel.getSize());
+            st.setString(4, gallonsmodel.getColor());
             st.setString(5, gallonsmodel.getGallon_Type());
             st.setInt(6, gallonsmodel.getSupplier_id());
             st.setString(7, gallonsmodel.getDate_delivered());

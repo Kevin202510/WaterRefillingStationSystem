@@ -17,20 +17,22 @@ import javax.swing.JOptionPane;
 public class MainDashboard extends javax.swing.JFrame {
 
     
-    static int Role_id;
+    static int Role_id,userID;
+    static String Profile;
     
-    public MainDashboard(int Role_id) {
+    public MainDashboard(int Role_id,String Profile,int userID) {
         initComponents();
         this.Role_id = Role_id;
+        this.userID = userID;
+        this.Profile = Profile;
         checkRole(Role_id);
-//        new ContainerController(jpnl_container,new Dashboard());
     }
     
     private void checkRole(int Role_id){
         if (Role_id==1 || Role_id==2) {
-            new ContainerController(jpnl_userButtons,new DeveloperAndAdminButtons(jpnl_container));
+            new ContainerController(jpnl_userButtons,new DeveloperAndAdminButtons(jpnl_container,jpnl_userButtons,Profile,userID));
         }else if(Role_id==3) {
-            new ContainerController(jpnl_userButtons,new EmployeesButtons(jpnl_container));
+            new ContainerController(jpnl_userButtons,new EmployeesButtons(jpnl_container,Profile));
         }
     }
 /**
@@ -52,6 +54,7 @@ public class MainDashboard extends javax.swing.JFrame {
         jpnl_container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,7 +86,8 @@ public class MainDashboard extends javax.swing.JFrame {
         getContentPane().add(jpnl_userButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 700));
 
         jpnl_container.setBackground(new java.awt.Color(255, 255, 255));
-        jpnl_container.setPreferredSize(new java.awt.Dimension(1100, 600));
+        jpnl_container.setPreferredSize(new java.awt.Dimension(1100, 640));
+        jpnl_container.setRequestFocusEnabled(false);
         jpnl_container.setLayout(new javax.swing.BoxLayout(jpnl_container, javax.swing.BoxLayout.LINE_AXIS));
         getContentPane().add(jpnl_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 1100, 640));
 
@@ -130,14 +134,12 @@ public class MainDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainDashboard(Role_id).setVisible(true);
+                new MainDashboard(Role_id,Profile,userID).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_close;
-    private javax.swing.JButton btn_close1;
     private javax.swing.JButton btn_close2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
