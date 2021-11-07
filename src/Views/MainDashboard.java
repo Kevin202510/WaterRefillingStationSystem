@@ -7,7 +7,12 @@ package Views;
 
 import Controllers.ButtonsController;
 import Controllers.ContainerController;
+import Controllers.SQLController;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,20 +26,34 @@ public class MainDashboard extends javax.swing.JFrame {
     
     static int Role_id,userID;
     static String Profile;
+    SQLController sql = new SQLController();
+    Connection con = sql.getConnection();
     
-    public MainDashboard(int Role_id,String Profile,int userID) {
+    public MainDashboard(int userID) {
         initComponents();
-        this.Role_id = Role_id;
+        JOptionPane.showMessageDialog(null,"asd");
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM users where Id = '" + userID + "'");
+            
+            while(rs.next()){
+                this.Role_id = rs.getInt("Role_id");
+                this.Profile = rs.getString("Profile");
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        
         this.userID = userID;
-        this.Profile = Profile;
         checkRole(Role_id);
     }
     
     private void checkRole(int Role_id){
         if (Role_id==1 || Role_id==2) {
-            new ContainerController(jpnl_userButtons,new DeveloperAndAdminButtons(jpnl_container,jpnl_userButtons,Profile,userID));
+            new ContainerController(jpnl_userButtons,new DeveloperAndAdminButtons(this,jpnl_container,jpnl_userButtons,Profile,userID));
         }else if(Role_id==3) {
-            new ContainerController(jpnl_userButtons,new EmployeesButtons(jpnl_container,Profile));
+            new ContainerController(jpnl_userButtons,new EmployeesButtons(this,jpnl_container,Profile));
         }
     }
 /**
@@ -151,7 +170,7 @@ public class MainDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainDashboard(Role_id,Profile,userID).setVisible(true);
+                new MainDashboard(userID).setVisible(true);
             }
         });
     }

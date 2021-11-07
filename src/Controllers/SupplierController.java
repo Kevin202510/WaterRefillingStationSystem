@@ -16,50 +16,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -72,9 +31,11 @@ public class SupplierController {
     SQLController sql = new SQLController();
     Connection con = sql.getConnection();
     
-      String kuninLahatNgSupplier = "SELECT * FROM suppliers";
+    String kuninLahatNgSupplier = "SELECT * FROM suppliers";
+    String magdagdagNgSupplier = "INSERT INTO suppliers(Id,Fname,Mname,Lname,Company_Name,Company_Address,Contact) VALUES (?,?,?,?,?,?,?)";
+    String kuninAngSupplierInfo = "SELECT * FROM suppliers where Id = ?";
+    String baguhinAngSupplier = "UPDATE suppliers SET Id = ? , Fname = ? ,Mname = ?, Lname = ?,Company_Name = ?,Company_Address = ?,Contact = ? WHERE Id = ?";
     String tanggalinAngSupplier = "DELETE FROM suppliers WHERE Id = ?";
-    String magdagdagNgSupplier = "INSERT INTO suppliers(Id,Fname,Lname,Mname,Company_name) VALUES (?,?,?,?,?)";
     
  
     
@@ -82,7 +43,7 @@ public class SupplierController {
         try {
             supplierList();
         } catch (SQLException ex) {
-            Logger.getLogger(SupplierController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
     }
     
@@ -100,15 +61,18 @@ public class SupplierController {
     
 
      public void showSuppliers(JTable suppliersTable){
-          DefaultTableModel model = (DefaultTableModel)suppliersTable.getModel();
-         Object[] row = new Object[8];
-         for (int i = 0; i < supplierlist.size(); i++) {
-             row[0] = supplierlist.get(i).getID();
-             row[1] = "<html>"+supplierlist.get(i).getFullname()+"</html> ";
-             row[2] = supplierlist.get(i).getCompany_name();
-             model.addRow(row);
-         }
+        DefaultTableModel model = (DefaultTableModel)suppliersTable.getModel();
+        Object[] row = new Object[5];
+        for (int i = 0; i < supplierlist.size(); i++) {
+            row[0] = supplierlist.get(i).getID();
+            row[1] = "<html>"+supplierlist.get(i).getFullname()+"</html> ";
+            row[2] = supplierlist.get(i).getCompany_name();
+            row[3] = supplierlist.get(i).getCompany_Address();
+            row[4] = supplierlist.get(i).getContact();
+            model.addRow(row);
+        }
     }
+     
      public boolean addSupplier(SupplierModel suppliermodel,JTable suppliersTable){
         try {
             PreparedStatement st = con.prepareStatement(magdagdagNgSupplier);
@@ -117,76 +81,74 @@ public class SupplierController {
             st.setString(3, suppliermodel.getMname());
             st.setString(4, suppliermodel.getLname());
             st.setString(5, suppliermodel.getCompany_name());
+            st.setString(6, suppliermodel.getCompany_Address());
+            st.setString(7, suppliermodel.getContact());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)suppliersTable.getModel();
                 model.setRowCount(0);
-//                userList();
-//                showUsers(userTable);
             } else {
-//                new Alerts("error").setVisible(true);
-//                return false;
+                return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SupplierController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }
-      public void getSpplierInfo(int Id,JTextField Fname,JTextField Mname,JTextField Lname,JTextField Company_name){
-        String kuninAnggallon = "SELECT * FROM suppliers where Id = '" + Id + "'";
-        
+     
+      public void getSpplierInfo(int Id,JTextField Fname,JTextField Mname,JTextField Lname,JTextField Company_name,JTextField Company_Address,JTextField Contact){
         try {
-                Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery(kuninAnggallon);
-        
-               // Role_id.setText(String.valueOf(rs.getInt("role_id")));
-               while(rs.next()){
-                Fname.setText(rs.getString("Fname"));
-                Mname.setText(rs.getString("Mname"));
-                Lname.setText(rs.getString("Lname"));
-                Company_name.setText(rs.getString("Company_name"));
-//              
-               }
+                PreparedStatement st = con.prepareStatement(kuninAngSupplierInfo);
+                st.setInt(1, Id);
+                ResultSet rs = st.executeQuery();
+                while(rs.next()){
+                    Fname.setText(rs.getString("Fname"));
+                    Mname.setText(rs.getString("Mname"));
+                    Lname.setText(rs.getString("Lname"));
+                    Company_name.setText(rs.getString("Company_name"));
+                    Company_Address.setText(rs.getString("Company_Address"));
+                    Contact.setText(rs.getString("Contact"));    
+                }
         }   
          catch (SQLException ex) {
-            Logger.getLogger(SupplierController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
-        
-        
+         
      }
       
       
-       public void clearSuppliertForm(JTextField Fname,JTextField Mname,JTextField Lname,JTextField Company_name){
-                Fname.setText("");
-                Mname.setText("");
-                Lname.setText("");
-                Company_name.setText("");;
+       public void clearSuppliertForm(JTextField Fname,JTextField Mname,JTextField Lname,JTextField Company_name,JTextField Company_Address,JTextField Contact){
+        Fname.setText("");
+        Mname.setText("");
+        Lname.setText("");
+        Company_name.setText("");
+        Company_Address.setText("");
+        Contact.setText("");
     }
-       
-       
-      public boolean updateSupplier(SupplierModel suppliermodel,JTable suppliersTable){
-        try {
-            String updates = "UPDATE suppliers SET Id = ? , Fname = ? ,Mname = ?, Lname = ?,Company_name = ? WHERE Id = '" +suppliermodel.getID()+ "'";
-            PreparedStatement st = con.prepareStatement(updates);
+        
+    public boolean updateSupplier(SupplierModel suppliermodel,JTable suppliersTable){
+      try {
+            PreparedStatement st = con.prepareStatement(baguhinAngSupplier);
             st.setInt(1, suppliermodel.getID());
             st.setString(2, suppliermodel.getFname());
             st.setString(3, suppliermodel.getMname());
             st.setString(4, suppliermodel.getLname());
             st.setString(5, suppliermodel.getCompany_name());
+            st.setString(6, suppliermodel.getCompany_Address());
+            st.setString(7, suppliermodel.getContact());
+            st.setInt(8, suppliermodel.getID());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)suppliersTable.getModel();
                 model.setRowCount(0);
-            //            new Alerts("update").setVisible(true);
             }else{
-//                new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SupplierController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
-        return true;
-     }
+      return true;
+    }
      
      public boolean deleteSupplier(int id,JTable suppliersTable){
         try {
@@ -196,13 +158,11 @@ public class SupplierController {
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)suppliersTable.getModel();
                 model.setRowCount(0);
-//            new Alerts("delete").setVisible(true);
             }else{
-//            new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SupplierController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }

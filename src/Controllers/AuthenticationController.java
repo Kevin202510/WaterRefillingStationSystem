@@ -60,7 +60,7 @@ public class AuthenticationController {
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 frametoClose.dispose();
-                new MainDashboard(rs.getInt("Role_id"),rs.getString("Profile"),rs.getInt("users.Id")).setVisible(true);
+                new MainDashboard(rs.getInt("users.Id")).setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(frametoClose,"Username And Password is Incorrect ! ", "Error", JOptionPane.ERROR_MESSAGE);
             }

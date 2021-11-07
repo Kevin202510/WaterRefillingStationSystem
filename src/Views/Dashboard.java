@@ -6,6 +6,7 @@
 package Views;
 
 import Controllers.ButtonsController;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -21,9 +22,9 @@ public class Dashboard extends javax.swing.JPanel {
     JPanel lalagyanan;
     ButtonsController buttonControll;
     
-    public Dashboard(JPanel lalagyanan) {
+    public Dashboard(JFrame maindash, JPanel lalagyanan) {
         initComponents();
-        buttonControll = new ButtonsController(lalagyanan);
+        buttonControll = new ButtonsController(maindash,lalagyanan);
     }
 
     /**

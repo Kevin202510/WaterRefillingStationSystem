@@ -40,9 +40,7 @@ public class FormsControllers {
     }
     
     private void checkPanelNum(){
-        if (containernum==2) {
-            new ContainerController(lalagyananForms,new UserFormModal(out,btn_id,jtablename,lalagyanan));
-        }else if (containernum==3) {
+        if (containernum==3) {
             new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==4) {
             new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));

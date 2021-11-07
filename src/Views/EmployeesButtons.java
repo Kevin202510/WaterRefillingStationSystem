@@ -6,6 +6,7 @@ package Views;
  * and open the template in the editor.
  */
 import Controllers.ButtonsController;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 /**
  *
@@ -19,9 +20,9 @@ public class EmployeesButtons extends javax.swing.JPanel {
     ButtonsController buttonControll;
     JPanel lalagyanan;
     
-    public EmployeesButtons(JPanel lalagyanan,String Profile) {
+    public EmployeesButtons(JFrame maindash,JPanel lalagyanan,String Profile) {
         initComponents();
-        buttonControll = new ButtonsController(lalagyanan);
+        buttonControll = new ButtonsController(maindash,lalagyanan);
         buttonControll.DashboardButton(dashboard);
     }
 

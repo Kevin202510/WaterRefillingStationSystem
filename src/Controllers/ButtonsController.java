@@ -17,6 +17,7 @@ import Views.Supplier;
 import Views.Users;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,13 +28,15 @@ import javax.swing.JPanel;
  */
 public class ButtonsController {
     JPanel lalagyanan;
+    JFrame maindash;
     
-    public ButtonsController(JPanel lalagyanan){
+    public ButtonsController(JFrame maindash,JPanel lalagyanan){
         this.lalagyanan=lalagyanan;
+        this.maindash = maindash;
     }
     
     public void DashboardButton(JLabel dashboard){
-        new ContainerController(lalagyanan,new Dashboard(lalagyanan));
+        new ContainerController(lalagyanan,new Dashboard(maindash,lalagyanan));
     }
     
     public void SalesButton(JLabel sales){
@@ -45,7 +48,7 @@ public class ButtonsController {
     }
     
     public void UsersButton(JLabel users){
-        new ContainerController(lalagyanan,new Users(lalagyanan));
+        new ContainerController(lalagyanan,new Users(maindash,lalagyanan));
     }
     
 //    public void EmployeesButton(JLabel employees){

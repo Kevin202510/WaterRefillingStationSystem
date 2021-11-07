@@ -9,6 +9,7 @@ import Controllers.ButtonsController;
 import Forms.FrameFormModal;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -27,11 +28,11 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     String path = System.getProperty("user.dir");
     int userID;
     
-    public DeveloperAndAdminButtons(JPanel lalagyanan,JPanel lalagyananbut,String Profile,int userID) {
+    public DeveloperAndAdminButtons(JFrame maindash,JPanel lalagyanan,JPanel lalagyananbut,String Profile,int userID) {
         initComponents();
         this.lalagyanan = lalagyanan;
         this.lalagyananbut = lalagyananbut;
-        buttonControll = new ButtonsController(lalagyanan);
+        buttonControll = new ButtonsController(maindash,lalagyanan);
         buttonControll.DashboardButton(dashboard);
         ImageIcon imageicon = new ImageIcon(path + "/Images/Profile/" + Profile + ".jpg");
         Image img = imageicon.getImage().getScaledInstance(250, 110, Image.SCALE_SMOOTH);

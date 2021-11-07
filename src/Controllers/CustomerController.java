@@ -33,8 +33,10 @@ public class CustomerController {
             Connection con = sql.getConnection();
     
              String kuninLahatNgCustomer = "SELECT * FROM customers";
-             String magdagdagNgCustomer = "INSERT INTO customers(Fname,Mname,Lname,Address,Contact,isBorrowed_Gallons,Gallon_Id,Gallon_Quantity,isSuki) VALUES (?,?,?,?,?,?,?,?,?)";
+             String magdagdagNgCustomer = "INSERT INTO customers(Fname,Mname,Lname,Address,Contact,isSuki) VALUES (?,?,?,?,?,?)";
+             String baguhinAngCustomer = "UPDATE customers SET Fname = ?, Mname = ?,Lname = ?,Address = ?,Contact = ?,isSuki = ? WHERE ID = ?";
              String tanggalinAngCustomer = "DELETE FROM customers WHERE ID = ?";
+             
              
     public CustomerController(){
         try {
@@ -43,6 +45,7 @@ public class CustomerController {
             Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     
      public ArrayList<CustomerModel> customerlist() throws SQLException{
         Statement st = con.createStatement();
@@ -64,8 +67,7 @@ public class CustomerController {
             row[1] = "<html>"+customerlist.get(i).getFullname()+"</html> ";
             row[2] = customerlist.get(i).getAddress();
             row[3] = customerlist.get(i).getContact();
-            row[7] = customerlist.get(i).getisSuki();
-//            row[7] = test;
+            row[4] = customerlist.get(i).getisSuki();
             model.addRow(row);
          }
     }
@@ -78,26 +80,22 @@ public class CustomerController {
             st.setString(3, customermodel.getLname());
             st.setString(4, customermodel.getAddress());
             st.setString(5, customermodel.getContact());
-//            JOptionPane.showMessageDialog(null,customermodel.getGallon_Id());
-            st.setInt(9, customermodel.getSuki());
+            st.setInt(6, customermodel.getSuki());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)customersTable.getModel();
                 model.setRowCount(0);
-//                userList();
-//                showUsers(userTable);
             } else {
-//                new Alerts("error").setVisible(true);
-//                return false;
+                return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }
       
-       public void getCustomerInfo(int id,JTextField Fname,JTextField Mname,JTextField Lname,
-                                JTextField Address,JTextField Contact,JComboBox isBorrowed_Gallons,JComboBox Gallon_Id,JTextField Gallon_Quantity,JComboBox isSuki){
+    public void getCustomerInfo(int id,JTextField Fname,JTextField Mname,JTextField Lname,
+                             JTextField Address,JTextField Contact,JComboBox isSuki){
         String kuninAngCustomer = "SELECT * FROM customers where ID = '" + id + "'";
         try {
             Statement st = con.createStatement();
@@ -108,42 +106,38 @@ public class CustomerController {
                 Lname.setText(rs.getString("Lname"));
                 Address.setText(rs.getString("Address"));
                 Contact.setText(rs.getString("Contact"));
-                isBorrowed_Gallons.setSelectedIndex(rs.getInt("isBorrowed_Gallons")-1);
-                Gallon_Id.setSelectedIndex(rs.getInt("Gallon_Id")-1);
-                Gallon_Quantity.setText(String.valueOf(rs.getInt("Gallon_Quantity")));
                 isSuki.setSelectedIndex(rs.getInt("isSuki")-1);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
-     }
+    }
        
-       public boolean updateCustomer(CustomerModel customermodel,JTable customertable){
+    public boolean updateCustomer(CustomerModel customermodel,JTable customertable){
         try {
-            String updates = "UPDATE customers SET Fname = ?, Mname = ?,Lname = ?,Address = ?,Contact = ?,isBorrowed_Gallons = ?,Gallon_Id = ?,Gallon_Quantity = ?,isSuki = ? WHERE ID = '" + customermodel.getID() + "'";
-            PreparedStatement st = con.prepareStatement(updates);
+            PreparedStatement st = con.prepareStatement(baguhinAngCustomer);
             st.setString(1, customermodel.getFname());
             st.setString(2, customermodel.getMname());
             st.setString(3, customermodel.getLname());
             st.setString(4, customermodel.getAddress());
             st.setString(5, customermodel.getContact());
-            st.setInt(9, customermodel.getSuki());
-           
+            st.setInt(6, customermodel.getSuki());
+            st.setInt(7, customermodel.getID());
+
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)customertable.getModel();
                 model.setRowCount(0);
-            //            new Alerts("update").setVisible(true);
             }else{
-//                new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
-        return true;
-     }
-        public boolean deleteCustomer(int id,JTable customertable){
+         return true;
+    }
+    
+    public boolean deleteCustomer(int id,JTable customertable){
         try {
             PreparedStatement st = con.prepareStatement(tanggalinAngCustomer);
             st.setInt(1, id);
@@ -151,29 +145,26 @@ public class CustomerController {
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)customertable.getModel();
                 model.setRowCount(0);
-//            new Alerts("delete").setVisible(true);
             }else{
-//            new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
-     }
-         public void showGallonId(JComboBox gallons){
+    }
+    
+    public void showGallonId(JComboBox gallons){
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM `gallons`");
-            
+
             while(rs.next()){
                 gallons.addItem(rs.getString("Name"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
-     
-     
+    } 
 }
 

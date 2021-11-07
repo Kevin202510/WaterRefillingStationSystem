@@ -154,7 +154,7 @@ public final class DeliveriesController {
 //                return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
     }

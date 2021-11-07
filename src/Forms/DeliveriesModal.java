@@ -10,7 +10,7 @@ import Controllers.CustomerController;
 import Controllers.DeliveriesController;
 import Controllers.GallonsController;
 import Controllers.PromosController;
-import Controllers.UserController;
+import Controllers.UsersController;
 import Models.DeliveriesModel;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -36,7 +36,7 @@ public class DeliveriesModal extends javax.swing.JPanel {
     DeliveriesController deliveriesControll = new DeliveriesController();
     CustomerController customerControll = new CustomerController();
     PromosController promoControll = new PromosController();
-    UserController userControll = new UserController();
+    UsersController userControll = new UsersController();
     GallonsController gallonsControll = new GallonsController();
     
     static JTable promoTable;

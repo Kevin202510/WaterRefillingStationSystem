@@ -8,7 +8,7 @@ package Views;
 import Controllers.CustomerController;
 import Controllers.PromosController;
 import Controllers.TransactionController;
-import Controllers.UserController;
+import Controllers.UsersController;
 import javax.swing.JPanel;
 
 /**
@@ -22,7 +22,7 @@ public class Transaction extends javax.swing.JPanel {
      */
     CustomerController customerControll = new CustomerController();
     PromosController promoControll = new PromosController();
-    UserController userControll = new UserController();
+    UsersController userControll = new UsersController();
     TransactionController transactionControll = new TransactionController();
     
     JPanel lalagyanan;

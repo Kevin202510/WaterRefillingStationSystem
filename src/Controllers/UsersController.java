@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -33,7 +32,7 @@ import jroundborder.JLabelRound;
  *
  * @author Kevin Felix Caluag
  */
-public class UserController {
+public class UsersController {
     
     String path = System.getProperty("user.dir");
     ArrayList<UserModel> userList = new ArrayList<>();
@@ -42,14 +41,14 @@ public class UserController {
     Connection con = sql.getConnection();
     
     String kuninLahatNgUser = "SELECT * FROM users";
-    String tanggalinAngUser = "DELETE FROM users WHERE Id = ?";
     String magdagdagNgUser = "INSERT INTO users(Role_id,Profile,Fname,Mname,Lname,DOB,Address,Contact,Username,Password) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    String tanggalinAngUser = "DELETE FROM users WHERE Id = ?";
     
-    public UserController(){
+    public UsersController(){
         try {
             userList();
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -64,6 +63,21 @@ public class UserController {
             userList.add(users);
         }
         return userList;   
+    }
+    
+    public void getUserLoginInfo(int role_id,String profile,int userId){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM users where Id = '" + userId + "'");
+            
+            while(rs.next()){
+                role_id = rs.getInt("Role_id");
+                profile = rs.getString("Profile");
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
     }
     
 
@@ -86,7 +100,6 @@ public class UserController {
             newIdentifiers[5] = userList.get(i).getAddress();
             newIdentifiers[6] = userList.get(i).getContact();
             newIdentifiers[7] = userList.get(i).getUsername();
-//            row[7] = test;
             model.addRow(newIdentifiers);
          }
     }
@@ -109,14 +122,11 @@ public class UserController {
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)userTable.getModel();
                 model.setRowCount(0);
-//                userList();
-//                showUsers(userTable);
             } else {
-//                new Alerts("error").setVisible(true);
-//                return false;
+                return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }
@@ -168,7 +178,7 @@ public class UserController {
                 Password.setText(authControll.decrypt(rs.getString("Password")));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
      }
      
@@ -191,13 +201,11 @@ public class UserController {
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)usertable.getModel();
                 model.setRowCount(0);
-            //            new Alerts("update").setVisible(true);
             }else{
-//                new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }
@@ -210,19 +218,13 @@ public class UserController {
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)usertable.getModel();
                 model.setRowCount(0);
-//            new Alerts("delete").setVisible(true);
             }else{
-//            new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
-     }
-     
-     public void formatDate(){
-         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
      }
      
      public void showRoles(JComboBox roles){
@@ -234,7 +236,7 @@ public class UserController {
                 roles.addItem(rs.getString("Display_name"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
      }
 }

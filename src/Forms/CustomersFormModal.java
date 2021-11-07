@@ -48,7 +48,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         this.out = out;
         initComponents();
-        customersControll.showGallonId(customerGallonId);
        checkBtn(btn_id);
    }
     
@@ -57,7 +56,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
         }else{
-            customersControll. getCustomerInfo(btn_id,customerFname, customerMname, customerLname, customerAddress, customerContact,customerIsBorrowed,customerGallonId, customerGallonQuantity, customerSuki);
+            customersControll. getCustomerInfo(btn_id,customerFname, customerMname, customerLname, customerAddress, customerContact,customerSuki);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -84,18 +83,12 @@ public class CustomersFormModal extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         customerContact = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        customerGallonQuantity = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         customerMname = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         customerLname = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        customerGallonId = new javax.swing.JComboBox<>();
         customerSuki = new javax.swing.JComboBox<>();
-        customerIsBorrowed = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.setMinimumSize(new java.awt.Dimension(350, 600));
@@ -108,7 +101,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 100, 43));
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 100, 43));
 
         deletebtn.setText("DELETE");
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +109,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 100, 43));
+        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 100, 43));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +117,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 100, 43));
+        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 100, 43));
         jPanel1.add(customerFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, 30));
 
         jLabel2.setText("First Name");
@@ -141,15 +134,8 @@ public class CustomersFormModal extends javax.swing.JPanel {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 80, 30));
         jPanel1.add(customerContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 190, 30));
 
-        jLabel6.setText("isBorrowed");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
-
         jLabel7.setText("Suki");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 80, 30));
-        jPanel1.add(customerGallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 190, 30));
-
-        jLabel8.setText("Gallon Quantity");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 80, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
         jPanel1.add(customerMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 190, 30));
 
         jLabel9.setText("Middle Name");
@@ -166,16 +152,8 @@ public class CustomersFormModal extends javax.swing.JPanel {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 40, 30));
         jPanel1.add(customerLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 190, 30));
 
-        jLabel10.setText("Gallon Id");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
-
-        jPanel1.add(customerGallonId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 190, 30));
-
         customerSuki.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suki", "Not Suki" }));
-        jPanel1.add(customerSuki, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 190, 30));
-
-        customerIsBorrowed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Is Barrow Gallon", "Not Barrow Gallon" }));
-        jPanel1.add(customerIsBorrowed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 190, 30));
+        jPanel1.add(customerSuki, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -199,9 +177,29 @@ public class CustomersFormModal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        out.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
+        customermodel = new CustomerModel(0,customerFname.getText(),customerMname.getText(),customerLname.getText(),
+            customerAddress.getText(),customerContact.getText(),customerSuki.getSelectedIndex()+1);
+        if (customersControll.addCustomer(customermodel,customersTable)) {
+            out.dispose();
+            new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
+        }
+    }//GEN-LAST:event_addbtnActionPerformed
+
+    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
+        if(customersControll.deleteCustomer(btn_id,customersTable)){
+            out.dispose();
+            new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
+        }
+    }//GEN-LAST:event_deletebtnActionPerformed
+
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
 
-            customermodel = new CustomerModel(btn_id,customerFname.getText(),
+        customermodel = new CustomerModel(btn_id,customerFname.getText(),
             customerMname.getText(),customerLname.getText(),customerAddress.getText(),customerContact.getText(),customerSuki.getSelectedIndex()+1);
         if (customersControll.updateCustomer(customermodel, customersTable)) {
             out.dispose();
@@ -209,50 +207,24 @@ public class CustomersFormModal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
-    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
-          if(customersControll.deleteCustomer(btn_id,customersTable)){
-            out.dispose();
-            new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
-        }
-    }//GEN-LAST:event_deletebtnActionPerformed
-
-    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        customermodel = new CustomerModel(0,customerFname.getText(),customerMname.getText(),customerLname.getText(),
-                customerAddress.getText(),customerContact.getText(),customerSuki.getSelectedIndex()+1);
-        if (customersControll.addCustomer(customermodel,customersTable)) {
-            out.dispose();
-            new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
-        }
-    }//GEN-LAST:event_addbtnActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        out.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton addbtn;
+    private javax.swing.JButton addbtn;
     private javax.swing.JTextField customerAddress;
     private javax.swing.JTextField customerContact;
     private javax.swing.JTextField customerFname;
-    private javax.swing.JComboBox<String> customerGallonId;
-    private javax.swing.JTextField customerGallonQuantity;
-    private javax.swing.JComboBox<String> customerIsBorrowed;
     private javax.swing.JTextField customerLname;
     private javax.swing.JTextField customerMname;
     private javax.swing.JComboBox<String> customerSuki;
-    public javax.swing.JButton deletebtn;
+    private javax.swing.JButton deletebtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JButton updatebtn;
+    private javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

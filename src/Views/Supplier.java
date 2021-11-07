@@ -53,11 +53,11 @@ public class Supplier extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Full Name", "Company Name"
+                "Id", "Full Name", "Company Name", "Company Address", "Contact"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

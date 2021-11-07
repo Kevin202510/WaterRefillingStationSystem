@@ -44,7 +44,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
         }else{
-           suliersControll.getSpplierInfo(btn_id, Fname,Mname, Lname, Company_name);
+           suliersControll.getSpplierInfo(btn_id, Fname,Mname, Lname, Company_name, Company_Address, Contact);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -115,13 +115,13 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 30));
 
         jLabel8.setText("Last Name");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 80, 30));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 80, 30));
 
-        jLabel9.setText("Midle Name");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 30));
+        jLabel9.setText("Middle Name");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 30));
 
         jLabel10.setText("Company Name");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 80, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 30));
 
         Fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,9 +129,9 @@ public class SuppliersFormModal extends javax.swing.JPanel {
             }
         });
         add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 220, 30));
-        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 220, 30));
-        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 220, 30));
-        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 220, 30));
+        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 220, 30));
+        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 220, 30));
+        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 220, 30));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("X");
@@ -144,16 +144,16 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
 
         jLabel11.setText("Company Address");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 90, 30));
-        add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 220, 30));
-        add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 220, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 90, 30));
+        add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 220, 30));
+        add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 220, 30));
 
         jLabel12.setText("Contact");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 90, 30));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 90, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getName());
+suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getText());
         if (suliersControll.updateSupplier(suppliermodel,suppliersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
@@ -161,7 +161,7 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-      suppliermodel = new SupplierModel(0,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getName());
+      suppliermodel = new SupplierModel(0,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getText());
         if (suliersControll.addSupplier(suppliermodel,suppliersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));

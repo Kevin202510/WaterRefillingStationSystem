@@ -5,6 +5,7 @@
  */
 package Models;
 
+import Controllers.PublicFunctions;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,16 +13,18 @@ import javax.swing.JOptionPane;
  * @author Kevin Felix Caluag
  */
 public class UserModel {
+    
+    PublicFunctions publicFunction = new PublicFunctions();
     private int Id,Role_id;
     private String Role_displayname,Fname,Mname,Lname,Address,DOB,Contact,Username,Password,Profile;
     
     public UserModel(int Id,int Role_id,String Profile,String Fname,String Mname,String Lname,String DOB,String Address,String Contact,String Username,String Password){
         this.Id=Id;
         this.Role_id=Role_id;
-        this.Fname=Fname;
-        this.Mname=Mname;
-        this.Lname=Lname;
-        this.Address=Address;
+        this.Fname=publicFunction.toUpperCase1stLetter(Fname);
+        this.Mname=publicFunction.toUpperCase1stLetter(Mname);
+        this.Lname=publicFunction.toUpperCase1stLetter(Lname);
+        this.Address=publicFunction.toUpperCase1stLetter(Address);
         this.DOB=DOB;
         this.Contact=Contact;
         this.Username=Username;

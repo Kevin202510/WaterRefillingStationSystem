@@ -6,8 +6,10 @@
 package Forms;
 
 import Controllers.ContainerController;
-import Controllers.UserController;
+import Controllers.UsersController;
 import Models.UserModel;
+import Views.Authentication;
+import Views.MainDashboard;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Image;
@@ -33,19 +35,20 @@ public class UserFormModal extends javax.swing.JPanel {
     static int btn_id;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     UserModel usermodel;
-    UserController userControll = new UserController();
+    UsersController userControll = new UsersController();
     Webcam wc;
     String path = System.getProperty("user.dir");
     static JTable userTable;
-    static JFrame out;
+    static JFrame out,maindash;
     static JPanel lalagyanan;
     
-    public UserFormModal(JFrame out,int btn_id,JTable userTable,JPanel lalagyanan) {
+    public UserFormModal(JFrame out,int btn_id,JTable userTable,JPanel lalagyanan,JFrame maindash) {
         initComponents();
         this.btn_id = btn_id;
         this.userTable = userTable;
         this.lalagyanan = lalagyanan;
         this.out = out;
+        this.maindash = maindash;
         userControll.showRoles(userRole_id);
         wc = Webcam.getDefault();
         wc.setViewSize(WebcamResolution.VGA.getSize());
@@ -224,8 +227,7 @@ public class UserFormModal extends javax.swing.JPanel {
             userLname.getText(),df.format(userDOB.getDate()),userAddress.getText(),userContact.getText(),userUsername.getText(),userPassword.getText());
         if (userControll.updateUser(usermodel, userTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
-            //                new ContainerController(lalagyananbut,new DeveloperAndAdminButtons(lalagyanan,lalagyananbut,userControll.userList().get(selected_id-1).getProfile(),selected_id));
+            new ContainerController(lalagyanan,new Views.Users(maindash,lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
@@ -236,7 +238,7 @@ public class UserFormModal extends javax.swing.JPanel {
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if(userControll.deleteUser(btn_id,userTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users(maindash,lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
@@ -245,7 +247,7 @@ public class UserFormModal extends javax.swing.JPanel {
             userLname.getText(),df.format(userDOB.getDate()),userAddress.getText(),userContact.getText(),userUsername.getText(),String.valueOf(userPassword.getPassword()));
         if (userControll.addUser(usermodel,userTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users(maindash,lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed
 

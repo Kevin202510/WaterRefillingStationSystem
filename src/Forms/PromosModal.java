@@ -6,7 +6,7 @@
 package Forms;
 
 import Controllers.PromosController;
-import Controllers.UserController;
+import Controllers.UsersController;
 import Models.PromosModel;
 import Models.UserModel;
 import java.awt.Image;
