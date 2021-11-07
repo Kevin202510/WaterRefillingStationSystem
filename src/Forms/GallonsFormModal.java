@@ -48,7 +48,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
         }else{
-            gallonsControll.getGallonInfo(btn_id, Name, Size, Color, Gallon_Type,Supplier_Id, Date_delivered, Price, Stocks);
+            gallonsControll.getGallonInfo(btn_id, Size, Color, Gallon_Type,Supplier_Id, Date_delivered, Price, Stocks);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -78,8 +78,6 @@ public class GallonsFormModal extends javax.swing.JPanel {
         Gallon_Type = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        Name = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         Price = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -156,11 +154,6 @@ public class GallonsFormModal extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Price");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 30));
-        jPanel2.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
-
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Name");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 30));
         jPanel2.add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 30));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,7 +178,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
 
-        gallonsmodel = new GallonsModel(btn_id,Name.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
+        gallonsmodel = new GallonsModel(btn_id,Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Double.parseDouble(Price.getText()),(int) Stocks.getValue());
         if (gallonsControll.updateGallon(gallonsmodel,gallonTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
@@ -194,7 +187,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        gallonsmodel = new GallonsModel(0,Name.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
+        gallonsmodel = new GallonsModel(0,Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
         if (gallonsControll.addGallons(gallonsmodel,gallonTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
@@ -213,7 +206,6 @@ public class GallonsFormModal extends javax.swing.JPanel {
     private javax.swing.JTextField Color;
     private com.toedter.calendar.JDateChooser Date_delivered;
     private javax.swing.JTextField Gallon_Type;
-    private javax.swing.JTextField Name;
     private javax.swing.JTextField Price;
     private javax.swing.JTextField Size;
     private javax.swing.JSpinner Stocks;
@@ -227,7 +219,6 @@ public class GallonsFormModal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;

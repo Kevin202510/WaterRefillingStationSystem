@@ -8,14 +8,15 @@ package Controllers;
 import Views.Customers;
 import Views.Dashboard;
 import Views.Deliveries;
+import Views.Pos;
 import Views.Gallons;
 import Views.Promos;
 import Views.RefilledGallon;
 import Views.Sales;
 import Views.Supplier;
-import Views.Transactions;
 import Views.Users;
 import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -62,15 +63,12 @@ public class ButtonsController {
         new ContainerController(lalagyanan,new Customers(lalagyanan));
     }
      
-     public void DeliveriesButton(JLabel deliveries){
-        new ContainerController(lalagyanan,new Deliveries(lalagyanan));
+     public void PosButton(JLabel deliveries){
+        new ContainerController(lalagyanan,new Pos(lalagyanan));
     }
      
      public void RefilledGallonsButton(JLabel refilled){
         new ContainerController(lalagyanan,new RefilledGallon());
-    }
-     public void TransactionsButton(JLabel transaction){
-        new ContainerController(lalagyanan,new Transactions());
     }
      
     public void setC(JPanel kev){

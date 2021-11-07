@@ -54,7 +54,7 @@ public class GallonsController {
         GallonsModel gallons;
         
         while(rs.next()){
-            gallons=new GallonsModel(rs.getInt("Gallon_Code"),rs.getString("Name"),rs.getString("Size"),rs.getString("Color"),rs.getString("Gallon_Type"),rs.getInt("Supplier_id"),rs.getString("Date_delivered"),rs.getInt("Price"),rs.getInt("Stocks"));
+            gallons=new GallonsModel(rs.getInt("Code"),rs.getString("Size"),rs.getString("Color"),rs.getString("Gallon_Type"),rs.getInt("Supplier_id"),rs.getString("Date_delivered"),rs.getDouble("PurchasePrice"),rs.getInt("Stocks"));
             gallonList.add(gallons);
         }
         return gallonList;   
@@ -66,15 +66,14 @@ public class GallonsController {
          Object[] row = new Object[9];
          for (int i = 0; i < gallonList.size(); i++) {
 //             JOptionPane.showMessageDialog(null,gallonList.get(i).getColor());
-            row[0] = gallonList.get(i).getGallon_Code();
-            row[1] = gallonList.get(i).getName();
-            row[2] = gallonList.get(i).getSize();
-            row[3] = gallonList.get(i).getColor();
-            row[4] = gallonList.get(i).getGallon_Type();
-            row[5] = gallonList.get(i).getSupplier_id();
-            row[6] = gallonList.get(i).getDate_delivered();
-            row[7] = gallonList.get(i).getPrice();
-            row[8] = gallonList.get(i).getStocks();
+            row[0] = gallonList.get(i).getCode();
+            row[1] = gallonList.get(i).getSize();
+            row[2] = gallonList.get(i).getColor();
+            row[3] = gallonList.get(i).getGallon_Type();
+            row[4] = gallonList.get(i).getSupplier_id();
+            row[5] = gallonList.get(i).getDate_delivered();
+            row[6] = gallonList.get(i).getPurchasePrice();
+            row[7] = gallonList.get(i).getStocks();
             model.addRow(row);
          }
     }
@@ -83,14 +82,14 @@ public class GallonsController {
        public boolean addGallons(GallonsModel gallonsmodel,JTable gallonTable){
         try {
             PreparedStatement st = con.prepareStatement(magdagdagNgGallons);
-            st.setInt(1, gallonsmodel.getGallon_Code());
-            st.setString(2, gallonsmodel.getName());
-            st.setString(3, gallonsmodel.getSize());
-            st.setString(4, gallonsmodel.getColor());
-            st.setString(5, gallonsmodel.getGallon_Type());
-            st.setInt(6, gallonsmodel.getSupplier_id());
-            st.setString(7, gallonsmodel.getDate_delivered());
-            st.setInt(8, gallonsmodel.getPrice());
+//            st.setInt(1, gallonsmodel.getCode());
+//            st.setString(2, gallonsmodel.getName());
+//            st.setString(3, gallonsmodel.getSize());
+//            st.setString(4, gallonsmodel.getColor());
+//            st.setString(5, gallonsmodel.getGallon_Type());
+//            st.setInt(6, gallonsmodel.getSupplier_id());
+//            st.setString(7, gallonsmodel.getDate_delivered());
+//            st.setInt(8, gallonsmodel.getPrice());
             st.setInt(9, gallonsmodel.getStocks());
             int i = st.executeUpdate();
             if (i > 0) {
@@ -108,7 +107,7 @@ public class GallonsController {
         return true;
      }
      
-         public void getGallonInfo(int id,JTextField Name,JTextField Size,JTextField Color,JTextField Gallon_Type,JComboBox<String> Supplier_Id,
+         public void getGallonInfo(int id,JTextField Size,JTextField Color,JTextField Gallon_Type,JComboBox<String> Supplier_Id,
                             JDateChooser Date_delivered ,JTextField Price , JSpinner Stocks){
         String kuninAnggallon = "SELECT * FROM gallons where Gallon_Code = '" + id + "'";
         
@@ -118,7 +117,6 @@ public class GallonsController {
         
                // Role_id.setText(String.valueOf(rs.getInt("role_id")));
                while(rs.next()){
-                Name.setText(rs.getString("Name"));
                 Size.setText(rs.getString("Size"));
                 Color.setText(rs.getString("Color"));
                 Gallon_Type.setText(rs.getString("Gallon_Type"));
@@ -147,16 +145,16 @@ public class GallonsController {
      
      public boolean updateGallon(GallonsModel gallonsmodel,JTable gallontable){
         try {
-            String updates = "UPDATE gallons SET Gallon_Code = ? , Name = ? ,Size = ?, Color = ?,Gallon_Type = ?,Supplier_id = ?,Date_delivered = ?,Price = ?,Stocks = ? WHERE Gallon_Code = '" + gallonsmodel.getGallon_Code() + "'";
+            String updates = "UPDATE gallons SET Gallon_Code = ? , Name = ? ,Size = ?, Color = ?,Gallon_Type = ?,Supplier_id = ?,Date_delivered = ?,Price = ?,Stocks = ? WHERE Gallon_Code = '" + gallonsmodel.getCode()+ "'";
             PreparedStatement st = con.prepareStatement(updates);
-            st.setInt(1, gallonsmodel.getGallon_Code());
-            st.setString(2, gallonsmodel.getName());
-            st.setString(3, gallonsmodel.getSize());
-            st.setString(4, gallonsmodel.getColor());
-            st.setString(5, gallonsmodel.getGallon_Type());
-            st.setInt(6, gallonsmodel.getSupplier_id());
-            st.setString(7, gallonsmodel.getDate_delivered());
-            st.setInt(8, gallonsmodel.getPrice());
+//            st.setInt(1, gallonsmodel.getGallon_Code());
+//            st.setString(2, gallonsmodel.getName());
+//            st.setString(3, gallonsmodel.getSize());
+//            st.setString(4, gallonsmodel.getColor());
+//            st.setString(5, gallonsmodel.getGallon_Type());
+//            st.setInt(6, gallonsmodel.getSupplier_id());
+//            st.setString(7, gallonsmodel.getDate_delivered());
+//            st.setInt(8, gallonsmodel.getPrice());
             st.setInt(9, gallonsmodel.getStocks());
            
 

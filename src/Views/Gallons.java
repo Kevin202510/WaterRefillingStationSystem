@@ -48,6 +48,7 @@ public class Gallons extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         gallonTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -55,11 +56,11 @@ public class Gallons extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Gallon Code", "Name", "Size", "Color", "Gallon Type", "Supplier Id", "Date Delivered", "Price", "Stocks"
+                "Gallon Code", "Size", "Color", "Gallon Type", "Supplier Id", "Date Delivered", "Price", "Stocks"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -73,7 +74,7 @@ public class Gallons extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(gallonTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 440));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 360));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

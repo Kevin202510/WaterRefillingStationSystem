@@ -17,7 +17,7 @@ public class SQLController {
     public Connection getConnection(){
        
        String Dbname,username,password;
-       Dbname = "wrs";
+       Dbname = "newwrs";
        username = "root";
        password = "";
         try{

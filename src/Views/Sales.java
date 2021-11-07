@@ -34,6 +34,7 @@ public class Sales extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1100, 600));
+        setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -54,7 +55,7 @@ public class Sales extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 480));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

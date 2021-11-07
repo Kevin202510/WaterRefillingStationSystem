@@ -7,6 +7,7 @@ package Forms;
 
 import Controllers.ContainerController;
 import Controllers.CustomerController;
+import Controllers.GallonsController;
 import static Forms.CustomersFormModal.btn_id;
 import static Forms.CustomersFormModal.customersTable;
 import static Forms.CustomersFormModal.lalagyanan;
@@ -35,6 +36,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
      static int btn_id;
     CustomerModel customermodel;
     CustomerController customersControll = new CustomerController();
+    GallonsController gallonsControll = new GallonsController();
     static JTable customersTable;
     static JPanel lalagyanan;
     static JFrame out;
@@ -200,8 +202,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
 
             customermodel = new CustomerModel(btn_id,customerFname.getText(),
-            customerMname.getText(),customerLname.getText(),customerAddress.getText(),customerContact.getText(),customerIsBorrowed.getSelectedIndex()+1
-            ,customerGallonId.getSelectedIndex()+1,Integer.parseInt(customerGallonQuantity.getText()),customerSuki.getSelectedIndex()+1);
+            customerMname.getText(),customerLname.getText(),customerAddress.getText(),customerContact.getText(),customerSuki.getSelectedIndex()+1);
         if (customersControll.updateCustomer(customermodel, customersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
@@ -217,7 +218,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
         customermodel = new CustomerModel(0,customerFname.getText(),customerMname.getText(),customerLname.getText(),
-            customerAddress.getText(),customerContact.getText(),customerIsBorrowed.getSelectedIndex()+1,customerGallonId.getSelectedIndex()+1,Integer.parseInt(customerGallonQuantity.getText()),customerSuki.getSelectedIndex()+1);
+                customerAddress.getText(),customerContact.getText(),customerSuki.getSelectedIndex()+1);
         if (customersControll.addCustomer(customermodel,customersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Customers(lalagyanan));

@@ -10,34 +10,27 @@ package Models;
  * @author KevinCaluag
  */
 public class DeliveriesModel {
-     private int Id,Customer_Id,Quantity,Promo_Id,Status,User_Id;
-    private String Date_Delivered,Customer_Fname,Customer_Mname,Customer_Lname,User_Fname,User_Mname,User_Lname,Promo_Description;
+    private int Id,Customer_Id,Gallon_Id,Quantity,Promo_Id,Status,User_Id;
+    private String Date_Delivered,Date_Order;
+    private String Customer_Fullname,Gallon_Name,Promo_Description,User_Fullname;
     
-    public DeliveriesModel(int Id,int Customer_Id,String Date_Delivered,int Quantity,int Promo_Id,int Status,int User_Id,
-                           String User_Fname,String User_Mname,String User_Lname,String Promo_Description,String Customer_Fname,String Customer_Mname,String Customer_Lname){
+    public DeliveriesModel(int Id,int Customer_Id,String Date_Order,String Date_Delivered,int Gallon_Id,int Quantity,int Promo_Id,int Status,int User_Id){
         this.Id = Id;
         this.Customer_Id = Customer_Id;
         this.Date_Delivered = Date_Delivered;
+        this.Date_Order = Date_Order;
+        this.Gallon_Id = Gallon_Id;
         this.Quantity = Quantity;
         this.Promo_Id = Promo_Id;
         this.Status = Status;
         this.User_Id = User_Id;
-        this.Customer_Fname = Customer_Fname;
-        this.Customer_Mname = Customer_Mname;
-        this.Customer_Lname = Customer_Lname;
-        this.User_Fname = User_Fname;
-        this.User_Mname = User_Mname;
-        this.User_Lname = User_Lname;
-        this.Promo_Description = Promo_Description;   
     }
-    public DeliveriesModel(int Id,int Customer_Id,String Date_Delivered, int Quantity ,int Promo_Id, int Status, int User_Id){
-        this.Id = Id;
-        this.Customer_Id = Customer_Id;
-        this.Date_Delivered = Date_Delivered;
-        this.Quantity = Quantity;
-        this.Promo_Id = Promo_Id;
-        this.Status = Status;
-        this.User_Id = User_Id;
+    
+    public DeliveriesModel(String Customer_Fname,String Customer_Mname,String Customer_Lname,String Gallon_Name,String Promo_Description,String User_Fname,String User_Mname,String User_Lname){
+        this.Customer_Fullname = Customer_Fname + " " + Customer_Mname + " " + Customer_Lname;
+        this.Gallon_Name = Gallon_Name;
+        this.Promo_Description = Promo_Description;
+        this.User_Fullname = User_Fname + " " + User_Mname + " " + User_Lname;
     }
     
     public int getId(){
@@ -46,12 +39,16 @@ public class DeliveriesModel {
         return Customer_Id;
     } public String getDate_Delivered(){
         return Date_Delivered;
+    } public String getDate_Order(){
+        return Date_Order;
     } public int getQuantity(){
         return Quantity;
+    }public int getGallon_Id(){
+        return Gallon_Id;
     } public int getPromo_Id(){
         return Promo_Id;
     } public int getStatus(){
-        return Status;
+        return Promo_Id;
     }public String getStat(){
         if (Status==0) {
             return "Pending";
@@ -61,17 +58,15 @@ public class DeliveriesModel {
         return User_Id;
     }
     
-//    Customers
-    public String getCustomer_Fullname(){
-        return Customer_Fname + " " + Customer_Mname + " " + Customer_Lname;
-    }
+//    modify 
     
-//    Users
-    public String getUser_Fullname(){
-        return User_Fname + " " + User_Mname + " " + User_Lname;
-    }public String getPromo_Description(){
-        return Promo_Description;
-    }
-    
-    
+   public String getCustomer_Fullname(){
+       return Customer_Fullname;
+   }public String getUser_Fullname(){
+       return User_Fullname;
+   }public String getGallon_Name(){
+       return Gallon_Name;
+   }public String getPromo_Description(){
+       return Promo_Description;
+   }
 }

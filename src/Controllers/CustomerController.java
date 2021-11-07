@@ -34,7 +34,7 @@ public class CustomerController {
     
              String kuninLahatNgCustomer = "SELECT * FROM customers";
              String magdagdagNgCustomer = "INSERT INTO customers(Fname,Mname,Lname,Address,Contact,isBorrowed_Gallons,Gallon_Id,Gallon_Quantity,isSuki) VALUES (?,?,?,?,?,?,?,?,?)";
-             String tanggalinAngCustomer = "DELETE FROM customers WHERE Id = ?";
+             String tanggalinAngCustomer = "DELETE FROM customers WHERE ID = ?";
              
     public CustomerController(){
         try {
@@ -50,7 +50,7 @@ public class CustomerController {
         CustomerModel customers;
         
         while(rs.next()){
-            customers = new CustomerModel(rs.getInt("Id"),rs.getString("Fname"),rs.getString("Mname"),rs.getString("Lname"),rs.getString("Address"),rs.getString("Contact"),rs.getInt("isBorrowed_Gallons"),rs.getInt("Gallon_Id"),rs.getInt("Gallon_Quantity"),rs.getInt("isSuki"));
+            customers = new CustomerModel(rs.getInt("ID"),rs.getString("Fname"),rs.getString("Mname"),rs.getString("Lname"),rs.getString("Address"),rs.getString("Contact"),rs.getInt("isSuki"));
             customerlist.add(customers);    
         }
         return customerlist;   
@@ -60,13 +60,10 @@ public class CustomerController {
          DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
          Object[] row = new Object[8];
          for (int i = 0; i < customerlist.size(); i++) {
-            row[0] = customerlist.get(i).getId();
+            row[0] = customerlist.get(i).getID();
             row[1] = "<html>"+customerlist.get(i).getFullname()+"</html> ";
             row[2] = customerlist.get(i).getAddress();
             row[3] = customerlist.get(i).getContact();
-            row[4] = customerlist.get(i).getisBorrowed_Gallons();
-            row[5] = customerlist.get(i).getGallon_Id();
-            row[6] = customerlist.get(i).getGallon_Quantity();
             row[7] = customerlist.get(i).getisSuki();
 //            row[7] = test;
             model.addRow(row);
@@ -81,9 +78,6 @@ public class CustomerController {
             st.setString(3, customermodel.getLname());
             st.setString(4, customermodel.getAddress());
             st.setString(5, customermodel.getContact());
-            st.setInt(6, customermodel.getBorrowed_Gallons());
-            st.setInt(7, customermodel.getGallon_Id());
-            st.setInt(8, customermodel.getGallon_Quantity());
 //            JOptionPane.showMessageDialog(null,customermodel.getGallon_Id());
             st.setInt(9, customermodel.getSuki());
             int i = st.executeUpdate();
@@ -104,7 +98,7 @@ public class CustomerController {
       
        public void getCustomerInfo(int id,JTextField Fname,JTextField Mname,JTextField Lname,
                                 JTextField Address,JTextField Contact,JComboBox isBorrowed_Gallons,JComboBox Gallon_Id,JTextField Gallon_Quantity,JComboBox isSuki){
-        String kuninAngCustomer = "SELECT * FROM customers where Id = '" + id + "'";
+        String kuninAngCustomer = "SELECT * FROM customers where ID = '" + id + "'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(kuninAngCustomer);
@@ -126,16 +120,13 @@ public class CustomerController {
        
        public boolean updateCustomer(CustomerModel customermodel,JTable customertable){
         try {
-            String updates = "UPDATE customers SET Fname = ?, Mname = ?,Lname = ?,Address = ?,Contact = ?,isBorrowed_Gallons = ?,Gallon_Id = ?,Gallon_Quantity = ?,isSuki = ? WHERE Id = '" + customermodel.getId() + "'";
+            String updates = "UPDATE customers SET Fname = ?, Mname = ?,Lname = ?,Address = ?,Contact = ?,isBorrowed_Gallons = ?,Gallon_Id = ?,Gallon_Quantity = ?,isSuki = ? WHERE ID = '" + customermodel.getID() + "'";
             PreparedStatement st = con.prepareStatement(updates);
             st.setString(1, customermodel.getFname());
             st.setString(2, customermodel.getMname());
             st.setString(3, customermodel.getLname());
             st.setString(4, customermodel.getAddress());
             st.setString(5, customermodel.getContact());
-            st.setInt(6, customermodel.getBorrowed_Gallons());
-            st.setInt(7, customermodel.getGallon_Id());
-            st.setInt(8, customermodel.getGallon_Quantity());
             st.setInt(9, customermodel.getSuki());
            
             int i = st.executeUpdate();

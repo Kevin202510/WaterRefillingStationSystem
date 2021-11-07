@@ -7,6 +7,8 @@ package Views;
 
 import Controllers.AuthenticationController;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -57,6 +59,11 @@ public class Authentication extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         authenticationPanel.setBackground(new java.awt.Color(19, 0, 19));
@@ -306,6 +313,17 @@ public class Authentication extends javax.swing.JFrame {
     private void btn_close1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_close1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_close1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         for (float i = (float) 0.0; i <= 1.0; i = (float) (i + 0.1)) {
+            try {
+                this.setOpacity(i);
+                Thread.sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

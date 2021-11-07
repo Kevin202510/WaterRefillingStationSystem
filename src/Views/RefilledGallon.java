@@ -32,6 +32,7 @@ public class RefilledGallon extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -44,7 +45,7 @@ public class RefilledGallon extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 162, 1080, 460));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,7 +55,7 @@ public class RefilledGallon extends javax.swing.JPanel {
         jLabel2.setText("Refilled Gallon");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 40));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1080, 110));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 110));
     }// </editor-fold>//GEN-END:initComponents
 
 

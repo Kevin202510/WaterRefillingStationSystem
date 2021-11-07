@@ -11,20 +11,20 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ChelseaTorres
+ * @author KevinCaluag
  */
 public class Deliveries extends javax.swing.JPanel {
 
     /**
      * Creates new form Deliveries
      */
-    JPanel lalagyanan;
     DeliveriesController deliveriesControll = new DeliveriesController();
+    JPanel lalagyanan;
     
     public Deliveries(JPanel lalagyanan) {
         initComponents();
         this.lalagyanan = lalagyanan;
-        InitRun();
+       InitRun();
     }
     
     private void InitRun(){
@@ -42,10 +42,10 @@ public class Deliveries extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         deliveriesTable = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        addBtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
 
+        setPreferredSize(new java.awt.Dimension(1080, 480));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -53,11 +53,11 @@ public class Deliveries extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Customer Name", "Date Delivered", "Quantity", "Promo", "Status", "Delivered By"
+                "Id", "Customer Name", "Date_Order", "Date Delivered", "Gallon Name", "Quantity", "Promo", "Status", "Delivered By"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false, true
+                false, false, true, false, true, false, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -71,46 +71,34 @@ public class Deliveries extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveriesTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, 1080, 490));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, 1060, 420));
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        addBtn.setBackground(new java.awt.Color(64, 43, 100));
-        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        addBtn.setText("+");
-        addBtn.setBorderPainted(false);
-        addBtn.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("ADD");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtnActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 61, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 40));
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Deliveries");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 40));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 110));
+        kGradientPanel1.setkEndColor(new java.awt.Color(102, 102, 255));
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 480));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        //        new UserModal(0,userTable,lalagyanan).setVisible(true);
-        new FrameFormModal(9,0,deliveriesTable,lalagyanan).setVisible(true);
-    }//GEN-LAST:event_addBtnActionPerformed
 
     private void deliveriesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesTableMouseClicked
         int id = (int) deliveriesTable.getValueAt(deliveriesTable.getSelectedRow(),0);
         new FrameFormModal(9,id,deliveriesTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_deliveriesTableMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new FrameFormModal(9,0,deliveriesTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBtn;
     private javax.swing.JTable deliveriesTable;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }

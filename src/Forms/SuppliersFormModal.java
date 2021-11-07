@@ -74,6 +74,10 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Lname = new javax.swing.JTextField();
         Company_name = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        Company_Address = new javax.swing.JTextField();
+        Contact = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -138,10 +142,18 @@ public class SuppliersFormModal extends javax.swing.JPanel {
             }
         });
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
+
+        jLabel11.setText("Company Address");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 90, 30));
+        add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 220, 30));
+        add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 220, 30));
+
+        jLabel12.setText("Contact");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 90, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText());
+suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getName());
         if (suliersControll.updateSupplier(suppliermodel,suppliersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
@@ -149,7 +161,7 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-      suppliermodel = new SupplierModel(0,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText());
+      suppliermodel = new SupplierModel(0,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getName());
         if (suliersControll.addSupplier(suppliermodel,suppliersTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
@@ -174,16 +186,19 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Company_Address;
     private javax.swing.JTextField Company_name;
+    private javax.swing.JTextField Contact;
     private javax.swing.JTextField Fname;
     private javax.swing.JTextField Lname;
     private javax.swing.JTextField Mname;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

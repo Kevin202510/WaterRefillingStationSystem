@@ -30,22 +30,22 @@ import javax.swing.table.DefaultTableModel;
  * @author KevinCaluag
  */
 public final class DeliveriesController {
-      ArrayList<DeliveriesModel> deliveriesList = new ArrayList<>();
+    ArrayList<DeliveriesModel> deliveriesList = new ArrayList<>();
+    ArrayList<DeliveriesModel> deliveriesListwithjointable = new ArrayList<>();
     SQLController sql = new SQLController();
     java.sql.Connection con = sql.getConnection();
     
 
     
-    String kuninLahatNgSupplier = "SELECT * FROM deliveries";
-    String kuninLahatNgDeliveriesWithJoinTable = "SELECT * FROM `deliveries`\n" +
-                                                "LEFT JOIN customers ON customers.Id = deliveries.Customer_Id\n" +
-                                                "LEFT JOIN promos ON promos.Id = deliveries.Promo_Id\n" +
-                                                "LEFT JOIN users ON users.Id = deliveries.User_Id";
+    String kuninLahatNgDeliveries = "SELECT * FROM deliveries";
+    String kuninLahatNgDeliveriesWithJoinTable = "SELECT * FROM `deliveries` LEFT JOIN customers ON customers.ID = deliveries.Customer_Id LEFT JOIN gallons ON gallons.Code = deliveries.Gallon_Id\n" +
+                                                  "LEFT JOIN promos on promos.Id = deliveries.Promo_Id LEFT JOIN users on users.Id = deliveries.User_Id";
     String magdagdagNgDeliveries = "INSERT INTO `deliveries`(`Customer_Id`, `Date_Delivered`, `Quantity`, `Promo_Id`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?)";
    
     public DeliveriesController(){
         try {
             deliveriesList();
+            deliveriesListWithJoinTable();
         } catch (SQLException ex) {
             Logger.getLogger(DeliveriesController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -95,33 +95,43 @@ public final class DeliveriesController {
     
       public ArrayList<DeliveriesModel> deliveriesList() throws SQLException{
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(kuninLahatNgDeliveriesWithJoinTable);
+        ResultSet rs = st.executeQuery(kuninLahatNgDeliveries);
         DeliveriesModel deliveries;
         
         while(rs.next()){
-            deliveries = new DeliveriesModel(rs.getInt("Id"),rs.getInt("Customer_Id"),rs.getString("Date_Delivered"),rs.getInt("Quantity"),rs.getInt("Promo_Id"),rs.getInt("Status"),rs.getInt("User_Id"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"),
-            rs.getString("promos.Description"),rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"));
+            deliveries = new DeliveriesModel(rs.getInt("Id"),rs.getInt("Customer_Id"),rs.getString("Date_Order"),rs.getString("Date_Delivered"),rs.getInt("Gallon_Id"),rs.getInt("Quantity"),rs.getInt("Promo_Id"),rs.getInt("Status"),rs.getInt("User_Id"));
             deliveriesList.add(deliveries);
         }
         return deliveriesList;   
     }
-       public void showDeliveries(JTable deliveriesTable){
-         UserController userControll = new UserController();
-         PromosController promoControll = new PromosController();
-         CustomerController customerControll = new CustomerController();
-         
-         DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
-         Object[] row = new Object[8];
-         for (int i = 0; i < deliveriesList.size(); i++) {
-            row[0] = deliveriesList.get(i).getId();
-            row[1] = deliveriesList.get(i).getCustomer_Fullname();
-            row[2] = deliveriesList.get(i).getDate_Delivered();
-            row[3] = deliveriesList.get(i).getQuantity();
-            row[4] = deliveriesList.get(i).getPromo_Description();
-            row[5] = deliveriesList.get(i).getStat();
-            row[6] = deliveriesList.get(i).getUser_Fullname();
-            model.addRow(row);
-         }
+      
+    public ArrayList<DeliveriesModel> deliveriesListWithJoinTable() throws SQLException{
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(kuninLahatNgDeliveriesWithJoinTable);
+        DeliveriesModel deliveries;
+        
+        while(rs.next()){
+            deliveries = new DeliveriesModel(rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"),rs.getString("Gallon_Type"),rs.getString("promos.Name"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"));
+            deliveriesListwithjointable.add(deliveries);
+        }
+        return deliveriesListwithjointable;   
+    }  
+    
+    public void showDeliveries(JTable deliveriesTable){
+      DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
+      Object[] row = new Object[9];
+      for (int i = 0; i < deliveriesListwithjointable.size(); i++) {
+         row[0] = deliveriesList.get(i).getId();
+         row[1] = deliveriesListwithjointable.get(i).getCustomer_Fullname();
+         row[2] = deliveriesList.get(i).getDate_Order();
+         row[3] = deliveriesList.get(i).getDate_Delivered();
+         row[4] = deliveriesListwithjointable.get(i).getGallon_Name();
+         row[5] = deliveriesList.get(i).getQuantity();
+         row[6] = deliveriesListwithjointable.get(i).getPromo_Description();
+         row[7] = deliveriesList.get(i).getStat();
+         row[8] = deliveriesListwithjointable.get(i).getUser_Fullname();
+         model.addRow(row);
+      }
     }
        
     public boolean addDeliveries(DeliveriesModel deliveriesModel,JTable deliveriesTable){

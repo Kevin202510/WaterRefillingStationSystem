@@ -8,6 +8,8 @@ package Views;
 import Controllers.ButtonsController;
 import Controllers.ContainerController;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,6 +56,12 @@ public class MainDashboard extends javax.swing.JFrame {
         jpnl_container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -77,7 +85,7 @@ public class MainDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(btn_close2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 50, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1100, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1100, 80));
 
         jpnl_userButtons.setBackground(new java.awt.Color(255, 255, 255));
         jpnl_userButtons.setPreferredSize(new java.awt.Dimension(250, 700));
@@ -85,9 +93,9 @@ public class MainDashboard extends javax.swing.JFrame {
         getContentPane().add(jpnl_userButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 700));
 
         jpnl_container.setBackground(new java.awt.Color(255, 255, 255));
-        jpnl_container.setPreferredSize(new java.awt.Dimension(1100, 640));
+        jpnl_container.setPreferredSize(new java.awt.Dimension(1100, 620));
         jpnl_container.setLayout(new javax.swing.BoxLayout(jpnl_container, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(jpnl_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 1100, 640));
+        getContentPane().add(jpnl_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1100, 620));
 
         pack();
         setLocationRelativeTo(null);
@@ -97,6 +105,17 @@ public class MainDashboard extends javax.swing.JFrame {
         this.dispose();
         new Authentication().setVisible(true);
     }//GEN-LAST:event_btn_close2ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+//         for (float i = (float) 0.0; i <= 1.0; i = (float) (i + 0.1)) {
+//            try {
+//                this.setOpacity(i);
+//                Thread.sleep(50);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+    }//GEN-LAST:event_formWindowOpened
 
     Color btn_hov_enter_color = new Color(255,0,255);
     Color btn_hov_exit_color = new Color(102,102,255);

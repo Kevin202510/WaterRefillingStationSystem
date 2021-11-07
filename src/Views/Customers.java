@@ -73,7 +73,7 @@ public class Customers extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(customersTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, 1080, 490));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, 1080, 470));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

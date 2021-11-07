@@ -42,7 +42,7 @@ public class Dashboard extends javax.swing.JPanel {
         sale = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
-        setPreferredSize(new java.awt.Dimension(1100, 600));
+        setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N

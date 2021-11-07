@@ -47,7 +47,7 @@ public class Promos extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(1090, 589));
+        setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         promosTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -65,7 +65,7 @@ public class Promos extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(promosTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 480));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

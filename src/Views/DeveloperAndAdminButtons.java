@@ -67,8 +67,9 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovUsers = new javax.swing.JPanel();
         users = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        hovDeliveries = new javax.swing.JPanel();
-        deliveries = new javax.swing.JLabel();
+        hovPos = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        pos = new javax.swing.JLabel();
         hovPromos = new javax.swing.JPanel();
         promos = new javax.swing.JLabel();
         hovProfileSetting = new javax.swing.JPanel();
@@ -190,7 +191,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, -1, -1));
+        add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, -1, -1));
 
         hovGallons.setBackground(new java.awt.Color(64, 43, 100));
         hovGallons.setPreferredSize(new java.awt.Dimension(250, 40));
@@ -221,7 +222,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        add(hovGallons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+        add(hovGallons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, -1, -1));
 
         hovCustomer.setBackground(new java.awt.Color(64, 43, 100));
         hovCustomer.setPreferredSize(new java.awt.Dimension(250, 40));
@@ -311,36 +312,29 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, -1));
 
-        hovDeliveries.setBackground(new java.awt.Color(64, 43, 100));
-        hovDeliveries.setPreferredSize(new java.awt.Dimension(250, 40));
+        hovPos.setBackground(new java.awt.Color(64, 43, 100));
+        hovPos.setPreferredSize(new java.awt.Dimension(250, 40));
+        hovPos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        deliveries.setBackground(new java.awt.Color(85, 65, 118));
-        deliveries.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        deliveries.setForeground(new java.awt.Color(255, 255, 255));
-        deliveries.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        deliveries.setText("Deliveries");
-        deliveries.setIconTextGap(10);
-        deliveries.setPreferredSize(new java.awt.Dimension(250, 50));
-        deliveries.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/56-removebg-preview.png"))); // NOI18N
+        hovPos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, -1));
+
+        pos.setBackground(new java.awt.Color(85, 65, 118));
+        pos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        pos.setForeground(new java.awt.Color(255, 255, 255));
+        pos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pos.setText("POS");
+        pos.setIconTextGap(10);
+        pos.setPreferredSize(new java.awt.Dimension(250, 50));
+        pos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deliveriesMouseClicked(evt);
+                posMouseClicked(evt);
             }
         });
+        hovPos.add(pos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 36));
 
-        javax.swing.GroupLayout hovDeliveriesLayout = new javax.swing.GroupLayout(hovDeliveries);
-        hovDeliveries.setLayout(hovDeliveriesLayout);
-        hovDeliveriesLayout.setHorizontalGroup(
-            hovDeliveriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(deliveries, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        hovDeliveriesLayout.setVerticalGroup(
-            hovDeliveriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hovDeliveriesLayout.createSequentialGroup()
-                .addComponent(deliveries, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
-
-        add(hovDeliveries, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 250, -1));
+        add(hovPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 250, -1));
 
         hovPromos.setBackground(new java.awt.Color(64, 43, 100));
         hovPromos.setPreferredSize(new java.awt.Dimension(250, 40));
@@ -402,7 +396,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        add(hovProfileSetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, -1, -1));
+        add(hovProfileSetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, -1, -1));
 
         userId.setEnabled(false);
         add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 20));
@@ -417,7 +411,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_dashboardMouseClicked
 
@@ -431,12 +425,12 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovPromos);
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
     }//GEN-LAST:event_customerMouseClicked
 
-    private void deliveriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesMouseClicked
-        buttonControll.DeliveriesButton(deliveries);
-        buttonControll.setC(hovDeliveries);
+    private void posMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_posMouseClicked
+        buttonControll.PosButton(pos);
+        buttonControll.setC(hovPos);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
@@ -445,7 +439,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
         buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_deliveriesMouseClicked
+    }//GEN-LAST:event_posMouseClicked
 
     private void promosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promosMouseClicked
         buttonControll.PromosButton(promos);
@@ -456,7 +450,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovSales);
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_promosMouseClicked
 
@@ -469,7 +463,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovSales);
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_supplierMouseClicked
 
@@ -482,7 +476,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovSales);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_refilledMouseClicked
 
@@ -495,7 +489,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_saleMouseClicked
 
@@ -508,7 +502,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_gallonsMouseClicked
 
@@ -521,7 +515,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovRefilled);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
-        buttonControll.resetC(hovDeliveries);
+        buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_usersMouseClicked
 
@@ -537,12 +531,11 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel customer;
     private javax.swing.JLabel dashboard;
-    private javax.swing.JLabel deliveries;
     private javax.swing.JLabel gallons;
     private javax.swing.JPanel hovCustomer;
     private javax.swing.JPanel hovDashboard;
-    private javax.swing.JPanel hovDeliveries;
     private javax.swing.JPanel hovGallons;
+    private javax.swing.JPanel hovPos;
     private javax.swing.JPanel hovProfileSetting;
     private javax.swing.JPanel hovPromos;
     private javax.swing.JPanel hovRefilled;
@@ -551,7 +544,9 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovUsers;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel pos;
     private jroundborder.JLabelRound profile;
     private javax.swing.JLabel profilesetting;
     private javax.swing.JLabel promos;

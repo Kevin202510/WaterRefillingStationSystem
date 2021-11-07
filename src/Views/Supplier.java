@@ -45,7 +45,7 @@ public class Supplier extends javax.swing.JPanel {
         addBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1100, 600));
+        setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         suppliersTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -71,7 +71,7 @@ public class Supplier extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(suppliersTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 152, 1080, 470));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

@@ -92,7 +92,7 @@ public class SupplierController {
         SupplierModel suppliers;
         
         while(rs.next()){
-            suppliers = new SupplierModel(rs.getInt("Id"),rs.getString("Fname"),rs.getString("Lname"),rs.getString("Mname"),rs.getString("Company_name"));
+            suppliers = new SupplierModel(rs.getInt("Id"),rs.getString("Fname"),rs.getString("Lname"),rs.getString("Mname"),rs.getString("Company_Name"),rs.getString("Company_Address"),rs.getString("Contact"));
             supplierlist.add(suppliers);
         }
         return supplierlist;   
@@ -103,7 +103,7 @@ public class SupplierController {
           DefaultTableModel model = (DefaultTableModel)suppliersTable.getModel();
          Object[] row = new Object[8];
          for (int i = 0; i < supplierlist.size(); i++) {
-             row[0] = supplierlist.get(i).getId();
+             row[0] = supplierlist.get(i).getID();
              row[1] = "<html>"+supplierlist.get(i).getFullname()+"</html> ";
              row[2] = supplierlist.get(i).getCompany_name();
              model.addRow(row);
@@ -112,7 +112,7 @@ public class SupplierController {
      public boolean addSupplier(SupplierModel suppliermodel,JTable suppliersTable){
         try {
             PreparedStatement st = con.prepareStatement(magdagdagNgSupplier);
-            st.setInt(1, suppliermodel.getId());
+            st.setInt(1, suppliermodel.getID());
             st.setString(2, suppliermodel.getFname());
             st.setString(3, suppliermodel.getMname());
             st.setString(4, suppliermodel.getLname());
@@ -166,9 +166,9 @@ public class SupplierController {
        
       public boolean updateSupplier(SupplierModel suppliermodel,JTable suppliersTable){
         try {
-            String updates = "UPDATE suppliers SET Id = ? , Fname = ? ,Mname = ?, Lname = ?,Company_name = ? WHERE Id = '" +suppliermodel.getId() + "'";
+            String updates = "UPDATE suppliers SET Id = ? , Fname = ? ,Mname = ?, Lname = ?,Company_name = ? WHERE Id = '" +suppliermodel.getID()+ "'";
             PreparedStatement st = con.prepareStatement(updates);
-            st.setInt(1, suppliermodel.getId());
+            st.setInt(1, suppliermodel.getID());
             st.setString(2, suppliermodel.getFname());
             st.setString(3, suppliermodel.getMname());
             st.setString(4, suppliermodel.getLname());
