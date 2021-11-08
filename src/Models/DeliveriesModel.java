@@ -10,11 +10,11 @@ package Models;
  * @author KevinCaluag
  */
 public class DeliveriesModel {
-    private int Id,Customer_Id,Gallon_Id,Quantity,Promo_Id,Status,User_Id;
-    private String Date_Delivered,Date_Order;
+    private int Id,Customer_Id,Quantity,Promo_Id,Status,User_Id;
+    private String Date_Delivered,Date_Order,Gallon_Id;
     private String Customer_Fullname,Gallon_Name,Promo_Description,User_Fullname;
     
-    public DeliveriesModel(int Id,int Customer_Id,String Date_Order,String Date_Delivered,int Gallon_Id,int Quantity,int Promo_Id,int Status,int User_Id){
+    public DeliveriesModel(int Id,int Customer_Id,String Date_Order,String Date_Delivered,String Gallon_Id,int Quantity,int Promo_Id,int Status,int User_Id){
         this.Id = Id;
         this.Customer_Id = Customer_Id;
         this.Date_Delivered = Date_Delivered;
@@ -43,7 +43,7 @@ public class DeliveriesModel {
         return Date_Order;
     } public int getQuantity(){
         return Quantity;
-    }public int getGallon_Id(){
+    }public String getGallon_Id(){
         return Gallon_Id;
     } public int getPromo_Id(){
         return Promo_Id;

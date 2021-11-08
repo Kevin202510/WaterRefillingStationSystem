@@ -42,7 +42,6 @@ public class Deliveries extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         deliveriesTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         kGradientPanel1 = new keeptoo.KGradientPanel();
 
         setPreferredSize(new java.awt.Dimension(1080, 480));
@@ -73,14 +72,6 @@ public class Deliveries extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, 1060, 420));
 
-        jButton1.setText("ADD");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 40));
-
         kGradientPanel1.setkEndColor(new java.awt.Color(102, 102, 255));
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 480));
     }// </editor-fold>//GEN-END:initComponents
@@ -90,14 +81,9 @@ public class Deliveries extends javax.swing.JPanel {
         new FrameFormModal(9,id,deliveriesTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_deliveriesTableMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new FrameFormModal(9,0,deliveriesTable,lalagyanan).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable deliveriesTable;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables

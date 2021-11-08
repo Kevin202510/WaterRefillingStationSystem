@@ -27,6 +27,7 @@ public class FrameFormModal extends javax.swing.JFrame {
      */
     static int containernum;
     static int btn_id;
+    static String btn_ids;
     static JTable jtablename;
     static JPanel lalagyanan;
     FormsControllers formControll;
@@ -40,6 +41,17 @@ public class FrameFormModal extends javax.swing.JFrame {
         this.jtablename = jtablename;
         this.lalagyanan = lalagyanan;
         this.formControll =  new FormsControllers(containernum,btn_id,jtablename,lalagyanan,formContainer,this);
+    }
+     public FrameFormModal(int containernum,String btn_ids,JTable jtablename,JPanel lalagyanan) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+//        this.setOpacity(0.9f);
+        this.containernum = containernum;
+        this.btn_ids = btn_ids;
+        this.jtablename = jtablename;
+        this.lalagyanan = lalagyanan;
+        System.out.println(btn_id);
+        this.formControll =  new FormsControllers(containernum,btn_ids,jtablename,lalagyanan,formContainer,this);
     }
 
     /**

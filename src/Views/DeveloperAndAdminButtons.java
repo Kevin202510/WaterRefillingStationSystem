@@ -32,7 +32,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         this.lalagyananbut = lalagyananbut;
-        buttonControll = new ButtonsController(maindash,lalagyanan);
+        buttonControll = new ButtonsController(lalagyanan);
         buttonControll.DashboardButton(dashboard);
         ImageIcon imageicon = new ImageIcon(path + "/Images/Profile/" + Profile + ".jpg");
         Image img = imageicon.getImage().getScaledInstance(250, 110, Image.SCALE_SMOOTH);

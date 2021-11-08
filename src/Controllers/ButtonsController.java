@@ -28,15 +28,13 @@ import javax.swing.JPanel;
  */
 public class ButtonsController {
     JPanel lalagyanan;
-    JFrame maindash;
     
-    public ButtonsController(JFrame maindash,JPanel lalagyanan){
+    public ButtonsController(JPanel lalagyanan){
         this.lalagyanan=lalagyanan;
-        this.maindash = maindash;
     }
     
     public void DashboardButton(JLabel dashboard){
-        new ContainerController(lalagyanan,new Dashboard(maindash,lalagyanan));
+        new ContainerController(lalagyanan,new Dashboard(lalagyanan));
     }
     
     public void SalesButton(JLabel sales){
@@ -48,7 +46,7 @@ public class ButtonsController {
     }
     
     public void UsersButton(JLabel users){
-        new ContainerController(lalagyanan,new Users(maindash,lalagyanan));
+        new ContainerController(lalagyanan,new Users(lalagyanan));
     }
     
 //    public void EmployeesButton(JLabel employees){

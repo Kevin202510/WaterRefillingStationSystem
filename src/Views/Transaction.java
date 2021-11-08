@@ -9,7 +9,15 @@ import Controllers.CustomerController;
 import Controllers.PromosController;
 import Controllers.TransactionController;
 import Controllers.UsersController;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -42,7 +50,7 @@ public class Transaction extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        isborrowgallons = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -60,61 +68,84 @@ public class Transaction extends javax.swing.JPanel {
         notborrowgallon = new javax.swing.JRadioButton();
         isborrowgallon = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        DateToBeDeliver = new com.toedter.calendar.JDateChooser();
+        DateOrder = new com.toedter.calendar.JDateChooser();
+        jLabel11 = new javax.swing.JLabel();
+        gallonQuantity = new javax.swing.JSpinner();
+        jButton2 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Customer Fullname", "Service", "Promo", "Gallon Type", "Gallon Quantity", "Date"
+                "ID", "Customer Fullname", "Gallon Type", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 7, 710, 460));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMinWidth(40);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(40);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(120);
+            jTable1.getColumnModel().getColumn(5).setMinWidth(45);
+            jTable1.getColumnModel().getColumn(5).setPreferredWidth(45);
+            jTable1.getColumnModel().getColumn(5).setMaxWidth(45);
+            jTable1.getColumnModel().getColumn(8).setResizable(false);
+        }
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, -3, 770, 480));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 190, 30));
+        jPanel2.add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 160, 30));
 
         jLabel3.setText("Customer Name");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 30));
 
-        jPanel2.add(gallonType_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 30));
+        jPanel2.add(gallonType_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 160, 30));
 
         jLabel4.setText("Gallon Type");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 30));
 
         jLabel5.setText("Service Option");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 30));
 
-        jPanel2.add(serviceOffered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 190, 30));
+        serviceOffered.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Walk IN", "Pick Up", "Deliver" }));
+        jPanel2.add(serviceOffered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 160, 30));
 
-        jPanel2.add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 190, 30));
+        jPanel2.add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 160, 30));
 
-        jLabel6.setText("Promo");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
+        jLabel6.setText("Date To Be Deliver");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 100, 30));
 
         jLabel7.setText("Is Borrowed Gallon");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 110, 30));
 
-        jPanel2.add(User_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 190, 30));
+        jPanel2.add(User_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 160, 30));
 
         jLabel8.setText("Assisted By");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 80, 30));
 
-        buttonGroup1.add(notborrowgallon);
+        isborrowgallons.add(notborrowgallon);
         notborrowgallon.setText("no");
-        jPanel2.add(notborrowgallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+        jPanel2.add(notborrowgallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
 
-        buttonGroup1.add(isborrowgallon);
+        isborrowgallons.add(isborrowgallon);
         isborrowgallon.setText("yes");
-        jPanel2.add(isborrowgallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+        jPanel2.add(isborrowgallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
 
         jButton1.setText("ADD");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,31 +153,129 @@ public class Transaction extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 240, 60));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 240, 40));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 340, 450));
+        jLabel9.setText("Quantity");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
+
+        jLabel10.setText("Date Order");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 30));
+        jPanel2.add(DateToBeDeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 160, 30));
+
+        DateOrder.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DateOrderPropertyChange(evt);
+            }
+        });
+        jPanel2.add(DateOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 160, 30));
+
+        jLabel11.setText("Promo");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
+        jPanel2.add(gallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 160, 30));
+
+        jButton2.setText("Pay");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 240, 40));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 480));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         Object[] row = { 1, "SARAH MAE CALUAG", "Walk in", "5+1", "Slim",6,"2021-10-13"};
-         transactionControll.addToCart(jTable1, row);
+        //            String name = customerControll.customerlist().get(Customer_Id.getS).getFullname().
+        DateFormat dateFormat = new SimpleDateFormat("MMM-dd-yyy");  
+        String strDates = dateFormat.format(DateOrder.getDate());
+        String strDates1 = dateFormat.format(DateToBeDeliver.getDate());
+        String isborrow="";
+        if(isborrowgallon.isSelected()){
+            isborrow = "Yes";
+        }if(notborrowgallon.isSelected()){
+            isborrow = "No";
+        }
+        Object[] row = { jTable1.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(), gallonQuantity.getValue() ,Promo_Id.getSelectedItem() , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
+        
+        String code, rw0, msf=null;
+          int x;
+          for(x = 0; x<jTable1.getRowCount();x++){
+            code = gallonType_Id.getSelectedItem().toString();
+            rw0 = String.valueOf(jTable1.getValueAt(x, 2));
+            if (code.equals(rw0)){
+                msf = String.valueOf(x);
+                break;
+            }
+          }
+          
+          if (msf != null){
+            int quant = Integer.parseInt(jTable1.getValueAt(x,3).toString());
+            jTable1.setValueAt(Integer.parseInt(gallonQuantity.getValue().toString()) + quant, x, 3);
+          }else{
+              transactionControll.addToCart(jTable1, row);
+          }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void trylang(){
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+//        for(int x = 0; x<jTable1.getRowCount();x++){
+//            JOptionPane.showMessageDialog(null,model.getDataVector().get(2));
+//        }
+
+          String code, rw0, msf=null;
+          int x;
+          for(x = 0; x<jTable1.getRowCount();x++){
+            code = "Deliver";
+            rw0 = String.valueOf(jTable1.getValueAt(x, 6));
+            if (code.equals(rw0)){
+                msf = String.valueOf(x);
+                break;
+            }
+          }
+          
+          if (msf != null){
+           JOptionPane.showMessageDialog(null,model.getDataVector().get(x));
+//           transactionControll.addDeliveries(model.getDataVector().get(x).toArray(), jTable1);
+          }
+//          else{
+//              transactionControll.addToCart(jTable1, row);
+//          }
+          
+    }
+    
+    private void DateOrderPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateOrderPropertyChange
+        setMinimumDate();
+    }//GEN-LAST:event_DateOrderPropertyChange
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        trylang();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    private void setMinimumDate(){
+        DateToBeDeliver.setMinSelectableDate(DateOrder.getDate());
+    }
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Customer_Id;
+    private com.toedter.calendar.JDateChooser DateOrder;
+    private com.toedter.calendar.JDateChooser DateToBeDeliver;
     private javax.swing.JComboBox<String> Promo_Id;
     private javax.swing.JComboBox<String> User_Id;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JSpinner gallonQuantity;
     private javax.swing.JComboBox<String> gallonType_Id;
     private javax.swing.JRadioButton isborrowgallon;
+    private javax.swing.ButtonGroup isborrowgallons;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

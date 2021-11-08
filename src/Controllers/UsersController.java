@@ -42,6 +42,8 @@ public class UsersController {
     
     String kuninLahatNgUser = "SELECT * FROM users";
     String magdagdagNgUser = "INSERT INTO users(Role_id,Profile,Fname,Mname,Lname,DOB,Address,Contact,Username,Password) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    String baguhinAngUser = "UPDATE users SET Role_id = ? , Profile = ? ,Fname = ?, Mname = ?,Lname = ?,DOB = ?,Address = ?,Contact = ?,Username = ?,Password = ? WHERE Id = ?";
+    String kuninAngUser = "SELECT * FROM users where Id = ?";
     String tanggalinAngUser = "DELETE FROM users WHERE Id = ?";
     
     public UsersController(){
@@ -130,6 +132,7 @@ public class UsersController {
         }
         return true;
      }
+     
     public void clearUserForm(int id,JComboBox Role_id,JTextField ProfileName, JLabelRound Profile,JTextField Fname,JTextField Mname,JTextField Lname,JDateChooser DOB,
                                 JTextField Address,JTextField Contact,JTextField Username,JPasswordField Password){
         Role_id.setSelectedIndex(0);
@@ -149,23 +152,24 @@ public class UsersController {
     }
      public void getUserInfo(int id,JComboBox Role_id,JTextField ProfileName, JLabelRound Profile,JTextField Fname,JTextField Mname,JTextField Lname,JDateChooser DOB,
                                 JTextField Address,JTextField Contact,JTextField Username,JPasswordField Password){
-        String kuninAngUser = "SELECT * FROM users where Id = '" + id + "'";
         try {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(kuninAngUser);
+            PreparedStatement st = con.prepareStatement(kuninAngUser);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
             ImageIcon vin = null;
             while(rs.next()){
                 String prof = rs.getString("Profile");
-                if (prof==null) {
-                    ImageIcon vins = new ImageIcon(path + "/Images/Profile/sampleuser.jpg");
-                    Image kev = vins.getImage().getScaledInstance(210, 120, Image.SCALE_SMOOTH);
-                    ImageIcon shit = new ImageIcon(kev);
-                    Profile.setIcon(shit);
-                }else{
-                    ImageIcon vins = new ImageIcon(path + "/Images/Profile/"+prof+".jpg");
-                    JOptionPane.showMessageDialog(null,vins);
-                    Profile.setIcon(vins);
-                }
+//                if (prof==null) {
+//                    ImageIcon vins = new ImageIcon(path + "/Images/Profile/sampleuser.jpg");
+//                    Image kev = vins.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+//                    ImageIcon shit = new ImageIcon(kev);
+//                    Profile.setIcon(shit);
+//                }else{
+                ImageIcon vins = new ImageIcon(path + "/Images/Profile/"+prof+".jpg");
+                Image kev = vins.getImage().getScaledInstance(210, 120, Image.SCALE_SMOOTH);
+                ImageIcon shit = new ImageIcon(kev);
+                Profile.setIcon(shit);
+//                }
                 ProfileName.setText(prof);
                 Role_id.setSelectedIndex(rs.getInt("role_id")-1);
                 Fname.setText(rs.getString("Fname"));
@@ -184,8 +188,7 @@ public class UsersController {
      
      public boolean updateUser(UserModel usermodel,JTable usertable){
         try {
-            String updates = "UPDATE users SET Role_id = ? , Profile = ? ,Fname = ?, Mname = ?,Lname = ?,DOB = ?,Address = ?,Contact = ?,Username = ?,Password = ? WHERE Id = '" + usermodel.getId() + "'";
-            PreparedStatement st = con.prepareStatement(updates);
+            PreparedStatement st = con.prepareStatement(baguhinAngUser);
             st.setInt(1, usermodel.getRole_id());
             st.setString(2, usermodel.getProfile());
             st.setString(3, usermodel.getFname());
@@ -196,6 +199,7 @@ public class UsersController {
             st.setString(8, usermodel.getContact());
             st.setString(9, usermodel.getUsername());
             st.setString(10, authControll.encrypt(usermodel.getPassword()));
+            st.setInt(11, usermodel.getId());
 
             int i = st.executeUpdate();
             if (i > 0) {

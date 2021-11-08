@@ -24,6 +24,7 @@ import javax.swing.JTable;
 public class FormsControllers {
     int containernum;
     int btn_id;
+    String btn_ids;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     JTable jtablename;
     JPanel lalagyanan,lalagyananForms;
@@ -38,14 +39,25 @@ public class FormsControllers {
         this.out = out;
         checkPanelNum();
     }
+     public FormsControllers(int containernum,String btn_ids,JTable jtablename,JPanel lalagyanan,JPanel lalagyananForms,JFrame out) {
+        this.containernum = containernum;
+        this.btn_ids = btn_ids;
+        this.jtablename = jtablename;
+        this.lalagyanan = lalagyanan;
+        this.lalagyananForms = lalagyananForms;
+        this.out = out;
+        checkPanelNum();
+    }
     
     private void checkPanelNum(){
-        if (containernum==3) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+        if (containernum==2) {
+            new ContainerController(lalagyananForms,new UserFormModal(out,btn_id,jtablename,lalagyanan));
+        }else if (containernum==3) {
+            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_ids,jtablename,lalagyanan));
         }else if (containernum==4) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_ids,jtablename,lalagyanan));
         }else if (containernum==5) {
-            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_id,jtablename,lalagyanan));
+            new ContainerController(lalagyananForms,new GallonsFormModal(out,btn_ids,jtablename,lalagyanan));
         }else if (containernum==6) {
            new ContainerController(lalagyananForms,new SuppliersFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==7) {

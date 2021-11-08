@@ -99,7 +99,7 @@ public final class DeliveriesController {
         DeliveriesModel deliveries;
         
         while(rs.next()){
-            deliveries = new DeliveriesModel(rs.getInt("Id"),rs.getInt("Customer_Id"),rs.getString("Date_Order"),rs.getString("Date_Delivered"),rs.getInt("Gallon_Id"),rs.getInt("Quantity"),rs.getInt("Promo_Id"),rs.getInt("Status"),rs.getInt("User_Id"));
+            deliveries = new DeliveriesModel(rs.getInt("Id"),rs.getInt("Customer_Id"),rs.getString("Date_Order"),rs.getString("Date_Delivered"),rs.getString("Gallon_Id"),rs.getInt("Quantity"),rs.getInt("Promo_Id"),rs.getInt("Status"),rs.getInt("User_Id"));
             deliveriesList.add(deliveries);
         }
         return deliveriesList;   

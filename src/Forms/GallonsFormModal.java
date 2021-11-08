@@ -27,7 +27,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     /**
      * Creates new form GallonsFormModal
      */
-    static int btn_id;
+    static String btn_id;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     GallonsModel gallonsmodel;
     GallonsController gallonsControll = new GallonsController();
@@ -35,7 +35,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     static JFrame out;
     static JPanel lalagyanan;
     
-    public GallonsFormModal(JFrame out,int btn_id,JTable gallonsTable,JPanel lalagyanan) {
+    public GallonsFormModal(JFrame out,String btn_id,JTable gallonsTable,JPanel lalagyanan) {
         initComponents();
         this.btn_id = btn_id;
         this.gallonTable = gallonsTable;
@@ -43,12 +43,13 @@ public class GallonsFormModal extends javax.swing.JPanel {
         this.out = out;
         checkBtn(btn_id);
     }
-    private void checkBtn(int btn_id){
-        if (btn_id==0) {
+    private void checkBtn(String btn_id){
+        if (btn_id==null) {
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
+            Code.setText(gallonsControll.generateGallonCode());
         }else{
-            gallonsControll.getGallonInfo(btn_id, Size, Color, Gallon_Type,Supplier_Id, Date_delivered, Price, Stocks);
+            gallonsControll.getGallonInfo(btn_id,Code, Size, Color, Gallon_Type,Supplier_Id, Date_delivered, Price, Stocks);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -84,6 +85,8 @@ public class GallonsFormModal extends javax.swing.JPanel {
         Supplier_Id = new javax.swing.JComboBox<>();
         Date_delivered = new com.toedter.calendar.JDateChooser();
         Stocks = new javax.swing.JSpinner();
+        Code = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -169,6 +172,14 @@ public class GallonsFormModal extends javax.swing.JPanel {
         jPanel2.add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 180, 30));
         jPanel2.add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, 30));
 
+        Code.setEditable(false);
+        Code.setEnabled(false);
+        jPanel2.add(Code, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Code");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 30));
+
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 600));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -177,8 +188,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-
-        gallonsmodel = new GallonsModel(btn_id,Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Double.parseDouble(Price.getText()),(int) Stocks.getValue());
+        gallonsmodel = new GallonsModel(String.valueOf(btn_id),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Double.parseDouble(Price.getText()),(int) Stocks.getValue());
         if (gallonsControll.updateGallon(gallonsmodel,gallonTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
@@ -187,7 +197,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        gallonsmodel = new GallonsModel(0,Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
+        gallonsmodel = new GallonsModel(Code.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
         if (gallonsControll.addGallons(gallonsmodel,gallonTable)) {
             out.dispose();
             new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
@@ -203,6 +213,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Code;
     private javax.swing.JTextField Color;
     private com.toedter.calendar.JDateChooser Date_delivered;
     private javax.swing.JTextField Gallon_Type;
@@ -219,6 +230,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;

@@ -7,6 +7,7 @@ package Controllers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,5 +26,5 @@ public class PublicFunctions {
     
     public void formatDate(){
          DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-     }
+    }
 }

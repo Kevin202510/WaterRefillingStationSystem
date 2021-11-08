@@ -22,9 +22,9 @@ public class Dashboard extends javax.swing.JPanel {
     JPanel lalagyanan;
     ButtonsController buttonControll;
     
-    public Dashboard(JFrame maindash, JPanel lalagyanan) {
+    public Dashboard(JPanel lalagyanan) {
         initComponents();
-        buttonControll = new ButtonsController(maindash,lalagyanan);
+        buttonControll = new ButtonsController(lalagyanan);
     }
 
     /**

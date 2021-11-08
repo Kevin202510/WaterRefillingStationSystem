@@ -17,9 +17,11 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -35,10 +37,11 @@ public class GallonsController {
     SQLController sql = new SQLController();
     Connection con = sql.getConnection();
     
-    String kuninLahatNgGallon = "SELECT * FROM gallons";
-    String tanggalinAngGallons = "DELETE FROM  gallons WHERE Gallon_Code = ?";
-    String magdagdagNgGallons = "INSERT INTO gallons(Gallon_Code,Name,Size,Color,Gallon_Type,Supplier_Id,Date_delivered,Price,Stocks) VALUES (?,?,?,?,?,?,?,?,?)";
-    
+    String kuninLahatNgGallon = "SELECT * FROM `gallons` ORDER BY Date_Delivered";
+    String magdagdagNgGallons = "INSERT INTO `gallons`(`Code`, `Size`, `Color`, `Gallon_Type`, `Supplier_Id`, `Date_Delivered`, `PurchasePrice`, `Stocks`) VALUES (?,?,?,?,?,?,?,?)";
+    String kuninAnggallon = "SELECT * FROM gallons where Code = ?";
+    String baguhinAngGallon = "UPDATE gallons SET Size = ? ,Color = ?, Gallon_Type = ?,Supplier_Id = ?,Date_Delivered = ?,PurchasePrice = ?,Stocks = ? WHERE Code = ?";
+    String tanggalinAngGallons = "DELETE FROM `gallons` WHERE Code = ?";
     
     public GallonsController(){
         try {
@@ -54,7 +57,7 @@ public class GallonsController {
         GallonsModel gallons;
         
         while(rs.next()){
-            gallons=new GallonsModel(rs.getInt("Code"),rs.getString("Size"),rs.getString("Color"),rs.getString("Gallon_Type"),rs.getInt("Supplier_id"),rs.getString("Date_delivered"),rs.getDouble("PurchasePrice"),rs.getInt("Stocks"));
+            gallons=new GallonsModel(rs.getString("Code"),rs.getString("Size"),rs.getString("Color"),rs.getString("Gallon_Type"),rs.getInt("Supplier_id"),rs.getString("Date_delivered"),rs.getDouble("PurchasePrice"),rs.getInt("Stocks"));
             gallonList.add(gallons);
         }
         return gallonList;   
@@ -65,7 +68,6 @@ public class GallonsController {
          DefaultTableModel model = (DefaultTableModel)gallonsTable.getModel();
          Object[] row = new Object[9];
          for (int i = 0; i < gallonList.size(); i++) {
-//             JOptionPane.showMessageDialog(null,gallonList.get(i).getColor());
             row[0] = gallonList.get(i).getCode();
             row[1] = gallonList.get(i).getSize();
             row[2] = gallonList.get(i).getColor();
@@ -78,58 +80,51 @@ public class GallonsController {
          }
     }
      
-     //Gallon_Code,Name,Size,Color,Gallon_Type,Supplier_Id,Date_delivered,Price,Stocks
        public boolean addGallons(GallonsModel gallonsmodel,JTable gallonTable){
         try {
             PreparedStatement st = con.prepareStatement(magdagdagNgGallons);
-//            st.setInt(1, gallonsmodel.getCode());
-//            st.setString(2, gallonsmodel.getName());
-//            st.setString(3, gallonsmodel.getSize());
-//            st.setString(4, gallonsmodel.getColor());
-//            st.setString(5, gallonsmodel.getGallon_Type());
-//            st.setInt(6, gallonsmodel.getSupplier_id());
-//            st.setString(7, gallonsmodel.getDate_delivered());
-//            st.setInt(8, gallonsmodel.getPrice());
-            st.setInt(9, gallonsmodel.getStocks());
+            st.setString(1, gallonsmodel.getCode());
+            st.setString(2, gallonsmodel.getSize());
+            st.setString(3, gallonsmodel.getColor());
+            st.setString(4, gallonsmodel.getGallon_Type());
+            st.setInt(5, gallonsmodel.getSupplier_id());
+            st.setString(6, gallonsmodel.getDate_delivered());
+            st.setDouble(7, gallonsmodel.getPurchasePrice());
+            st.setInt(8, gallonsmodel.getStocks());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)gallonTable.getModel();
                 model.setRowCount(0);
-//                userList();
-//                showUsers(userTable);
             } else {
-//                new Alerts("error").setVisible(true);
-//                return false;
+                return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(GallonsController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }
      
-         public void getGallonInfo(int id,JTextField Size,JTextField Color,JTextField Gallon_Type,JComboBox<String> Supplier_Id,
-                            JDateChooser Date_delivered ,JTextField Price , JSpinner Stocks){
-        String kuninAnggallon = "SELECT * FROM gallons where Gallon_Code = '" + id + "'";
-        
-        try {
-                Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery(kuninAnggallon);
-        
-               // Role_id.setText(String.valueOf(rs.getInt("role_id")));
-               while(rs.next()){
+    public void getGallonInfo(String id,JTextField Code,JTextField Size,JTextField Color,JTextField Gallon_Type,JComboBox<String> Supplier_Id,
+                       JDateChooser Date_delivered ,JTextField Price , JSpinner Stocks){
+
+       try {
+               PreparedStatement st = con.prepareStatement(kuninAnggallon);
+               st.setString(1, id);
+               ResultSet rs = st.executeQuery();
+              while(rs.next()){
+                Code.setText(rs.getString("Code"));
                 Size.setText(rs.getString("Size"));
                 Color.setText(rs.getString("Color"));
                 Gallon_Type.setText(rs.getString("Gallon_Type"));
-//                Supplier_id.setText(String.valueOf(rs.getInt("Supplier_id")));
                 Date_delivered.setDate(rs.getDate("Date_delivered"));
-              Price.setText(String.valueOf(rs.getInt("Price")));
-              Stocks.setValue(rs.getInt("Stocks"));
-               }
-        }   
-         catch (SQLException ex) {
-            Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     }
+                Price.setText(String.valueOf(rs.getDouble("PurchasePrice")));
+                Stocks.setValue(rs.getInt("Stocks"));
+            }
+       }   
+        catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,ex);
+       }
+    }
          
     public void clearGallonForm(JTextField Name,JTextField Size,JTextField Color,JTextField Gallon_Type,JComboBox Supplier_Id,
                             JDateChooser Date_delivered ,JTextField Price , JSpinner Stocks){
@@ -145,54 +140,55 @@ public class GallonsController {
      
      public boolean updateGallon(GallonsModel gallonsmodel,JTable gallontable){
         try {
-            String updates = "UPDATE gallons SET Gallon_Code = ? , Name = ? ,Size = ?, Color = ?,Gallon_Type = ?,Supplier_id = ?,Date_delivered = ?,Price = ?,Stocks = ? WHERE Gallon_Code = '" + gallonsmodel.getCode()+ "'";
-            PreparedStatement st = con.prepareStatement(updates);
-//            st.setInt(1, gallonsmodel.getGallon_Code());
-//            st.setString(2, gallonsmodel.getName());
-//            st.setString(3, gallonsmodel.getSize());
-//            st.setString(4, gallonsmodel.getColor());
-//            st.setString(5, gallonsmodel.getGallon_Type());
-//            st.setInt(6, gallonsmodel.getSupplier_id());
-//            st.setString(7, gallonsmodel.getDate_delivered());
-//            st.setInt(8, gallonsmodel.getPrice());
-            st.setInt(9, gallonsmodel.getStocks());
+            PreparedStatement st = con.prepareStatement(baguhinAngGallon);
+            st.setString(1, gallonsmodel.getSize());
+            st.setString(2, gallonsmodel.getColor());
+            st.setString(3, gallonsmodel.getGallon_Type());
+            st.setInt(4, gallonsmodel.getSupplier_id());
+            st.setString(5, gallonsmodel.getDate_delivered());
+            st.setDouble(6, gallonsmodel.getPurchasePrice());
+            st.setInt(7, gallonsmodel.getStocks());
+            st.setString(8,gallonsmodel.getCode());
            
 
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)gallontable.getModel();
                 model.setRowCount(0);
-            //            new Alerts("update").setVisible(true);
             }else{
-//                new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(GallonsController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }
      
-       public boolean deleteGallon(int id,JTable gallontable){
+       public boolean deleteGallon(String id,JTable gallontable){
         try {
             PreparedStatement st = con.prepareStatement(tanggalinAngGallons);
-            st.setInt(1, id);
+            st.setString(1,id);
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)gallontable.getModel();
                 model.setRowCount(0);
-//            new Alerts("delete").setVisible(true);
             }else{
-//            new Alerts("error").setVisible(true);
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(GallonsController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
         return true;
      }
-     
-  
-     
+       
+     public String generateGallonCode(){
+        Random random = new Random();
+        String Code="";
+        for (int i = 1; i <= 10; i++) {
+            int value = random.nextInt(5);
+            Code += String.valueOf(value);
+        }
+        return Code;
+    }   
 }
 

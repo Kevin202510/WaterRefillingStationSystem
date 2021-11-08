@@ -74,7 +74,7 @@ public class Gallons extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(gallonTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 360));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 460));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,12 +99,11 @@ public class Gallons extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        //        new UserModal(0,userTable,lalagyanan).setVisible(true);
-        new FrameFormModal(4,0,gallonTable,lalagyanan).setVisible(true);
+        new FrameFormModal(4,null,gallonTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void gallonTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonTableMouseClicked
-        int id = (int) gallonTable.getValueAt(gallonTable.getSelectedRow(),0);
+        String id = (String) gallonTable.getValueAt(gallonTable.getSelectedRow(),0);
         new FrameFormModal(4,id,gallonTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_gallonTableMouseClicked
 

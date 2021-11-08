@@ -31,7 +31,6 @@ public class MainDashboard extends javax.swing.JFrame {
     
     public MainDashboard(int userID) {
         initComponents();
-        JOptionPane.showMessageDialog(null,"asd");
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM users where Id = '" + userID + "'");
@@ -53,7 +52,7 @@ public class MainDashboard extends javax.swing.JFrame {
         if (Role_id==1 || Role_id==2) {
             new ContainerController(jpnl_userButtons,new DeveloperAndAdminButtons(this,jpnl_container,jpnl_userButtons,Profile,userID));
         }else if(Role_id==3) {
-            new ContainerController(jpnl_userButtons,new EmployeesButtons(this,jpnl_container,Profile));
+            new ContainerController(jpnl_userButtons,new EmployeesButtons(jpnl_container,Profile));
         }
     }
 /**

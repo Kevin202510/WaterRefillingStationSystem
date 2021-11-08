@@ -39,16 +39,15 @@ public class UserFormModal extends javax.swing.JPanel {
     Webcam wc;
     String path = System.getProperty("user.dir");
     static JTable userTable;
-    static JFrame out,maindash;
+    static JFrame out;
     static JPanel lalagyanan;
     
-    public UserFormModal(JFrame out,int btn_id,JTable userTable,JPanel lalagyanan,JFrame maindash) {
+    public UserFormModal(JFrame out,int btn_id,JTable userTable,JPanel lalagyanan) {
         initComponents();
         this.btn_id = btn_id;
         this.userTable = userTable;
         this.lalagyanan = lalagyanan;
         this.out = out;
-        this.maindash = maindash;
         userControll.showRoles(userRole_id);
         wc = Webcam.getDefault();
         wc.setViewSize(WebcamResolution.VGA.getSize());
@@ -63,7 +62,6 @@ public class UserFormModal extends javax.swing.JPanel {
             userProfile.setIcon(new ImageIcon(kev));
         }else{
             userControll.getUserInfo(btn_id, userRole_id, profilename, userProfile, userFname, userMname, userLname, userDOB, userAddress, userContact, userUsername, userPassword);
-//            userControll.getUserInfo(btn_id, userRole_id, userProfile, userFname, userMname, userLname, userDOB, userAddress, userContact, userUsername, userPassword);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -227,7 +225,7 @@ public class UserFormModal extends javax.swing.JPanel {
             userLname.getText(),df.format(userDOB.getDate()),userAddress.getText(),userContact.getText(),userUsername.getText(),userPassword.getText());
         if (userControll.updateUser(usermodel, userTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(maindash,lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
@@ -238,16 +236,16 @@ public class UserFormModal extends javax.swing.JPanel {
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if(userControll.deleteUser(btn_id,userTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(maindash,lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        usermodel = new UserModel(0,userRole_id.getSelectedIndex()+1,userFname.getText(),userFname.getText(),userMname.getText(),
+        usermodel = new UserModel(0,userRole_id.getSelectedIndex()+1,"sampleuser",userFname.getText(),userMname.getText(),
             userLname.getText(),df.format(userDOB.getDate()),userAddress.getText(),userContact.getText(),userUsername.getText(),String.valueOf(userPassword.getPassword()));
         if (userControll.addUser(usermodel,userTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(maindash,lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed
 

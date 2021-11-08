@@ -8,10 +8,6 @@ package Views;
 import Controllers.ContainerController;
 import Controllers.UsersController;
 import Forms.FrameFormModal;
-import Forms.UserFormModal;
-import Forms.UserFrameModal;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -25,12 +21,10 @@ public class Users extends javax.swing.JPanel {
      */
     UsersController userControll = new UsersController();
     JPanel lalagyanan;
-    JFrame maindash;
     
-    public Users(JFrame maindash,JPanel lalagyanan) {
+    public Users(JPanel lalagyanan) {
         initComponents();
         this.lalagyanan = lalagyanan;
-        this.maindash = maindash;
         InitRun();
     }
     
@@ -104,12 +98,12 @@ public class Users extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        new UserFrameModal(2,0,userTable,lalagyanan,maindash).setVisible(true);
+        new FrameFormModal(2,0,userTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
         int id = (int) userTable.getValueAt(userTable.getSelectedRow(),0);
-        new UserFrameModal(2,id,userTable,lalagyanan,maindash).setVisible(true);
+        new FrameFormModal(2,id,userTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_userTableMouseClicked
 
 
