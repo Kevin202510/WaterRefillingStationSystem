@@ -34,10 +34,12 @@ import javax.swing.table.DefaultTableModel;
 public class GallonsController {
     
     ArrayList<GallonsModel> gallonList = new ArrayList<>();
+    ArrayList<GallonsModel> gallonsupplierList = new ArrayList<>();
     SQLController sql = new SQLController();
     Connection con = sql.getConnection();
     
     String kuninLahatNgGallon = "SELECT * FROM `gallons` ORDER BY Date_Delivered";
+    String kuninLahatNgGallonwithjointable = "SELECT * FROM `gallons` LEFT JOIN suppliers ON suppliers.Id = gallons.Supplier_Id ORDER BY Date_Delivered";
     String magdagdagNgGallons = "INSERT INTO `gallons`(`Code`, `Size`, `Color`, `Gallon_Type`, `Supplier_Id`, `Date_Delivered`, `PurchasePrice`, `Stocks`) VALUES (?,?,?,?,?,?,?,?)";
     String kuninAnggallon = "SELECT * FROM gallons where Code = ?";
     String baguhinAngGallon = "UPDATE gallons SET Size = ? ,Color = ?, Gallon_Type = ?,Supplier_Id = ?,Date_Delivered = ?,PurchasePrice = ?,Stocks = ? WHERE Code = ?";
@@ -45,11 +47,14 @@ public class GallonsController {
     
     public GallonsController(){
         try {
+            gallonSupplierList();
             gallonList();
         } catch (SQLException ex) {
             Logger.getLogger(GallonsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
     
     public ArrayList<GallonsModel> gallonList() throws SQLException{
         Statement st = con.createStatement();
@@ -63,6 +68,19 @@ public class GallonsController {
         return gallonList;   
     }
     
+    public ArrayList<GallonsModel> gallonSupplierList() throws SQLException{
+         Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(kuninLahatNgGallonwithjointable);
+        GallonsModel gallons;
+        
+        while(rs.next()){
+            String supplierFullname = rs.getString("Fname") + " " + rs.getString("Lname") + " " +rs.getString("Mname");
+            gallons=new GallonsModel(supplierFullname);
+            gallonsupplierList.add(gallons);
+        }
+        return gallonsupplierList;   
+    }
+    
 //    JTable jTable1
      public void showGallons(JTable gallonsTable){
          DefaultTableModel model = (DefaultTableModel)gallonsTable.getModel();
@@ -72,7 +90,7 @@ public class GallonsController {
             row[1] = gallonList.get(i).getSize();
             row[2] = gallonList.get(i).getColor();
             row[3] = gallonList.get(i).getGallon_Type();
-            row[4] = gallonList.get(i).getSupplier_id();
+            row[4] = gallonsupplierList.get(i).getSupplierFullname();
             row[5] = gallonList.get(i).getDate_delivered();
             row[6] = gallonList.get(i).getPurchasePrice();
             row[7] = gallonList.get(i).getStocks();
@@ -189,6 +207,22 @@ public class GallonsController {
             Code += String.valueOf(value);
         }
         return Code;
-    }   
+    }  
+     
+        public void fetchComboBoxSupplierValue(JComboBox<String> Supplier_Id){
+        
+       
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM `suppliers`");
+            
+            while(rs.next()){
+                Supplier_Id.addItem(rs.getString("Fname") + " " + rs.getString("Mname") + " " + rs.getString("Lname"));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GallonsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }  
 }
 

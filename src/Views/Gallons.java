@@ -59,7 +59,7 @@ public class Gallons extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Gallon Code", "Size", "Color", "Gallon Type", "Supplier Id", "Date Delivered", "Price", "Stocks"
+                "Gallon Code", "Size", "Color", "Gallon Type", "Supplier Name", "Date Delivered", "Price", "Stocks"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -89,9 +89,9 @@ public class Gallons extends javax.swing.JPanel {
             gallonTable.getColumnModel().getColumn(3).setMinWidth(75);
             gallonTable.getColumnModel().getColumn(3).setPreferredWidth(75);
             gallonTable.getColumnModel().getColumn(3).setMaxWidth(75);
-            gallonTable.getColumnModel().getColumn(4).setMinWidth(70);
-            gallonTable.getColumnModel().getColumn(4).setPreferredWidth(70);
-            gallonTable.getColumnModel().getColumn(4).setMaxWidth(70);
+            gallonTable.getColumnModel().getColumn(4).setMinWidth(150);
+            gallonTable.getColumnModel().getColumn(4).setPreferredWidth(150);
+            gallonTable.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 460));

@@ -76,7 +76,7 @@ public class Pos extends javax.swing.JPanel {
         jLabel2.setText("Point Of Sales");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 40));
 
-        btndeliver.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        btndeliver.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btndeliver.setForeground(new java.awt.Color(255, 255, 255));
         btndeliver.setText("Deliver");
         btndeliver.setBorderPainted(false);
@@ -88,7 +88,7 @@ public class Pos extends javax.swing.JPanel {
         });
         jPanel1.add(btndeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, 40));
 
-        btnbuy.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        btnbuy.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnbuy.setForeground(new java.awt.Color(255, 255, 255));
         btnbuy.setText("Buy");
         btnbuy.setBorderPainted(false);
@@ -100,7 +100,7 @@ public class Pos extends javax.swing.JPanel {
         });
         jPanel1.add(btnbuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 180, 40));
 
-        btnwalkin.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        btnwalkin.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnwalkin.setForeground(new java.awt.Color(255, 255, 255));
         btnwalkin.setText("Walk In");
         btnwalkin.setBorderPainted(false);
@@ -112,7 +112,7 @@ public class Pos extends javax.swing.JPanel {
         });
         jPanel1.add(btnwalkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 180, 40));
 
-        pickup.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        pickup.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         pickup.setForeground(new java.awt.Color(255, 255, 255));
         pickup.setText("Pick Up");
         pickup.setBorderPainted(false);

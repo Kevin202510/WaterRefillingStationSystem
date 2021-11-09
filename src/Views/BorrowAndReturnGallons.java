@@ -27,10 +27,12 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         InitRun();
         borrowgallontbl.getTableHeader().setFont(new Font("MS Gothic", Font.BOLD, 15));
+        returngallontable.getTableHeader().setFont(new Font("MS Gothic", Font.BOLD, 15));
     }
     
      private void InitRun(){
         borrowandreturnControol.showBorrowGallon(borrowgallontbl);
+         borrowandreturnControol.showReturnGallon(returngallontable);
     }
 
     /**
@@ -43,7 +45,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        returngallontable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -57,18 +59,28 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        returngallontable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Customer_Id	", "Gallon_Id", "Gallon_Quantity", "Date_Return"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(returngallontable);
+        if (returngallontable.getColumnModel().getColumnCount() > 0) {
+            returngallontable.getColumnModel().getColumn(0).setMinWidth(50);
+            returngallontable.getColumnModel().getColumn(0).setPreferredWidth(50);
+            returngallontable.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 1080, 200));
 
@@ -148,7 +160,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable returngallontable;
     // End of variables declaration//GEN-END:variables
 }

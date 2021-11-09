@@ -7,12 +7,16 @@ package Forms;
 
 import Controllers.ContainerController;
 import Controllers.GallonsController;
+import Controllers.SupplierController;
 import static Forms.GallonsFormModal.lalagyanan;
 import static Forms.GallonsFormModal.out;
 import static Forms.GallonsFormModal.gallonTable;
 import Models.GallonsModel;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -31,6 +35,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     GallonsModel gallonsmodel;
     GallonsController gallonsControll = new GallonsController();
+    SupplierController supplierControll = new SupplierController();
     static JTable gallonTable;
     static JFrame out;
     static JPanel lalagyanan;
@@ -41,6 +46,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
         this.gallonTable = gallonsTable;
         this.lalagyanan = lalagyanan;
         this.out = out;
+        gallonsControll.fetchComboBoxSupplierValue(Supplier_Id);
         checkBtn(btn_id);
     }
     private void checkBtn(String btn_id){
@@ -137,7 +143,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Date Delivered");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
         jPanel2.add(Size, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 180, 30));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,8 +162,8 @@ public class GallonsFormModal extends javax.swing.JPanel {
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Price");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 80, 30));
-        jPanel2.add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 180, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
+        jPanel2.add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 180, 30));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Supplier");
@@ -165,12 +171,11 @@ public class GallonsFormModal extends javax.swing.JPanel {
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Stocks");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 80, 30));
 
-        Supplier_Id.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(Supplier_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, -1));
-        jPanel2.add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 180, 30));
-        jPanel2.add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 180, 30));
+        jPanel2.add(Supplier_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 30));
+        jPanel2.add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, 30));
+        jPanel2.add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, 30));
 
         Code.setEditable(false);
         Code.setEnabled(false);
@@ -188,19 +193,27 @@ public class GallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-        gallonsmodel = new GallonsModel(String.valueOf(btn_id),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Double.parseDouble(Price.getText()),(int) Stocks.getValue());
-        if (gallonsControll.updateGallon(gallonsmodel,gallonTable)) {
-            out.dispose();
-            new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
-
+        try {
+            gallonsmodel = new GallonsModel(String.valueOf(btn_id),Size.getText(),Color.getText(),Gallon_Type.getText(),supplierControll.supplierList().get(Supplier_Id.getSelectedIndex()).getID(),df.format(Date_delivered.getDate()),Double.parseDouble(Price.getText()),(int) Stocks.getValue());
+            if (gallonsControll.updateGallon(gallonsmodel,gallonTable)) {
+                out.dispose();
+                new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GallonsFormModal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        gallonsmodel = new GallonsModel(Code.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),1,df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
-        if (gallonsControll.addGallons(gallonsmodel,gallonTable)) {
-            out.dispose();
-            new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
+        try {
+            gallonsmodel = new GallonsModel(Code.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),supplierControll.supplierList().get(Supplier_Id.getSelectedIndex()).getID(),df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
+            if (gallonsControll.addGallons(gallonsmodel,gallonTable)) {
+                out.dispose();
+                new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GallonsFormModal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_addbtnActionPerformed
 

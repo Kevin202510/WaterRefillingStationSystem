@@ -49,7 +49,7 @@
                 <Column editable="false" title="Size" type="java.lang.Object"/>
                 <Column editable="false" title="Color" type="java.lang.Object"/>
                 <Column editable="false" title="Gallon Type" type="java.lang.Object"/>
-                <Column editable="false" title="Supplier Id" type="java.lang.Object"/>
+                <Column editable="false" title="Supplier Name" type="java.lang.Object"/>
                 <Column editable="false" title="Date Delivered" type="java.lang.Object"/>
                 <Column editable="false" title="Price" type="java.lang.Object"/>
                 <Column editable="false" title="Stocks" type="java.lang.Object"/>
@@ -77,7 +77,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="70" prefWidth="70" resizable="true">
+                <Column maxWidth="150" minWidth="150" prefWidth="150" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
