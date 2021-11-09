@@ -81,6 +81,7 @@ public class FrameFormModal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        formContainer.setNextFocusableComponent(formContainer);
         formContainer.setPreferredSize(new java.awt.Dimension(350, 600));
         formContainer.setLayout(new javax.swing.BoxLayout(formContainer, javax.swing.BoxLayout.LINE_AXIS));
         getContentPane().add(formContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
