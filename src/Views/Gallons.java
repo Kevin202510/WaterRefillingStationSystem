@@ -53,7 +53,7 @@ public class Gallons extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        gallonTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
+        gallonTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         gallonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

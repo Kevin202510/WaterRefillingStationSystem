@@ -50,7 +50,7 @@ public class Supplier extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        suppliersTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
+        suppliersTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         suppliersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
