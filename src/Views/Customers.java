@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JPanel;
 import Controllers.CustomerController;
 import Forms.FrameFormModal;
+import java.awt.Font;
 
 /**
  *
@@ -27,6 +28,7 @@ public class Customers extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         InitRun();
+        customersTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
     }
     
     private void InitRun(){
@@ -50,6 +52,7 @@ public class Customers extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        customersTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
         customersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -72,6 +75,11 @@ public class Customers extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(customersTable);
+        if (customersTable.getColumnModel().getColumnCount() > 0) {
+            customersTable.getColumnModel().getColumn(0).setMinWidth(50);
+            customersTable.getColumnModel().getColumn(0).setPreferredWidth(50);
+            customersTable.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, 1080, 470));
 

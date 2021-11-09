@@ -8,6 +8,7 @@ package Views;
 import Controllers.PromosController;
 import Forms.PromosModal;
 import Forms.FrameFormModal;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -26,6 +27,7 @@ public class Promos extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         InitRun();
+        promosTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
     }
     
      private void InitRun(){
@@ -50,12 +52,13 @@ public class Promos extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        promosTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
         promosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Name", "Description", "Date Started", "Date End"
+                "Id", "Promo Name", "Description", "Date Started", "Date End"
             }
         ));
         promosTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,6 +67,20 @@ public class Promos extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(promosTable);
+        if (promosTable.getColumnModel().getColumnCount() > 0) {
+            promosTable.getColumnModel().getColumn(0).setMinWidth(50);
+            promosTable.getColumnModel().getColumn(0).setPreferredWidth(50);
+            promosTable.getColumnModel().getColumn(0).setMaxWidth(50);
+            promosTable.getColumnModel().getColumn(1).setMinWidth(255);
+            promosTable.getColumnModel().getColumn(1).setPreferredWidth(255);
+            promosTable.getColumnModel().getColumn(1).setMaxWidth(255);
+            promosTable.getColumnModel().getColumn(2).setMinWidth(255);
+            promosTable.getColumnModel().getColumn(2).setPreferredWidth(255);
+            promosTable.getColumnModel().getColumn(2).setMaxWidth(255);
+            promosTable.getColumnModel().getColumn(3).setMinWidth(255);
+            promosTable.getColumnModel().getColumn(3).setPreferredWidth(255);
+            promosTable.getColumnModel().getColumn(3).setMaxWidth(255);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
 
