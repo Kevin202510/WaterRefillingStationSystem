@@ -52,7 +52,7 @@ public class Promos extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        promosTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
+        promosTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         promosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

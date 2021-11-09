@@ -52,7 +52,7 @@ public class Customers extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        customersTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
+        customersTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         customersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

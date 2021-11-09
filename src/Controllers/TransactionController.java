@@ -92,14 +92,14 @@ public class TransactionController {
 //            st.setInt(6, Integer.parseInt(row[6].toString()));
 //            st.setInt(7, Integer.parseInt(row[7].toString()));
 //            st.setInt(8, Integer.parseInt(row[8].toString()));
-            st.setInt(1,3);
+            st.setInt(1,1);
             st.setString(2, "2021-11-08");
             st.setString(3, "2021-11-08");
-            st.setString(4, "4223031043");
+            st.setString(4, "0000000000");
             st.setInt(5, 5);
             st.setInt(6, 10);
             st.setInt(7, 0);
-            st.setInt(8, 16);
+            st.setInt(8, 3);
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();

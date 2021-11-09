@@ -8,6 +8,7 @@ package Views;
 import Controllers.ContainerController;
 import Controllers.UsersController;
 import Forms.FrameFormModal;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -26,6 +27,7 @@ public class Users extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         InitRun();
+        userTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
     }
     
     private void InitRun(){
@@ -50,6 +52,7 @@ public class Users extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        userTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
