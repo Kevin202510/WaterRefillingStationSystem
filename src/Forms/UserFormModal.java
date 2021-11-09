@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import java.awt.Color;
 
 /**
  *
@@ -102,6 +103,13 @@ public class UserFormModal extends javax.swing.JPanel {
         userPassword = new javax.swing.JPasswordField();
         userRole_id = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(350, 610));
@@ -112,34 +120,58 @@ public class UserFormModal extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 610));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel8.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Password");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 80, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 100, 30));
 
+        jLabel3.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Last Name");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 214, 80, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 100, 30));
         jPanel2.add(userProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 53, 176, 75));
-        jPanel2.add(userLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 214, 190, 30));
-        jPanel2.add(userMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 174, 190, 30));
 
+        userLname.setBackground(new Color(0,0,0,1));
+        userLname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userLname.setForeground(new java.awt.Color(255, 255, 255));
+        userLname.setBorder(null);
+        userLname.setOpaque(false);
+        jPanel2.add(userLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 210, 30));
+
+        userMname.setBackground(new Color(0,0,0,1));
+        userMname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userMname.setForeground(new java.awt.Color(255, 255, 255));
+        userMname.setBorder(null);
+        userMname.setOpaque(false);
+        jPanel2.add(userMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 30));
+
+        jLabel4.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Date of Birth");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 254, 80, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 100, 30));
 
+        jLabel9.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Middle Name");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 174, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 100, 30));
 
+        jLabel5.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Address");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 294, 80, 30));
-        jPanel2.add(userDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 254, 190, 30));
-        jPanel2.add(userAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 294, 190, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, 30));
+        jPanel2.add(userDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, 30));
 
+        userAddress.setBackground(new Color(0,0,0,1));
+        userAddress.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userAddress.setForeground(new java.awt.Color(255, 255, 255));
+        userAddress.setBorder(null);
+        userAddress.setOpaque(false);
+        jPanel2.add(userAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 210, 30));
+
+        jLabel6.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contact");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 334, 80, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 100, 30));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -147,8 +179,14 @@ public class UserFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel2.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 486, 100, 43));
-        jPanel2.add(userContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 334, 190, 30));
+        jPanel2.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 100, 43));
+
+        userContact.setBackground(new Color(0,0,0,1));
+        userContact.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userContact.setForeground(new java.awt.Color(255, 255, 255));
+        userContact.setBorder(null);
+        userContact.setOpaque(false);
+        jPanel2.add(userContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 210, 30));
 
         profilename.setEditable(false);
         profilename.setBorder(null);
@@ -167,8 +205,14 @@ public class UserFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        jPanel2.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 486, 100, 43));
-        jPanel2.add(userUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 374, 190, 30));
+        jPanel2.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 540, 100, 43));
+
+        userUsername.setBackground(new Color(0,0,0,1));
+        userUsername.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userUsername.setForeground(new java.awt.Color(255, 255, 255));
+        userUsername.setBorder(null);
+        userUsername.setOpaque(false);
+        jPanel2.add(userUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 210, 30));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -176,39 +220,64 @@ public class UserFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 490, 100, 43));
+        jPanel2.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 100, 43));
 
+        jLabel7.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Username");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 374, 80, 30));
-        jPanel2.add(userFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 134, 190, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, 30));
 
+        userFname.setBackground(new Color(0,0,0,1));
+        userFname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userFname.setForeground(new java.awt.Color(255, 255, 255));
+        userFname.setBorder(null);
+        userFname.setOpaque(false);
+        jPanel2.add(userFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 210, 30));
+
+        jLabel10.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("First Name");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 134, 80, 30));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 100, 30));
 
         jbtn_addpic.setBackground(new java.awt.Color(0, 204, 204));
         jbtn_addpic.setFont(new java.awt.Font("Arial Narrow", 0, 1)); // NOI18N
         jbtn_addpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/cams.jpg"))); // NOI18N
         jbtn_addpic.setText("1");
+        jbtn_addpic.setFocusable(false);
         jbtn_addpic.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        jbtn_addpic.setNextFocusableComponent(userFname);
         jbtn_addpic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_addpicActionPerformed(evt);
             }
         });
         jPanel2.add(jbtn_addpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 91, 40, -1));
-        jPanel2.add(userPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 190, 30));
 
-        jPanel2.add(userRole_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 448, 190, 32));
+        userPassword.setBackground(new Color(0,0,0,1));
+        userPassword.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userPassword.setForeground(new java.awt.Color(255, 255, 255));
+        userPassword.setBorder(null);
+        userPassword.setOpaque(false);
+        jPanel2.add(userPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, 30));
+
+        jPanel2.add(userRole_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 210, 32));
 
         jButton1.setText("X");
+        jButton1.setFocusable(false);
+        jButton1.setNextFocusableComponent(userFname);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 10, 60, 40));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 210, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 210, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 210, 10));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 210, 10));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 210, 10));
+        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 210, 10));
+        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 210, 10));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 350, 610));
     }// </editor-fold>//GEN-END:initComponents
@@ -297,6 +366,13 @@ public class UserFormModal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JButton jbtn_addpic;
     private javax.swing.JTextField profilename;
     public javax.swing.JButton updatebtn;
