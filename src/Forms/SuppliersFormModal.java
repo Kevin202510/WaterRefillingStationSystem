@@ -79,13 +79,15 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Contact = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(85, 64, 118));
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Suppliers");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 22, 177, 37));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 177, 37));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -111,27 +113,31 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         });
         add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 546, 100, 43));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("First Name");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Last Name");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 80, 30));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 30));
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Middle Name");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 30));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
 
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Company Name");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 30));
 
         Fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FnameActionPerformed(evt);
             }
         });
-        add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 220, 30));
-        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 220, 30));
-        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 220, 30));
-        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 220, 30));
+        add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 220, 30));
+        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 220, 30));
+        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 220, 30));
+        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 220, 30));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("X");
@@ -143,13 +149,15 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         });
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
 
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Company Address");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 90, 30));
-        add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 220, 30));
-        add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 220, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 90, 30));
+        add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 220, 30));
+        add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 220, 30));
 
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Contact");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 90, 30));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 90, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed

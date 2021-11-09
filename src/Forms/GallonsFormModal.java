@@ -109,7 +109,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("GALLONS");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 22, 177, 37));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 177, 37));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel2.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 100, 43));
+        jPanel2.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, 100, 43));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +125,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 100, 43));
+        jPanel2.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 530, 100, 43));
 
         deletebtn.setText("DELETE");
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -133,52 +133,52 @@ public class GallonsFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        jPanel2.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 100, 43));
+        jPanel2.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 100, 43));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Date Delivered");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 80, 30));
-        jPanel2.add(Size, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 180, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 30));
+        jPanel2.add(Size, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 180, 30));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Size");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
-        jPanel2.add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 180, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, 30));
+        jPanel2.add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 180, 30));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Color");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
-        jPanel2.add(Gallon_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 180, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 80, 30));
+        jPanel2.add(Gallon_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 180, 30));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Gallon Type");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 80, 30));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Price");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 30));
-        jPanel2.add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 80, 30));
+        jPanel2.add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 180, 30));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Supplier");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 80, 30));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Stocks");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 80, 30));
 
         Supplier_Id.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(Supplier_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 180, -1));
-        jPanel2.add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 180, 30));
-        jPanel2.add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, 30));
+        jPanel2.add(Supplier_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, -1));
+        jPanel2.add(Date_delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 180, 30));
+        jPanel2.add(Stocks, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 180, 30));
 
         Code.setEditable(false);
         Code.setEnabled(false);
-        jPanel2.add(Code, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
+        jPanel2.add(Code, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, 30));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Code");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, 30));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 600));
     }// </editor-fold>//GEN-END:initComponents

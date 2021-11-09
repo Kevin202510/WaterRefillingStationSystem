@@ -7,6 +7,7 @@ package Views;
 
 import Controllers.GallonsController;
 import Forms.FrameFormModal;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -26,6 +27,7 @@ public class Gallons extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         InitRun();
+        gallonTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
     }
     
     private void InitRun(){
@@ -51,6 +53,7 @@ public class Gallons extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        gallonTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
         gallonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -73,6 +76,23 @@ public class Gallons extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(gallonTable);
+        if (gallonTable.getColumnModel().getColumnCount() > 0) {
+            gallonTable.getColumnModel().getColumn(0).setMinWidth(150);
+            gallonTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+            gallonTable.getColumnModel().getColumn(0).setMaxWidth(150);
+            gallonTable.getColumnModel().getColumn(1).setMinWidth(70);
+            gallonTable.getColumnModel().getColumn(1).setPreferredWidth(70);
+            gallonTable.getColumnModel().getColumn(1).setMaxWidth(70);
+            gallonTable.getColumnModel().getColumn(2).setMinWidth(70);
+            gallonTable.getColumnModel().getColumn(2).setPreferredWidth(70);
+            gallonTable.getColumnModel().getColumn(2).setMaxWidth(70);
+            gallonTable.getColumnModel().getColumn(3).setMinWidth(75);
+            gallonTable.getColumnModel().getColumn(3).setPreferredWidth(75);
+            gallonTable.getColumnModel().getColumn(3).setMaxWidth(75);
+            gallonTable.getColumnModel().getColumn(4).setMinWidth(70);
+            gallonTable.getColumnModel().getColumn(4).setPreferredWidth(70);
+            gallonTable.getColumnModel().getColumn(4).setMaxWidth(70);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 147, 1080, 460));
 

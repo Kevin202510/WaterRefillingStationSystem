@@ -73,6 +73,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         updatebtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
         addbtn = new javax.swing.JButton();
@@ -90,10 +91,15 @@ public class CustomersFormModal extends javax.swing.JPanel {
         customerLname = new javax.swing.JTextField();
         customerSuki = new javax.swing.JComboBox<>();
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.setBackground(new java.awt.Color(85, 64, 118));
         jPanel1.setMinimumSize(new java.awt.Dimension(350, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(350, 610));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CUSTOMER");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 20));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +107,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 100, 43));
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 100, 43));
 
         deletebtn.setText("DELETE");
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +115,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 100, 43));
+        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, 100, 43));
 
         addbtn.setText("ADD");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -117,29 +123,35 @@ public class CustomersFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 100, 43));
-        jPanel1.add(customerFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, 30));
+        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 100, 43));
+        jPanel1.add(customerFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 190, 30));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("First Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Last Name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 80, 30));
-        jPanel1.add(customerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 190, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 30));
+        jPanel1.add(customerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 190, 30));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Address");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 80, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 30));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contact");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 80, 30));
-        jPanel1.add(customerContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 190, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 80, 30));
+        jPanel1.add(customerContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 190, 30));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Suki");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
-        jPanel1.add(customerMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 190, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 30));
+        jPanel1.add(customerMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 190, 30));
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Middle Name");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("X");
@@ -150,10 +162,10 @@ public class CustomersFormModal extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 40, 30));
-        jPanel1.add(customerLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 190, 30));
+        jPanel1.add(customerLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 190, 30));
 
         customerSuki.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suki", "Not Suki" }));
-        jPanel1.add(customerSuki, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 190, 30));
+        jPanel1.add(customerSuki, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,15 +221,16 @@ public class CustomersFormModal extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addbtn;
+    public javax.swing.JButton addbtn;
     private javax.swing.JTextField customerAddress;
     private javax.swing.JTextField customerContact;
     private javax.swing.JTextField customerFname;
     private javax.swing.JTextField customerLname;
     private javax.swing.JTextField customerMname;
     private javax.swing.JComboBox<String> customerSuki;
-    private javax.swing.JButton deletebtn;
+    public javax.swing.JButton deletebtn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -225,6 +238,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton updatebtn;
+    public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

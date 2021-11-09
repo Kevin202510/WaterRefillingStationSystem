@@ -8,6 +8,7 @@ package Views;
 import Controllers.SupplierController;
 import Forms.FrameFormModal;
 import Forms.SuppliersFormModal;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -24,6 +25,7 @@ public class Supplier extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         InitRun();
+        suppliersTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
     }
     private void InitRun(){
         suplierControll.showSuppliers(suppliersTable);
@@ -48,6 +50,7 @@ public class Supplier extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        suppliersTable.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
         suppliersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -70,6 +73,20 @@ public class Supplier extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(suppliersTable);
+        if (suppliersTable.getColumnModel().getColumnCount() > 0) {
+            suppliersTable.getColumnModel().getColumn(0).setMinWidth(50);
+            suppliersTable.getColumnModel().getColumn(0).setPreferredWidth(50);
+            suppliersTable.getColumnModel().getColumn(0).setMaxWidth(50);
+            suppliersTable.getColumnModel().getColumn(1).setMinWidth(255);
+            suppliersTable.getColumnModel().getColumn(1).setPreferredWidth(255);
+            suppliersTable.getColumnModel().getColumn(1).setMaxWidth(255);
+            suppliersTable.getColumnModel().getColumn(2).setMinWidth(255);
+            suppliersTable.getColumnModel().getColumn(2).setPreferredWidth(255);
+            suppliersTable.getColumnModel().getColumn(2).setMaxWidth(255);
+            suppliersTable.getColumnModel().getColumn(3).setMinWidth(255);
+            suppliersTable.getColumnModel().getColumn(3).setPreferredWidth(255);
+            suppliersTable.getColumnModel().getColumn(3).setMaxWidth(255);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
 
