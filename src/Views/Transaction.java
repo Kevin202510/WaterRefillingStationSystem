@@ -222,20 +222,31 @@ public class Transaction extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(null,model.getDataVector().get(2));
 //        }
 
-          String code, rw0, msf=null;
+          String code1,code2,code3, rw0, msf=null;
           int x;
           for(x = 0; x<jTable1.getRowCount();x++){
-            code = "Deliver";
+            code1 = "Deliver";
+            code2 = "Walk IN";
+            code3 = "Pick Up";
             rw0 = String.valueOf(jTable1.getValueAt(x, 6));
-            if (code.equals(rw0)){
+            if (code1.equals(rw0)){
+//                JOptionPane.showMessageDialog(null,code1);
                 msf = String.valueOf(x);
                 break;
             }
+//            if(code2.equals(rw0)){
+//                JOptionPane.showMessageDialog(null,code2);
+//                
+//            }if(code3.equals(rw0)){
+//                JOptionPane.showMessageDialog(null,code3);
+//                
+//            }
           }
           
           if (msf != null){
            JOptionPane.showMessageDialog(null,model.getDataVector().get(x));
-//           transactionControll.addDeliveries(model.getDataVector().get(x).toArray(), jTable1);
+           
+           transactionControll.addDeliveries(model.getDataVector().get(x).toArray(), jTable1);
           }
 //          else{
 //              transactionControll.addToCart(jTable1, row);

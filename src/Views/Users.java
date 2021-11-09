@@ -55,11 +55,11 @@ public class Users extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Role", "Profile", "Fullname", "DOB", "Adress", "Contact", "Username", "Action"
+                "ID", "Role", "Profile", "Fullname", "DOB", "Adress", "Contact", "Username"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -72,6 +72,11 @@ public class Users extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(userTable);
+        if (userTable.getColumnModel().getColumnCount() > 0) {
+            userTable.getColumnModel().getColumn(0).setMinWidth(40);
+            userTable.getColumnModel().getColumn(0).setPreferredWidth(40);
+            userTable.getColumnModel().getColumn(0).setMaxWidth(40);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
 

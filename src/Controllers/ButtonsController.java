@@ -5,13 +5,13 @@
  */
 package Controllers;
 
+import Views.BorrowAndReturnGallons;
 import Views.Customers;
 import Views.Dashboard;
 import Views.Deliveries;
 import Views.Pos;
 import Views.Gallons;
 import Views.Promos;
-import Views.RefilledGallon;
 import Views.Sales;
 import Views.Supplier;
 import Views.Users;
@@ -68,8 +68,8 @@ public class ButtonsController {
         new ContainerController(lalagyanan,new Pos(lalagyanan));
     }
      
-     public void RefilledGallonsButton(JLabel refilled){
-        new ContainerController(lalagyanan,new RefilledGallon());
+     public void BorrowAndReturnGallonsButton(JLabel refilled){
+        new ContainerController(lalagyanan,new BorrowAndReturnGallons(lalagyanan));
     }
      
     public void setC(JPanel kev){

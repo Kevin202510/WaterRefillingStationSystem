@@ -84,14 +84,22 @@ public class TransactionController {
      public boolean addDeliveries(Object[]row,JTable deliveriesTable){
         try {
             PreparedStatement st = con.prepareStatement(magdagdagNgDeliveries);
-            st.setInt(1, Integer.parseInt(row[1].toString()));
-            st.setString(2, row[2].toString());
-            st.setString(3, row[3].toString());
-            st.setString(4, row[4].toString());
-            st.setInt(5, Integer.parseInt(row[5].toString()));
-            st.setInt(6, Integer.parseInt(row[6].toString()));
-            st.setInt(7, Integer.parseInt(row[7].toString()));
-            st.setInt(8, Integer.parseInt(row[8].toString()));
+//            st.setInt(1, Integer.parseInt(row[1].toString()));
+//            st.setString(2, row[2].toString());
+//            st.setString(3, row[3].toString());
+//            st.setString(4, row[4].toString());
+//            st.setInt(5, Integer.parseInt(row[5].toString()));
+//            st.setInt(6, Integer.parseInt(row[6].toString()));
+//            st.setInt(7, Integer.parseInt(row[7].toString()));
+//            st.setInt(8, Integer.parseInt(row[8].toString()));
+            st.setInt(1,3);
+            st.setString(2, "2021-11-08");
+            st.setString(3, "2021-11-08");
+            st.setString(4, "4223031043");
+            st.setInt(5, 5);
+            st.setInt(6, 10);
+            st.setInt(7, 0);
+            st.setInt(8, 16);
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();

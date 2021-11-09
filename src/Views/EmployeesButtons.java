@@ -280,7 +280,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_salesMouseClicked
 
     private void refilledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refilledMouseClicked
-        buttonControll.RefilledGallonsButton(refilled);
+        buttonControll.BorrowAndReturnGallonsButton(refilled);
         buttonControll.setC(hovRefilled);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovPos);

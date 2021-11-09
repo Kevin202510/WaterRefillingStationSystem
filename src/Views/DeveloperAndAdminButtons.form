@@ -125,7 +125,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="hovRefilled">
+    <Container class="javax.swing.JPanel" name="hovBorrowAndReturnGallon">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="64" green="2b" red="40" type="rgb"/>
@@ -143,17 +143,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="refilled" alignment="1" max="32767" attributes="0"/>
+              <Component id="borrowandreturngallons" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="refilled" alignment="0" pref="40" max="32767" attributes="0"/>
+              <Component id="borrowandreturngallons" alignment="0" pref="44" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="refilled">
+        <Component class="javax.swing.JLabel" name="borrowandreturngallons">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="76" green="41" red="55" type="rgb"/>
@@ -165,14 +165,14 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Refilled Gallons"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Borrow and Return  Gallons&lt;/center&gt;&lt;/html&gt;"/>
             <Property name="iconTextGap" type="int" value="10"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[250, 50]"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="refilledMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="borrowandreturngallonsMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
@@ -220,7 +220,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Sales"/>
+            <Property name="text" type="java.lang.String" value="Reports"/>
             <Property name="iconTextGap" type="int" value="10"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[250, 50]"/>
