@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Views.BorrowAndReturnGallons;
 import Views.BuyGallonAndWater;
 import Views.Deliveries;
 import Views.Transaction;
@@ -27,6 +28,9 @@ public class PosActionButtonController {
     
    public void DeliveriesButton(JButton deliveries){
         new ContainerController(lalagyananpospanel,new Deliveries(lalagyananpospanel));
+    }
+    public void BarrowReturnButton(JButton barrowreturn){
+        new ContainerController(lalagyananpospanel,new BorrowAndReturnGallons(lalagyananpospanel));
     }
    
    public void WalkInButton(JButton walkin){

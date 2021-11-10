@@ -25,7 +25,7 @@ import javax.swing.JTextField;
  * @author KevinCaluag
  */
 public final class PromosController {
-     ArrayList<PromosModel> promosList = new ArrayList<>();
+     ArrayList<PromosModel> promoslist = new ArrayList<>();
     SQLController sql = new SQLController();
     java.sql.Connection con = sql.getConnection();
     
@@ -48,20 +48,20 @@ public final class PromosController {
         
         while(rs.next()){
             promos = new PromosModel(rs.getInt("Id"),rs.getString("Name"),rs.getString("Description"),rs.getString("Date_Started"),rs.getString("Date_End"));
-            promosList.add(promos);
+            promoslist.add(promos);
         }
-        return promosList;   
+        return promoslist;   
     }
      public void showPromos(JTable promosTable){
 
          DefaultTableModel model = (DefaultTableModel)promosTable.getModel();
          Object[] row = new Object[8];
-         for (int i = 0; i < promosList.size(); i++) {
-            row[0] = promosList.get(i).getId();
-            row[1] = promosList.get(i).getName();
-            row[2] = promosList.get(i).getDescription();
-            row[3] = promosList.get(i).getDate_Started();
-            row[4] = promosList.get(i).getDate_End();
+         for (int i = 0; i < promoslist.size(); i++) {
+            row[0] = promoslist.get(i).getId();
+            row[1] = promoslist.get(i).getName();
+            row[2] = promoslist.get(i).getDescription();
+            row[3] = promoslist.get(i).getDate_Started();
+            row[4] = promoslist.get(i).getDate_End();
 //            row[7] = test;
             model.addRow(row);
          }
