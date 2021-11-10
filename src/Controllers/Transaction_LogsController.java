@@ -52,19 +52,8 @@ public class Transaction_LogsController {
             transactionslogsListwithjointable.add(transactionlog);
         }
         return transactionslogsListwithjointable;   
-    }  
+    } 
       
-      public void showDeliveries(JTable deliveriesTable){
-      DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
-      Object[] row = new Object[9];
-      for (int i = 0; i < transactionslogsListwithjointable.size(); i++) {
-         row[0] = transactionslogsListwithjointable.get(i).getCustomer_Fullname();
-         row[1] = transactionslogsListwithjointable.get(i).getGallon_Name();;
-         row[2] = transactionslogsListwithjointable.get(i).getUser_Fullname();
-         model.addRow(row);
-      }
-    }
-    
     public void showTransaction_Logs(JTable customerTable){
          DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
          Object[] row = new Object[8];

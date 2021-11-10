@@ -12,7 +12,8 @@ import Views.Deliveries;
 import Views.Pos;
 import Views.Gallons;
 import Views.Promos;
-import Views.Sales;
+import Views.Reports;
+import Views.SalesReport;
 import Views.Supplier;
 import Views.Users;
 import java.awt.Color;
@@ -37,8 +38,8 @@ public class ButtonsController {
         new ContainerController(lalagyanan,new Dashboard(lalagyanan));
     }
     
-    public void SalesButton(JLabel sales){
-        new ContainerController(lalagyanan,new Sales());
+    public void ReportsButton(JLabel sales){
+        new ContainerController(lalagyanan,new Reports(lalagyanan));
     }
     
     public void GallonsButton(JLabel gallon){

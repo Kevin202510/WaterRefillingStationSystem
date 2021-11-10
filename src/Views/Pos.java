@@ -68,62 +68,62 @@ public class Pos extends javax.swing.JPanel {
         btndeliver.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btndeliver.setForeground(new java.awt.Color(255, 255, 255));
         btndeliver.setText("Deliver");
-        btndeliver.setBorderPainted(false);
+        btndeliver.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btndeliver.setContentAreaFilled(false);
         btndeliver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndeliverActionPerformed(evt);
             }
         });
-        jPanel1.add(btndeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 180, 40));
+        jPanel1.add(btndeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 180, 40));
 
         btnbuy.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnbuy.setForeground(new java.awt.Color(255, 255, 255));
         btnbuy.setText("Buy");
-        btnbuy.setBorderPainted(false);
+        btnbuy.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnbuy.setContentAreaFilled(false);
         btnbuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbuyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnbuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 180, 40));
+        jPanel1.add(btnbuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 180, 40));
 
         btnwalkin.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnwalkin.setForeground(new java.awt.Color(255, 255, 255));
         btnwalkin.setText("Walk In");
-        btnwalkin.setBorderPainted(false);
+        btnwalkin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnwalkin.setContentAreaFilled(false);
         btnwalkin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnwalkinActionPerformed(evt);
             }
         });
-        jPanel1.add(btnwalkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 180, 40));
+        jPanel1.add(btnwalkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, 40));
 
         pickup.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         pickup.setForeground(new java.awt.Color(255, 255, 255));
         pickup.setText("Pick Up");
-        pickup.setBorderPainted(false);
+        pickup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pickup.setContentAreaFilled(false);
         pickup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pickupActionPerformed(evt);
             }
         });
-        jPanel1.add(pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 180, 40));
+        jPanel1.add(pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 180, 40));
 
         barrowandreturn.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         barrowandreturn.setForeground(new java.awt.Color(255, 255, 255));
-        barrowandreturn.setText("<html><center>Borrow and Return  Gallons</center></html>");
-        barrowandreturn.setBorderPainted(false);
+        barrowandreturn.setText("<html><center>Return  Gallons</center></html>");
+        barrowandreturn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         barrowandreturn.setContentAreaFilled(false);
         barrowandreturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 barrowandreturnActionPerformed(evt);
             }
         });
-        jPanel1.add(barrowandreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 60, 200, 40));
+        jPanel1.add(barrowandreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 60, 200, 40));
         jPanel1.add(transactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 30, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 110));
@@ -151,7 +151,7 @@ public class Pos extends javax.swing.JPanel {
     }//GEN-LAST:event_pickupActionPerformed
 
     private void barrowandreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barrowandreturnActionPerformed
-        buttonControll.BarrowReturnButton(barrowandreturn);
+        buttonControll.ReturnGallonButton(barrowandreturn);
     }//GEN-LAST:event_barrowandreturnActionPerformed
 
 

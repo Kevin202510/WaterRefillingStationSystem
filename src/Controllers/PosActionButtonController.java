@@ -8,6 +8,7 @@ package Controllers;
 import Views.BorrowAndReturnGallons;
 import Views.BuyGallonAndWater;
 import Views.Deliveries;
+import Views.ReturnGallons;
 import Views.Transaction;
 import Views.WalkIn;
 import javax.swing.JButton;
@@ -29,8 +30,8 @@ public class PosActionButtonController {
    public void DeliveriesButton(JButton deliveries){
         new ContainerController(lalagyananpospanel,new Deliveries(lalagyananpospanel));
     }
-    public void BarrowReturnButton(JButton barrowreturn){
-        new ContainerController(lalagyananpospanel,new BorrowAndReturnGallons(lalagyananpospanel));
+    public void ReturnGallonButton(JButton barrowreturn){
+        new ContainerController(lalagyananpospanel,new ReturnGallons(lalagyananpospanel));
     }
    
    public void WalkInButton(JButton walkin){

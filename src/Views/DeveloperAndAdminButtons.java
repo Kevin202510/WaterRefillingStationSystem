@@ -57,8 +57,8 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         hovBorrowAndReturnGallon = new javax.swing.JPanel();
         borrowandreturngallons = new javax.swing.JLabel();
-        hovSales = new javax.swing.JPanel();
-        sale = new javax.swing.JLabel();
+        hovReports = new javax.swing.JPanel();
+        reports = new javax.swing.JLabel();
         hovGallons = new javax.swing.JPanel();
         gallons = new javax.swing.JLabel();
         hovCustomer = new javax.swing.JPanel();
@@ -94,7 +94,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovDashboard.setPreferredSize(new java.awt.Dimension(250, 40));
 
         dashboard.setBackground(new java.awt.Color(85, 65, 118));
-        dashboard.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        dashboard.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         dashboard.setForeground(new java.awt.Color(255, 255, 255));
         dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dashboard.setText("Dashboard");
@@ -138,7 +138,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovBorrowAndReturnGallon.setPreferredSize(new java.awt.Dimension(250, 40));
 
         borrowandreturngallons.setBackground(new java.awt.Color(85, 65, 118));
-        borrowandreturngallons.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        borrowandreturngallons.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         borrowandreturngallons.setForeground(new java.awt.Color(255, 255, 255));
         borrowandreturngallons.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borrowandreturngallons.setText("<html><center>Borrow and Return  Gallons</center></html>");
@@ -158,47 +158,36 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         );
         hovBorrowAndReturnGallonLayout.setVerticalGroup(
             hovBorrowAndReturnGallonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borrowandreturngallons, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+            .addComponent(borrowandreturngallons, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         add(hovBorrowAndReturnGallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, -1, -1));
 
-        hovSales.setBackground(new java.awt.Color(64, 43, 100));
-        hovSales.setPreferredSize(new java.awt.Dimension(250, 40));
+        hovReports.setBackground(new java.awt.Color(64, 43, 100));
+        hovReports.setPreferredSize(new java.awt.Dimension(250, 40));
+        hovReports.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sale.setBackground(new java.awt.Color(85, 65, 118));
-        sale.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        sale.setForeground(new java.awt.Color(255, 255, 255));
-        sale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sale.setText("Reports");
-        sale.setIconTextGap(10);
-        sale.setPreferredSize(new java.awt.Dimension(250, 50));
-        sale.addMouseListener(new java.awt.event.MouseAdapter() {
+        reports.setBackground(new java.awt.Color(85, 65, 118));
+        reports.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        reports.setForeground(new java.awt.Color(255, 255, 255));
+        reports.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        reports.setText("Reports");
+        reports.setIconTextGap(10);
+        reports.setPreferredSize(new java.awt.Dimension(250, 50));
+        reports.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                saleMouseClicked(evt);
+                reportsMouseClicked(evt);
             }
         });
+        hovReports.add(reports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 39));
 
-        javax.swing.GroupLayout hovSalesLayout = new javax.swing.GroupLayout(hovSales);
-        hovSales.setLayout(hovSalesLayout);
-        hovSalesLayout.setHorizontalGroup(
-            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        hovSalesLayout.setVerticalGroup(
-            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hovSalesLayout.createSequentialGroup()
-                .addComponent(sale, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
-
-        add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, -1, -1));
+        add(hovReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, -1, -1));
 
         hovGallons.setBackground(new java.awt.Color(64, 43, 100));
         hovGallons.setPreferredSize(new java.awt.Dimension(250, 40));
 
         gallons.setBackground(new java.awt.Color(85, 65, 118));
-        gallons.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        gallons.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         gallons.setForeground(new java.awt.Color(255, 255, 255));
         gallons.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gallons.setText("Gallons");
@@ -229,7 +218,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovCustomer.setPreferredSize(new java.awt.Dimension(250, 40));
 
         customer.setBackground(new java.awt.Color(85, 65, 118));
-        customer.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        customer.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         customer.setForeground(new java.awt.Color(255, 255, 255));
         customer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customer.setText("Customer");
@@ -245,13 +234,13 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovCustomer.setLayout(hovCustomerLayout);
         hovCustomerLayout.setHorizontalGroup(
             hovCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(customer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hovCustomerLayout.setVerticalGroup(
             hovCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(hovCustomerLayout.createSequentialGroup()
                 .addComponent(customer, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         add(hovCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, -1, -1));
@@ -260,7 +249,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovSupplier.setPreferredSize(new java.awt.Dimension(250, 40));
 
         supplier.setBackground(new java.awt.Color(85, 65, 118));
-        supplier.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        supplier.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         supplier.setForeground(new java.awt.Color(255, 255, 255));
         supplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         supplier.setText("Supplier");
@@ -294,7 +283,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         users.setBackground(new java.awt.Color(64, 43, 100));
-        users.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        users.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         users.setForeground(new java.awt.Color(255, 255, 255));
         users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         users.setText("Users");
@@ -322,7 +311,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovPos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, -1));
 
         pos.setBackground(new java.awt.Color(85, 65, 118));
-        pos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        pos.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         pos.setForeground(new java.awt.Color(255, 255, 255));
         pos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pos.setText("POS");
@@ -341,7 +330,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovPromos.setPreferredSize(new java.awt.Dimension(250, 40));
 
         promos.setBackground(new java.awt.Color(85, 65, 118));
-        promos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        promos.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         promos.setForeground(new java.awt.Color(255, 255, 255));
         promos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         promos.setText("Promos");
@@ -372,7 +361,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovProfileSetting.setPreferredSize(new java.awt.Dimension(250, 40));
 
         profilesetting.setBackground(new java.awt.Color(85, 65, 118));
-        profilesetting.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        profilesetting.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         profilesetting.setForeground(new java.awt.Color(255, 255, 255));
         profilesetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         profilesetting.setText("Profile Setting");
@@ -408,7 +397,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.setC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovBorrowAndReturnGallon);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
@@ -422,7 +411,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovPromos);
         buttonControll.resetC(hovBorrowAndReturnGallon);
         buttonControll.resetC(hovSupplier);
@@ -435,7 +424,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovBorrowAndReturnGallon);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
@@ -448,7 +437,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovBorrowAndReturnGallon);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPos);
@@ -461,7 +450,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovBorrowAndReturnGallon);
         buttonControll.resetC(hovPromos);
         buttonControll.resetC(hovPos);
@@ -474,16 +463,16 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
         buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_borrowandreturngallonsMouseClicked
 
-    private void saleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseClicked
-        buttonControll.SalesButton(sale);
-        buttonControll.setC(hovSales);
+    private void reportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseClicked
+        buttonControll.ReportsButton(reports);
+        buttonControll.setC(hovReports);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
         buttonControll.resetC(hovGallons);
@@ -492,14 +481,14 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovPromos);
         buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomer);
-    }//GEN-LAST:event_saleMouseClicked
+    }//GEN-LAST:event_reportsMouseClicked
 
     private void gallonsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonsMouseClicked
         buttonControll.GallonsButton(gallons);
         buttonControll.setC(hovGallons);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovUsers);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovBorrowAndReturnGallon);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
@@ -512,7 +501,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.setC(hovUsers);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovGallons);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovReports);
         buttonControll.resetC(hovBorrowAndReturnGallon);
         buttonControll.resetC(hovSupplier);
         buttonControll.resetC(hovPromos);
@@ -541,7 +530,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovPos;
     private javax.swing.JPanel hovProfileSetting;
     private javax.swing.JPanel hovPromos;
-    private javax.swing.JPanel hovSales;
+    private javax.swing.JPanel hovReports;
     private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
     private javax.swing.JLabel jLabel2;
@@ -552,7 +541,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private jroundborder.JLabelRound profile;
     private javax.swing.JLabel profilesetting;
     private javax.swing.JLabel promos;
-    private javax.swing.JLabel sale;
+    private javax.swing.JLabel reports;
     private javax.swing.JLabel supplier;
     private javax.swing.JLabel userId;
     private javax.swing.JLabel users;

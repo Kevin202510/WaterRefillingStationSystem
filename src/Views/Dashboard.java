@@ -39,8 +39,6 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         hovGaloons = new javax.swing.JPanel();
         gallons = new javax.swing.JLabel();
-        hovSales = new javax.swing.JPanel();
-        sale = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(1100, 620));
@@ -85,41 +83,6 @@ public class Dashboard extends javax.swing.JPanel {
         );
 
         add(hovGaloons, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 250, 150));
-
-        hovSales.setBackground(new java.awt.Color(83, 140, 198));
-        hovSales.setPreferredSize(new java.awt.Dimension(250, 50));
-
-        sale.setBackground(new java.awt.Color(51, 51, 255));
-        sale.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        sale.setForeground(new java.awt.Color(255, 255, 255));
-        sale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sale.setText("SALES");
-        sale.setIconTextGap(10);
-        sale.setPreferredSize(new java.awt.Dimension(250, 50));
-        sale.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                saleMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                saleMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                saleMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout hovSalesLayout = new javax.swing.GroupLayout(hovSales);
-        hovSales.setLayout(hovSalesLayout);
-        hovSalesLayout.setHorizontalGroup(
-            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        hovSalesLayout.setVerticalGroup(
-            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sale, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-        );
-
-        add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 250, 150));
     }// </editor-fold>//GEN-END:initComponents
 
     private void gallonsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gallonsMouseClicked
@@ -134,24 +97,10 @@ public class Dashboard extends javax.swing.JPanel {
         buttonControll.resetC(hovGaloons);
     }//GEN-LAST:event_gallonsMouseExited
 
-    private void saleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseClicked
-        buttonControll.SalesButton(sale);
-    }//GEN-LAST:event_saleMouseClicked
-
-    private void saleMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseEntered
-        buttonControll.setC(hovSales);
-    }//GEN-LAST:event_saleMouseEntered
-
-    private void saleMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saleMouseExited
-        buttonControll.resetC(hovSales);
-    }//GEN-LAST:event_saleMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel gallons;
     private javax.swing.JPanel hovGaloons;
-    private javax.swing.JPanel hovSales;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel sale;
     // End of variables declaration//GEN-END:variables
 }

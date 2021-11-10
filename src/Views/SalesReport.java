@@ -5,17 +5,22 @@
  */
 package Views;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kevin Felix Caluag
  */
-public class Sales extends javax.swing.JPanel {
+public class SalesReport extends javax.swing.JPanel {
 
     /**
      * Creates new form Sales
      */
-    public Sales() {
+    JPanel lalagyanan;
+    
+    public SalesReport(JPanel lalagyanan) {
         initComponents();
+        this.lalagyanan = lalagyanan;
     }
 
     /**
@@ -33,8 +38,8 @@ public class Sales extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(1100, 600));
-        setPreferredSize(new java.awt.Dimension(1100, 620));
+        setMinimumSize(new java.awt.Dimension(1080, 480));
+        setPreferredSize(new java.awt.Dimension(1080, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -55,17 +60,17 @@ public class Sales extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 1060, 390));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Sales");
+        jLabel2.setText("Sales Report");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 40));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 110));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1060, 80));
     }// </editor-fold>//GEN-END:initComponents
 
 
