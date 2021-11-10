@@ -190,9 +190,11 @@ public class CustomersFormModal extends javax.swing.JPanel {
         jLabel9.setText("Middle Name");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 80, 30));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("X");
+        jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setFocusable(false);
         jButton1.setNextFocusableComponent(customerFname);
         jButton1.addActionListener(new java.awt.event.ActionListener() {

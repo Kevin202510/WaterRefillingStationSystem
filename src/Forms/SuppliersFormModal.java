@@ -144,7 +144,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Fname.setBackground(new Color(0,0,0,1));
         Fname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         Fname.setForeground(new java.awt.Color(255, 255, 255));
-        Fname.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(255, 255, 0)));
+        Fname.setBorder(null);
         Fname.setOpaque(false);
         Fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,9 +174,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Company_name.setOpaque(false);
         add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 200, 30));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton3.setText("X");
+        jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
         jButton3.setFocusable(false);
         jButton3.setNextFocusableComponent(Fname);
         jButton3.addActionListener(new java.awt.event.ActionListener() {

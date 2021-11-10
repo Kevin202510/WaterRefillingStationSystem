@@ -262,7 +262,10 @@ public class UserFormModal extends javax.swing.JPanel {
 
         jPanel2.add(userRole_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 210, 32));
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("X");
+        jButton1.setBorder(null);
+        jButton1.setContentAreaFilled(false);
         jButton1.setFocusable(false);
         jButton1.setNextFocusableComponent(userFname);
         jButton1.addActionListener(new java.awt.event.ActionListener() {

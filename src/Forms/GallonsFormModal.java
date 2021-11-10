@@ -106,9 +106,11 @@ public class GallonsFormModal extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("X");
+        jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setFocusable(false);
         jButton1.setNextFocusableComponent(Code);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +118,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 20, -1));
 
         jPanel2.setBackground(new java.awt.Color(85, 64, 118));
         jPanel2.setPreferredSize(new java.awt.Dimension(310, 540));

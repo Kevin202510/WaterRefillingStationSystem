@@ -142,9 +142,11 @@ public class PromoFormModal extends javax.swing.JPanel {
         });
         add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 100, 43));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton2.setText("X");
+        jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.setFocusable(false);
         jButton2.setNextFocusableComponent(Name);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
