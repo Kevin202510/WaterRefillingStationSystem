@@ -52,6 +52,7 @@ public class Pos extends javax.swing.JPanel {
         pickup = new javax.swing.JButton();
         barrowandreturn = new javax.swing.JButton();
         transactions = new javax.swing.JLabel();
+        btnPos = new javax.swing.JButton();
         lalagyananpospanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1100, 620));
@@ -75,7 +76,7 @@ public class Pos extends javax.swing.JPanel {
                 btndeliverActionPerformed(evt);
             }
         });
-        jPanel1.add(btndeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 180, 40));
+        jPanel1.add(btndeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 130, 40));
 
         btnbuy.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnbuy.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +88,7 @@ public class Pos extends javax.swing.JPanel {
                 btnbuyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnbuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 180, 40));
+        jPanel1.add(btnbuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 130, 40));
 
         btnwalkin.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnwalkin.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,7 +100,7 @@ public class Pos extends javax.swing.JPanel {
                 btnwalkinActionPerformed(evt);
             }
         });
-        jPanel1.add(btnwalkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, 40));
+        jPanel1.add(btnwalkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 130, 40));
 
         pickup.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         pickup.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +112,7 @@ public class Pos extends javax.swing.JPanel {
                 pickupActionPerformed(evt);
             }
         });
-        jPanel1.add(pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 180, 40));
+        jPanel1.add(pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 130, 40));
 
         barrowandreturn.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         barrowandreturn.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,8 +124,20 @@ public class Pos extends javax.swing.JPanel {
                 barrowandreturnActionPerformed(evt);
             }
         });
-        jPanel1.add(barrowandreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 60, 200, 40));
+        jPanel1.add(barrowandreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 60, 150, 40));
         jPanel1.add(transactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 30, -1));
+
+        btnPos.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        btnPos.setForeground(new java.awt.Color(255, 255, 255));
+        btnPos.setText("Pos");
+        btnPos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnPos.setContentAreaFilled(false);
+        btnPos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 130, 40));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 110));
 
@@ -154,9 +167,14 @@ public class Pos extends javax.swing.JPanel {
         buttonControll.ReturnGallonButton(barrowandreturn);
     }//GEN-LAST:event_barrowandreturnActionPerformed
 
+    private void btnPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPosActionPerformed
+        buttonControll.PosButton(btnPos);
+    }//GEN-LAST:event_btnPosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton barrowandreturn;
+    private javax.swing.JButton btnPos;
     private javax.swing.JButton btnbuy;
     private javax.swing.JButton btndeliver;
     private javax.swing.JButton btnwalkin;

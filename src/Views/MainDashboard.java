@@ -9,6 +9,8 @@ import Controllers.ButtonsController;
 import Controllers.ContainerController;
 import Controllers.SQLController;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,6 +33,7 @@ public class MainDashboard extends javax.swing.JFrame {
     
     public MainDashboard(int userID) {
         initComponents();
+        setJframeSize();
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM users where Id = '" + userID + "'");
@@ -46,6 +49,14 @@ public class MainDashboard extends javax.swing.JFrame {
         
         this.userID = userID;
         checkRole(Role_id);
+    }
+    
+    public void setJframeSize(){
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int swidth = (int)screenSize.getWidth();
+        int sheigth = (int)screenSize.getHeight();
+        this.setSize(swidth-50,sheigth-50);
+        this.setLocationRelativeTo(this);
     }
     
     private void checkRole(int Role_id){
@@ -80,7 +91,6 @@ public class MainDashboard extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1100, 60));
@@ -89,7 +99,7 @@ public class MainDashboard extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Water Refilling Management System");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 570, 40));
 
         btn_close2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btn_close2.setText("X");
@@ -101,19 +111,35 @@ public class MainDashboard extends javax.swing.JFrame {
                 btn_close2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_close2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 50, 40));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1100, 80));
+        jPanel1.add(btn_close2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, 50, 40));
 
         jpnl_userButtons.setBackground(new java.awt.Color(255, 255, 255));
         jpnl_userButtons.setPreferredSize(new java.awt.Dimension(250, 700));
         jpnl_userButtons.setLayout(new javax.swing.BoxLayout(jpnl_userButtons, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(jpnl_userButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 700));
 
         jpnl_container.setBackground(new java.awt.Color(255, 255, 255));
         jpnl_container.setPreferredSize(new java.awt.Dimension(1100, 620));
         jpnl_container.setLayout(new javax.swing.BoxLayout(jpnl_container, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(jpnl_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1100, 620));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jpnl_userButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
+                    .addComponent(jpnl_container, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpnl_userButtons, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jpnl_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);

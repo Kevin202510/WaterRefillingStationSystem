@@ -42,6 +42,7 @@ public class Reports extends javax.swing.JPanel {
         tlReportbtn = new javax.swing.JButton();
         lalagyananreportspanel = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));

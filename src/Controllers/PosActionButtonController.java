@@ -45,4 +45,8 @@ public class PosActionButtonController {
    public void TransactionButton(JLabel transaction){
         new ContainerController(lalagyananpospanel,new Transaction(lalagyananpospanel));
     }
+   
+   public void PosButton(JButton pos){
+        new ContainerController(lalagyananpospanel,new Transaction(lalagyananpospanel));
+    }
 }

@@ -267,7 +267,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_customersMouseExited
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
-        buttonControll.SalesButton(sales);
+//        buttonControll.SalesButton(sales);
         buttonControll.setC(hovSales);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovPos);
