@@ -55,7 +55,7 @@ public class MainDashboard extends javax.swing.JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int swidth = (int)screenSize.getWidth();
         int sheigth = (int)screenSize.getHeight();
-        this.setSize(swidth-50,sheigth-50);
+        this.setSize(swidth-30,sheigth-30);
         this.setLocationRelativeTo(this);
     }
     
@@ -111,7 +111,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 btn_close2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_close2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, 50, 40));
+        jPanel1.add(btn_close2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 50, 40));
 
         jpnl_userButtons.setBackground(new java.awt.Color(255, 255, 255));
         jpnl_userButtons.setPreferredSize(new java.awt.Dimension(250, 700));
@@ -129,8 +129,8 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(jpnl_userButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
-                    .addComponent(jpnl_container, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jpnl_container, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
