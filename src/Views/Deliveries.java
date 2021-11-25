@@ -42,10 +42,10 @@ public class Deliveries extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         deliveriesTable = new javax.swing.JTable();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1080, 480));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(990, 480));
 
         deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,10 +70,34 @@ public class Deliveries extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveriesTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, 1060, 420));
+        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(102, 102, 255));
-        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 480));
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Deliveries");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 360, 40));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void deliveriesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesTableMouseClicked
@@ -84,7 +108,8 @@ public class Deliveries extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable deliveriesTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }
