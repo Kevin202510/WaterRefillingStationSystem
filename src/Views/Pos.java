@@ -56,15 +56,12 @@ public class Pos extends javax.swing.JPanel {
         lalagyananpospanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1100, 620));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Point Of Sales");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 40));
 
         btndeliver.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btndeliver.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,7 +73,6 @@ public class Pos extends javax.swing.JPanel {
                 btndeliverActionPerformed(evt);
             }
         });
-        jPanel1.add(btndeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 130, 40));
 
         btnbuy.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnbuy.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,7 +84,6 @@ public class Pos extends javax.swing.JPanel {
                 btnbuyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnbuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 130, 40));
 
         btnwalkin.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnwalkin.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +95,6 @@ public class Pos extends javax.swing.JPanel {
                 btnwalkinActionPerformed(evt);
             }
         });
-        jPanel1.add(btnwalkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 130, 40));
 
         pickup.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         pickup.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,7 +106,6 @@ public class Pos extends javax.swing.JPanel {
                 pickupActionPerformed(evt);
             }
         });
-        jPanel1.add(pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 130, 40));
 
         barrowandreturn.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         barrowandreturn.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,8 +117,6 @@ public class Pos extends javax.swing.JPanel {
                 barrowandreturnActionPerformed(evt);
             }
         });
-        jPanel1.add(barrowandreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 60, 150, 40));
-        jPanel1.add(transactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 30, -1));
 
         btnPos.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         btnPos.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,14 +128,69 @@ public class Pos extends javax.swing.JPanel {
                 btnPosActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 130, 40));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 110));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnbuy, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(barrowandreturn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(transactions))
+                    .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnbuy, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(barrowandreturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         lalagyananpospanel.setBackground(new java.awt.Color(255, 255, 255));
         lalagyananpospanel.setPreferredSize(new java.awt.Dimension(1080, 480));
         lalagyananpospanel.setLayout(new javax.swing.BoxLayout(lalagyananpospanel, javax.swing.BoxLayout.LINE_AXIS));
-        add(lalagyananpospanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 1080, 480));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btndeliverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeliverActionPerformed

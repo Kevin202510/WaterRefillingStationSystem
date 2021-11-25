@@ -43,15 +43,12 @@ public class Reports extends javax.swing.JPanel {
         lalagyananreportspanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1100, 620));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Reports");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 40));
 
         brReportbtn.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         brReportbtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,7 +60,6 @@ public class Reports extends javax.swing.JPanel {
                 brReportbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(brReportbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 170, 40));
 
         salesReportbtn.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         salesReportbtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -75,7 +71,6 @@ public class Reports extends javax.swing.JPanel {
                 salesReportbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(salesReportbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 170, 40));
 
         tlReportbtn.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         tlReportbtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,14 +82,59 @@ public class Reports extends javax.swing.JPanel {
                 tlReportbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(tlReportbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 170, 40));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, 90));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(salesReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(tlReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(brReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(salesReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(tlReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(brReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         lalagyananreportspanel.setBackground(new java.awt.Color(255, 255, 255));
         lalagyananreportspanel.setPreferredSize(new java.awt.Dimension(1100, 520));
         lalagyananreportspanel.setLayout(new javax.swing.BoxLayout(lalagyananreportspanel, javax.swing.BoxLayout.LINE_AXIS));
-        add(lalagyananreportspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1080, 500));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lalagyananreportspanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lalagyananreportspanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void salesReportbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesReportbtnActionPerformed

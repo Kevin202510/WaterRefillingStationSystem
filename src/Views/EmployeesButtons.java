@@ -40,7 +40,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         dashboard = new javax.swing.JLabel();
         hovCustomers = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
-        hovSales = new javax.swing.JPanel();
+        hovPOS = new javax.swing.JPanel();
         sales = new javax.swing.JLabel();
         hovRefilled = new javax.swing.JPanel();
         refilled = new javax.swing.JLabel();
@@ -133,14 +133,14 @@ public class EmployeesButtons extends javax.swing.JPanel {
 
         add(hovCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 50));
 
-        hovSales.setBackground(new java.awt.Color(64, 43, 100));
-        hovSales.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovPOS.setBackground(new java.awt.Color(64, 43, 100));
+        hovPOS.setPreferredSize(new java.awt.Dimension(250, 50));
 
         sales.setBackground(new java.awt.Color(85, 65, 118));
         sales.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         sales.setForeground(new java.awt.Color(255, 255, 255));
         sales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sales.setText("Sales");
+        sales.setText("POS");
         sales.setIconTextGap(10);
         sales.setPreferredSize(new java.awt.Dimension(250, 50));
         sales.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,23 +149,23 @@ public class EmployeesButtons extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout hovSalesLayout = new javax.swing.GroupLayout(hovSales);
-        hovSales.setLayout(hovSalesLayout);
-        hovSalesLayout.setHorizontalGroup(
-            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovSalesLayout.createSequentialGroup()
+        javax.swing.GroupLayout hovPOSLayout = new javax.swing.GroupLayout(hovPOS);
+        hovPOS.setLayout(hovPOSLayout);
+        hovPOSLayout.setHorizontalGroup(
+            hovPOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPOSLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(256, 256, 256))
         );
-        hovSalesLayout.setVerticalGroup(
-            hovSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovSalesLayout.createSequentialGroup()
+        hovPOSLayout.setVerticalGroup(
+            hovPOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPOSLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(hovSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 265, -1, -1));
+        add(hovPOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 265, -1, -1));
 
         hovRefilled.setBackground(new java.awt.Color(64, 43, 100));
         hovRefilled.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -174,7 +174,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         refilled.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         refilled.setForeground(new java.awt.Color(255, 255, 255));
         refilled.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        refilled.setText("Refilled Gallons");
+        refilled.setText("Deliveries");
         refilled.setIconTextGap(10);
         refilled.setPreferredSize(new java.awt.Dimension(250, 50));
         refilled.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,7 +205,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         pos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         pos.setForeground(new java.awt.Color(255, 255, 255));
         pos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pos.setText("Transaction");
+        pos.setText("Return Gallons");
         pos.setIconTextGap(10);
         pos.setPreferredSize(new java.awt.Dimension(250, 50));
         pos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -235,7 +235,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
    buttonControll.DashboardButton(dashboard);
         buttonControll.setC(hovDashboard);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovPOS);
         buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomers);
         buttonControll.resetC(hovRefilled);
@@ -252,7 +252,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         buttonControll.CustomerButton(customers);
         buttonControll.setC(hovCustomers);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovPOS);
         buttonControll.resetC(hovPos);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovRefilled);
@@ -268,7 +268,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
 //        buttonControll.SalesButton(sales);
-        buttonControll.setC(hovSales);
+        buttonControll.setC(hovPOS);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovPos);
         buttonControll.resetC(hovCustomers);
@@ -284,7 +284,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         buttonControll.setC(hovRefilled);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovPos);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovPOS);
         buttonControll.resetC(hovCustomers);
 //        buttonControll.resetC(hovSupplier);
 //        buttonControll.resetC(hovPromos);
@@ -297,7 +297,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         buttonControll.setC(hovPos);
         buttonControll.resetC(hovDashboard);
         buttonControll.resetC(hovRefilled);
-        buttonControll.resetC(hovSales);
+        buttonControll.resetC(hovPOS);
         buttonControll.resetC(hovCustomers);
     }//GEN-LAST:event_posMouseClicked
 
@@ -307,9 +307,9 @@ public class EmployeesButtons extends javax.swing.JPanel {
     private javax.swing.JLabel dashboard;
     private javax.swing.JPanel hovCustomers;
     private javax.swing.JPanel hovDashboard;
+    private javax.swing.JPanel hovPOS;
     private javax.swing.JPanel hovPos;
     private javax.swing.JPanel hovRefilled;
-    private javax.swing.JPanel hovSales;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel pos;
     private javax.swing.JLabel refilled;
