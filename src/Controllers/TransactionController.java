@@ -81,7 +81,7 @@ public class TransactionController {
         model.addRow(rows);
     }
     
-     public boolean addDeliveries(Object[]row,JTable deliveriesTable){
+     public boolean addDeliveries(Object[]row,JTable transactionTable){
         try {
             PreparedStatement st = con.prepareStatement(magdagdagNgDeliveries);
 //            st.setInt(1, Integer.parseInt(row[1].toString()));
@@ -102,7 +102,7 @@ public class TransactionController {
             st.setInt(8, 3);
             int i = st.executeUpdate();
             if (i > 0) {
-                DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
+                DefaultTableModel model = (DefaultTableModel)transactionTable.getModel();
                 model.setRowCount(0);
             } else {
                 return false;

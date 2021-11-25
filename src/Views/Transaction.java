@@ -231,9 +231,6 @@ public class Transaction extends javax.swing.JPanel {
 
     private void trylang(){
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-//        for(int x = 0; x<jTable1.getRowCount();x++){
-//            JOptionPane.showMessageDialog(null,model.getDataVector().get(2));
-//        }
 
           String code1,code2,code3, rw0, msf=null;
           int x;
@@ -243,17 +240,9 @@ public class Transaction extends javax.swing.JPanel {
             code3 = "Pick Up";
             rw0 = String.valueOf(jTable1.getValueAt(x, 6));
             if (code1.equals(rw0)){
-//                JOptionPane.showMessageDialog(null,code1);
                 msf = String.valueOf(x);
                 break;
             }
-//            if(code2.equals(rw0)){
-//                JOptionPane.showMessageDialog(null,code2);
-//                
-//            }if(code3.equals(rw0)){
-//                JOptionPane.showMessageDialog(null,code3);
-//                
-//            }
           }
           
           if (msf != null){
@@ -261,10 +250,6 @@ public class Transaction extends javax.swing.JPanel {
            
            transactionControll.addDeliveries(model.getDataVector().get(x).toArray(), jTable1);
           }
-//          else{
-//              transactionControll.addToCart(jTable1, row);
-//          }
-          
     }
     
     private void DateOrderPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateOrderPropertyChange

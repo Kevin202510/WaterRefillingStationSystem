@@ -11,29 +11,24 @@ package Models;
  */
 public class Transactions_LogsModel {
     
-    private int ID,Customer_Id,Gallon_Id,Gallon_Quantity,Total_Amount,Status,User_Id;
+    private int ID,Customer_Id,Gallon_Id,Gallon_Quantity,ServiceType,Total_Amount,Status,User_Id;
         private String Transaction_Date,Transaction_Time;
-        private String Customer_Fullname,Gallon_Name,User_Fullname;
+        private String Customer_Fullname,Gallon_Name,User_Fullname,PromoName;
     
         
-        public Transactions_LogsModel(int ID,int Customer_Id,int Gallon_Id,int Gallon_Quantity,int Total_Amount,int Status,int User_Id ,String Transaction_Date,String Transaction_Time){
+        public Transactions_LogsModel(int ID,int Total_Amount,String Transaction_Date,String Transaction_Time){
         this.ID=ID;
-        this.Customer_Id=Customer_Id;
-        this.Gallon_Id=Gallon_Id;
-        this.Gallon_Quantity=Gallon_Quantity;
         this.Total_Amount=Total_Amount;
-        this.Status=Status;
-        this.User_Id=User_Id;
         this.Transaction_Date=Transaction_Date;
         this.Transaction_Time=Transaction_Time;
-        
-        
-        
-   
 }
-        public Transactions_LogsModel(String Customer_Fname,String Customer_Mname,String Customer_Lname,String Gallon_Name,String User_Fname,String User_Mname,String User_Lname){
+        public Transactions_LogsModel(String Customer_Fname,String Customer_Mname,String Customer_Lname,String Gallon_Name,int GallonQuantity,int Status,String PromoName,int ServiceType,String User_Fname,String User_Mname,String User_Lname){
         this.Customer_Fullname = Customer_Fname + " " + Customer_Mname + " " + Customer_Lname;
         this.Gallon_Name = Gallon_Name;
+        this.PromoName = PromoName;
+        this.Gallon_Quantity = GallonQuantity;
+        this.ServiceType = ServiceType;
+        this.Status = Status;
         this.User_Fullname = User_Fname + " " + User_Mname + " " + User_Lname;
     }
     
@@ -51,6 +46,8 @@ public class Transactions_LogsModel {
             return Status;
          }public int getUser_Id(){
             return User_Id;
+         }public int getServiceType(){
+            return ServiceType;
          }public String getTransaction_Date(){
             return Transaction_Date;  
          }public String getTransaction_Time(){
@@ -61,6 +58,11 @@ public class Transactions_LogsModel {
             return User_Fullname;
          }public String getGallon_Name(){
             return Gallon_Name;
-   }
+        }public String getPromoName(){
+            if(PromoName==null){
+                PromoName = "No Promo";
+            }
+            return PromoName;
+        }
          
 }
