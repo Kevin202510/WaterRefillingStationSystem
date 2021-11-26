@@ -46,7 +46,7 @@ public class Supplier extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(252, 244, 221));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         suppliersTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
@@ -87,13 +87,13 @@ public class Supplier extends javax.swing.JPanel {
             suppliersTable.getColumnModel().getColumn(3).setMaxWidth(255);
         }
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Supplier");
 
-        addBtn.setBackground(new java.awt.Color(64, 43, 100));
+        addBtn.setBackground(new java.awt.Color(0, 180, 216));
         addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         addBtn.setText("+");
         addBtn.setBorderPainted(false);
@@ -114,8 +114,8 @@ public class Supplier extends javax.swing.JPanel {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5))
+                        .addComponent(addBtn)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

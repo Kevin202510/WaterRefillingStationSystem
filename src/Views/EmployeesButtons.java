@@ -38,35 +38,42 @@ public class EmployeesButtons extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         hovDashboard = new javax.swing.JPanel();
         dashboard = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         hovCustomers = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         hovPOS = new javax.swing.JPanel();
         sales = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         hovRefilled = new javax.swing.JPanel();
         refilled = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         hovPos = new javax.swing.JPanel();
         pos = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 204, 255));
+        setBackground(new java.awt.Color(0, 180, 216));
         setMinimumSize(new java.awt.Dimension(250, 230));
         setPreferredSize(new java.awt.Dimension(250, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>EMLOYEES <br> <center>BUTTONS</center></html>");
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 1, 2, 1, new java.awt.Color(0, 0, 255)));
+        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
         jLabel1.setPreferredSize(new java.awt.Dimension(250, 100));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 100));
 
-        hovDashboard.setBackground(new java.awt.Color(85, 65, 118));
+        hovDashboard.setBackground(new java.awt.Color(0, 180, 216));
         hovDashboard.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dashboard.setBackground(new java.awt.Color(85, 65, 118));
-        dashboard.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        dashboard.setBackground(new java.awt.Color(0, 180, 216));
+        dashboard.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         dashboard.setForeground(new java.awt.Color(255, 255, 255));
         dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dashboard.setText("Dashboard");
+        dashboard.setText("  Dashboard");
         dashboard.setIconTextGap(10);
         dashboard.setPreferredSize(new java.awt.Dimension(250, 50));
         dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,28 +87,23 @@ public class EmployeesButtons extends javax.swing.JPanel {
                 dashboardMouseExited(evt);
             }
         });
+        hovDashboard.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        javax.swing.GroupLayout hovDashboardLayout = new javax.swing.GroupLayout(hovDashboard);
-        hovDashboard.setLayout(hovDashboardLayout);
-        hovDashboardLayout.setHorizontalGroup(
-            hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        hovDashboardLayout.setVerticalGroup(
-            hovDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/ss-removebg-preview-removebg-preview.png"))); // NOI18N
+        hovDashboard.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, 40, 28));
 
         add(hovDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 250, 50));
 
-        hovCustomers.setBackground(new java.awt.Color(85, 65, 118));
+        hovCustomers.setBackground(new java.awt.Color(0, 180, 216));
         hovCustomers.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovCustomers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        customers.setBackground(new java.awt.Color(85, 65, 118));
-        customers.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        customers.setBackground(new java.awt.Color(0, 180, 216));
+        customers.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         customers.setForeground(new java.awt.Color(255, 255, 255));
         customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        customers.setText("Customers");
+        customers.setText("  Customers");
         customers.setIconTextGap(10);
         customers.setPreferredSize(new java.awt.Dimension(250, 50));
         customers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,29 +117,20 @@ public class EmployeesButtons extends javax.swing.JPanel {
                 customersMouseExited(evt);
             }
         });
+        hovCustomers.add(customers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        javax.swing.GroupLayout hovCustomersLayout = new javax.swing.GroupLayout(hovCustomers);
-        hovCustomers.setLayout(hovCustomersLayout);
-        hovCustomersLayout.setHorizontalGroup(
-            hovCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomersLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(customers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        hovCustomersLayout.setVerticalGroup(
-            hovCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovCustomersLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(customers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/cust.png"))); // NOI18N
+        hovCustomers.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
         add(hovCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 50));
 
-        hovPOS.setBackground(new java.awt.Color(64, 43, 100));
+        hovPOS.setBackground(new java.awt.Color(0, 180, 216));
         hovPOS.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovPOS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sales.setBackground(new java.awt.Color(85, 65, 118));
-        sales.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        sales.setBackground(new java.awt.Color(0, 180, 216));
+        sales.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         sales.setForeground(new java.awt.Color(255, 255, 255));
         sales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sales.setText("POS");
@@ -148,33 +141,22 @@ public class EmployeesButtons extends javax.swing.JPanel {
                 salesMouseClicked(evt);
             }
         });
+        hovPOS.add(sales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        javax.swing.GroupLayout hovPOSLayout = new javax.swing.GroupLayout(hovPOS);
-        hovPOS.setLayout(hovPOSLayout);
-        hovPOSLayout.setHorizontalGroup(
-            hovPOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPOSLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(256, 256, 256))
-        );
-        hovPOSLayout.setVerticalGroup(
-            hovPOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPOSLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/pos.png"))); // NOI18N
+        hovPOS.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 30));
 
         add(hovPOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 265, -1, -1));
 
-        hovRefilled.setBackground(new java.awt.Color(64, 43, 100));
+        hovRefilled.setBackground(new java.awt.Color(0, 180, 216));
         hovRefilled.setPreferredSize(new java.awt.Dimension(250, 50));
 
-        refilled.setBackground(new java.awt.Color(85, 65, 118));
-        refilled.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        refilled.setBackground(new java.awt.Color(0, 180, 216));
+        refilled.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         refilled.setForeground(new java.awt.Color(255, 255, 255));
         refilled.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        refilled.setText("Deliveries");
+        refilled.setText("  Deliveries");
         refilled.setIconTextGap(10);
         refilled.setPreferredSize(new java.awt.Dimension(250, 50));
         refilled.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -183,29 +165,43 @@ public class EmployeesButtons extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/supplier.png"))); // NOI18N
+
         javax.swing.GroupLayout hovRefilledLayout = new javax.swing.GroupLayout(hovRefilled);
         hovRefilled.setLayout(hovRefilledLayout);
         hovRefilledLayout.setHorizontalGroup(
             hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(refilled, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(hovRefilledLayout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(180, Short.MAX_VALUE)))
         );
         hovRefilledLayout.setVerticalGroup(
             hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovRefilledLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(refilled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(hovRefilledLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(hovRefilledLayout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(5, 5, 5)))
         );
 
         add(hovRefilled, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
 
-        hovPos.setBackground(new java.awt.Color(64, 43, 100));
+        hovPos.setBackground(new java.awt.Color(0, 180, 216));
         hovPos.setPreferredSize(new java.awt.Dimension(250, 50));
+        hovPos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pos.setBackground(new java.awt.Color(85, 65, 118));
-        pos.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        pos.setBackground(new java.awt.Color(0, 180, 216));
+        pos.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         pos.setForeground(new java.awt.Color(255, 255, 255));
         pos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pos.setText("Return Gallons");
+        pos.setText("    Return Gallons");
         pos.setIconTextGap(10);
         pos.setPreferredSize(new java.awt.Dimension(250, 50));
         pos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -213,21 +209,11 @@ public class EmployeesButtons extends javax.swing.JPanel {
                 posMouseClicked(evt);
             }
         });
+        hovPos.add(pos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        javax.swing.GroupLayout hovPosLayout = new javax.swing.GroupLayout(hovPos);
-        hovPos.setLayout(hovPosLayout);
-        hovPosLayout.setHorizontalGroup(
-            hovPosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        hovPosLayout.setVerticalGroup(
-            hovPosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hovPosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/gallons.png"))); // NOI18N
+        hovPos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
 
         add(hovPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 50));
     }// </editor-fold>//GEN-END:initComponents
@@ -311,6 +297,11 @@ public class EmployeesButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovPos;
     private javax.swing.JPanel hovRefilled;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel pos;
     private javax.swing.JLabel refilled;
     private javax.swing.JLabel sales;

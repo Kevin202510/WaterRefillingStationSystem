@@ -67,13 +67,15 @@ public class Authentication extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         authenticationPanel.setBackground(new java.awt.Color(19, 0, 19));
-        authenticationPanel.setkEndColor(new java.awt.Color(102, 102, 255));
+        authenticationPanel.setkEndColor(new java.awt.Color(144, 224, 239));
+        authenticationPanel.setkStartColor(new java.awt.Color(26, 59, 160));
         authenticationPanel.setNextFocusableComponent(authUsername);
         authenticationPanel.setPreferredSize(new java.awt.Dimension(680, 420));
         authenticationPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_login.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btn_login.setText("LOGIN");
+        btn_login.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        btn_login.setForeground(new java.awt.Color(255, 255, 255));
+        btn_login.setText("LOG IN");
         btn_login.setBorder(null);
         btn_login.setBorderPainted(false);
         btn_login.setContentAreaFilled(false);
@@ -92,22 +94,26 @@ public class Authentication extends javax.swing.JFrame {
         });
         authenticationPanel.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 190, 40));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Password");
-        authenticationPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 150, 30));
+        jLabel1.setText("Password :");
+        authenticationPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 110, 30));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Username");
-        authenticationPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 150, 30));
+        jLabel2.setText("Username :");
+        authenticationPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 110, 30));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Water Refilling System");
         authenticationPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 470, 50));
 
-        btn_close.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn_close.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        btn_close.setForeground(new java.awt.Color(255, 255, 255));
         btn_close.setText("X");
         btn_close.setBorder(null);
         btn_close.setBorderPainted(false);
@@ -125,19 +131,23 @@ public class Authentication extends javax.swing.JFrame {
                 btn_closeActionPerformed(evt);
             }
         });
-        authenticationPanel.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 50, 40));
+        authenticationPanel.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 50, 40));
 
         authUsername.setBackground(new Color(0,0,0,1));
-        authUsername.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        authUsername.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         authUsername.setForeground(new java.awt.Color(255, 255, 255));
         authUsername.setBorder(null);
         authUsername.setOpaque(false);
-        authenticationPanel.add(authUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 290, 40));
+        authenticationPanel.add(authUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 290, 30));
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         authenticationPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 290, 10));
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         authenticationPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 192, 290, 10));
 
         authPassword.setBackground(new Color(0,0,0,1));
-        authPassword.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        authPassword.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         authPassword.setForeground(new java.awt.Color(255, 255, 255));
         authPassword.setBorder(null);
         authPassword.setOpaque(false);
@@ -146,7 +156,7 @@ public class Authentication extends javax.swing.JFrame {
                 authPasswordKeyPressed(evt);
             }
         });
-        authenticationPanel.add(authPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 290, 40));
+        authenticationPanel.add(authPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 290, 30));
 
         btn_show_pass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/asd-removebg-preview.png"))); // NOI18N
         btn_show_pass.setBorder(null);
@@ -170,7 +180,9 @@ public class Authentication extends javax.swing.JFrame {
         });
         authenticationPanel.add(btn_hide_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 30, 30));
 
+        btn_aboutus.setBackground(new java.awt.Color(153, 153, 153));
         btn_aboutus.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_aboutus.setForeground(new java.awt.Color(51, 51, 51));
         btn_aboutus.setText("About Us");
         btn_aboutus.setBorder(null);
         btn_aboutus.setBorderPainted(false);
@@ -180,7 +192,7 @@ public class Authentication extends javax.swing.JFrame {
                 btn_aboutusActionPerformed(evt);
             }
         });
-        authenticationPanel.add(btn_aboutus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 387, 140, 20));
+        authenticationPanel.add(btn_aboutus, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 90, 20));
 
         getContentPane().add(authenticationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 420));
 
@@ -247,8 +259,8 @@ public class Authentication extends javax.swing.JFrame {
        authControll.checkField(this,authUsername, authPassword);
     }//GEN-LAST:event_btn_loginActionPerformed
 
-    Color btn_hov_enter_color = new Color(255,0,255);
-    Color btn_hov_exit_color = new Color(102,102,255);
+    Color btn_hov_enter_color = new Color(0,180,216);
+    Color btn_hov_exit_color = new Color(26,59,160);
     private void btn_closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseEntered
         btn_close.setBackground(btn_hov_enter_color);
         btn_close.setOpaque(true);

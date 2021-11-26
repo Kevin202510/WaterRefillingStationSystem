@@ -45,6 +45,7 @@ public class Deliveries extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(252, 244, 221));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
         deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(

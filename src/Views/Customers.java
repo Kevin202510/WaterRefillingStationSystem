@@ -50,7 +50,7 @@ public class Customers extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 0, 0));
+        setBackground(new java.awt.Color(252, 244, 221));
 
         customersTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         customersTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -81,7 +81,7 @@ public class Customers extends javax.swing.JPanel {
             customersTable.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
