@@ -49,7 +49,7 @@ public class Gallons extends javax.swing.JPanel {
         addBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(252, 244, 221));
+        setBackground(new java.awt.Color(255, 0, 0));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         gallonTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
@@ -148,7 +148,7 @@ public class Gallons extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
         );

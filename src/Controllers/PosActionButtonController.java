@@ -10,6 +10,7 @@ import Views.BuyGallonAndWater;
 import Views.Deliveries;
 import Views.ReturnGallons;
 import Views.Transaction;
+import Views.TransactionLogs;
 import Views.WalkIn;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -38,8 +39,8 @@ public class PosActionButtonController {
         new ContainerController(lalagyananpospanel,new WalkIn(lalagyananpospanel));
     }
    
-   public void BuyButton(JButton buy){
-        new ContainerController(lalagyananpospanel,new BuyGallonAndWater(lalagyananpospanel));
+   public void TransactionLogsButton(JButton buy){
+        new ContainerController(lalagyananpospanel,new TransactionLogs(lalagyananpospanel));
     }
    
    public void TransactionButton(JLabel transaction){
