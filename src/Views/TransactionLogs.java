@@ -6,6 +6,7 @@
 package Views;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -55,11 +56,11 @@ public class TransactionLogs extends javax.swing.JPanel {
 
     private void search() {                                            
         // ROOMS SEARCH
-        DefaultTableModel model = (DefaultTableModel)transaction_logstable.getModel();
+//        DefaultTableModel model = (DefaultTableModel)transaction_logstable.getModel();
 //        model.setRowCount(0);
-        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
-        transaction_logstable.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(jtxt_room_search.getText().trim()));
+//        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+//        transaction_logstable.setRowSorter(tr);
+//        tr.setRowFilter(RowFilter.regexFilter(jtxt_room_search.getText().trim()));
            
     }                 
 
