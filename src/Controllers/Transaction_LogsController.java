@@ -12,9 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,18 +28,8 @@ public class Transaction_LogsController {
     
 
     String kuninLahatNgTransactions_logs= "SELECT * FROM transactions_logs";
-    String kuninLahatNgTransactions_logsWithJoinTable = "SELECT * FROM `transactions_logs` LEFT JOIN transactions ON transactions_logs.Transaction_Id = transactions.ID " +
-                                                        "LEFT JOIN customers ON transactions.Customer_Id = customers.ID LEFT JOIN gallons ON transactions.Gallon_Id = gallons.Code " +
-                                                        "LEFT JOIN promos ON transactions.Promo_Id = promos.Id LEFT JOIN users ON transactions.User_Id = users.Id;";
-    
-    public Transaction_LogsController(){
-         try {
-             transactionslogsList();
-             transactions_logsListWithJoinTable();
-         } catch (SQLException ex) {
-             Logger.getLogger(Transaction_LogsController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-    }
+    String kuninLahatNgTransactions_logsWithJoinTable = "SELECT * FROM `transactions_logs` LEFT JOIN customers ON customers.ID = transactions_logs.Customer_Id LEFT JOIN gallons ON gallons.Code = transactions_logs.Gallon_Id\n" +
+                                                  "LEFT JOIN promos on promos.Id = transactions_logs.Promo_Id LEFT JOIN users on users.Id = transactions_logs.User_Id";
     
      public ArrayList<Transactions_LogsModel> transactionslogsList() throws SQLException{
         Statement st = con.createStatement();
@@ -50,7 +37,7 @@ public class Transaction_LogsController {
         Transactions_LogsModel transactionlog;
         
         while(rs.next()){
-            transactionlog = new Transactions_LogsModel(rs.getInt("ID"),rs.getInt("Total_Amount"),rs.getString("Transaction_Date"),rs.getString("Transaction_Time"));
+            transactionlog = new Transactions_LogsModel(rs.getInt("ID"),rs.getInt("Customer_Id"),rs.getInt("Gallon_Id"),rs.getInt("Gallon_Quantity"),rs.getInt("Total_Amount"),rs.getInt("Status"),rs.getInt("User_Id"),rs.getString("Transaction_Date"),rs.getString("Transaction_Time"));
             transactionslogslist.add(transactionlog);
         }
         return transactionslogslist;   
@@ -61,7 +48,7 @@ public class Transaction_LogsController {
         Transactions_LogsModel transactionlog;
         
         while(rs.next()){
-            transactionlog = new Transactions_LogsModel(rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"),rs.getString("Gallon_Type"),rs.getInt("Quantity"),rs.getInt("transactions.Status"),rs.getString("promos.Name"),rs.getInt("ServiceType"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"));
+            transactionlog = new Transactions_LogsModel(rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"),rs.getString("Gallon_Type"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"));
             transactionslogsListwithjointable.add(transactionlog);
         }
         return transactionslogsListwithjointable;   
@@ -69,18 +56,18 @@ public class Transaction_LogsController {
       
     public void showTransaction_Logs(JTable customerTable){
          DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
-         Object[] row = new Object[10];
+         Object[] row = new Object[8];
          for (int i = 0; i < transactionslogslist.size(); i++) {
             row[0] = transactionslogslist.get(i).getID();
-            row[1] = transactionslogsListwithjointable.get(i).getCustomer_Fullname();
-            row[2] = transactionslogsListwithjointable.get(i).getGallon_Name();
-            row[3] = transactionslogsListwithjointable.get(i).getGallon_Quantity();
-            row[4] = transactionslogsListwithjointable.get(i).getPromoName();
-            row[5] = transactionslogsListwithjointable.get(i).getServiceType();
-            row[6] = transactionslogsListwithjointable.get(i).getStatus();
-            row[7] = transactionslogslist.get(i).getTotal_Amount();
-            row[8] = transactionslogslist.get(i).getTransaction_Date();
-            row[9] = transactionslogslist.get(i).getTransaction_Time();
+            row[1] = transactionslogslist.get(i).getCustomer_Id();
+            row[2] = transactionslogslist.get(i).getGallon_Id();
+            row[3] = transactionslogslist.get(i).getGallon_Quantity();
+            row[4] = transactionslogslist.get(i).getTotal_Amount();
+            row[5] = transactionslogslist.get(i).getStatus();
+            row[6] = transactionslogslist.get(i).getUser_Id();
+            row[7] = transactionslogslist.get(i).getTransaction_Date();
+            row[8] = transactionslogslist.get(i).getTransaction_Time();
+       
             model.addRow(row);
          }
     }

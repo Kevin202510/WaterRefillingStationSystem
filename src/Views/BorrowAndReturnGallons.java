@@ -54,7 +54,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         borrowgallontbl = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 0, 0));
+        setBackground(new java.awt.Color(252, 244, 221));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         returngallontable.setModel(new javax.swing.table.DefaultTableModel(
@@ -80,7 +80,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
             returngallontable.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +111,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 .addComponent(jButton1))
         );
 
-        jPanel2.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel2.setBackground(new java.awt.Color(26, 59, 160));
 
         jLabel3.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

@@ -38,9 +38,10 @@ public class ReturnGallons extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         returngallontable = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(252, 244, 221));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
