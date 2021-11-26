@@ -107,8 +107,7 @@ public class TransactionLogs extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxt_room_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_room_searchKeyPressed
-        search();
-
+        search();   
     }//GEN-LAST:event_jtxt_room_searchKeyPressed
 
     private void search() {                                            

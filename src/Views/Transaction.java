@@ -6,12 +6,18 @@
 package Views;
 
 import Controllers.CustomerController;
+import Controllers.GallonsController;
 import Controllers.PromosController;
 import Controllers.TransactionController;
 import Controllers.UsersController;
+import Models.SupplierModel;
+import Models.TransactionsModel;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +38,7 @@ public class Transaction extends javax.swing.JPanel {
     PromosController promoControll = new PromosController();
     UsersController userControll = new UsersController();
     TransactionController transactionControll = new TransactionController();
+    GallonsController gallonsControll = new GallonsController();
     
     JPanel lalagyanan;
     
@@ -52,7 +59,7 @@ public class Transaction extends javax.swing.JPanel {
 
         isborrowgallons = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        cartTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         Customer_Id = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -67,18 +74,19 @@ public class Transaction extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         notborrowgallon = new javax.swing.JRadioButton();
         isborrowgallon = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        addToCartBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         DateToBeDeliver = new com.toedter.calendar.JDateChooser();
         DateOrder = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
         gallonQuantity = new javax.swing.JSpinner();
-        jButton2 = new javax.swing.JButton();
+        payBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(990, 480));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -94,16 +102,21 @@ public class Transaction extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(40);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(40);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(120);
-            jTable1.getColumnModel().getColumn(5).setMinWidth(45);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(45);
-            jTable1.getColumnModel().getColumn(5).setMaxWidth(45);
-            jTable1.getColumnModel().getColumn(8).setResizable(false);
+        cartTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cartTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(cartTable);
+        if (cartTable.getColumnModel().getColumnCount() > 0) {
+            cartTable.getColumnModel().getColumn(0).setMinWidth(40);
+            cartTable.getColumnModel().getColumn(0).setPreferredWidth(40);
+            cartTable.getColumnModel().getColumn(0).setMaxWidth(40);
+            cartTable.getColumnModel().getColumn(1).setPreferredWidth(120);
+            cartTable.getColumnModel().getColumn(5).setMinWidth(45);
+            cartTable.getColumnModel().getColumn(5).setPreferredWidth(45);
+            cartTable.getColumnModel().getColumn(5).setMaxWidth(45);
+            cartTable.getColumnModel().getColumn(8).setResizable(false);
         }
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,13 +158,13 @@ public class Transaction extends javax.swing.JPanel {
         isborrowgallon.setText("yes");
         jPanel2.add(isborrowgallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
 
-        jButton1.setText("ADD");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addToCartBtn.setText("ADD");
+        addToCartBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addToCartBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 240, 40));
+        jPanel2.add(addToCartBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 240, 40));
 
         jLabel9.setText("Quantity");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
@@ -171,13 +184,21 @@ public class Transaction extends javax.swing.JPanel {
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
         jPanel2.add(gallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 160, 30));
 
-        jButton2.setText("Pay");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        payBtn.setText("Pay");
+        payBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                payBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 240, 40));
+        jPanel2.add(payBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 240, 40));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -197,68 +218,116 @@ public class Transaction extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     String strDates;
+     String strDates1;
+     
+    private void addToCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnActionPerformed
         //            String name = customerControll.customerlist().get(Customer_Id.getS).getFullname().
         DateFormat dateFormat = new SimpleDateFormat("MMM-dd-yyy");  
-        String strDates = dateFormat.format(DateOrder.getDate());
-        String strDates1 = dateFormat.format(DateToBeDeliver.getDate());
+        strDates = dateFormat.format(DateOrder.getDate());
+        strDates1 = dateFormat.format(DateToBeDeliver.getDate());
         String isborrow="";
         if(isborrowgallon.isSelected()){
             isborrow = "Yes";
         }if(notborrowgallon.isSelected()){
             isborrow = "No";
         }
-        Object[] row = { jTable1.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(), gallonQuantity.getValue() ,Promo_Id.getSelectedItem() , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
+        Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(), gallonQuantity.getValue() ,Promo_Id.getSelectedItem() , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
         
-        String code, rw0, msf=null;
+        String code, code1, rw0, rw1, custname, msf=null;
           int x;
-          for(x = 0; x<jTable1.getRowCount();x++){
+          for(x = 0; x<cartTable.getRowCount();x++){
             code = gallonType_Id.getSelectedItem().toString();
-            rw0 = String.valueOf(jTable1.getValueAt(x, 2));
-            if (code.equals(rw0)){
+            custname = Customer_Id.getSelectedItem().toString();
+            code1 = serviceOffered.getSelectedItem().toString();
+            rw0 = String.valueOf(cartTable.getValueAt(x, 2));
+            rw1 = String.valueOf(cartTable.getValueAt(x, 6));
+            if (code.equals(rw0) && code1.equals(rw1) && custname.equals(cartTable.getValueAt(x, 1).toString())){
                 msf = String.valueOf(x);
                 break;
             }
           }
           
           if (msf != null){
-            int quant = Integer.parseInt(jTable1.getValueAt(x,3).toString());
-            jTable1.setValueAt(Integer.parseInt(gallonQuantity.getValue().toString()) + quant, x, 3);
+            int quant = Integer.parseInt(cartTable.getValueAt(x,3).toString());
+            cartTable.setValueAt(Integer.parseInt(gallonQuantity.getValue().toString()) + quant, x, 3);
           }else{
-              transactionControll.addToCart(jTable1, row);
+              transactionControll.addToCart(cartTable, row);
           }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addToCartBtnActionPerformed
 
+    
     private void trylang(){
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
 
-          String code1,code2,code3, rw0, msf=null;
+          String code1,code2,code3, rw0,DDorDR,DDorDP, msf=null;
+          int custid=0;
+          int servicetype=0;
+          int promoid=0;
+          int status=0;
+          String gallonid = "";
           int x;
-          for(x = 0; x<jTable1.getRowCount();x++){
-            code1 = "Deliver";
-            code2 = "Walk IN";
-            code3 = "Pick Up";
-            rw0 = String.valueOf(jTable1.getValueAt(x, 6));
-            if (code1.equals(rw0)){
-                msf = String.valueOf(x);
-                break;
+            for(x = 0; x<cartTable.getRowCount();x++){
+                for(int i=0;i<=Customer_Id.getItemCount();i++){
+                if (cartTable.getValueAt(x, 1).toString().equals(Customer_Id.getItemAt(i))) {
+                    try {
+                        custid = customerControll.customerlist().get(i).getID();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             }
-          }
-          
-          if (msf != null){
-           JOptionPane.showMessageDialog(null,model.getDataVector().get(x));
-           
-           transactionControll.addDeliveries(model.getDataVector().get(x).toArray(), jTable1);
-          }
+                
+                for(int k=0; k<=gallonType_Id.getItemCount();k++){
+                    if (cartTable.getValueAt(x, 2).toString().equals(gallonType_Id.getItemAt(k))) {
+                        try {
+                            gallonid = gallonsControll.gallonList().get(k).getCode();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+                
+                for(int k=0; k<=Promo_Id.getItemCount();k++){
+                    if (cartTable.getValueAt(x, 4).toString().equals(Promo_Id.getItemAt(k))) {
+                        try {
+                            promoid = promoControll.promosList().get(k).getId();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+                
+                for(int k=0; k<=serviceOffered.getItemCount();k++){
+                    if (cartTable.getValueAt(x, 6).toString().equals(serviceOffered.getItemAt(k))) {
+                            servicetype = k;   
+                    }
+                }
+                
+                transactionControll.supplierList(custid, cartTable.getValueAt(x,7).toString(), cartTable.getValueAt(x,8).toString(), gallonid, Integer.parseInt(cartTable.getValueAt(x,3).toString()), promoid, servicetype, 0, 1);         
+        }
+            
+//            Object[] rows = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(), gallonQuantity.getValue() ,Promo_Id.getSelectedItem() , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
+//            `Customer_Id`, `DOorDR`, `DDorDP`, `Gallon_Id`, `Quantity`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`
+            
+        
     }
     
     private void DateOrderPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateOrderPropertyChange
         setMinimumDate();
     }//GEN-LAST:event_DateOrderPropertyChange
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
         trylang();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_payBtnActionPerformed
+
+    private void cartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartTableMouseClicked
+        transactionControll.deleteDataFromCart(cartTable.getSelectedRow(), cartTable);
+    }//GEN-LAST:event_cartTableMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        transactionControll.addDeliveries(cartTable);
+    }//GEN-LAST:event_jButton1ActionPerformed
     private void setMinimumDate(){
         DateToBeDeliver.setMinSelectableDate(DateOrder.getDate());
     }
@@ -270,12 +339,13 @@ public class Transaction extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser DateToBeDeliver;
     private javax.swing.JComboBox<String> Promo_Id;
     private javax.swing.JComboBox<String> User_Id;
+    private javax.swing.JButton addToCartBtn;
+    private javax.swing.JTable cartTable;
     private javax.swing.JSpinner gallonQuantity;
     private javax.swing.JComboBox<String> gallonType_Id;
     private javax.swing.JRadioButton isborrowgallon;
     private javax.swing.ButtonGroup isborrowgallons;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
@@ -287,8 +357,8 @@ public class Transaction extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton notborrowgallon;
+    private javax.swing.JButton payBtn;
     private javax.swing.JComboBox<String> serviceOffered;
     // End of variables declaration//GEN-END:variables
 }

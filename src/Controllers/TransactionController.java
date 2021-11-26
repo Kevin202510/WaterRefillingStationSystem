@@ -7,10 +7,14 @@ package Controllers;
 
 import Models.CustomerModel;
 import Models.DeliveriesModel;
+import Models.TransactionsModel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -26,8 +30,9 @@ public class TransactionController {
     
     SQLController sql = new SQLController();
     java.sql.Connection con = sql.getConnection();
+    ArrayList<TransactionsModel> transactionslist = new ArrayList<>();
     
-    String magdagdagNgDeliveries = "INSERT INTO `deliveries`(`Customer_Id`, `Date_Order`, `Date_Delivered`, `Gallon_Id`, `Quantity`, `Promo_Id`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?)";
+    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `Gallon_Id`, `Quantity`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?)";
     
     public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox User_Id,JComboBox gallonType_Id){
         
@@ -81,35 +86,68 @@ public class TransactionController {
         model.addRow(rows);
     }
     
-     public boolean addDeliveries(Object[]row,JTable transactionTable){
-        try {
-            PreparedStatement st = con.prepareStatement(magdagdagNgDeliveries);
-//            st.setInt(1, Integer.parseInt(row[1].toString()));
-//            st.setString(2, row[2].toString());
-//            st.setString(3, row[3].toString());
-//            st.setString(4, row[4].toString());
-//            st.setInt(5, Integer.parseInt(row[5].toString()));
-//            st.setInt(6, Integer.parseInt(row[6].toString()));
-//            st.setInt(7, Integer.parseInt(row[7].toString()));
-//            st.setInt(8, Integer.parseInt(row[8].toString()));
-            st.setInt(1,1);
-            st.setString(2, "2021-11-08");
-            st.setString(3, "2021-11-08");
-            st.setString(4, "0000000000");
-            st.setInt(5, 5);
-            st.setInt(6, 10);
-            st.setInt(7, 0);
-            st.setInt(8, 3);
-            int i = st.executeUpdate();
-            if (i > 0) {
-                DefaultTableModel model = (DefaultTableModel)transactionTable.getModel();
-                model.setRowCount(0);
-            } else {
-                return false;
-            }
+    
+    public ArrayList<TransactionsModel> supplierList(int Customer_Id, String DOorDR, String DDorDP, String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+        TransactionsModel transactionmodel;
+            transactionmodel = new TransactionsModel(Customer_Id,DOorDR,DDorDP,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
+            transactionslist.add(transactionmodel);
+        return transactionslist;   
+    }
+    
+    
+    public void deleteDataFromCart(int selectedrow,JTable cartTable){
+        DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
+        int option = JOptionPane.showConfirmDialog(null,"Do You Want To Remove It ?");
+        if(option==0){
+            model.removeRow(cartTable.getSelectedRow());
+        }
+    }
+    
+    public String getDateNow(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+        LocalDateTime now = LocalDateTime.now();
+        String dateNow = dtf.format(now).toString();
+        return dateNow;
+    }
+    
+    public String getTimeNow(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();
+        String timeNow = dtf.format(now).toString();
+        return timeNow;
+    }
+    
+    public static void main(String[] args) {
+        TransactionController tt = new TransactionController();
+        JOptionPane.showMessageDialog(null,tt.getDateNow());
+        JOptionPane.showMessageDialog(null,tt.getTimeNow());
+    }
+    
+     public void addDeliveries(JTable cartTable){
+         try {
+             PreparedStatement st = con.prepareStatement(magdagdagNgTransactions);
+             JOptionPane.showMessageDialog(null,transactionslist.size());
+             for (int i = 0; i < transactionslist.size(); i++) {
+                st.setInt(1, transactionslist.get(i).getCustomer_Id());
+                st.setString(2, "2021-11-26");
+                st.setString(3, "2021-11-26");
+                st.setString(4, transactionslist.get(i).getGallonCode());
+                st.setInt(5, transactionslist.get(i).getQuantity());
+                st.setInt(6, transactionslist.get(i).getPromo_Id());
+                st.setInt(7, transactionslist.get(i).getServiceType());
+                st.setInt(8, transactionslist.get(i).getStatus());
+                st.setInt(9, transactionslist.get(i).getUser_Id());
+                st.executeUpdate();
+                if (i == transactionslist.size()-1) {
+                    DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
+                    model.setRowCount(0);
+                    transactionslist.clear();
+                }
+             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,ex);
         }
-        return true;
+//        return true;
+        
      }
 }
