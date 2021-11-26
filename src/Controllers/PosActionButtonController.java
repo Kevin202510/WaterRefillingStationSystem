@@ -5,13 +5,13 @@
  */
 package Controllers;
 
-import Views.BorrowAndReturnGallons;
-import Views.BuyGallonAndWater;
-import Views.Deliveries;
-import Views.ReturnGallons;
-import Views.Transaction;
-import Views.TransactionLogs;
-import Views.WalkIn;
+import Views.BorrowAndReturnGallons.BorrowAndReturnGallons;
+import Views.Void.BuyGallonAndWater;
+import Views.PointOfSale.Deliveries;
+import Views.PointOfSale.ReturnGallons;
+import Views.PointOfSale.Transaction;
+import Views.PointOfSale.TransactionLogs;
+import Views.PointOfSale.WalkIn;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

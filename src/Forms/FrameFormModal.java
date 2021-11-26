@@ -9,7 +9,7 @@ import Controllers.ContainerController;
 import Controllers.FormsControllers;
 import Controllers.PromosController;
 import Models.PromosModel;
-import Views.DeveloperAndAdminButtons;
+import Views.DashboardsAndButtons.DeveloperAndAdminButtons;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;

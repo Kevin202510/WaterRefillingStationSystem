@@ -225,7 +225,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
 suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getText());
         if (suliersControll.updateSupplier(suppliermodel,suppliersTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Supplier.Supplier(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
@@ -233,14 +233,14 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
       suppliermodel = new SupplierModel(0,Fname.getText(),Lname.getText(),Mname.getText(),Company_name.getText(),Company_Address.getText(),Contact.getText());
         if (suliersControll.addSupplier(suppliermodel,suppliersTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Supplier.Supplier(lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if(suliersControll.deleteSupplier(btn_id,suppliersTable)){
             out.dispose();
-          new ContainerController(lalagyanan,new Views.Supplier(lalagyanan));
+          new ContainerController(lalagyanan,new Views.Supplier.Supplier(lalagyanan));
        }
 
     }//GEN-LAST:event_deletebtnActionPerformed

@@ -5,17 +5,17 @@
  */
 package Controllers;
 
-import Views.BorrowAndReturnGallons;
-import Views.Customers;
-import Views.Dashboard;
-import Views.Deliveries;
-import Views.Pos;
-import Views.Gallons;
-import Views.Promos;
-import Views.Reports;
-import Views.SalesReport;
-import Views.Supplier;
-import Views.Users;
+import Views.BorrowAndReturnGallons.BorrowAndReturnGallons;
+import Views.Customer.Customers;
+import Views.DashboardsAndButtons.Dashboard;
+import Views.PointOfSale.Deliveries;
+import Views.PointOfSale.Pos;
+import Views.Gallons.Gallons;
+import Views.Promos.Promos;
+import Views.Reports.Reports;
+import Views.Reports.SalesReport;
+import Views.Supplier.Supplier;
+import Views.Users.Users;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;

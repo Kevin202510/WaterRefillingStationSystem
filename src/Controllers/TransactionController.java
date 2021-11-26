@@ -30,11 +30,11 @@ public class TransactionController {
     
     SQLController sql = new SQLController();
     java.sql.Connection con = sql.getConnection();
-    ArrayList<TransactionsModel> transactionslist = new ArrayList<>();
+    public ArrayList<TransactionsModel> transactionslist = new ArrayList<>();
     
-    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `Gallon_Id`, `Quantity`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?)";
+    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?)";
     
-    public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox User_Id,JComboBox gallonType_Id){
+    public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox waterType_Id,JComboBox gallonType_Id){
         
           try {
               Statement st = con.createStatement();
@@ -52,10 +52,10 @@ public class TransactionController {
               }
               
               Statement st2 = con.createStatement();
-              ResultSet rs2 = st2.executeQuery("SELECT * FROM `users`");
+              ResultSet rs2 = st2.executeQuery("SELECT * FROM `water_types`");
               
               while(rs2.next()){
-                  User_Id.addItem(rs2.getString("Fname") + " " + rs2.getString("Mname") + " " + rs2.getString("Lname"));
+                  waterType_Id.addItem(rs2.getString("Name"));
               }
               
               Statement st3 = con.createStatement();

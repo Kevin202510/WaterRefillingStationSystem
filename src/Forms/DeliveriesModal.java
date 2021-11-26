@@ -209,7 +209,7 @@ public class DeliveriesModal extends javax.swing.JPanel {
             deliveriesModel = new DeliveriesModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),dateFormat.format(Date_Order.getDate()),dateFormat.format(Date_Delivered.getDate()),gallonsControll.gallonList().get(Gallon_Id.getSelectedIndex()).getCode(),(int) Quantity.getValue(),promoControll.promosList().get(Promo_Id.getSelectedIndex()).getId(),Status.getSelectedIndex(),userControll.userList().get(User_Id.getSelectedIndex()).getId());
             if (deliveriesControll.updateDeliveries(deliveriesModel, promoTable)) {
                 out.dispose();
-                new ContainerController(lalagyanan,new Views.Deliveries(lalagyanan));
+                new ContainerController(lalagyanan,new Views.PointOfSale.Deliveries(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DeliveriesModal.class.getName()).log(Level.SEVERE, null, ex);
@@ -221,7 +221,7 @@ public class DeliveriesModal extends javax.swing.JPanel {
             deliveriesModel = new DeliveriesModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),dateFormat.format(Date_Order.getDate()),dateFormat.format(Date_Delivered.getDate()),gallonsControll.gallonList().get(Gallon_Id.getSelectedIndex()).getCode(),(int) Quantity.getValue(),promoControll.promosList().get(Promo_Id.getSelectedIndex()).getId(),Status.getSelectedIndex(),userControll.userList().get(User_Id.getSelectedIndex()).getId());
             if (deliveriesControll.addDeliveries(deliveriesModel, promoTable)) {
                 out.dispose();
-                new ContainerController(lalagyanan,new Views.Deliveries(lalagyanan));
+                new ContainerController(lalagyanan,new Views.PointOfSale.Deliveries(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DeliveriesModal.class.getName()).log(Level.SEVERE, null, ex);
@@ -231,7 +231,7 @@ public class DeliveriesModal extends javax.swing.JPanel {
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if (deliveriesControll.deleteUser(btn_id, promoTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Deliveries(lalagyanan));
+            new ContainerController(lalagyanan,new Views.PointOfSale.Deliveries(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 

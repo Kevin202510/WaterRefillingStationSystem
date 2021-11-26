@@ -8,8 +8,8 @@ package Forms;
 import Controllers.ContainerController;
 import Controllers.UsersController;
 import Models.UserModel;
-import Views.Authentication;
-import Views.MainDashboard;
+import Views.Authentication.Authentication;
+import Views.DashboardsAndButtons.MainDashboard;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Image;
@@ -297,7 +297,7 @@ public class UserFormModal extends javax.swing.JPanel {
             userLname.getText(),df.format(userDOB.getDate()),userAddress.getText(),userContact.getText(),userUsername.getText(),userPassword.getText());
         if (userControll.updateUser(usermodel, userTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users.Users(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
@@ -308,7 +308,7 @@ public class UserFormModal extends javax.swing.JPanel {
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if(userControll.deleteUser(btn_id,userTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users.Users(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
@@ -317,7 +317,7 @@ public class UserFormModal extends javax.swing.JPanel {
             userLname.getText(),df.format(userDOB.getDate()),userAddress.getText(),userContact.getText(),userUsername.getText(),String.valueOf(userPassword.getPassword()));
         if (userControll.addUser(usermodel,userTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Users(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Users.Users(lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed
 

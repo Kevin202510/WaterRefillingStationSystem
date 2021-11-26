@@ -5,9 +5,9 @@
  */
 package Controllers;
 
-import Views.BARGLogs;
-import Views.SalesReport;
-import Views.TransactionLogs;
+import Views.BorrowAndReturnGallons.BARGLogs;
+import Views.Reports.SalesReport;
+import Views.PointOfSale.TransactionLogs;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 

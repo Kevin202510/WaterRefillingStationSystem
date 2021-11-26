@@ -166,7 +166,7 @@ public class PromoFormModal extends javax.swing.JPanel {
       promosModel = new PromosModel(btn_id,Name.getText(),Description.getText(),dateFormat.format(Date_Started.getDate()),dateFormat.format(Date_End.getDate()));
         if(promosControll.updatePromos(promosModel, promoTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Promos(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Promos.Promos(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
@@ -174,14 +174,14 @@ public class PromoFormModal extends javax.swing.JPanel {
         promosModel = new PromosModel(0,Name.getText(),Description.getText(),dateFormat.format(Date_Started.getDate()),dateFormat.format(Date_End.getDate()));
         if(promosControll.addPromos(promosModel, promoTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Promos(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Promos.Promos(lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
        if(promosControll.deletePromos(btn_id, promoTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Promos(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Promos.Promos(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 

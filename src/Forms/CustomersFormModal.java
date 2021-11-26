@@ -250,14 +250,14 @@ public class CustomersFormModal extends javax.swing.JPanel {
             customerAddress.getText(),customerContact.getText(),customerSuki.getSelectedIndex()+1);
         if (customersControll.addCustomer(customermodel,customersTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Customer.Customers(lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if(customersControll.deleteCustomer(btn_id,customersTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Customer.Customers(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
@@ -267,7 +267,7 @@ public class CustomersFormModal extends javax.swing.JPanel {
             customerMname.getText(),customerLname.getText(),customerAddress.getText(),customerContact.getText(),customerSuki.getSelectedIndex()+1);
         if (customersControll.updateCustomer(customermodel, customersTable)) {
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Customers(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Customer.Customers(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 

@@ -247,7 +247,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
             gallonsmodel = new GallonsModel(String.valueOf(btn_id),Size.getText(),Color.getText(),Gallon_Type.getText(),supplierControll.supplierList().get(Supplier_Id.getSelectedIndex()).getID(),df.format(Date_delivered.getDate()),Double.parseDouble(Price.getText()),(int) Stocks.getValue());
             if (gallonsControll.updateGallon(gallonsmodel,gallonTable)) {
                 out.dispose();
-                new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
+                new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
                 
             }
         } catch (SQLException ex) {
@@ -260,7 +260,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
             gallonsmodel = new GallonsModel(Code.getText(),Size.getText(),Color.getText(),Gallon_Type.getText(),supplierControll.supplierList().get(Supplier_Id.getSelectedIndex()).getID(),df.format(Date_delivered.getDate()),Integer.parseInt(Price.getText()),(int) Stocks.getValue());
             if (gallonsControll.addGallons(gallonsmodel,gallonTable)) {
                 out.dispose();
-                new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
+                new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(GallonsFormModal.class.getName()).log(Level.SEVERE, null, ex);
@@ -270,7 +270,7 @@ public class GallonsFormModal extends javax.swing.JPanel {
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if(gallonsControll.deleteGallon(btn_id,gallonTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Gallons(lalagyanan));
+            new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
