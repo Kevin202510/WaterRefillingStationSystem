@@ -76,11 +76,11 @@ public class Transaction_LogsController {
             row[2] = transactionslogsListwithjointable.get(i).getGallon_Name();
             row[3] = transactionslogsListwithjointable.get(i).getGallon_Quantity();
             row[4] = transactionslogsListwithjointable.get(i).getPromoName();
-            row[5] = transactionslogsListwithjointable.get(i).getServiceType();
-            row[6] = transactionslogsListwithjointable.get(i).getStatus();
-            row[7] = transactionslogslist.get(i).getTotal_Amount();
-            row[8] = transactionslogslist.get(i).getTransaction_Date();
-            row[9] = transactionslogslist.get(i).getTransaction_Time();
+            row[5] = transactionslogsListwithjointable.get(i).getServiceTypeVal();
+            row[6] = transactionslogslist.get(i).getTotal_Amount();
+            row[7] = transactionslogslist.get(i).getTransaction_Date();
+            row[8] = transactionslogslist.get(i).getTransaction_Time();
+            row[9] = transactionslogsListwithjointable.get(i).getStatusVal();
             model.addRow(row);
          }
     }

@@ -63,6 +63,26 @@ public class Transactions_LogsModel {
                 PromoName = "No Promo";
             }
             return PromoName;
-        }
+        }public String getServiceTypeVal(){
+            String sval;
+            if(ServiceType==0){
+                sval = "Deliver";
+            }else{
+                sval = "Walk In";
+            }
+            return sval;
+         }public String getStatusVal(){
+            String statval;
+            if(Status==0){
+                statval = "Pending";
+            }else{
+                if (ServiceType==0) {
+                    statval = "Delivered Sucessfully";
+                }else{
+                    statval = "Pick Up Sucessfully";
+                }
+            }
+            return statval;
+         }
          
 }

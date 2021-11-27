@@ -6,6 +6,7 @@
 package Views.PointOfSale;
 
 import Controllers.Transaction_LogsController;
+import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -26,6 +27,7 @@ public class TransactionLogs extends javax.swing.JPanel {
     public TransactionLogs(JPanel lalagyanan) {
         initComponents();
         this.lalagyanan = lalagyanan;
+        transaction_logstable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
         transactionlogsControll.showTransaction_Logs(transaction_logstable);    
     }
 
@@ -66,11 +68,11 @@ public class TransactionLogs extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Gallon Type", "Quantity", "Promo", "Service Type", "Status", "Total Amount", "Transaction Date", "Transaction Time"
+                "ID", "Customer Fullname", "Gallon Type", "Quantity", "Promo", "Service Type", "Total Amount", "Transaction Date", "Transaction Time", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, true, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -79,8 +81,11 @@ public class TransactionLogs extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(transaction_logstable);
         if (transaction_logstable.getColumnModel().getColumnCount() > 0) {
-            transaction_logstable.getColumnModel().getColumn(0).setMinWidth(20);
             transaction_logstable.getColumnModel().getColumn(0).setPreferredWidth(20);
+            transaction_logstable.getColumnModel().getColumn(2).setPreferredWidth(60);
+            transaction_logstable.getColumnModel().getColumn(3).setPreferredWidth(60);
+            transaction_logstable.getColumnModel().getColumn(4).setPreferredWidth(60);
+            transaction_logstable.getColumnModel().getColumn(5).setPreferredWidth(80);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -59,13 +59,13 @@
                 <Column editable="false" title="ID" type="java.lang.Object"/>
                 <Column editable="false" title="Customer Fullname" type="java.lang.Object"/>
                 <Column editable="false" title="Gallon Type" type="java.lang.Object"/>
+                <Column editable="false" title="Price" type="java.lang.Object"/>
                 <Column editable="false" title="Gallon Quantity" type="java.lang.Object"/>
                 <Column editable="false" title="Promo" type="java.lang.Object"/>
                 <Column editable="false" title="Borrowed Gallon" type="java.lang.Object"/>
                 <Column editable="false" title="Service" type="java.lang.Object"/>
                 <Column editable="false" title="Date Order" type="java.lang.Object"/>
                 <Column editable="false" title="Date To Deliver" type="java.lang.Object"/>
-                <Column editable="false" title="Price" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -95,12 +95,12 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="45" minWidth="45" prefWidth="45" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="45" minWidth="45" prefWidth="45" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -228,7 +228,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="110" y="90" width="160" height="30"/>
+              <AbsoluteConstraints x="110" y="140" width="160" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -297,7 +297,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="130" width="80" height="30"/>
+              <AbsoluteConstraints x="10" y="100" width="80" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -334,14 +334,22 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="90" width="80" height="30"/>
+              <AbsoluteConstraints x="20" y="140" width="80" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JSpinner" name="gallonQuantity">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="gallonQuantityStateChanged"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="110" y="130" width="160" height="30"/>
+              <AbsoluteConstraints x="110" y="100" width="160" height="30"/>
             </Constraint>
           </Constraints>
         </Component>

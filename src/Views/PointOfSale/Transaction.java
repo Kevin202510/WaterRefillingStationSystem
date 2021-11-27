@@ -49,6 +49,7 @@ public class Transaction extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         transactionControll.fetchComboBoxValue(Customer_Id, Promo_Id,waterType_Id,gallonType_Id);
+        Promo_Id.setEnabled(false);
     }
 
     /**
@@ -98,7 +99,7 @@ public class Transaction extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Gallon Type", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver", "Price"
+                "ID", "Customer Fullname", "Gallon Type", "Price", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -116,9 +117,9 @@ public class Transaction extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(cartTable);
         if (cartTable.getColumnModel().getColumnCount() > 0) {
-            cartTable.getColumnModel().getColumn(5).setMinWidth(45);
-            cartTable.getColumnModel().getColumn(5).setPreferredWidth(45);
-            cartTable.getColumnModel().getColumn(5).setMaxWidth(45);
+            cartTable.getColumnModel().getColumn(6).setMinWidth(45);
+            cartTable.getColumnModel().getColumn(6).setPreferredWidth(45);
+            cartTable.getColumnModel().getColumn(6).setMaxWidth(45);
         }
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,7 +140,7 @@ public class Transaction extends javax.swing.JPanel {
         serviceOffered.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Walk IN", "Pick Up", "Deliver" }));
         jPanel2.add(serviceOffered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 160, 30));
 
-        jPanel2.add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 160, 30));
+        jPanel2.add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 160, 30));
 
         jLabel6.setText("Date To Be Deliver");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 100, 30));
@@ -164,7 +165,7 @@ public class Transaction extends javax.swing.JPanel {
         jPanel2.add(addToCartBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 90, 40));
 
         jLabel9.setText("Quantity");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 30));
 
         jLabel10.setText("Date Order");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 30));
@@ -178,8 +179,15 @@ public class Transaction extends javax.swing.JPanel {
         jPanel2.add(DateOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 160, 30));
 
         jLabel11.setText("Promo");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, 30));
-        jPanel2.add(gallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 160, 30));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 30));
+
+        gallonQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        gallonQuantity.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                gallonQuantityStateChanged(evt);
+            }
+        });
+        jPanel2.add(gallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 160, 30));
 
         payBtn.setText("Pay");
         payBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +255,7 @@ public class Transaction extends javax.swing.JPanel {
      
     private void addToCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnActionPerformed
         //            String name = customerControll.customerlist().get(Customer_Id.getS).getFullname().
-        DateFormat dateFormat = new SimpleDateFormat("MMM-dd-yyy");  
+        DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");  
         strDates = dateFormat.format(DateOrder.getDate());
         strDates1 = dateFormat.format(DateToBeDeliver.getDate());
         String isborrow="";
@@ -256,7 +264,8 @@ public class Transaction extends javax.swing.JPanel {
         }if(notborrowgallon.isSelected()){
             isborrow = "No";
         }
-        Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(), gallonQuantity.getValue(),salePrice,Promo_Id.getSelectedItem() , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
+        
+        Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(),salePrice, gallonQuantity.getValue(),promothis , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
         
         String code, code1, rw0, rw1, custname, msf=null;
           int x;
@@ -273,8 +282,8 @@ public class Transaction extends javax.swing.JPanel {
           }
           
           if (msf != null){
-            int quant = Integer.parseInt(cartTable.getValueAt(x,3).toString());
-            cartTable.setValueAt(Integer.parseInt(gallonQuantity.getValue().toString()) + quant, x, 3);
+            int quant = Integer.parseInt(cartTable.getValueAt(x,4).toString());
+            cartTable.setValueAt(Integer.parseInt(gallonQuantity.getValue().toString()) + quant, x, 4);
           }else{
               transactionControll.addToCart(cartTable, row);
           }
@@ -336,10 +345,10 @@ public class Transaction extends javax.swing.JPanel {
 //                    }
 //                }
 
-            double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString());
-            totalAmount =+ rowAmount;
+            double rowAmount = Double.parseDouble(cartTable.getValueAt(x,3).toString())*Integer.parseInt(cartTable.getValueAt(x,4).toString());
+            totalAmount += rowAmount;
                 
-                transactionControll.supplierList(custid, cartTable.getValueAt(x,8).toString(), cartTable.getValueAt(x,9).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),1, gallonid, Integer.parseInt(cartTable.getValueAt(x,3).toString()), promoid, servicetype, 0, 1);         
+                transactionControll.supplierList(custid, cartTable.getValueAt(x,8).toString(), cartTable.getValueAt(x,9).toString(),Double.parseDouble(cartTable.getValueAt(x,3).toString()),1, gallonid, Integer.parseInt(cartTable.getValueAt(x,4).toString()), promoid, servicetype, 0, 1);         
         }
         int option = JOptionPane.showConfirmDialog(null,"You Total Amount :" + totalAmount +" Pay Now", "Select an Option",JOptionPane.YES_NO_OPTION);
         if(option==0){
@@ -378,6 +387,16 @@ public class Transaction extends javax.swing.JPanel {
             salePrice = sp;
         }
     }//GEN-LAST:event_pindicateActionPerformed
+    String promothis;
+    private void gallonQuantityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_gallonQuantityStateChanged
+        if(Integer.parseInt(gallonQuantity.getValue().toString())>=5){
+            Promo_Id.setEnabled(true);
+            promothis = Promo_Id.getSelectedItem().toString();
+        }else{
+            Promo_Id.setEnabled(false);
+            promothis = "Not Applicable";
+        }
+    }//GEN-LAST:event_gallonQuantityStateChanged
     private void setMinimumDate(){
         DateToBeDeliver.setMinSelectableDate(DateOrder.getDate());
     }

@@ -12,9 +12,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -118,10 +124,12 @@ public class TransactionController {
         return timeNow;
     }
     
-    public static void main(String[] args) {
-        TransactionController tt = new TransactionController();
-        JOptionPane.showMessageDialog(null,tt.getDateNow());
-        JOptionPane.showMessageDialog(null,tt.getTimeNow());
+    public String getDateFormat(String datetoFormat){
+        DateFormat  formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String  date = null;
+        Date ddate = new Date(datetoFormat);
+        date = formatter.format(ddate);
+        return date;
     }
     
      public void addDeliveries(JTable cartTable){
@@ -129,12 +137,16 @@ public class TransactionController {
              PreparedStatement st = con.prepareStatement(magdagdagNgTransactions);
              for (int i = 0; i < transactionslist.size(); i++) {
                 st.setInt(1, transactionslist.get(i).getCustomer_Id());
-                st.setString(2, "2021-11-26");
-                st.setString(3, "2021-11-26");
+                st.setString(2, getDateFormat(transactionslist.get(i).getDDorDR()));
+                st.setString(3, getDateFormat(transactionslist.get(i).getDDorDP()));
                 st.setInt(4, transactionslist.get(i).getwaterType());
                 st.setString(5, transactionslist.get(i).getGallonCode());
                 st.setInt(6, transactionslist.get(i).getQuantity());
-                st.setInt(7, transactionslist.get(i).getPromo_Id());
+                if(transactionslist.get(i).getPromo_Id()==0){
+                    st.setNull(7, java.sql.Types.INTEGER);
+                }else{
+                    st.setInt(7, transactionslist.get(i).getPromo_Id());
+                }
                 st.setInt(8, transactionslist.get(i).getServiceType());
                 st.setInt(9, transactionslist.get(i).getStatus());
                 st.setInt(10, transactionslist.get(i).getUser_Id());
