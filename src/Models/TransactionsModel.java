@@ -10,10 +10,11 @@ package Models;
  * @author KevinCaluag
  */
 public class TransactionsModel {
-    int Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id;
+    int Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType;
     String DOorDR,Gallon_Id,DDorDP;
+    double salePrice;
     
-    public TransactionsModel(int Customer_Id, String DOorDR, String DDorDP, String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+    public TransactionsModel(int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
         this.Customer_Id = Customer_Id;
         this.DOorDR = DOorDR;
         this.DDorDP = DDorDP;
@@ -23,6 +24,8 @@ public class TransactionsModel {
         this.ServiceType = ServiceType;
         this.Status = Status;
         this.User_Id = User_Id;
+        this.salePrice = salePrice;
+        this.waterType = waterType;
     }
     
     public int getCustomer_Id(){
@@ -43,6 +46,10 @@ public class TransactionsModel {
         return DDorDP;
     }public String getGallonCode(){
         return Gallon_Id;
+    }public Double getSalePrice(){
+        return salePrice;
+    }public int getwaterType(){
+        return waterType;
     }
     
 }

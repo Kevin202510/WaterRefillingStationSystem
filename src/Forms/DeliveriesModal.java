@@ -54,13 +54,13 @@ public class DeliveriesModal extends javax.swing.JPanel {
     }
     private void checkBtn(int btn_id){
         if (btn_id==0) {   
-            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id, User_Id);
+            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id, User_Id,Gallon_Id);
             Date_Delivered.setDate(deliveriesControll.getDateNow());
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
         }else{
-            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id, User_Id);
-            deliveriesControll.getDeliveriesInfo(btn_id, Customer_Id, Date_Delivered, Quantity, Promo_Id, Status, User_Id);
+            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id, User_Id, Gallon_Id);
+            deliveriesControll.getDeliveriesInfo(btn_id, Customer_Id,Date_Order,Date_Delivered, Quantity, Promo_Id, Status, User_Id);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);

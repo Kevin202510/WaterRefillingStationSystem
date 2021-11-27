@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -41,6 +42,8 @@ public class Transaction extends javax.swing.JPanel {
     GallonsController gallonsControll = new GallonsController();
     
     JPanel lalagyanan;
+    
+    double salePrice;
     
     public Transaction(JPanel lalagyanan) {
         initComponents();
@@ -95,7 +98,7 @@ public class Transaction extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Gallon Type", "Gallon Quantity", "Price", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver"
+                "ID", "Customer Fullname", "Gallon Type", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver", "Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -113,13 +116,9 @@ public class Transaction extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(cartTable);
         if (cartTable.getColumnModel().getColumnCount() > 0) {
-            cartTable.getColumnModel().getColumn(0).setMinWidth(40);
-            cartTable.getColumnModel().getColumn(0).setPreferredWidth(40);
-            cartTable.getColumnModel().getColumn(0).setMaxWidth(40);
-            cartTable.getColumnModel().getColumn(1).setPreferredWidth(120);
-            cartTable.getColumnModel().getColumn(6).setMinWidth(45);
-            cartTable.getColumnModel().getColumn(6).setPreferredWidth(45);
-            cartTable.getColumnModel().getColumn(6).setMaxWidth(45);
+            cartTable.getColumnModel().getColumn(5).setMinWidth(45);
+            cartTable.getColumnModel().getColumn(5).setPreferredWidth(45);
+            cartTable.getColumnModel().getColumn(5).setMaxWidth(45);
         }
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,14 +199,29 @@ public class Transaction extends javax.swing.JPanel {
 
         pindicate.setText("Indicate");
         price.add(pindicate);
+        pindicate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pindicateActionPerformed(evt);
+            }
+        });
         jPanel2.add(pindicate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 80, 40));
 
         p25.setText("25");
         price.add(p25);
+        p25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p25ActionPerformed(evt);
+            }
+        });
         jPanel2.add(p25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 70, 40));
 
         p30.setText("30");
         price.add(p30);
+        p30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p30ActionPerformed(evt);
+            }
+        });
         jPanel2.add(p30, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 70, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -217,13 +231,13 @@ public class Transaction extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -242,7 +256,7 @@ public class Transaction extends javax.swing.JPanel {
         }if(notborrowgallon.isSelected()){
             isborrow = "No";
         }
-        Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(), gallonQuantity.getValue() ,Promo_Id.getSelectedItem() , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
+        Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(), gallonQuantity.getValue(),salePrice,Promo_Id.getSelectedItem() , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
         
         String code, code1, rw0, rw1, custname, msf=null;
           int x;
@@ -251,7 +265,7 @@ public class Transaction extends javax.swing.JPanel {
             custname = Customer_Id.getSelectedItem().toString();
             code1 = serviceOffered.getSelectedItem().toString();
             rw0 = String.valueOf(cartTable.getValueAt(x, 2));
-            rw1 = String.valueOf(cartTable.getValueAt(x, 6));
+            rw1 = String.valueOf(cartTable.getValueAt(x, 7));
             if (code.equals(rw0) && code1.equals(rw1) && custname.equals(cartTable.getValueAt(x, 1).toString())){
                 msf = String.valueOf(x);
                 break;
@@ -270,9 +284,11 @@ public class Transaction extends javax.swing.JPanel {
     private void trylang(){
         DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
 
+        double totalAmount=0;
           String code1,code2,code3, rw0,DDorDR,DDorDP, msf=null;
           int custid=0;
           int servicetype=0;
+          int waterType=0;
           int promoid=0;
           int status=0;
           String gallonid = "";
@@ -299,7 +315,7 @@ public class Transaction extends javax.swing.JPanel {
                 }
                 
                 for(int k=0; k<=Promo_Id.getItemCount();k++){
-                    if (cartTable.getValueAt(x, 4).toString().equals(Promo_Id.getItemAt(k))) {
+                    if (cartTable.getValueAt(x, 5).toString().equals(Promo_Id.getItemAt(k))) {
                         try {
                             promoid = promoControll.promosList().get(k).getId();
                         } catch (SQLException ex) {
@@ -309,14 +325,23 @@ public class Transaction extends javax.swing.JPanel {
                 }
                 
                 for(int k=0; k<=serviceOffered.getItemCount();k++){
-                    if (cartTable.getValueAt(x, 6).toString().equals(serviceOffered.getItemAt(k))) {
+                    if (cartTable.getValueAt(x, 7).toString().equals(serviceOffered.getItemAt(k))) {
                             servicetype = k;   
                     }
                 }
                 
-                transactionControll.supplierList(custid, cartTable.getValueAt(x,7).toString(), cartTable.getValueAt(x,8).toString(), gallonid, Integer.parseInt(cartTable.getValueAt(x,3).toString()), promoid, servicetype, 0, 1);         
+//                for(int k=0; k<=serviceOffered.getItemCount();k++){
+//                    if (cartTable.getValueAt(x, 7).toString().equals(serviceOffered.getItemAt(k))) {
+//                            waterType = k;   
+//                    }
+//                }
+
+            double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString());
+            totalAmount =+ rowAmount;
+                
+                transactionControll.supplierList(custid, cartTable.getValueAt(x,8).toString(), cartTable.getValueAt(x,9).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),1, gallonid, Integer.parseInt(cartTable.getValueAt(x,3).toString()), promoid, servicetype, 0, 1);         
         }
-        int option = JOptionPane.showConfirmDialog(null,"Pay Now", "Select an Option",JOptionPane.YES_NO_OPTION);
+        int option = JOptionPane.showConfirmDialog(null,"You Total Amount :" + totalAmount +" Pay Now", "Select an Option",JOptionPane.YES_NO_OPTION);
         if(option==0){
             double payment = Double.parseDouble(JOptionPane.showInputDialog(null,"Enter Amount")); 
             transactionControll.addDeliveries(cartTable);
@@ -334,8 +359,25 @@ public class Transaction extends javax.swing.JPanel {
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void cartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartTableMouseClicked
+        JOptionPane.showMessageDialog(null,cartTable.getValueAt(0,9).toString());
         transactionControll.deleteDataFromCart(cartTable.getSelectedRow(), cartTable);
+        
     }//GEN-LAST:event_cartTableMouseClicked
+
+    private void p25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p25ActionPerformed
+           salePrice = 25D;
+    }//GEN-LAST:event_p25ActionPerformed
+
+    private void p30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p30ActionPerformed
+        salePrice = 30D;
+    }//GEN-LAST:event_p30ActionPerformed
+
+    private void pindicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pindicateActionPerformed
+        double sp = Double.parseDouble(JOptionPane.showInputDialog(null,"Sale Price"));
+        if(sp>0){
+            salePrice = sp;
+        }
+    }//GEN-LAST:event_pindicateActionPerformed
     private void setMinimumDate(){
         DateToBeDeliver.setMinSelectableDate(DateOrder.getDate());
     }

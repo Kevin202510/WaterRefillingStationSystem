@@ -32,7 +32,7 @@ public class TransactionController {
     java.sql.Connection con = sql.getConnection();
     public ArrayList<TransactionsModel> transactionslist = new ArrayList<>();
     
-    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?)";
+    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?)";
     
     public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox waterType_Id,JComboBox gallonType_Id){
         
@@ -83,13 +83,14 @@ public class TransactionController {
             rows[6] = row[6].toString();
             rows[7] = row[7].toString();
             rows[8] = row[8].toString();
+            rows[9] = row[9].toString();
         model.addRow(rows);
     }
     
     
-    public ArrayList<TransactionsModel> supplierList(int Customer_Id, String DOorDR, String DDorDP, String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+    public ArrayList<TransactionsModel> supplierList(int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
         TransactionsModel transactionmodel;
-            transactionmodel = new TransactionsModel(Customer_Id,DOorDR,DDorDP,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
+            transactionmodel = new TransactionsModel(Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
             transactionslist.add(transactionmodel);
         return transactionslist;   
     }
@@ -126,17 +127,17 @@ public class TransactionController {
      public void addDeliveries(JTable cartTable){
          try {
              PreparedStatement st = con.prepareStatement(magdagdagNgTransactions);
-             JOptionPane.showMessageDialog(null,transactionslist.size());
              for (int i = 0; i < transactionslist.size(); i++) {
                 st.setInt(1, transactionslist.get(i).getCustomer_Id());
                 st.setString(2, "2021-11-26");
                 st.setString(3, "2021-11-26");
-                st.setString(4, transactionslist.get(i).getGallonCode());
-                st.setInt(5, transactionslist.get(i).getQuantity());
-                st.setInt(6, transactionslist.get(i).getPromo_Id());
-                st.setInt(7, transactionslist.get(i).getServiceType());
-                st.setInt(8, transactionslist.get(i).getStatus());
-                st.setInt(9, transactionslist.get(i).getUser_Id());
+                st.setInt(4, transactionslist.get(i).getwaterType());
+                st.setString(5, transactionslist.get(i).getGallonCode());
+                st.setInt(6, transactionslist.get(i).getQuantity());
+                st.setInt(7, transactionslist.get(i).getPromo_Id());
+                st.setInt(8, transactionslist.get(i).getServiceType());
+                st.setInt(9, transactionslist.get(i).getStatus());
+                st.setInt(10, transactionslist.get(i).getUser_Id());
                 st.executeUpdate();
                 if (i == transactionslist.size()-1) {
                     DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
