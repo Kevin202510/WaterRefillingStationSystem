@@ -16,6 +16,7 @@ import Views.Reports.Reports;
 import Views.Reports.SalesReport;
 import Views.Supplier.Supplier;
 import Views.Users.Users;
+import Views.WaterType.WaterTypes;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -71,6 +72,9 @@ public class ButtonsController {
      
      public void BorrowAndReturnGallonsButton(JLabel refilled){
         new ContainerController(lalagyanan,new BorrowAndReturnGallons(lalagyanan));
+    }
+      public void WaterTypeButton(JLabel watertype){
+        new ContainerController(lalagyanan,new WaterTypes(lalagyanan));
     }
      
     public void setC(JPanel kev){

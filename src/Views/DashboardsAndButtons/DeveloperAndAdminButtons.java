@@ -82,6 +82,9 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         profilesetting = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         userId = new javax.swing.JLabel();
+        hovWaterType = new javax.swing.JPanel();
+        watertype = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(250, 700));
@@ -389,16 +392,40 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 profilesettingMouseClicked(evt);
             }
         });
-        hovProfileSetting.add(profilesetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
+        hovProfileSetting.add(profilesetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/settings1.png"))); // NOI18N
         hovProfileSetting.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, -1));
 
-        add(hovProfileSetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, -1, 50));
+        add(hovProfileSetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, -1, 50));
 
         userId.setEnabled(false);
         add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 20));
+
+        hovWaterType.setBackground(new java.awt.Color(0, 180, 216));
+        hovWaterType.setPreferredSize(new java.awt.Dimension(250, 40));
+        hovWaterType.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        watertype.setBackground(new java.awt.Color(0, 180, 216));
+        watertype.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        watertype.setForeground(new java.awt.Color(255, 255, 255));
+        watertype.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        watertype.setText("Water Type");
+        watertype.setIconTextGap(10);
+        watertype.setPreferredSize(new java.awt.Dimension(250, 50));
+        watertype.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                watertypeMouseClicked(evt);
+            }
+        });
+        hovWaterType.add(watertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/settings1.png"))); // NOI18N
+        hovWaterType.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 30));
+
+        add(hovWaterType, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
@@ -526,6 +553,11 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 //        new ProfileSettingModal(lalagyanan,lalagyananbut,userID).setVisible(true);
     }//GEN-LAST:event_profileMouseClicked
 
+    private void watertypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_watertypeMouseClicked
+        // TODO add your handling code here:
+         buttonControll.WaterTypeButton(watertype);
+    }//GEN-LAST:event_watertypeMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel borrowandreturngallons;
@@ -542,7 +574,9 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovReports;
     private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
+    private javax.swing.JPanel hovWaterType;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -560,5 +594,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JLabel supplier;
     private javax.swing.JLabel userId;
     private javax.swing.JLabel users;
+    private javax.swing.JLabel watertype;
     // End of variables declaration//GEN-END:variables
 }
