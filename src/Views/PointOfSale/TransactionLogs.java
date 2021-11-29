@@ -63,6 +63,7 @@ public class TransactionLogs extends javax.swing.JPanel {
         });
         jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 190, 30));
 
+        transaction_logstable.setAutoCreateRowSorter(true);
         transaction_logstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -79,6 +80,10 @@ public class TransactionLogs extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        transaction_logstable.setGridColor(new java.awt.Color(255, 0, 153));
+        transaction_logstable.setRowHeight(25);
+        transaction_logstable.setShowGrid(true);
+        transaction_logstable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(transaction_logstable);
         if (transaction_logstable.getColumnModel().getColumnCount() > 0) {
             transaction_logstable.getColumnModel().getColumn(0).setPreferredWidth(20);

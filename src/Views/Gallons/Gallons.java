@@ -52,6 +52,7 @@ public class Gallons extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 0, 0));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
+        gallonTable.setAutoCreateRowSorter(true);
         gallonTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         gallonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,6 +70,9 @@ public class Gallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        gallonTable.setGridColor(new java.awt.Color(255, 0, 153));
+        gallonTable.setRowHeight(25);
+        gallonTable.setShowGrid(true);
         gallonTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 gallonTableMouseClicked(evt);

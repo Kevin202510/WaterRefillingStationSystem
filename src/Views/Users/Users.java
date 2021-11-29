@@ -52,6 +52,7 @@ public class Users extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 0, 0));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
+        userTable.setAutoCreateRowSorter(true);
         userTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,6 +70,10 @@ public class Users extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        userTable.setGridColor(new java.awt.Color(255, 0, 102));
+        userTable.setRowHeight(50);
+        userTable.setShowGrid(true);
+        userTable.getTableHeader().setReorderingAllowed(false);
         userTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userTableMouseClicked(evt);

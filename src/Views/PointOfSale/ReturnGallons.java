@@ -39,6 +39,7 @@ public class ReturnGallons extends javax.swing.JPanel {
         returngallontable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(252, 244, 221));
+        setPreferredSize(new java.awt.Dimension(1070, 90));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(26, 59, 160));
@@ -75,6 +76,7 @@ public class ReturnGallons extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        returngallontable.setAutoCreateRowSorter(true);
         returngallontable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -91,6 +93,9 @@ public class ReturnGallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        returngallontable.setGridColor(new java.awt.Color(255, 0, 102));
+        returngallontable.setRowHeight(25);
+        returngallontable.setShowGrid(true);
         jScrollPane1.setViewportView(returngallontable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 1070, 357));

@@ -42,6 +42,7 @@ public class SalesReport extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1080, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -58,6 +59,10 @@ public class SalesReport extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setGridColor(new java.awt.Color(255, 0, 102));
+        jTable1.setRowHeight(25);
+        jTable1.setShowGrid(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 1060, 390));

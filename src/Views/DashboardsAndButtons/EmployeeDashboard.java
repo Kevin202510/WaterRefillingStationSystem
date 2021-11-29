@@ -66,6 +66,7 @@ public class EmployeeDashboard extends javax.swing.JFrame {
         lalagyananpospanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 620));
@@ -139,7 +140,6 @@ public class EmployeeDashboard extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

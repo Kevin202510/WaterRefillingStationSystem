@@ -48,6 +48,7 @@ public class Deliveries extends javax.swing.JPanel {
         setBackground(new java.awt.Color(252, 244, 221));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
+        deliveriesTable.setAutoCreateRowSorter(true);
         deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -64,6 +65,9 @@ public class Deliveries extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        deliveriesTable.setGridColor(new java.awt.Color(255, 0, 102));
+        deliveriesTable.setRowHeight(25);
+        deliveriesTable.setShowGrid(true);
         deliveriesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deliveriesTableMouseClicked(evt);

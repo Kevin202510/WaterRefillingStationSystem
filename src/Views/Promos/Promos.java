@@ -52,6 +52,7 @@ public class Promos extends javax.swing.JPanel {
         setBackground(new java.awt.Color(252, 244, 221));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
+        promosTable.setAutoCreateRowSorter(true);
         promosTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         promosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,6 +62,10 @@ public class Promos extends javax.swing.JPanel {
                 "Id", "Promo Name", "Description", "Date Started", "Date End"
             }
         ));
+        promosTable.setGridColor(new java.awt.Color(255, 0, 102));
+        promosTable.setRowHeight(25);
+        promosTable.setShowGrid(true);
+        promosTable.getTableHeader().setReorderingAllowed(false);
         promosTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 promosTableMouseClicked(evt);

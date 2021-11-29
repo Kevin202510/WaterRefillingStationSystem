@@ -46,6 +46,7 @@ public class WalkIn extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
+        deliveriesTable.setAutoCreateRowSorter(true);
         deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -62,6 +63,9 @@ public class WalkIn extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        deliveriesTable.setGridColor(new java.awt.Color(255, 0, 153));
+        deliveriesTable.setRowHeight(25);
+        deliveriesTable.setShowGrid(true);
         deliveriesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deliveriesTableMouseClicked(evt);
@@ -98,12 +102,9 @@ public class WalkIn extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
-                        .addGap(5, 5, 5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(5, 5, 5))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

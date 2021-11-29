@@ -55,6 +55,7 @@ public class WaterTypes extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
+        watertypeTable.setAutoCreateRowSorter(true);
         watertypeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -71,6 +72,10 @@ public class WaterTypes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        watertypeTable.setGridColor(new java.awt.Color(255, 0, 153));
+        watertypeTable.setRowHeight(25);
+        watertypeTable.setShowGrid(true);
+        watertypeTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(watertypeTable);
 
         jPanel1.setBackground(new java.awt.Color(26, 59, 160));

@@ -52,6 +52,7 @@ public class Customers extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(252, 244, 221));
 
+        customersTable.setAutoCreateRowSorter(true);
         customersTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         customersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,6 +70,9 @@ public class Customers extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        customersTable.setGridColor(new java.awt.Color(255, 0, 153));
+        customersTable.setRowHeight(25);
+        customersTable.setShowGrid(true);
         customersTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 customersTableMouseClicked(evt);

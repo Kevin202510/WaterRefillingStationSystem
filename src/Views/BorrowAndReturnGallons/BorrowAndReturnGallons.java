@@ -57,6 +57,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         setBackground(new java.awt.Color(252, 244, 221));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
+        returngallontable.setAutoCreateRowSorter(true);
         returngallontable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -73,6 +74,11 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        returngallontable.setGridColor(new java.awt.Color(255, 0, 153));
+        returngallontable.setRowHeight(25);
+        returngallontable.setShowGrid(true);
+        returngallontable.setShowHorizontalLines(false);
+        returngallontable.setShowVerticalLines(false);
         jScrollPane1.setViewportView(returngallontable);
         if (returngallontable.getColumnModel().getColumnCount() > 0) {
             returngallontable.getColumnModel().getColumn(0).setMinWidth(50);
@@ -134,6 +140,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        borrowgallontbl.setAutoCreateRowSorter(true);
         borrowgallontbl.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         borrowgallontbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,6 +158,11 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        borrowgallontbl.setGridColor(new java.awt.Color(255, 0, 153));
+        borrowgallontbl.setRowHeight(25);
+        borrowgallontbl.setShowGrid(true);
+        borrowgallontbl.setShowHorizontalLines(false);
+        borrowgallontbl.setShowVerticalLines(false);
         jScrollPane2.setViewportView(borrowgallontbl);
         if (borrowgallontbl.getColumnModel().getColumnCount() > 0) {
             borrowgallontbl.getColumnModel().getColumn(0).setMinWidth(40);
