@@ -10,6 +10,7 @@ import Controllers.GallonsController;
 import Controllers.PromosController;
 import Controllers.TransactionController;
 import Controllers.UsersController;
+import Controllers.WaterTypeController;
 import Models.SupplierModel;
 import Models.TransactionsModel;
 import java.sql.ResultSet;
@@ -40,6 +41,7 @@ public class Transaction extends javax.swing.JPanel {
     UsersController userControll = new UsersController();
     TransactionController transactionControll = new TransactionController();
     GallonsController gallonsControll = new GallonsController();
+    WaterTypeController watertypeControll = new WaterTypeController();
     
     JPanel lalagyanan;
     
@@ -100,11 +102,11 @@ public class Transaction extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Gallon Type", "Price", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver"
+                "ID", "Customer Fullname", "Water Type", "Gallon Type", "Price", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -122,9 +124,9 @@ public class Transaction extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(cartTable);
         if (cartTable.getColumnModel().getColumnCount() > 0) {
-            cartTable.getColumnModel().getColumn(6).setMinWidth(45);
-            cartTable.getColumnModel().getColumn(6).setPreferredWidth(45);
-            cartTable.getColumnModel().getColumn(6).setMaxWidth(45);
+            cartTable.getColumnModel().getColumn(7).setMinWidth(45);
+            cartTable.getColumnModel().getColumn(7).setPreferredWidth(45);
+            cartTable.getColumnModel().getColumn(7).setMaxWidth(45);
         }
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,7 +144,7 @@ public class Transaction extends javax.swing.JPanel {
         jLabel5.setText("Service Option");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 30));
 
-        serviceOffered.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Walk IN", "Pick Up", "Deliver" }));
+        serviceOffered.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Walk In", "Deliver" }));
         jPanel2.add(serviceOffered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 160, 30));
 
         jPanel2.add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 160, 30));
@@ -257,38 +259,48 @@ public class Transaction extends javax.swing.JPanel {
 
      String strDates;
      String strDates1;
+     int isborrowed;
      
     private void addToCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnActionPerformed
         //            String name = customerControll.customerlist().get(Customer_Id.getS).getFullname().
-        DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");  
+        DateFormat dateFormat = new SimpleDateFormat("MMM-dd-yyyy");  
         strDates = dateFormat.format(DateOrder.getDate());
         strDates1 = dateFormat.format(DateToBeDeliver.getDate());
         String isborrow="";
         if(isborrowgallon.isSelected()){
             isborrow = "Yes";
+            isborrowed = 1;
         }if(notborrowgallon.isSelected()){
             isborrow = "No";
+            isborrowed = 0;
         }
         
-        Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,gallonType_Id.getSelectedItem(),salePrice, gallonQuantity.getValue(),promothis , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
+        Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,waterType_Id.getSelectedItem(),gallonType_Id.getSelectedItem(),salePrice, gallonQuantity.getValue(),promothis , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
         
-        String code, code1, rw0, rw1, custname, msf=null;
+        String code, code1,code2,code4,code5, rw0, rw1,rw2,rw3,rw4,rw5, custname, msf=null;
           int x;
           for(x = 0; x<cartTable.getRowCount();x++){
             code = gallonType_Id.getSelectedItem().toString();
             custname = Customer_Id.getSelectedItem().toString();
             code1 = serviceOffered.getSelectedItem().toString();
-            rw0 = String.valueOf(cartTable.getValueAt(x, 2));
-            rw1 = String.valueOf(cartTable.getValueAt(x, 7));
-            if (code.equals(rw0) && code1.equals(rw1) && custname.equals(cartTable.getValueAt(x, 1).toString())){
+            code2 = waterType_Id.getSelectedItem().toString();
+//            code4 = 
+//            code5 =
+            rw3 = String.valueOf(cartTable.getValueAt(x, 7));
+            rw4 = String.valueOf(cartTable.getValueAt(x, 9));
+            rw5 = String.valueOf(cartTable.getValueAt(x, 10));
+            rw2 =  String.valueOf(cartTable.getValueAt(x, 2));
+            rw0 = String.valueOf(cartTable.getValueAt(x, 3));
+            rw1 = String.valueOf(cartTable.getValueAt(x, 8));
+            if (code.equals(rw0) && code1.equals(rw1) && code2.equals(rw2) && rw3.equals(isborrow) && custname.equals(cartTable.getValueAt(x, 1).toString())){
                 msf = String.valueOf(x);
                 break;
             }
           }
           
           if (msf != null){
-            int quant = Integer.parseInt(cartTable.getValueAt(x,4).toString());
-            cartTable.setValueAt(Integer.parseInt(gallonQuantity.getValue().toString()) + quant, x, 4);
+            int quant = Integer.parseInt(cartTable.getValueAt(x,5).toString());
+            cartTable.setValueAt(Integer.parseInt(gallonQuantity.getValue().toString()) + quant, x, 5);
           }else{
               transactionControll.addToCart(cartTable, row);
           }
@@ -319,7 +331,7 @@ public class Transaction extends javax.swing.JPanel {
             }
                 
                 for(int k=0; k<=gallonType_Id.getItemCount();k++){
-                    if (cartTable.getValueAt(x, 2).toString().equals(gallonType_Id.getItemAt(k))) {
+                    if (cartTable.getValueAt(x, 3).toString().equals(gallonType_Id.getItemAt(k))) {
                         try {
                             gallonid = gallonsControll.gallonList().get(k).getCode();
                         } catch (SQLException ex) {
@@ -329,7 +341,7 @@ public class Transaction extends javax.swing.JPanel {
                 }
                 
                 for(int k=0; k<=Promo_Id.getItemCount();k++){
-                    if (cartTable.getValueAt(x, 5).toString().equals(Promo_Id.getItemAt(k))) {
+                    if (cartTable.getValueAt(x, 6).toString().equals(Promo_Id.getItemAt(k))) {
                         try {
                             promoid = promoControll.promosList().get(k).getId();
                         } catch (SQLException ex) {
@@ -339,7 +351,7 @@ public class Transaction extends javax.swing.JPanel {
                 }
                 
                 for(int k=0; k<=serviceOffered.getItemCount();k++){
-                    if (cartTable.getValueAt(x, 7).toString().equals(serviceOffered.getItemAt(k))) {
+                    if (cartTable.getValueAt(x, 8).toString().equals(serviceOffered.getItemAt(k))) {
                             servicetype = k;   
                     }
                 }
@@ -350,10 +362,15 @@ public class Transaction extends javax.swing.JPanel {
 //                    }
 //                }
 
-            double rowAmount = Double.parseDouble(cartTable.getValueAt(x,3).toString())*Integer.parseInt(cartTable.getValueAt(x,4).toString());
+            double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
             totalAmount += rowAmount;
                 
-                transactionControll.supplierList(custid, cartTable.getValueAt(x,8).toString(), cartTable.getValueAt(x,9).toString(),Double.parseDouble(cartTable.getValueAt(x,3).toString()),1, gallonid, Integer.parseInt(cartTable.getValueAt(x,4).toString()), promoid, servicetype, 0, 1);         
+            try {         
+                transactionControll.supplierList(custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid, Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
+                transactionControll.trasactionList(isborrowed);
+            } catch (SQLException ex) {
+                Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         int option = JOptionPane.showConfirmDialog(null,"You Total Amount :" + totalAmount +" Pay Now", "Select an Option",JOptionPane.YES_NO_OPTION);
         if(option==0){
@@ -361,7 +378,9 @@ public class Transaction extends javax.swing.JPanel {
             transactionControll.addDeliveries(cartTable);
         }else{
             transactionControll.transactionslist.clear();
+            transactionControll.transactionslists.clear();
         }
+        transactionControll.insertTLModel(totalAmount, option);
     }
     
     private void DateOrderPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateOrderPropertyChange

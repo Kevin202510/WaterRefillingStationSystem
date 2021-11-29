@@ -8,6 +8,7 @@ package Controllers;
 import Models.CustomerModel;
 import Models.DeliveriesModel;
 import Models.TransactionsModel;
+import Models.Transactions_LogsModel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,8 +38,9 @@ public class TransactionController {
     SQLController sql = new SQLController();
     java.sql.Connection con = sql.getConnection();
     public ArrayList<TransactionsModel> transactionslist = new ArrayList<>();
+    public ArrayList<TransactionsModel> transactionslists = new ArrayList<>();
     
-    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     
     public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox waterType_Id,JComboBox gallonType_Id){
         
@@ -90,6 +92,7 @@ public class TransactionController {
             rows[7] = row[7].toString();
             rows[8] = row[8].toString();
             rows[9] = row[9].toString();
+            rows[10] = row[10].toString();
         model.addRow(rows);
     }
     
@@ -99,6 +102,15 @@ public class TransactionController {
             transactionmodel = new TransactionsModel(Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
             transactionslist.add(transactionmodel);
         return transactionslist;   
+    }
+    
+    public ArrayList<TransactionsModel> trasactionList(int isBorrowedGallons){
+        TransactionsModel transacmod;
+        transacmod = new TransactionsModel(isBorrowedGallons);
+        
+        transactionslists.add(transacmod);
+        
+        return transactionslists;
     }
     
     
@@ -140,21 +152,24 @@ public class TransactionController {
                 st.setString(2, getDateFormat(transactionslist.get(i).getDDorDR()));
                 st.setString(3, getDateFormat(transactionslist.get(i).getDDorDP()));
                 st.setInt(4, transactionslist.get(i).getwaterType());
+                JOptionPane.showMessageDialog(null,transactionslist.get(i).getGallonCode());
                 st.setString(5, transactionslist.get(i).getGallonCode());
                 st.setInt(6, transactionslist.get(i).getQuantity());
+                st.setInt(7, transactionslists.get(i).isBorrowed_Gallons());
                 if(transactionslist.get(i).getPromo_Id()==0){
-                    st.setNull(7, java.sql.Types.INTEGER);
+                    st.setNull(8, java.sql.Types.INTEGER);
                 }else{
-                    st.setInt(7, transactionslist.get(i).getPromo_Id());
+                    st.setInt(8, transactionslist.get(i).getPromo_Id());
                 }
-                st.setInt(8, transactionslist.get(i).getServiceType());
-                st.setInt(9, transactionslist.get(i).getStatus());
-                st.setInt(10, transactionslist.get(i).getUser_Id());
+                st.setInt(9, transactionslist.get(i).getServiceType());
+                st.setInt(10, transactionslist.get(i).getStatus());
+                st.setInt(11, transactionslist.get(i).getUser_Id());
                 st.executeUpdate();
                 if (i == transactionslist.size()-1) {
                     DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
                     model.setRowCount(0);
                     transactionslist.clear();
+                    transactionslists.clear();
                 }
              }
         } catch (SQLException ex) {
@@ -162,5 +177,20 @@ public class TransactionController {
         }
 //        return true;
         
+     }
+     
+     public void insertTLModel(double totalAmount,int PaymentStatus){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
+            if (rs.next()) {
+                Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,rs.getInt("MAX( id )"),totalAmount,PaymentStatus,getDateNow(),getTimeNow());
+                Transaction_LogsController tlc = new Transaction_LogsController();
+                tlc.addTransactionLogs(transactionlogsModel);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TransactionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
      }
 }

@@ -69,7 +69,7 @@ public class TransactionLogs extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Gallon Type", "Quantity", "Promo", "Service Type", "Total Amount", "Transaction Date", "Transaction Time", "Status"
+                "ID", "Customer Fullname", "Gallon Type", "Quantity", "Promo", "Service Type", "Total Amount", "Transaction Date", "Transaction Time", "<html><center>Payment Status</center><html>"
             }
         ) {
             boolean[] canEdit = new boolean [] {

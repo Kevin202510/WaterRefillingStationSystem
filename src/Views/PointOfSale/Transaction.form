@@ -56,9 +56,10 @@
           <Properties>
             <Property name="autoCreateRowSorter" type="boolean" value="true"/>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="10" rowCount="0">
+              <Table columnCount="11" rowCount="0">
                 <Column editable="false" title="ID" type="java.lang.Object"/>
                 <Column editable="false" title="Customer Fullname" type="java.lang.Object"/>
+                <Column editable="false" title="Water Type" type="java.lang.Object"/>
                 <Column editable="false" title="Gallon Type" type="java.lang.Object"/>
                 <Column editable="false" title="Price" type="java.lang.Object"/>
                 <Column editable="false" title="Gallon Quantity" type="java.lang.Object"/>
@@ -71,6 +72,11 @@
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -207,10 +213,9 @@
         <Component class="javax.swing.JComboBox" name="serviceOffered">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Walk IN"/>
-                <StringItem index="1" value="Pick Up"/>
-                <StringItem index="2" value="Deliver"/>
+              <StringArray count="2">
+                <StringItem index="0" value="Walk In"/>
+                <StringItem index="1" value="Deliver"/>
               </StringArray>
             </Property>
           </Properties>

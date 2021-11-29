@@ -8,6 +8,7 @@ package Controllers;
 import Models.PromosModel;
 import Models.Transactions_LogsModel;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,6 +32,7 @@ public class Transaction_LogsController {
     
 
     String kuninLahatNgTransactions_logs= "SELECT * FROM transactions_logs";
+    String magdagdagngTransactions_Logs = "INSERT INTO `transactions_logs`(`Transaction_Id`, `Total_Amount`, `paymentStatus`, `Transaction_Date`, `Transaction_Time`) VALUES (?,?,?,?,?)";
     String kuninLahatNgTransactions_logsWithJoinTable = "SELECT * FROM `transactions_logs` LEFT JOIN transactions ON transactions_logs.Transaction_Id = transactions.ID " +
                                                         "LEFT JOIN customers ON transactions.Customer_Id = customers.ID LEFT JOIN gallons ON transactions.Gallon_Id = gallons.Code " +
                                                         "LEFT JOIN promos ON transactions.Promo_Id = promos.Id LEFT JOIN users ON transactions.User_Id = users.Id;";
@@ -50,7 +52,7 @@ public class Transaction_LogsController {
         Transactions_LogsModel transactionlog;
         
         while(rs.next()){
-            transactionlog = new Transactions_LogsModel(rs.getInt("ID"),rs.getInt("Total_Amount"),rs.getString("Transaction_Date"),rs.getString("Transaction_Time"));
+            transactionlog = new Transactions_LogsModel(rs.getInt("ID"),rs.getInt("Transaction_Id"),rs.getDouble("Total_Amount"),rs.getInt("paymentStatus"),rs.getString("Transaction_Date"),rs.getString("Transaction_Time"));
             transactionslogslist.add(transactionlog);
         }
         return transactionslogslist;   
@@ -77,11 +79,34 @@ public class Transaction_LogsController {
             row[3] = transactionslogsListwithjointable.get(i).getGallon_Quantity();
             row[4] = transactionslogsListwithjointable.get(i).getPromoName();
             row[5] = transactionslogsListwithjointable.get(i).getServiceTypeVal();
-            row[6] = transactionslogslist.get(i).getTotal_Amount();
+            row[6] = transactionslogslist.get(i).getTotalAmount();
             row[7] = transactionslogslist.get(i).getTransaction_Date();
             row[8] = transactionslogslist.get(i).getTransaction_Time();
-            row[9] = transactionslogsListwithjointable.get(i).getStatusVal();
+            row[9] = transactionslogslist.get(i).getpaymentStatVal();
             model.addRow(row);
          }
+    }
+    
+    public void addTransactionLogs(Transactions_LogsModel transactionlogsModel){
+        try {
+            PreparedStatement st = con.prepareStatement(magdagdagngTransactions_Logs);
+            st.setInt(1,transactionlogsModel.getTransactions_Id());
+            st.setDouble(2,transactionlogsModel.getTotalAmount());
+            st.setInt(3,transactionlogsModel.getPaymentStatus());
+            st.setString(4,transactionlogsModel.getTransaction_Date());
+            st.setString(5,transactionlogsModel.getTransaction_Time()); 
+            
+            int i = st.executeUpdate();
+//            if (i > 0) {
+//                DefaultTableModel model = (DefaultTableModel)watertypeTable.getModel();
+//                model.setRowCount(0);
+//            } else {
+////                new Alerts("error").setVisible(true);
+////                return false;
+//            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WaterTypeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//        return true;
     }
 }

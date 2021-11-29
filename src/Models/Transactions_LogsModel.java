@@ -11,14 +11,17 @@ package Models;
  */
 public class Transactions_LogsModel {
     
-    private int ID,Customer_Id,Gallon_Id,Gallon_Quantity,ServiceType,Total_Amount,Status,User_Id;
+    private int ID,Customer_Id,Gallon_Id,Gallon_Quantity,ServiceType,Status,User_Id,Transaction_Id,PaymentStatus;
+    private double Total_Amount;
         private String Transaction_Date,Transaction_Time;
         private String Customer_Fullname,Gallon_Name,User_Fullname,PromoName;
     
         
-        public Transactions_LogsModel(int ID,int Total_Amount,String Transaction_Date,String Transaction_Time){
+        public Transactions_LogsModel(int ID,int Transaction_Id,double Total_Amount,int PaymentStatus,String Transaction_Date,String Transaction_Time){
         this.ID=ID;
+        this.Transaction_Id = Transaction_Id;
         this.Total_Amount=Total_Amount;
+        this.PaymentStatus = PaymentStatus;
         this.Transaction_Date=Transaction_Date;
         this.Transaction_Time=Transaction_Time;
 }
@@ -40,8 +43,6 @@ public class Transactions_LogsModel {
             return Gallon_Id;
          }public int getGallon_Quantity(){
             return Gallon_Quantity;
-         }public int getTotal_Amount(){
-            return Total_Amount;
          }public int getStatus(){
             return Status;
          }public int getUser_Id(){
@@ -84,5 +85,22 @@ public class Transactions_LogsModel {
             }
             return statval;
          }
+         
+         public int getTransactions_Id(){
+             return Transaction_Id;
+         }public int getPaymentStatus(){
+             return PaymentStatus;
+         }public double getTotalAmount(){
+             return Total_Amount;
+         }public String getpaymentStatVal(){
+             String paymentStatVal;
+             if (PaymentStatus==0) {
+                paymentStatVal = "Pending";
+            }else{
+                 paymentStatVal = "Paid";
+             }
+             return paymentStatVal;
+         }
+         
          
 }
