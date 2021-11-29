@@ -9,6 +9,7 @@ import Views.Authentication.Authentication;
 import Controllers.ButtonsController;
 import Controllers.ContainerController;
 import Controllers.SQLController;
+import Controllers.SystemInformationSetupController;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -31,10 +32,12 @@ public class MainDashboard extends javax.swing.JFrame {
     static String Profile;
     SQLController sql = new SQLController();
     Connection con = sql.getConnection();
+    SystemInformationSetupController sisc = new SystemInformationSetupController();
     
     public MainDashboard(int userID) {
         initComponents();
         setJframeSize();
+        systemName.setText(sisc.readFileContent());
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM users where Id = '" + userID + "'");
@@ -80,7 +83,7 @@ public class MainDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        systemName = new javax.swing.JLabel();
         btn_close2 = new javax.swing.JButton();
         jpnl_userButtons = new javax.swing.JPanel();
         jpnl_container = new javax.swing.JPanel();
@@ -96,9 +99,8 @@ public class MainDashboard extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1100, 60));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Water Refilling Management System");
+        systemName.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        systemName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btn_close2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btn_close2.setText("X");
@@ -117,7 +119,7 @@ public class MainDashboard extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(systemName, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(132, 132, 132)
                 .addComponent(btn_close2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
@@ -127,7 +129,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(systemName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_close2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -220,9 +222,9 @@ public class MainDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_close2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jpnl_container;
     private javax.swing.JPanel jpnl_userButtons;
+    private javax.swing.JLabel systemName;
     // End of variables declaration//GEN-END:variables
 }

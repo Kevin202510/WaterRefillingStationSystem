@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Views.DashboardsAndButtons.EmployeeDashboard;
 import Views.DashboardsAndButtons.MainDashboard;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -60,7 +61,11 @@ public class AuthenticationController {
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 frametoClose.dispose();
-                new MainDashboard(rs.getInt("users.Id")).setVisible(true);
+                if(rs.getInt("role_id")==3){
+                    new EmployeeDashboard(rs.getInt("users.Id")).setVisible(true);
+                }else{
+                    new MainDashboard(rs.getInt("users.Id")).setVisible(true);
+                }
             }else{
                 JOptionPane.showMessageDialog(frametoClose,"Username And Password is Incorrect ! ", "Error", JOptionPane.ERROR_MESSAGE);
             }
