@@ -50,7 +50,7 @@ public class FrameFormModal extends javax.swing.JFrame {
         this.btn_ids = btn_ids;
         this.jtablename = jtablename;
         this.lalagyanan = lalagyanan;
-        System.out.println(btn_id);
+//        JOptionPane.showMessageDialog(null,"asdas");
         this.formControll =  new FormsControllers(containernum,btn_ids,jtablename,lalagyanan,formContainer,this);
     }
 

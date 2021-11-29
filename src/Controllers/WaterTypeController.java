@@ -7,7 +7,10 @@ package Controllers;
 
 
 
+import Models.PromosModel;
 import Models.WaterTypeModel;
+import com.toedter.calendar.JDateChooser;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +18,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,6 +32,7 @@ public class WaterTypeController {
     java.sql.Connection con = sql.getConnection();
     
     String kuninLahatNgWaterType = "SELECT * FROM water_types";
+    String baguhinAngwatertype = "UPDATE water_types SET Name = ? ,PricePerGallon = ?,PricePerBottle = ? WHERE Id = ?";
     
      public WaterTypeController(){
         try {
@@ -62,5 +68,89 @@ public class WaterTypeController {
             model.addRow(row);
          }
     }    
+       public void getWaterTypesInfo(int id,JTextField Name,JTextField PricePerGallon,JTextField PricePerBottle){
+         try {
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM water_types where Id = '" + id + "' ");
+          
+             while(rs.next()){
+                 Name.setText(rs.getString("Name"));
+                 PricePerGallon.setText(rs.getString("PricePerGallon"));
+                 PricePerBottle.setText(rs.getString("PricePerBottle"));
+             }} catch (SQLException ex) {
+             Logger.getLogger(PromosController.class.getName()).log(Level.SEVERE, null, ex);
+         }
+     }
+     
+      public void clearWaterTypes(JTextField Name,JTextField PricePerGallon,JTextField PricePerBottle){
+                 Name.setText("");
+                 PricePerGallon.setText("");
+                 PricePerBottle.setText("");
+                 
+                }
+      
+     public boolean addWaterTypes(WaterTypeModel watertypeModel,JTable watertypeTable){
+        try {
+            PreparedStatement st = con.prepareStatement("INSERT INTO `water_types`(`Name`, `PricePerGallon`, `PricePerBottle`) VALUES (?,?,?)");
+            st.setString(1,watertypeModel.getName());
+            st.setDouble(2,watertypeModel.getPricePerGallon());
+            st.setDouble(3,watertypeModel.getPricePerBottle());
+            
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)watertypeTable.getModel();
+                model.setRowCount(0);
+            } else {
+//                new Alerts("error").setVisible(true);
+//                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WaterTypeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+    } 
+     
+     
+       public boolean updateWaterTypes(WaterTypeModel watertypeModel,JTable watertypeTable){
+        try {
+            PreparedStatement st = con.prepareStatement(baguhinAngwatertype);
+            st.setString(1,watertypeModel.getName());
+            st.setDouble(2,watertypeModel.getPricePerGallon());
+            st.setDouble(3,watertypeModel.getPricePerBottle());
+            st.setInt(4,watertypeModel.getId());
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)watertypeTable.getModel();
+                model.setRowCount(0);
+            } else {
+//                new Alerts("error").setVisible(true);
+//                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WaterTypeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+    }
+  
+       
+       public boolean deleteWaterTypes(int id,JTable watertypeTable){
+        try {
+            PreparedStatement st = con.prepareStatement("DELETE FROM water_types where Id = ?");
+            st.setInt(1, id);
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)watertypeTable.getModel();
+                model.setRowCount(0);
+//            new Alerts("delete").setVisible(true);
+            }else{
+//            new Alerts("error").setVisible(true);
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WaterTypeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+     }
     
 }
+

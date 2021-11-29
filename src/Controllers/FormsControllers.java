@@ -11,9 +11,11 @@ import Forms.GallonsFormModal;
 import Forms.SuppliersFormModal;
 import Forms.PromoFormModal;
 import Forms.UserFormModal;
+import Forms.WaterTypeFormModal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -66,6 +68,9 @@ public class FormsControllers {
             new ContainerController(lalagyananForms,new CustomersFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==9) {
             new ContainerController(lalagyananForms,new DeliveriesModal(out,btn_id,jtablename,lalagyanan));
+        }if (containernum==10) {
+//            JOptionPane.showMessageDialog(null,"asdas");
+            new ContainerController(lalagyananForms,new WaterTypeFormModal(out,btn_id,jtablename,lalagyanan));
         }
     }
 }

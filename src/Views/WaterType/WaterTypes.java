@@ -10,6 +10,7 @@ import Controllers.WaterTypeController;
 import java.awt.Font;
 import javax.swing.JPanel;
 import Forms.FrameFormModal;
+import javax.swing.JOptionPane;
 
 
 
@@ -55,7 +56,6 @@ public class WaterTypes extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
-        watertypeTable.setAutoCreateRowSorter(true);
         watertypeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -72,10 +72,11 @@ public class WaterTypes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        watertypeTable.setGridColor(new java.awt.Color(255, 0, 153));
-        watertypeTable.setRowHeight(25);
-        watertypeTable.setShowGrid(true);
-        watertypeTable.getTableHeader().setReorderingAllowed(false);
+        watertypeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                watertypeTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(watertypeTable);
 
         jPanel1.setBackground(new java.awt.Color(26, 59, 160));
@@ -101,8 +102,8 @@ public class WaterTypes extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,9 +139,15 @@ public class WaterTypes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-//        //        new PromosModal(0,promosTable,lalagyanan).setVisible(true);
-//        new FrameFormModal(7,0,promosTable,lalagyanan).setVisible(true);
+//        JOptionPane.showMessageDialog(null,"asdas");
+        new FrameFormModal(10,0,watertypeTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
+
+    private void watertypeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_watertypeTableMouseClicked
+        // TODO add your handling code here:
+          int id = (int) watertypeTable.getValueAt(watertypeTable.getSelectedRow(),0);
+        new FrameFormModal(10,id,watertypeTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_watertypeTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
