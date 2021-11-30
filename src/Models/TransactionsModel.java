@@ -10,7 +10,7 @@ package Models;
  * @author KevinCaluag
  */
 public class TransactionsModel {
-    int Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType;
+    int Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType,isBorrowed_Gallons;
     String DOorDR,Gallon_Id,DDorDP;
     double salePrice;
     
@@ -27,6 +27,12 @@ public class TransactionsModel {
         this.salePrice = salePrice;
         this.waterType = waterType;
     }
+    
+    
+    public TransactionsModel(int isBorrowed_Gallons){
+        this.isBorrowed_Gallons = isBorrowed_Gallons;
+    }
+    
     
     public int getCustomer_Id(){
         return Customer_Id;
@@ -50,6 +56,8 @@ public class TransactionsModel {
         return salePrice;
     }public int getwaterType(){
         return waterType;
+    }public int isBorrowed_Gallons(){
+        return isBorrowed_Gallons;
     }
     
 }
