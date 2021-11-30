@@ -23,6 +23,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -136,6 +138,11 @@ public class UserFormModal extends javax.swing.JPanel {
         userLname.setForeground(new java.awt.Color(255, 255, 255));
         userLname.setBorder(null);
         userLname.setOpaque(false);
+        userLname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userLnameKeyTyped(evt);
+            }
+        });
         jPanel2.add(userLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 210, 30));
 
         userMname.setBackground(new Color(0,0,0,1));
@@ -143,6 +150,11 @@ public class UserFormModal extends javax.swing.JPanel {
         userMname.setForeground(new java.awt.Color(255, 255, 255));
         userMname.setBorder(null);
         userMname.setOpaque(false);
+        userMname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userMnameKeyTyped(evt);
+            }
+        });
         jPanel2.add(userMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 30));
 
         jLabel4.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -166,6 +178,11 @@ public class UserFormModal extends javax.swing.JPanel {
         userAddress.setForeground(new java.awt.Color(255, 255, 255));
         userAddress.setBorder(null);
         userAddress.setOpaque(false);
+        userAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userAddressKeyTyped(evt);
+            }
+        });
         jPanel2.add(userAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 210, 30));
 
         jLabel6.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -186,6 +203,11 @@ public class UserFormModal extends javax.swing.JPanel {
         userContact.setForeground(new java.awt.Color(255, 255, 255));
         userContact.setBorder(null);
         userContact.setOpaque(false);
+        userContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userContactKeyTyped(evt);
+            }
+        });
         jPanel2.add(userContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 210, 30));
 
         profilename.setEditable(false);
@@ -212,6 +234,11 @@ public class UserFormModal extends javax.swing.JPanel {
         userUsername.setForeground(new java.awt.Color(255, 255, 255));
         userUsername.setBorder(null);
         userUsername.setOpaque(false);
+        userUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userUsernameKeyTyped(evt);
+            }
+        });
         jPanel2.add(userUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 210, 30));
 
         addbtn.setText("ADD");
@@ -232,6 +259,11 @@ public class UserFormModal extends javax.swing.JPanel {
         userFname.setForeground(new java.awt.Color(255, 255, 255));
         userFname.setBorder(null);
         userFname.setOpaque(false);
+        userFname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userFnameKeyTyped(evt);
+            }
+        });
         jPanel2.add(userFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 210, 30));
 
         jLabel10.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -258,6 +290,11 @@ public class UserFormModal extends javax.swing.JPanel {
         userPassword.setForeground(new java.awt.Color(255, 255, 255));
         userPassword.setBorder(null);
         userPassword.setOpaque(false);
+        userPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userPasswordKeyTyped(evt);
+            }
+        });
         jPanel2.add(userPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, 30));
 
         jPanel2.add(userRole_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 210, 32));
@@ -339,6 +376,126 @@ public class UserFormModal extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        out.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void userFnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userFnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          userFname.getText();
+          userFname.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_userFnameKeyTyped
+
+    private void userMnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userMnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          userMname.getText();
+          userMname.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_userMnameKeyTyped
+
+    private void userLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userLnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          userLname.getText();
+          userLname.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_userLnameKeyTyped
+
+    private void userAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userAddressKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          userAddress.getText();
+          userAddress.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+        
+    }//GEN-LAST:event_userAddressKeyTyped
+
+    private void userUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userUsernameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          userUsername.getText();
+          userUsername.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_userUsernameKeyTyped
+
+    private void userContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userContactKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_userContactKeyTyped
+
+    private void userPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userPasswordKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_userPasswordKeyTyped
 
     Image img;
     

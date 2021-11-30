@@ -15,6 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -96,6 +98,11 @@ public class PromoFormModal extends javax.swing.JPanel {
         Description.setLineWrap(true);
         Description.setRows(5);
         Description.setTabSize(5);
+        Description.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DescriptionKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(Description);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 200, 130));
@@ -159,6 +166,16 @@ public class PromoFormModal extends javax.swing.JPanel {
         Name.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         Name.setAutoscrolls(false);
         Name.setBorder(new javax.swing.border.MatteBorder(null));
+        Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameActionPerformed(evt);
+            }
+        });
+        Name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NameKeyTyped(evt);
+            }
+        });
         add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 200, 30));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,6 +205,48 @@ public class PromoFormModal extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         out.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameActionPerformed
+
+    private void NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyTyped
+        // TODO add your handling code here:
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          Name.getText();
+          Name.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+
+    }//GEN-LAST:event_NameKeyTyped
+
+    private void DescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DescriptionKeyTyped
+        // TODO add your handling code here:
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          Description.getText();
+          Description.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+
+    }//GEN-LAST:event_DescriptionKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -24,6 +24,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -137,6 +139,11 @@ public class CustomersFormModal extends javax.swing.JPanel {
         customerFname.setAutoscrolls(false);
         customerFname.setBorder(null);
         customerFname.setOpaque(false);
+        customerFname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                customerFnameKeyTyped(evt);
+            }
+        });
         jPanel1.add(customerFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 200, 30));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -154,6 +161,11 @@ public class CustomersFormModal extends javax.swing.JPanel {
         customerAddress.setForeground(new java.awt.Color(255, 255, 255));
         customerAddress.setBorder(null);
         customerAddress.setOpaque(false);
+        customerAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                customerAddressKeyTyped(evt);
+            }
+        });
         jPanel1.add(customerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -171,6 +183,11 @@ public class CustomersFormModal extends javax.swing.JPanel {
         customerContact.setForeground(new java.awt.Color(255, 255, 255));
         customerContact.setBorder(null);
         customerContact.setOpaque(false);
+        customerContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                customerContactKeyTyped(evt);
+            }
+        });
         jPanel1.add(customerContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 200, 30));
 
         jLabel7.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -183,6 +200,11 @@ public class CustomersFormModal extends javax.swing.JPanel {
         customerMname.setForeground(new java.awt.Color(255, 255, 255));
         customerMname.setBorder(null);
         customerMname.setOpaque(false);
+        customerMname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                customerMnameKeyTyped(evt);
+            }
+        });
         jPanel1.add(customerMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 200, 30));
 
         jLabel9.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -209,6 +231,11 @@ public class CustomersFormModal extends javax.swing.JPanel {
         customerLname.setForeground(new java.awt.Color(255, 255, 255));
         customerLname.setBorder(null);
         customerLname.setOpaque(false);
+        customerLname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                customerLnameKeyTyped(evt);
+            }
+        });
         jPanel1.add(customerLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 200, 30));
 
         customerSuki.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suki", "Not Suki" }));
@@ -270,6 +297,94 @@ public class CustomersFormModal extends javax.swing.JPanel {
             new ContainerController(lalagyanan,new Views.Customer.Customers(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
+
+    private void customerFnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerFnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          customerFname.getText();
+          customerFname.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_customerFnameKeyTyped
+
+    private void customerMnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerMnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          customerMname.getText();
+          customerMname.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_customerMnameKeyTyped
+
+    private void customerLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerLnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          customerLname.getText();
+          customerLname.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_customerLnameKeyTyped
+
+    private void customerAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerAddressKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+          else if ((c == '.')){
+          customerAddress.getText();
+          customerAddress.setText("");
+           getToolkit().beep();
+           evt.consume();
+          } 
+    }//GEN-LAST:event_customerAddressKeyTyped
+
+    private void customerContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerContactKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_customerContactKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
