@@ -21,6 +21,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -174,6 +176,11 @@ public class GallonsFormModal extends javax.swing.JPanel {
         Color.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         Color.setBorder(null);
         Color.setOpaque(false);
+        Color.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ColorKeyTyped(evt);
+            }
+        });
         jPanel2.add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -185,6 +192,11 @@ public class GallonsFormModal extends javax.swing.JPanel {
         Gallon_Type.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         Gallon_Type.setBorder(null);
         Gallon_Type.setOpaque(false);
+        Gallon_Type.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Gallon_TypeKeyTyped(evt);
+            }
+        });
         jPanel2.add(Gallon_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 200, 30));
 
         jLabel5.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -201,6 +213,11 @@ public class GallonsFormModal extends javax.swing.JPanel {
         Price.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
         Price.setBorder(null);
         Price.setOpaque(false);
+        Price.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PriceKeyTyped(evt);
+            }
+        });
         jPanel2.add(Price, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 200, 30));
 
         jLabel8.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -273,6 +290,42 @@ public class GallonsFormModal extends javax.swing.JPanel {
             new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
+
+    private void ColorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ColorKeyTyped
+        // TODO add your handling code here:
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_ColorKeyTyped
+
+    private void Gallon_TypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Gallon_TypeKeyTyped
+        // TODO add your handling code here:
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_Gallon_TypeKeyTyped
+
+    private void PriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_PriceKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

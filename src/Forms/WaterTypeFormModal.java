@@ -27,6 +27,7 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
     static int btn_id; 
     WaterTypeController watertypeControll = new WaterTypeController();
     WaterTypeModel watertypeModel;
+   
     /**
      * Creates new form WaterTypeFormModal
      */
@@ -226,6 +227,7 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
 
     private void NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyTyped
         // TODO add your handling code here:
+        
             char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||

@@ -68,7 +68,7 @@ public class EmployeeDashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(144, 224, 239));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 620));
 
         jPanel2.setBackground(new java.awt.Color(64, 43, 100));

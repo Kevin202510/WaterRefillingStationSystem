@@ -6,6 +6,7 @@
 package Views.Authentication.OwnerCredentials;
 
 import Controllers.SystemInformationSetupController;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -109,6 +110,11 @@ public class OwnerCredentials extends javax.swing.JFrame {
         systemName.setForeground(new java.awt.Color(255, 255, 255));
         systemName.setBorder(null);
         systemName.setOpaque(false);
+        systemName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                systemNameKeyTyped(evt);
+            }
+        });
         authenticationPanel.add(systemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 420, 40));
 
         jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
@@ -121,11 +127,21 @@ public class OwnerCredentials extends javax.swing.JFrame {
         address.setForeground(new java.awt.Color(255, 255, 255));
         address.setBorder(null);
         address.setOpaque(false);
+        address.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                addressKeyTyped(evt);
+            }
+        });
         authenticationPanel.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 420, 40));
 
         Lname.setForeground(new java.awt.Color(255, 255, 255));
         Lname.setBorder(null);
         Lname.setOpaque(false);
+        Lname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                LnameKeyTyped(evt);
+            }
+        });
         authenticationPanel.add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 100, 40));
 
         jLabel4.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
@@ -138,6 +154,11 @@ public class OwnerCredentials extends javax.swing.JFrame {
         contact.setForeground(new java.awt.Color(255, 255, 255));
         contact.setBorder(null);
         contact.setOpaque(false);
+        contact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contactKeyTyped(evt);
+            }
+        });
         authenticationPanel.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 420, 40));
 
         jLabel5.setFont(new java.awt.Font("MS Gothic", 1, 12)); // NOI18N
@@ -158,11 +179,21 @@ public class OwnerCredentials extends javax.swing.JFrame {
         Fname.setForeground(new java.awt.Color(255, 255, 255));
         Fname.setBorder(null);
         Fname.setOpaque(false);
+        Fname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FnameKeyTyped(evt);
+            }
+        });
         authenticationPanel.add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 100, 40));
 
         Mname.setForeground(new java.awt.Color(255, 255, 255));
         Mname.setBorder(null);
         Mname.setOpaque(false);
+        Mname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MnameKeyTyped(evt);
+            }
+        });
         authenticationPanel.add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 100, 40));
 
         jLabel8.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
@@ -237,6 +268,78 @@ public class OwnerCredentials extends javax.swing.JFrame {
             sisc.insertSystemInformationSetup(this,systemName.getText(), address.getText(), contact.getText(), Fname.getText() + " " + Mname.getText() + " " + Lname.getText());
         }
     }//GEN-LAST:event_submitActionPerformed
+
+    private void systemNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_systemNameKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_systemNameKeyTyped
+
+    private void addressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addressKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_addressKeyTyped
+
+    private void FnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FnameKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_FnameKeyTyped
+
+    private void MnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MnameKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_MnameKeyTyped
+
+    private void LnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LnameKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_LnameKeyTyped
+
+    private void contactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_contactKeyTyped
 
     /**
      * @param args the command line arguments

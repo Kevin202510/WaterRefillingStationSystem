@@ -14,7 +14,9 @@ import static Forms.GallonsFormModal.out;
 import Models.GallonsModel;
 import Models.SupplierModel;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -151,6 +153,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 FnameActionPerformed(evt);
             }
         });
+        Fname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FnameKeyTyped(evt);
+            }
+        });
         add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 200, 30));
 
         Mname.setBackground(new Color(0,0,0,1));
@@ -158,6 +165,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Mname.setForeground(new java.awt.Color(255, 255, 255));
         Mname.setBorder(null);
         Mname.setOpaque(false);
+        Mname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MnameKeyTyped(evt);
+            }
+        });
         add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 200, 30));
 
         Lname.setBackground(new Color(0,0,0,1));
@@ -165,6 +177,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Lname.setForeground(new java.awt.Color(255, 255, 255));
         Lname.setBorder(null);
         Lname.setOpaque(false);
+        Lname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                LnameKeyTyped(evt);
+            }
+        });
         add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 200, 30));
 
         Company_name.setBackground(new Color(0,0,0,1));
@@ -172,6 +189,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Company_name.setForeground(new java.awt.Color(255, 255, 255));
         Company_name.setBorder(null);
         Company_name.setOpaque(false);
+        Company_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Company_nameKeyTyped(evt);
+            }
+        });
         add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 200, 30));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -198,6 +220,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Company_Address.setForeground(new java.awt.Color(255, 255, 255));
         Company_Address.setBorder(null);
         Company_Address.setOpaque(false);
+        Company_Address.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Company_AddressKeyTyped(evt);
+            }
+        });
         add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 200, 30));
 
         Contact.setBackground(new Color(0,0,0,1));
@@ -205,6 +232,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         Contact.setForeground(new java.awt.Color(255, 255, 255));
         Contact.setBorder(null);
         Contact.setOpaque(false);
+        Contact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContactKeyTyped(evt);
+            }
+        });
         add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 200, 30));
 
         jLabel12.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -252,6 +284,87 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         out.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void FnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          } 
+    }//GEN-LAST:event_FnameKeyTyped
+
+    private void MnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_MnameKeyTyped
+
+    private void LnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LnameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_LnameKeyTyped
+
+    private void Company_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Company_nameKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_Company_nameKeyTyped
+
+    private void Company_AddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Company_AddressKeyTyped
+        // TODO add your handling code here:
+        
+            char c = evt.getKeyChar();
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_Company_AddressKeyTyped
+
+    private void ContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContactKeyTyped
+        // TODO add your handling code here:
+        
+            // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          
+          }
+        
+    }//GEN-LAST:event_ContactKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
