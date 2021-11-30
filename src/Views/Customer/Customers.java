@@ -50,7 +50,7 @@ public class Customers extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(252, 244, 221));
+        setBackground(new java.awt.Color(144, 224, 239));
 
         customersTable.setAutoCreateRowSorter(true);
         customersTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N

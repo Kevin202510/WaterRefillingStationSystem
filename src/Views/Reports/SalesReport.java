@@ -37,7 +37,7 @@ public class SalesReport extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(144, 224, 239));
         setMinimumSize(new java.awt.Dimension(1080, 480));
         setPreferredSize(new java.awt.Dimension(1080, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

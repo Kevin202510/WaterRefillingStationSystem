@@ -54,7 +54,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         borrowgallontbl = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(252, 244, 221));
+        setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         returngallontable.setAutoCreateRowSorter(true);

@@ -7,7 +7,6 @@ package Views.Authentication;
 
 import Controllers.AuthenticationController;
 import Controllers.SystemInformationSetupController;
-import Views.Void.NewJFrame;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -139,6 +138,7 @@ public class Authentication extends javax.swing.JFrame {
         authUsername.setBackground(new Color(0,0,0,1));
         authUsername.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         authUsername.setForeground(new java.awt.Color(255, 255, 255));
+        authUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         authUsername.setBorder(null);
         authUsername.setOpaque(false);
         authenticationPanel.add(authUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 290, 30));
@@ -152,6 +152,7 @@ public class Authentication extends javax.swing.JFrame {
         authPassword.setBackground(new Color(0,0,0,1));
         authPassword.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         authPassword.setForeground(new java.awt.Color(255, 255, 255));
+        authPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         authPassword.setBorder(null);
         authPassword.setOpaque(false);
         authPassword.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -335,7 +336,7 @@ public class Authentication extends javax.swing.JFrame {
                 this.setOpacity(i);
                 Thread.sleep(50);
             } catch (InterruptedException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Authentication.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
          this.setOpacity(1.0F);

@@ -54,7 +54,7 @@ public class Pos extends javax.swing.JPanel {
         btnPos = new javax.swing.JButton();
         lalagyananpospanel = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));
@@ -171,7 +171,7 @@ public class Pos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 985, Short.MAX_VALUE)
                     .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );

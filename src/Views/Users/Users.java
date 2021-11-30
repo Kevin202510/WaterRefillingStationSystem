@@ -8,6 +8,8 @@ package Views.Users;
 import Controllers.ContainerController;
 import Controllers.UsersController;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JPanel;
 
@@ -28,6 +30,9 @@ public class Users extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         InitRun();
         userTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        Color theadcolor = Color.decode("#90E0EF");
+        userTable.getTableHeader().setBackground(theadcolor);
+        userTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     
     private void InitRun(){
@@ -49,7 +54,7 @@ public class Users extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 0, 0));
+        setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         userTable.setAutoCreateRowSorter(true);
@@ -84,6 +89,11 @@ public class Users extends javax.swing.JPanel {
             userTable.getColumnModel().getColumn(0).setMinWidth(40);
             userTable.getColumnModel().getColumn(0).setPreferredWidth(40);
             userTable.getColumnModel().getColumn(0).setMaxWidth(40);
+            userTable.getColumnModel().getColumn(1).setPreferredWidth(150);
+            userTable.getColumnModel().getColumn(1).setMaxWidth(150);
+            userTable.getColumnModel().getColumn(2).setMinWidth(250);
+            userTable.getColumnModel().getColumn(2).setPreferredWidth(250);
+            userTable.getColumnModel().getColumn(2).setMaxWidth(250);
         }
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));

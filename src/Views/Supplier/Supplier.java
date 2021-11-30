@@ -46,7 +46,7 @@ public class Supplier extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(252, 244, 221));
+        setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         jScrollPane1.setBackground(new java.awt.Color(144, 224, 239));

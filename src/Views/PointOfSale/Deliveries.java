@@ -45,7 +45,7 @@ public class Deliveries extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(252, 244, 221));
+        setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
         deliveriesTable.setAutoCreateRowSorter(true);

@@ -49,7 +49,7 @@ public class Gallons extends javax.swing.JPanel {
         addBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 0, 0));
+        setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         gallonTable.setAutoCreateRowSorter(true);

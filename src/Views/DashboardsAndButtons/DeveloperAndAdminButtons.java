@@ -86,11 +86,11 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         watertype = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 180, 216));
+        setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(250, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profile.setBackground(new java.awt.Color(153, 0, 153));
+        profile.setBackground(new java.awt.Color(144, 224, 239));
         profile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 profileMouseClicked(evt);
