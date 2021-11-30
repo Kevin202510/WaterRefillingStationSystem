@@ -387,12 +387,6 @@ public class UserFormModal extends javax.swing.JPanel {
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
-          }
-          else if ((c == '.')){
-          userFname.getText();
-          userFname.setText("");
-           getToolkit().beep();
-           evt.consume();
           } 
     }//GEN-LAST:event_userFnameKeyTyped
 
@@ -407,12 +401,6 @@ public class UserFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          userMname.getText();
-          userMname.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_userMnameKeyTyped
 
     private void userLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userLnameKeyTyped
@@ -425,12 +413,6 @@ public class UserFormModal extends javax.swing.JPanel {
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
-          }
-          else if ((c == '.')){
-          userLname.getText();
-          userLname.setText("");
-           getToolkit().beep();
-           evt.consume();
           } 
     }//GEN-LAST:event_userLnameKeyTyped
 
@@ -445,13 +427,6 @@ public class UserFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          userAddress.getText();
-          userAddress.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
-        
     }//GEN-LAST:event_userAddressKeyTyped
 
     private void userUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userUsernameKeyTyped
@@ -465,12 +440,6 @@ public class UserFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          userUsername.getText();
-          userUsername.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_userUsernameKeyTyped
 
     private void userContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userContactKeyTyped

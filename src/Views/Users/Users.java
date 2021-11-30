@@ -84,6 +84,9 @@ public class Users extends javax.swing.JPanel {
             userTable.getColumnModel().getColumn(0).setMinWidth(40);
             userTable.getColumnModel().getColumn(0).setPreferredWidth(40);
             userTable.getColumnModel().getColumn(0).setMaxWidth(40);
+            userTable.getColumnModel().getColumn(2).setMinWidth(500);
+            userTable.getColumnModel().getColumn(2).setPreferredWidth(500);
+            userTable.getColumnModel().getColumn(2).setMaxWidth(500);
         }
 
         jPanel1.setBackground(new java.awt.Color(64, 43, 100));

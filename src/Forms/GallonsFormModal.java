@@ -301,13 +301,6 @@ public class GallonsFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Color.getText();
-          Color.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
-
     }//GEN-LAST:event_ColorKeyTyped
 
     private void Gallon_TypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Gallon_TypeKeyTyped
@@ -320,13 +313,6 @@ public class GallonsFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Gallon_Type.getText();
-          Gallon_Type.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
-
     }//GEN-LAST:event_Gallon_TypeKeyTyped
 
     private void PriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceKeyTyped

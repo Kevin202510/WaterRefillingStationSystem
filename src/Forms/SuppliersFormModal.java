@@ -295,12 +295,6 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
-          }
-          else if ((c == '.')){
-          Fname.getText();
-          Fname.setText("");
-           getToolkit().beep();
-           evt.consume();
           } 
     }//GEN-LAST:event_FnameKeyTyped
 
@@ -315,12 +309,6 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Mname.getText();
-          Mname.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_MnameKeyTyped
 
     private void LnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LnameKeyTyped
@@ -334,12 +322,6 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Lname.getText();
-          Lname.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_LnameKeyTyped
 
     private void Company_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Company_nameKeyTyped
@@ -353,12 +335,6 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Company_name.getText();
-          Company_name.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_Company_nameKeyTyped
 
     private void Company_AddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Company_AddressKeyTyped
@@ -372,12 +348,6 @@ suppliermodel = new SupplierModel(btn_id,Fname.getText(),Lname.getText(),Mname.g
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Company_Address.getText();
-          Company_Address.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_Company_AddressKeyTyped
 
     private void ContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContactKeyTyped

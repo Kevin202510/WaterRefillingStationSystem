@@ -220,12 +220,6 @@ public class PromoFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Name.getText();
-          Name.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
 
     }//GEN-LAST:event_NameKeyTyped
 
@@ -239,12 +233,6 @@ public class PromoFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Description.getText();
-          Description.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
 
     }//GEN-LAST:event_DescriptionKeyTyped
 

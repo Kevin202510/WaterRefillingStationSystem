@@ -309,12 +309,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          customerFname.getText();
-          customerFname.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_customerFnameKeyTyped
 
     private void customerMnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerMnameKeyTyped
@@ -328,12 +322,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          customerMname.getText();
-          customerMname.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_customerMnameKeyTyped
 
     private void customerLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerLnameKeyTyped
@@ -347,12 +335,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          customerLname.getText();
-          customerLname.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_customerLnameKeyTyped
 
     private void customerAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerAddressKeyTyped
@@ -366,12 +348,6 @@ public class CustomersFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          customerAddress.getText();
-          customerAddress.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_customerAddressKeyTyped
 
     private void customerContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerContactKeyTyped

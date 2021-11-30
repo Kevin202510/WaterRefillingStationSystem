@@ -236,12 +236,6 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-          else if ((c == '.')){
-          Name.getText();
-          Name.setText("");
-           getToolkit().beep();
-           evt.consume();
-          } 
     }//GEN-LAST:event_NameKeyTyped
 
     private void PricePerGallonKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PricePerGallonKeyTyped
