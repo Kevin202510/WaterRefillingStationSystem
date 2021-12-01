@@ -41,7 +41,7 @@ public final class DeliveriesController {
     String kuninLahatNgDeliveriesWithJoinTable = "SELECT * FROM `transactions` LEFT JOIN customers ON customers.ID = transactions.Customer_Id " +
 "LEFT JOIN gallons ON gallons.Code = transactions.Gallon_Id LEFT JOIN promos ON promos.Id = transactions.Promo_Id " +
 "LEFT JOIN users ON users.Id = transactions.User_Id " +
-"WHERE transactions.Status = 0";
+"WHERE transactions.Status = 0 AND transactions.ServiceType = 1";
     String magdagdagNgDeliveries = "INSERT INTO `deliveries`(`Customer_Id`, `Date_Delivered`, `Quantity`, `Promo_Id`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?)";
    
     public DeliveriesController(){

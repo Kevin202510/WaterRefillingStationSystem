@@ -10,11 +10,12 @@ package Models;
  * @author KevinCaluag
  */
 public class TransactionsModel {
-    int Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType,isBorrowed_Gallons;
+    int ID,Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType,isBorrowed_Gallons,paymentOption;
     String DOorDR,Gallon_Id,DDorDP;
-    double salePrice;
+    double salePrice,totalAmount;
     
-    public TransactionsModel(int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+    public TransactionsModel(int ID,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+        this.ID = ID;
         this.Customer_Id = Customer_Id;
         this.DOorDR = DOorDR;
         this.DDorDP = DDorDP;
@@ -31,6 +32,11 @@ public class TransactionsModel {
     
     public TransactionsModel(int isBorrowed_Gallons){
         this.isBorrowed_Gallons = isBorrowed_Gallons;
+    }
+    
+    public TransactionsModel(double totalAmount,int paymentOption){
+        this.totalAmount = totalAmount;
+        this.paymentOption = paymentOption;
     }
     
     
@@ -59,5 +65,11 @@ public class TransactionsModel {
     }public int isBorrowed_Gallons(){
         return isBorrowed_Gallons;
     }
-    
+    public double gettotalAmount(){
+        return totalAmount;
+    }public int getpaymentOption(){
+        return paymentOption;
+    }public int getID(){
+        return ID;
+    }
 }

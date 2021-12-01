@@ -11,7 +11,7 @@ package Models;
  */
 public class Transactions_LogsModel {
     
-    private int ID,Customer_Id,Gallon_Id,Gallon_Quantity,ServiceType,Status,User_Id,Transaction_Id,PaymentStatus;
+    private int ID,IdInit,Customer_Id,Gallon_Id,Gallon_Quantity,ServiceType,Status,User_Id,Transaction_Id,PaymentStatus;
     private double Total_Amount;
         private String Transaction_Date,Transaction_Time;
         private String Customer_Fullname,Gallon_Name,User_Fullname,PromoName;
@@ -34,6 +34,11 @@ public class Transactions_LogsModel {
         this.Status = Status;
         this.User_Fullname = User_Fname + " " + User_Mname + " " + User_Lname;
     }
+        
+        public Transactions_LogsModel(int IdInit){
+            this.IdInit = IdInit;
+        }
+        
     
            public int getID(){
             return ID;
@@ -94,12 +99,16 @@ public class Transactions_LogsModel {
              return Total_Amount;
          }public String getpaymentStatVal(){
              String paymentStatVal;
-             if (PaymentStatus==0) {
+             if (PaymentStatus==1) {
                 paymentStatVal = "Pending";
             }else{
                  paymentStatVal = "Paid";
              }
              return paymentStatVal;
+         }
+         
+         public int getIdInit(){
+             return IdInit;
          }
          
          

@@ -39,8 +39,17 @@ public class TransactionController {
     java.sql.Connection con = sql.getConnection();
     public ArrayList<TransactionsModel> transactionslist = new ArrayList<>();
     public ArrayList<TransactionsModel> transactionslists = new ArrayList<>();
+    public ArrayList<Transactions_LogsModel> transactionslistss = new ArrayList<>();
     
-    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    String magdagdagNgTransactions = "INSERT INTO `transactions`(`ID`,`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    
+    public TransactionController(){
+        try {
+            transactionsListDataId();
+        } catch (SQLException ex) {
+            Logger.getLogger(TransactionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox waterType_Id,JComboBox gallonType_Id){
         
@@ -78,6 +87,18 @@ public class TransactionController {
           }
     }
     
+    public ArrayList<Transactions_LogsModel> transactionsListDataId() throws SQLException{
+         Statement st = con.createStatement();
+         ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
+         Transactions_LogsModel transactionlog;
+
+         while(rs.next()){
+             JOptionPane.showMessageDialog(null,rs.getInt("MAX( id )"));
+             transactionlog = new Transactions_LogsModel(rs.getInt("MAX( id )"));
+             transactionslistss.add(transactionlog);
+         }
+         return transactionslistss;   
+     }
     
     public void addToCart(JTable transactiontable,Object[]row){
         DefaultTableModel model = (DefaultTableModel)transactiontable.getModel();
@@ -97,9 +118,9 @@ public class TransactionController {
     }
     
     
-    public ArrayList<TransactionsModel> supplierList(int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+    public ArrayList<TransactionsModel> supplierList(int ID,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
         TransactionsModel transactionmodel;
-            transactionmodel = new TransactionsModel(Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
+            transactionmodel = new TransactionsModel(ID,Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
             transactionslist.add(transactionmodel);
         return transactionslist;   
     }
@@ -112,6 +133,15 @@ public class TransactionController {
         
         return transactionslists;
     }
+    
+//     public ArrayList<TransactionsModel> trasactionLisst(double totalAmount,int paymentOption){
+//        TransactionsModel transacmod;
+//        transacmod = new TransactionsModel(totalAmount,paymentOption);
+//        
+//        transactionslistss.add(transacmod);
+//        
+//        return transactionslistss;
+//    }
     
     
     public void deleteDataFromCart(int selectedrow,JTable cartTable){
@@ -148,22 +178,25 @@ public class TransactionController {
          try {
              PreparedStatement st = con.prepareStatement(magdagdagNgTransactions);
              for (int i = 0; i < transactionslist.size(); i++) {
-                st.setInt(1, transactionslist.get(i).getCustomer_Id());
-                st.setString(2, getDateFormat(transactionslist.get(i).getDDorDR()));
-                st.setString(3, getDateFormat(transactionslist.get(i).getDDorDP()));
-                st.setInt(4, transactionslist.get(i).getwaterType());
-                JOptionPane.showMessageDialog(null,transactionslist.get(i).getGallonCode());
-                st.setString(5, transactionslist.get(i).getGallonCode());
-                st.setInt(6, transactionslist.get(i).getQuantity());
-                st.setInt(7, transactionslists.get(i).isBorrowed_Gallons());
+                st.setInt(1, transactionslist.get(i).getID());
+                st.setInt(2, transactionslist.get(i).getCustomer_Id());
+                st.setString(3, getDateFormat(transactionslist.get(i).getDDorDR()));
+                st.setString(4, getDateFormat(transactionslist.get(i).getDDorDP()));
+                st.setInt(5, transactionslist.get(i).getwaterType());
+                st.setString(6, transactionslist.get(i).getGallonCode());
+                st.setInt(7, transactionslist.get(i).getQuantity());
+                st.setInt(8, transactionslists.get(i).isBorrowed_Gallons());
+                 if (transactionslists.get(i).isBorrowed_Gallons()==1) {
+                     minusGallonStocks(transactionslist.get(i).getGallonCode(),transactionslist.get(i).getQuantity());
+                 }
                 if(transactionslist.get(i).getPromo_Id()==0){
-                    st.setNull(8, java.sql.Types.INTEGER);
+                    st.setNull(9, java.sql.Types.INTEGER);
                 }else{
-                    st.setInt(8, transactionslist.get(i).getPromo_Id());
+                    st.setInt(9, transactionslist.get(i).getPromo_Id());
                 }
-                st.setInt(9, transactionslist.get(i).getServiceType());
-                st.setInt(10, transactionslist.get(i).getStatus());
-                st.setInt(11, transactionslist.get(i).getUser_Id());
+                st.setInt(10, transactionslist.get(i).getServiceType());
+                st.setInt(11, transactionslist.get(i).getStatus());
+                st.setInt(12, transactionslist.get(i).getUser_Id());
                 st.executeUpdate();
                 if (i == transactionslist.size()-1) {
                     DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
@@ -179,18 +212,37 @@ public class TransactionController {
         
      }
      
-     public void insertTLModel(double totalAmount,int PaymentStatus){
+     public void minusGallonStocks(String gallonCode,int quant){
         try {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
-            if (rs.next()) {
-                Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,rs.getInt("MAX( id )"),totalAmount,PaymentStatus,getDateNow(),getTimeNow());
-                Transaction_LogsController tlc = new Transaction_LogsController();
-                tlc.addTransactionLogs(transactionlogsModel);
+            int stocks=0;
+            try {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select * from gallons where Code = " + gallonCode);
+                
+                while(rs.next()){
+                    stocks = rs.getInt("Stocks");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TransactionController.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            PreparedStatement sts = con.prepareStatement("UPDATE gallons SET Stocks = ? where Code = ?");
+            sts.setInt(1, stocks - quant);
+            sts.setString(2, gallonCode);
+            
+            int i = sts.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TransactionController.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
      }
+     
+     
+     public void insertTLModel(double totalAmount,int PaymentStatus){
+        JOptionPane.showMessageDialog(null,PaymentStatus);
+         for (int i = 0; i < transactionslistss.size(); i++) {
+            Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,transactionslistss.get(i).getID(),totalAmount,PaymentStatus,getDateNow(),getTimeNow());
+            Transaction_LogsController tlc = new Transaction_LogsController();
+            tlc.addTransactionLogs(transactionlogsModel);
+         }
+    }
 }

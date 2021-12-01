@@ -67,6 +67,9 @@ public class DeliveriesModel {
    }public String getGallon_Name(){
        return Gallon_Name;
    }public String getPromo_Description(){
+       if (Promo_Description==null){
+           Promo_Description = "No Available";
+       }
        return Promo_Description;
    }
 }

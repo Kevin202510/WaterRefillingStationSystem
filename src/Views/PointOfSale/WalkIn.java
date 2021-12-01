@@ -5,6 +5,7 @@
  */
 package Views.PointOfSale;
 
+import Controllers.WalkInController;
 import Forms.FrameFormModal;
 import javax.swing.JPanel;
 
@@ -18,16 +19,17 @@ public class WalkIn extends javax.swing.JPanel {
      * Creates new form WalkIn
      */
     JPanel lalagyanan;
+    WalkInController walkinControll = new WalkInController();
     
     public WalkIn(JPanel lalagyanan) {
         initComponents();
         this.lalagyanan = lalagyanan;
-//       InitRun();
+       InitRun();
     }
     
-//    private void InitRun(){
-//        deliveriesControll.showDeliveries(deliveriesTable);
-//    }
+    private void InitRun(){
+        walkinControll.showDeliveries(deliveriesTable);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

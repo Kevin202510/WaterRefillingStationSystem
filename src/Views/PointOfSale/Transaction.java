@@ -317,6 +317,7 @@ public class Transaction extends javax.swing.JPanel {
           int waterType=0;
           int promoid=0;
           int status=0;
+          int borrgall=0;
           String gallonid = "";
           int x;
             for(x = 0; x<cartTable.getRowCount();x++){
@@ -365,8 +366,9 @@ public class Transaction extends javax.swing.JPanel {
             double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
             totalAmount += rowAmount;
                 
-            try {         
-                transactionControll.supplierList(custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid, Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
+            try {        
+                int trasactionsId = transactionControll.transactionslistss.get(transactionControll.transactionslistss.size()).getID();
+                transactionControll.supplierList(trasactionsId,custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid, Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
                 transactionControll.trasactionList(isborrowed);
             } catch (SQLException ex) {
                 Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
@@ -377,8 +379,7 @@ public class Transaction extends javax.swing.JPanel {
             double payment = Double.parseDouble(JOptionPane.showInputDialog(null,"Enter Amount")); 
             transactionControll.addDeliveries(cartTable);
         }else{
-            transactionControll.transactionslist.clear();
-            transactionControll.transactionslists.clear();
+            transactionControll.addDeliveries(cartTable);
         }
         transactionControll.insertTLModel(totalAmount, option);
     }
