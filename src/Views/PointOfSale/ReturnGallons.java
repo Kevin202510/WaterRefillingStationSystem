@@ -38,14 +38,14 @@ public class ReturnGallons extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         returngallontable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(144, 224, 239));
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(1070, 90));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Manage Return Gallons");
 
         jButton1.setText("jButton1");
@@ -57,12 +57,12 @@ public class ReturnGallons extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(760, 760, 760))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)))
+                .addGap(663, 663, 663))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,6 +77,7 @@ public class ReturnGallons extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         returngallontable.setAutoCreateRowSorter(true);
+        returngallontable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         returngallontable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -93,7 +94,7 @@ public class ReturnGallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        returngallontable.setGridColor(new java.awt.Color(255, 0, 102));
+        returngallontable.setGridColor(new java.awt.Color(102, 102, 102));
         returngallontable.setRowHeight(25);
         returngallontable.setShowGrid(true);
         jScrollPane1.setViewportView(returngallontable);

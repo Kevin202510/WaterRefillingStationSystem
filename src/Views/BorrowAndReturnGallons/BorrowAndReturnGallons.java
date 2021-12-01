@@ -54,10 +54,11 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         borrowgallontbl = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(144, 224, 239));
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         returngallontable.setAutoCreateRowSorter(true);
+        returngallontable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         returngallontable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -74,7 +75,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        returngallontable.setGridColor(new java.awt.Color(255, 0, 153));
+        returngallontable.setGridColor(new java.awt.Color(102, 102, 102));
         returngallontable.setRowHeight(25);
         returngallontable.setShowGrid(true);
         returngallontable.setShowHorizontalLines(false);
@@ -86,10 +87,10 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
             returngallontable.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
-        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Manage Return Gallons");
 
         jButton1.setText("jButton1");
@@ -101,12 +102,12 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(680, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,10 +118,10 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 .addComponent(jButton1))
         );
 
-        jPanel2.setBackground(new java.awt.Color(26, 59, 160));
+        jPanel2.setBackground(new java.awt.Color(255, 232, 182));
 
-        jLabel3.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Manage Borrow Gallons");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -129,8 +130,8 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(670, Short.MAX_VALUE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +159,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        borrowgallontbl.setGridColor(new java.awt.Color(255, 0, 153));
+        borrowgallontbl.setGridColor(new java.awt.Color(102, 102, 102));
         borrowgallontbl.setRowHeight(25);
         borrowgallontbl.setShowGrid(true);
         borrowgallontbl.setShowHorizontalLines(false);

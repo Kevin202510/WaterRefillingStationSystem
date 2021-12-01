@@ -45,7 +45,7 @@ public class Deliveries extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(144, 224, 239));
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
         deliveriesTable.setAutoCreateRowSorter(true);
@@ -65,7 +65,7 @@ public class Deliveries extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        deliveriesTable.setGridColor(new java.awt.Color(255, 0, 102));
+        deliveriesTable.setGridColor(new java.awt.Color(102, 102, 102));
         deliveriesTable.setRowHeight(25);
         deliveriesTable.setShowGrid(true);
         deliveriesTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,11 +75,12 @@ public class Deliveries extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveriesTable);
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(255, 232, 182));
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Deliveries");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 360, 40));
 

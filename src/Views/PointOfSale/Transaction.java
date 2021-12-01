@@ -94,9 +94,11 @@ public class Transaction extends javax.swing.JPanel {
         p25 = new javax.swing.JButton();
         p30 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
         cartTable.setAutoCreateRowSorter(true);
+        cartTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -113,7 +115,7 @@ public class Transaction extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        cartTable.setGridColor(new java.awt.Color(255, 0, 153));
+        cartTable.setGridColor(new java.awt.Color(102, 102, 102));
         cartTable.setRowHeight(25);
         cartTable.setShowGrid(true);
         cartTable.getTableHeader().setReorderingAllowed(false);

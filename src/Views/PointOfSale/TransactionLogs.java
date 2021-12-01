@@ -49,14 +49,15 @@ public class TransactionLogs extends javax.swing.JPanel {
         setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Transaction Logs");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 40));
 
+        jtxt_room_search.setFont(new java.awt.Font("MS Gothic", 0, 11)); // NOI18N
         jtxt_room_search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jtxt_room_searchKeyPressed(evt);
@@ -65,6 +66,7 @@ public class TransactionLogs extends javax.swing.JPanel {
         jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 190, 30));
 
         transaction_logstable.setAutoCreateRowSorter(true);
+        transaction_logstable.setFont(new java.awt.Font("MS Gothic", 0, 11)); // NOI18N
         transaction_logstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -81,7 +83,7 @@ public class TransactionLogs extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        transaction_logstable.setGridColor(new java.awt.Color(255, 0, 153));
+        transaction_logstable.setGridColor(new java.awt.Color(102, 102, 102));
         transaction_logstable.setRowHeight(25);
         transaction_logstable.setShowGrid(true);
         transaction_logstable.getTableHeader().setReorderingAllowed(false);
@@ -102,9 +104,7 @@ public class TransactionLogs extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(0, 0, 0))))
+                    .addComponent(jScrollPane1)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -84,7 +84,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         userId = new javax.swing.JLabel();
         hovWaterType = new javax.swing.JPanel();
         watertype = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(250, 700));
@@ -392,13 +391,13 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 profilesettingMouseClicked(evt);
             }
         });
-        hovProfileSetting.add(profilesetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        hovProfileSetting.add(profilesetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/settings1.png"))); // NOI18N
-        hovProfileSetting.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, -1));
+        hovProfileSetting.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 40));
 
-        add(hovProfileSetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, -1, 50));
+        add(hovProfileSetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, -1, 50));
 
         userId.setEnabled(false);
         add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 20));
@@ -419,13 +418,9 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
                 watertypeMouseClicked(evt);
             }
         });
-        hovWaterType.add(watertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+        hovWaterType.add(watertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 40));
 
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/settings1.png"))); // NOI18N
-        hovWaterType.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 30));
-
-        add(hovWaterType, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, -1, 30));
+        add(hovWaterType, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
@@ -576,7 +571,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovUsers;
     private javax.swing.JPanel hovWaterType;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

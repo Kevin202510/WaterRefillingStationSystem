@@ -43,10 +43,11 @@ public class WalkIn extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(144, 224, 239));
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
         deliveriesTable.setAutoCreateRowSorter(true);
+        deliveriesTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -63,7 +64,7 @@ public class WalkIn extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        deliveriesTable.setGridColor(new java.awt.Color(255, 0, 153));
+        deliveriesTable.setGridColor(new java.awt.Color(102, 102, 102));
         deliveriesTable.setRowHeight(25);
         deliveriesTable.setShowGrid(true);
         deliveriesTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,10 +74,10 @@ public class WalkIn extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveriesTable);
 
-        jPanel1.setBackground(new java.awt.Color(85, 64, 118));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
 
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Walk In");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
