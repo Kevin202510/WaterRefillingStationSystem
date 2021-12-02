@@ -107,7 +107,7 @@ public class Transactions_LogsModel {
              return paymentStatVal;
          }
          
-         public int getIdInit(){
+             public int getIdInit(){
              return IdInit;
          }
          

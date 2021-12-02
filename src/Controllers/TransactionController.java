@@ -43,13 +43,13 @@ public class TransactionController {
     
     String magdagdagNgTransactions = "INSERT INTO `transactions`(`ID`,`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     
-    public TransactionController(){
-        try {
-            transactionsListDataId();
-        } catch (SQLException ex) {
-            Logger.getLogger(TransactionController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public TransactionController(){
+//        try {
+//            transactionsListDataId();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(TransactionController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     
     public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox waterType_Id,JComboBox gallonType_Id){
         
@@ -87,19 +87,6 @@ public class TransactionController {
           }
     }
     
-    public ArrayList<Transactions_LogsModel> transactionsListDataId() throws SQLException{
-         Statement st = con.createStatement();
-         ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
-         Transactions_LogsModel transactionlog;
-
-         while(rs.next()){
-             JOptionPane.showMessageDialog(null,rs.getInt("MAX( id )"));
-             transactionlog = new Transactions_LogsModel(rs.getInt("MAX( id )"));
-             transactionslistss.add(transactionlog);
-         }
-         return transactionslistss;   
-     }
-    
     public void addToCart(JTable transactiontable,Object[]row){
         DefaultTableModel model = (DefaultTableModel)transactiontable.getModel();
         Object[] rows = new Object[15];
@@ -121,6 +108,7 @@ public class TransactionController {
     public ArrayList<TransactionsModel> supplierList(int ID,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
         TransactionsModel transactionmodel;
             transactionmodel = new TransactionsModel(ID,Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
+//            JOptionPane.showMessageDialog(null,ID);
             transactionslist.add(transactionmodel);
         return transactionslist;   
     }
@@ -128,7 +116,6 @@ public class TransactionController {
     public ArrayList<TransactionsModel> trasactionList(int isBorrowedGallons){
         TransactionsModel transacmod;
         transacmod = new TransactionsModel(isBorrowedGallons);
-        
         transactionslists.add(transacmod);
         
         return transactionslists;
@@ -201,8 +188,6 @@ public class TransactionController {
                 if (i == transactionslist.size()-1) {
                     DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
                     model.setRowCount(0);
-                    transactionslist.clear();
-                    transactionslists.clear();
                 }
              }
         } catch (SQLException ex) {
@@ -238,11 +223,12 @@ public class TransactionController {
      
      
      public void insertTLModel(double totalAmount,int PaymentStatus){
-        JOptionPane.showMessageDialog(null,PaymentStatus);
-         for (int i = 0; i < transactionslistss.size(); i++) {
-            Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,transactionslistss.get(i).getID(),totalAmount,PaymentStatus,getDateNow(),getTimeNow());
+         for (int i = 0; i < transactionslist.size(); i++) {
+            Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,transactionslist.get(i).getID(),totalAmount,PaymentStatus,getDateNow(),getTimeNow());
             Transaction_LogsController tlc = new Transaction_LogsController();
             tlc.addTransactionLogs(transactionlogsModel);
          }
+        transactionslist.clear();
+        transactionslists.clear();
     }
 }

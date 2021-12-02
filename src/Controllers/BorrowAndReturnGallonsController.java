@@ -7,14 +7,18 @@ package Controllers;
 
 import Models.Borrow_GallonsModel;
 import Models.CustomerModel;
+import Models.GallonsModel;
 import Models.Return_GallonsModel;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,6 +42,7 @@ public class BorrowAndReturnGallonsController {
     String magdagdagNgCustomer = "INSERT INTO customers(Fname,Mname,Lname,Address,Contact,isSuki) VALUES (?,?,?,?,?,?)";
     String baguhinAngCustomer = "UPDATE customers SET Fname = ?, Mname = ?,Lname = ?,Address = ?,Contact = ?,isSuki = ? WHERE ID = ?";
     String tanggalinAngCustomer = "DELETE FROM customers WHERE ID = ?";
+    String addReturnGallon = "INSERT INTO `return_gallon`(`Customer_Id`, `Gallon_Id`, `Gallon_Quantity`, `Date_Return`) VALUES(?,?,?,?)";
     
     public BorrowAndReturnGallonsController(){
         try {
@@ -48,6 +53,28 @@ public class BorrowAndReturnGallonsController {
         } catch (SQLException ex) {
             Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void fetchComboBoxValue(JComboBox customerName,JComboBox gallonType_Id){
+        
+          try {
+              Statement st = con.createStatement();
+              ResultSet rs = st.executeQuery("SELECT * FROM `customers`");
+              
+              while(rs.next()){
+                  customerName.addItem(rs.getString("Fname") + " " + rs.getString("Mname") + " " + rs.getString("Lname"));
+              }
+              
+              Statement st1 = con.createStatement();
+              ResultSet rs1 = st1.executeQuery("SELECT * FROM `gallons`");
+              
+              while(rs1.next()){
+                  gallonType_Id.addItem(rs1.getString("Gallon_Type"));
+              }
+              
+            } catch (SQLException ex) {
+              Logger.getLogger(DeliveriesController.class.getName()).log(Level.SEVERE, null, ex);
+          }
     }
     
     
@@ -126,6 +153,26 @@ public class BorrowAndReturnGallonsController {
             row[4] = returngallonlist.get(i).getDate_Return();
             model.addRow(row);
          }
-       }   
+       }
+       
+       public boolean addReturnGallon(Return_GallonsModel returngallonModel,JTable returngallonTable){
+        try {
+            PreparedStatement st = con.prepareStatement(addReturnGallon);
+            st.setInt(1, returngallonModel.getCostumer_Id());
+            st.setString(2, returngallonModel.getGallon_Code());
+            st.setInt(3, returngallonModel.getGallon_Quantity());
+            st.setString(4, returngallonModel.getDate_Return());
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)returngallonTable.getModel();
+                model.setRowCount(0);
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        return true;
+     }
        
 }

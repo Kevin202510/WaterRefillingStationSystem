@@ -7,6 +7,7 @@ package Views.DashboardsAndButtons;
 
 import Controllers.ButtonsController;
 import Forms.FrameFormModal;
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -78,15 +79,14 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         hovPromos = new javax.swing.JPanel();
         promos = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        hovProfileSetting = new javax.swing.JPanel();
-        profilesetting = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         userId = new javax.swing.JLabel();
         hovWaterType = new javax.swing.JPanel();
         watertype = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        hovSettings = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(144, 224, 239));
+        setBackground(new java.awt.Color(51, 204, 255));
         setPreferredSize(new java.awt.Dimension(250, 700));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -101,7 +101,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 210, 10));
 
-        hovDashboard.setBackground(new java.awt.Color(0, 180, 216));
+        hovDashboard.setBackground(new java.awt.Color(51, 204, 255));
         hovDashboard.setPreferredSize(new java.awt.Dimension(250, 40));
 
         dashboard.setBackground(new java.awt.Color(0, 180, 216));
@@ -143,7 +143,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, 50));
 
-        hovBorrowAndReturnGallon.setBackground(new java.awt.Color(0, 180, 216));
+        hovBorrowAndReturnGallon.setBackground(new java.awt.Color(51, 204, 255));
         hovBorrowAndReturnGallon.setPreferredSize(new java.awt.Dimension(250, 40));
 
         borrowandreturngallons.setBackground(new java.awt.Color(0, 180, 216));
@@ -172,7 +172,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovBorrowAndReturnGallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, 50));
 
-        hovReports.setBackground(new java.awt.Color(0, 180, 216));
+        hovReports.setBackground(new java.awt.Color(51, 204, 255));
         hovReports.setPreferredSize(new java.awt.Dimension(250, 40));
         hovReports.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -196,7 +196,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, -1, 50));
 
-        hovGallons.setBackground(new java.awt.Color(0, 180, 216));
+        hovGallons.setBackground(new java.awt.Color(51, 204, 255));
         hovGallons.setPreferredSize(new java.awt.Dimension(250, 40));
         hovGallons.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -220,7 +220,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovGallons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, 50));
 
-        hovCustomer.setBackground(new java.awt.Color(0, 180, 216));
+        hovCustomer.setBackground(new java.awt.Color(51, 204, 255));
         hovCustomer.setPreferredSize(new java.awt.Dimension(250, 40));
         hovCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -244,7 +244,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, 50));
 
-        hovSupplier.setBackground(new java.awt.Color(0, 180, 216));
+        hovSupplier.setBackground(new java.awt.Color(51, 204, 255));
         hovSupplier.setPreferredSize(new java.awt.Dimension(250, 40));
 
         supplier.setBackground(new java.awt.Color(0, 180, 216));
@@ -287,7 +287,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, -1, 50));
 
-        hovUsers.setBackground(new java.awt.Color(0, 180, 216));
+        hovUsers.setBackground(new java.awt.Color(51, 204, 255));
         hovUsers.setPreferredSize(new java.awt.Dimension(250, 40));
         hovUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -311,7 +311,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 250, 50));
 
-        hovPos.setBackground(new java.awt.Color(0, 180, 216));
+        hovPos.setBackground(new java.awt.Color(51, 204, 255));
         hovPos.setPreferredSize(new java.awt.Dimension(250, 40));
         hovPos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -335,7 +335,7 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 250, 50));
 
-        hovPromos.setBackground(new java.awt.Color(0, 180, 216));
+        hovPromos.setBackground(new java.awt.Color(51, 204, 255));
         hovPromos.setPreferredSize(new java.awt.Dimension(250, 40));
 
         promos.setBackground(new java.awt.Color(0, 180, 216));
@@ -376,34 +376,10 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
 
         add(hovPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, 50));
 
-        hovProfileSetting.setBackground(new java.awt.Color(0, 180, 216));
-        hovProfileSetting.setPreferredSize(new java.awt.Dimension(250, 40));
-        hovProfileSetting.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        profilesetting.setBackground(new java.awt.Color(0, 180, 216));
-        profilesetting.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        profilesetting.setForeground(new java.awt.Color(255, 255, 255));
-        profilesetting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profilesetting.setText("       Profile Setting");
-        profilesetting.setIconTextGap(10);
-        profilesetting.setPreferredSize(new java.awt.Dimension(250, 50));
-        profilesetting.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                profilesettingMouseClicked(evt);
-            }
-        });
-        hovProfileSetting.add(profilesetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/settings1.png"))); // NOI18N
-        hovProfileSetting.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, -1));
-
-        add(hovProfileSetting, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, -1, 50));
-
         userId.setEnabled(false);
         add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 20));
 
-        hovWaterType.setBackground(new java.awt.Color(0, 180, 216));
+        hovWaterType.setBackground(new java.awt.Color(51, 204, 255));
         hovWaterType.setPreferredSize(new java.awt.Dimension(250, 40));
         hovWaterType.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -418,14 +394,39 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 watertypeMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                watertypeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                watertypeMouseExited(evt);
+            }
         });
-        hovWaterType.add(watertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+        hovWaterType.add(watertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 50));
 
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/settings1.png"))); // NOI18N
-        hovWaterType.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 30));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/gallons.png"))); // NOI18N
+        hovWaterType.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 50));
 
-        add(hovWaterType, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, -1, 30));
+        add(hovWaterType, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, -1, 50));
+
+        hovSettings.setBackground(new java.awt.Color(51, 204, 255));
+        hovSettings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/setting2.gif"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
+            }
+        });
+        hovSettings.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
+
+        add(hovSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 670, 60, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
@@ -545,10 +546,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         buttonControll.resetC(hovCustomer);
     }//GEN-LAST:event_usersMouseClicked
 
-    private void profilesettingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilesettingMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profilesettingMouseClicked
-
     private void profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseClicked
 //        new ProfileSettingModal(lalagyanan,lalagyananbut,userID).setVisible(true);
     }//GEN-LAST:event_profileMouseClicked
@@ -557,6 +554,26 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
         // TODO add your handling code here:
          buttonControll.WaterTypeButton(watertype);
     }//GEN-LAST:event_watertypeMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        buttonControll.setC(hovSettings);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        buttonControll.setC(hovSettings);
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        buttonControll.resetC(hovSettings);
+    }//GEN-LAST:event_jLabel1MouseExited
+
+    private void watertypeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_watertypeMouseEntered
+        buttonControll.setC(hovWaterType);
+    }//GEN-LAST:event_watertypeMouseEntered
+
+    private void watertypeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_watertypeMouseExited
+        buttonControll.resetC(hovWaterType);
+    }//GEN-LAST:event_watertypeMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -569,14 +586,14 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hovDashboard;
     private javax.swing.JPanel hovGallons;
     private javax.swing.JPanel hovPos;
-    private javax.swing.JPanel hovProfileSetting;
     private javax.swing.JPanel hovPromos;
     private javax.swing.JPanel hovReports;
+    private javax.swing.JPanel hovSettings;
     private javax.swing.JPanel hovSupplier;
     private javax.swing.JPanel hovUsers;
     private javax.swing.JPanel hovWaterType;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -588,7 +605,6 @@ public class DeveloperAndAdminButtons extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel pos;
     private jroundborder.JLabelRound profile;
-    private javax.swing.JLabel profilesetting;
     private javax.swing.JLabel promos;
     private javax.swing.JLabel reports;
     private javax.swing.JLabel supplier;

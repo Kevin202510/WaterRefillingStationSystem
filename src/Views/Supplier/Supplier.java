@@ -46,7 +46,7 @@ public class Supplier extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(144, 224, 239));
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         jScrollPane1.setBackground(new java.awt.Color(144, 224, 239));
@@ -94,14 +94,14 @@ public class Supplier extends javax.swing.JPanel {
             suppliersTable.getColumnModel().getColumn(3).setMaxWidth(255);
         }
 
-        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Supplier");
 
         addBtn.setBackground(new java.awt.Color(0, 180, 216));
-        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
         addBtn.setText("+");
         addBtn.setBorderPainted(false);
         addBtn.addActionListener(new java.awt.event.ActionListener() {

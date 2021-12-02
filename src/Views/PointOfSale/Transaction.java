@@ -8,6 +8,7 @@ package Views.PointOfSale;
 import Controllers.CustomerController;
 import Controllers.GallonsController;
 import Controllers.PromosController;
+import Controllers.SQLController;
 import Controllers.TransactionController;
 import Controllers.UsersController;
 import Controllers.WaterTypeController;
@@ -46,8 +47,10 @@ public class Transaction extends javax.swing.JPanel {
     JPanel lalagyanan;
     
     double salePrice;
+    SQLController sql = new SQLController();
+    java.sql.Connection con = sql.getConnection();
     
-    public Transaction(JPanel lalagyanan) {
+    public Transaction(JPanel lalagyanan){
         initComponents();
         this.lalagyanan = lalagyanan;
         transactionControll.fetchComboBoxValue(Customer_Id, Promo_Id,waterType_Id,gallonType_Id);
@@ -93,10 +96,15 @@ public class Transaction extends javax.swing.JPanel {
         pindicate = new javax.swing.JButton();
         p25 = new javax.swing.JButton();
         p30 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        totalAmountOfCart = new javax.swing.JLabel();
+        totlab = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
         cartTable.setAutoCreateRowSorter(true);
+        cartTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -113,7 +121,7 @@ public class Transaction extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        cartTable.setGridColor(new java.awt.Color(255, 0, 153));
+        cartTable.setGridColor(new java.awt.Color(102, 102, 102));
         cartTable.setRowHeight(25);
         cartTable.setShowGrid(true);
         cartTable.getTableHeader().setReorderingAllowed(false);
@@ -129,6 +137,7 @@ public class Transaction extends javax.swing.JPanel {
             cartTable.getColumnModel().getColumn(7).setMaxWidth(45);
         }
 
+        jPanel2.setBackground(new java.awt.Color(255, 232, 182));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 160, 30));
@@ -239,21 +248,60 @@ public class Transaction extends javax.swing.JPanel {
         });
         jPanel2.add(p30, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 70, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+
+        totalAmountOfCart.setFont(new java.awt.Font("MS Gothic", 1, 56)); // NOI18N
+        totalAmountOfCart.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        totalAmountOfCart.setText("0.00");
+
+        totlab.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        totlab.setText("TOTAL :");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(424, 424, 424)
+                .addComponent(totlab, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(totalAmountOfCart, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(totalAmountOfCart, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(totlab, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(3, 3, 3)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -279,20 +327,21 @@ public class Transaction extends javax.swing.JPanel {
         
         String code, code1,code2,code4,code5, rw0, rw1,rw2,rw3,rw4,rw5, custname, msf=null;
           int x;
+          double salep;
           for(x = 0; x<cartTable.getRowCount();x++){
             code = gallonType_Id.getSelectedItem().toString();
             custname = Customer_Id.getSelectedItem().toString();
             code1 = serviceOffered.getSelectedItem().toString();
             code2 = waterType_Id.getSelectedItem().toString();
-//            code4 = 
-//            code5 =
             rw3 = String.valueOf(cartTable.getValueAt(x, 7));
             rw4 = String.valueOf(cartTable.getValueAt(x, 9));
             rw5 = String.valueOf(cartTable.getValueAt(x, 10));
             rw2 =  String.valueOf(cartTable.getValueAt(x, 2));
             rw0 = String.valueOf(cartTable.getValueAt(x, 3));
             rw1 = String.valueOf(cartTable.getValueAt(x, 8));
-            if (code.equals(rw0) && code1.equals(rw1) && code2.equals(rw2) && rw3.equals(isborrow) && custname.equals(cartTable.getValueAt(x, 1).toString())){
+            salep = Double.parseDouble(cartTable.getValueAt(x, 4).toString());
+            
+            if (code.equals(rw0) && code1.equals(rw1) && code2.equals(rw2) && rw3.equals(isborrow) && salePrice == salep && custname.equals(cartTable.getValueAt(x, 1).toString())){
                 msf = String.valueOf(x);
                 break;
             }
@@ -304,23 +353,45 @@ public class Transaction extends javax.swing.JPanel {
           }else{
               transactionControll.addToCart(cartTable, row);
           }
+          double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
+          totalAmount += rowAmount;
+          totlab.setVisible(true);
+          totalAmountOfCart.setText(String.valueOf(totalAmount));
     }//GEN-LAST:event_addToCartBtnActionPerformed
 
+          
+//    public void transactionsListDataId() throws SQLException{
+//         Statement st = con.createStatement();
+//         ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
+//        
+//        if(rs.next()){
+//            transactionsId = rs.getInt("MAX( id )");
+//         }
+//     }
     
-    private void trylang(){
+    double totalAmount;
+    
+    private void trylang() throws SQLException{
         DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
+        String code1,code2,code3, rw0,DDorDR,DDorDP, msf=null;
+        int custid=0;
+        int servicetype=0;
+        int waterType=0;
+        int promoid=0;
+        int status=0;
+        int borrgall=0;
+        String gallonid = "";
+        int x;
+        int transactionsId = 0;
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
 
-        double totalAmount=0;
-          String code1,code2,code3, rw0,DDorDR,DDorDP, msf=null;
-          int custid=0;
-          int servicetype=0;
-          int waterType=0;
-          int promoid=0;
-          int status=0;
-          int borrgall=0;
-          String gallonid = "";
-          int x;
+        if (rs.next()) {
+            transactionsId += rs.getInt("MAX( id )");
+        }
+                
             for(x = 0; x<cartTable.getRowCount();x++){
+         
                 for(int i=0;i<=Customer_Id.getItemCount();i++){
                 if (cartTable.getValueAt(x, 1).toString().equals(Customer_Id.getItemAt(i))) {
                     try {
@@ -365,10 +436,11 @@ public class Transaction extends javax.swing.JPanel {
 
             double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
             totalAmount += rowAmount;
-                
-            try {        
-                int trasactionsId = transactionControll.transactionslistss.get(transactionControll.transactionslistss.size()).getID();
-                transactionControll.supplierList(trasactionsId,custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid, Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
+            transactionsId+=1;
+            JOptionPane.showMessageDialog(null,transactionsId);
+            
+            try {
+                transactionControll.supplierList(transactionsId,custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid, Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
                 transactionControll.trasactionList(isborrowed);
             } catch (SQLException ex) {
                 Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
@@ -382,6 +454,7 @@ public class Transaction extends javax.swing.JPanel {
             transactionControll.addDeliveries(cartTable);
         }
         transactionControll.insertTLModel(totalAmount, option);
+        totlab.setText("0.00");
     }
     
     private void DateOrderPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateOrderPropertyChange
@@ -389,7 +462,11 @@ public class Transaction extends javax.swing.JPanel {
     }//GEN-LAST:event_DateOrderPropertyChange
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
-        trylang();
+        try {
+            trylang();
+        } catch (SQLException ex) {
+            Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void cartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartTableMouseClicked
@@ -448,6 +525,7 @@ public class Transaction extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton notborrowgallon;
@@ -457,6 +535,8 @@ public class Transaction extends javax.swing.JPanel {
     private javax.swing.JButton pindicate;
     private javax.swing.ButtonGroup price;
     private javax.swing.JComboBox<String> serviceOffered;
+    private javax.swing.JLabel totalAmountOfCart;
+    private javax.swing.JLabel totlab;
     private javax.swing.JComboBox<String> waterType_Id;
     // End of variables declaration//GEN-END:variables
 }

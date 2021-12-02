@@ -54,7 +54,7 @@ public class Users extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(144, 224, 239));
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(1000, 620));
 
         userTable.setAutoCreateRowSorter(true);
@@ -75,7 +75,7 @@ public class Users extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        userTable.setGridColor(new java.awt.Color(255, 0, 102));
+        userTable.setGridColor(new java.awt.Color(102, 102, 102));
         userTable.setRowHeight(50);
         userTable.setShowGrid(true);
         userTable.getTableHeader().setReorderingAllowed(false);
@@ -96,14 +96,14 @@ public class Users extends javax.swing.JPanel {
             userTable.getColumnModel().getColumn(2).setMaxWidth(250);
         }
 
-        jPanel1.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Manage Users");
 
-        addBtn.setBackground(new java.awt.Color(64, 43, 100));
-        addBtn.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addBtn.setBackground(new java.awt.Color(0, 180, 216));
+        addBtn.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
         addBtn.setText("+");
         addBtn.setBorderPainted(false);
         addBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -119,9 +119,12 @@ public class Users extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+                        .addContainerGap(376, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(addBtn)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

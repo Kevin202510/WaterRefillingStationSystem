@@ -42,19 +42,19 @@ public class Reports extends javax.swing.JPanel {
         tlReportbtn = new javax.swing.JButton();
         lalagyananreportspanel = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(252, 244, 221));
+        setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(1100, 620));
 
-        jPanel1.setBackground(new java.awt.Color(26, 59, 160));
+        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Reports");
 
-        brReportbtn.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        brReportbtn.setForeground(new java.awt.Color(255, 255, 255));
+        brReportbtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        brReportbtn.setForeground(new java.awt.Color(51, 51, 51));
         brReportbtn.setText("<html><center>Borrow and Return  Gallons Logs</center></html>");
-        brReportbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        brReportbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 3));
         brReportbtn.setContentAreaFilled(false);
         brReportbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,10 +62,10 @@ public class Reports extends javax.swing.JPanel {
             }
         });
 
-        salesReportbtn.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        salesReportbtn.setForeground(new java.awt.Color(255, 255, 255));
+        salesReportbtn.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        salesReportbtn.setForeground(new java.awt.Color(51, 51, 51));
         salesReportbtn.setText("Sales");
-        salesReportbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        salesReportbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 3));
         salesReportbtn.setContentAreaFilled(false);
         salesReportbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,10 +73,10 @@ public class Reports extends javax.swing.JPanel {
             }
         });
 
-        tlReportbtn.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        tlReportbtn.setForeground(new java.awt.Color(255, 255, 255));
+        tlReportbtn.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        tlReportbtn.setForeground(new java.awt.Color(51, 51, 51));
         tlReportbtn.setText("Transaction Logs");
-        tlReportbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tlReportbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 3));
         tlReportbtn.setContentAreaFilled(false);
         tlReportbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,14 +90,14 @@ public class Reports extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(salesReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(79, 79, 79)
                 .addComponent(tlReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(111, 111, 111)
                 .addComponent(brReportbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -64,22 +64,25 @@ public class EmployeeDashboard extends javax.swing.JFrame {
         btnPos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         lalagyananpospanel = new javax.swing.JPanel();
+        lalagyananpospanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(144, 224, 239));
+        jPanel1.setBackground(new java.awt.Color(0, 180, 216));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 620));
 
-        jPanel2.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel2.setBackground(new java.awt.Color(255, 232, 182));
         jPanel2.setPreferredSize(new java.awt.Dimension(995, 111));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         systemName.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
-        systemName.setForeground(new java.awt.Color(255, 255, 255));
+        systemName.setForeground(new java.awt.Color(51, 51, 51));
         systemName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(systemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 11, 872, 40));
 
         btndeliver.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        btndeliver.setForeground(new java.awt.Color(255, 255, 255));
+        btndeliver.setForeground(new java.awt.Color(51, 51, 51));
         btndeliver.setText("Deliveries");
         btndeliver.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btndeliver.setContentAreaFilled(false);
@@ -88,9 +91,10 @@ public class EmployeeDashboard extends javax.swing.JFrame {
                 btndeliverActionPerformed(evt);
             }
         });
+        jPanel2.add(btndeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 57, 139, 40));
 
         btntransactionlogs.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        btntransactionlogs.setForeground(new java.awt.Color(255, 255, 255));
+        btntransactionlogs.setForeground(new java.awt.Color(51, 51, 51));
         btntransactionlogs.setText("<html><center>Transaction Logs</center></html>");
         btntransactionlogs.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btntransactionlogs.setContentAreaFilled(false);
@@ -99,9 +103,10 @@ public class EmployeeDashboard extends javax.swing.JFrame {
                 btntransactionlogsActionPerformed(evt);
             }
         });
+        jPanel2.add(btntransactionlogs, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 57, -1, 40));
 
         btnwalkin.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        btnwalkin.setForeground(new java.awt.Color(255, 255, 255));
+        btnwalkin.setForeground(new java.awt.Color(51, 51, 51));
         btnwalkin.setText("Walk In");
         btnwalkin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnwalkin.setContentAreaFilled(false);
@@ -110,9 +115,10 @@ public class EmployeeDashboard extends javax.swing.JFrame {
                 btnwalkinActionPerformed(evt);
             }
         });
+        jPanel2.add(btnwalkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 57, 131, 40));
 
         barrowandreturn.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        barrowandreturn.setForeground(new java.awt.Color(255, 255, 255));
+        barrowandreturn.setForeground(new java.awt.Color(51, 51, 51));
         barrowandreturn.setText("<html><center>Return  Gallons</center></html>");
         barrowandreturn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         barrowandreturn.setContentAreaFilled(false);
@@ -121,20 +127,23 @@ public class EmployeeDashboard extends javax.swing.JFrame {
                 barrowandreturnActionPerformed(evt);
             }
         });
+        jPanel2.add(barrowandreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 57, 150, 40));
+        jPanel2.add(transactions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 30, -1));
 
         btnPos.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        btnPos.setForeground(new java.awt.Color(255, 255, 255));
+        btnPos.setForeground(new java.awt.Color(51, 51, 51));
         btnPos.setText("Pos");
-        btnPos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnPos.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, new java.awt.Color(255, 255, 255)));
         btnPos.setContentAreaFilled(false);
         btnPos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPosActionPerformed(evt);
             }
         });
+        jPanel2.add(btnPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 57, 138, 40));
 
         jButton1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("X");
         jButton1.setToolTipText("");
         jButton1.setBorder(null);
@@ -145,56 +154,15 @@ public class EmployeeDashboard extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82)
-                        .addComponent(btntransactionlogs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104)
-                        .addComponent(barrowandreturn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(systemName, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
-                        .addGap(71, 71, 71)))
-                .addGap(162, 162, 162)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(systemName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(transactions))
-                    .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(barrowandreturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btntransactionlogs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1396, 11, 53, 49));
 
         lalagyananpospanel.setBackground(new java.awt.Color(255, 255, 255));
         lalagyananpospanel.setPreferredSize(new java.awt.Dimension(990, 480));
         lalagyananpospanel.setLayout(new javax.swing.BoxLayout(lalagyananpospanel, javax.swing.BoxLayout.LINE_AXIS));
+
+        lalagyananpospanel1.setBackground(new java.awt.Color(255, 255, 255));
+        lalagyananpospanel1.setPreferredSize(new java.awt.Dimension(990, 480));
+        lalagyananpospanel1.setLayout(new javax.swing.BoxLayout(lalagyananpospanel1, javax.swing.BoxLayout.LINE_AXIS));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,16 +172,24 @@ public class EmployeeDashboard extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1459, Short.MAX_VALUE)
-                    .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lalagyananpospanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(lalagyananpospanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)))
                 .addGap(5, 5, 5))
         );
 
@@ -305,6 +281,7 @@ public class EmployeeDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel lalagyananpospanel;
+    private javax.swing.JPanel lalagyananpospanel1;
     private javax.swing.JLabel systemName;
     private javax.swing.JLabel transactions;
     // End of variables declaration//GEN-END:variables

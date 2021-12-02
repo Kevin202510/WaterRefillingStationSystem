@@ -107,10 +107,12 @@ public class MainDashboard extends javax.swing.JFrame {
         kGradientPanel1.setkEndColor(new java.awt.Color(26, 59, 160));
         kGradientPanel1.setkStartColor(new java.awt.Color(144, 224, 239));
 
-        systemName.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        systemName.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        systemName.setForeground(new java.awt.Color(255, 255, 255));
         systemName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jButton1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("X");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
