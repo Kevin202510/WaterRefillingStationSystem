@@ -9,6 +9,7 @@ import Models.Borrow_GallonsModel;
 import Models.CustomerModel;
 import Models.GallonsModel;
 import Models.Return_GallonsModel;
+import Models.SupplierModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,12 +39,16 @@ public class BorrowAndReturnGallonsController {
     String kuninLahatNgBorrowGallon = "SELECT * FROM barrow_gallons";
     String kuninborrowWithJoinTable = "SELECT * FROM `barrow_gallons`LEFT JOIN customers ON customers.ID = barrow_gallons.Customer_Id LEFT JOIN gallons ON gallons.Code = barrow_gallons.Gallon_Id";
     String kuninLahatNgReturnGallon = "SELECT * FROM return_gallon";
-     String kuninreturnWithJoinTable = "SELECT * FROM `return_gallon`LEFT JOIN customers ON customers.ID = return_gallon.Customer_Id LEFT JOIN gallons ON gallons.Code = return_gallon.Gallon_Id";
+    String kuninreturnWithJoinTable = "SELECT * FROM `return_gallon`LEFT JOIN customers ON customers.ID = return_gallon.Customer_Id LEFT JOIN gallons ON gallons.Code = return_gallon.Gallon_Id";
     String magdagdagNgCustomer = "INSERT INTO customers(Fname,Mname,Lname,Address,Contact,isSuki) VALUES (?,?,?,?,?,?)";
     String baguhinAngCustomer = "UPDATE customers SET Fname = ?, Mname = ?,Lname = ?,Address = ?,Contact = ?,isSuki = ? WHERE ID = ?";
     String tanggalinAngCustomer = "DELETE FROM customers WHERE ID = ?";
     String addReturnGallon = "INSERT INTO `return_gallon`(`Customer_Id`, `Gallon_Id`, `Gallon_Quantity`, `Date_Return`) VALUES(?,?,?,?)";
-    
+    String addBarrowGallon = "INSERT INTO `barrow_gallon`(`Customer_Id`, `Gallon_Id`, `Gallon_Quantity`, `Date_Borrowed`) VALUES(?,?,?,?)";
+    String baguhinAngReturnGallon = "UPDATE return_gallon SET Customer_Id = ? , Gallon_Id = ? ,Gallon_Quantity = ?, Date_Return = ? WHERE Id = ?";
+    String baguhinAngBarrowGallon = "UPDATE barrow_gallon SET Customer_Id = ? , Gallon_Id = ? ,Gallon_Quantity = ?, Date_Borrowed = ? WHERE Id = ?";
+    String tanggalinAngReturnGallon = "DELETE FROM return_gallon WHERE Id = ?";
+    String tanggalinAngBarrowGallon = "DELETE FROM barrow_gallon WHERE Id = ?";
     public BorrowAndReturnGallonsController(){
         try {
             borrowGallonlist();
@@ -167,6 +172,98 @@ public class BorrowAndReturnGallonsController {
                 DefaultTableModel model = (DefaultTableModel)returngallonTable.getModel();
                 model.setRowCount(0);
             } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        return true;
+     }
+       
+      public boolean addBorrowGallon(Borrow_GallonsModel barrowgallonModel,JTable borrowgallontbl){
+        try {
+            PreparedStatement st = con.prepareStatement(addBarrowGallon);
+            st.setInt(1, barrowgallonModel.getCostumer_Id());
+            st.setString(2, barrowgallonModel.getGallon_Code());
+            st.setInt(3, barrowgallonModel.getGallon_Quantity());
+            st.setString(4, barrowgallonModel.getDate_Borrowed());
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)borrowgallontbl.getModel();
+                model.setRowCount(0);
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        return true;
+     }  
+      
+      public boolean updateReturnGallon(Return_GallonsModel returngallonModel,JTable returngallonTable){
+      try {
+            PreparedStatement st = con.prepareStatement(baguhinAngReturnGallon);
+            st.setInt(1, returngallonModel.getCostumer_Id());
+            st.setString(2, returngallonModel.getGallon_Code());
+            st.setInt(3, returngallonModel.getGallon_Quantity());
+            st.setString(4, returngallonModel.getDate_Return());
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)returngallonTable.getModel();
+                model.setRowCount(0);
+            }else{
+                return false;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+      return true;
+    } 
+      
+       public boolean updateBorrowGallon(Borrow_GallonsModel barrowgallonModel,JTable borrowgallontbl){
+      try {
+            PreparedStatement st = con.prepareStatement(baguhinAngBarrowGallon);
+            st.setInt(1, barrowgallonModel.getCostumer_Id());
+            st.setString(2, barrowgallonModel.getGallon_Code());
+            st.setInt(3, barrowgallonModel.getGallon_Quantity());
+            st.setString(4, barrowgallonModel.getDate_Borrowed ());
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)borrowgallontbl.getModel();
+                model.setRowCount(0);
+            }else{
+                return false;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+      return true;
+    }     public boolean deleteBarrowGallons(int id,JTable borrowgallontbl){
+        try {
+            PreparedStatement st = con.prepareStatement(tanggalinAngBarrowGallon);
+            st.setInt(1, id);
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)borrowgallontbl.getModel();
+                model.setRowCount(0);
+            }else{
+                return false;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        return true;
+     }
+ 
+       public boolean deleteReturnGallons(int id,JTable returngallonTable){
+        try {
+            PreparedStatement st = con.prepareStatement(tanggalinAngReturnGallon);
+            st.setInt(1, id);
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)returngallonTable.getModel();
+                model.setRowCount(0);
+            }else{
                 return false;
             }
         } catch (SQLException ex) {

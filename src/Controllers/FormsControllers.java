@@ -11,6 +11,7 @@ import Forms.GallonsFormModal;
 import Forms.SuppliersFormModal;
 import Forms.PromoFormModal;
 import Forms.ReturnGallonsFormModal;
+import Forms.SalesFofrmModal;
 import Forms.UserFormModal;
 import Forms.WaterTypeFormModal;
 import java.text.DateFormat;
@@ -75,6 +76,9 @@ public class FormsControllers {
         }else if (containernum==12) {
 //            JOptionPane.showMessageDialog(null,"asdas");
             new ContainerController(lalagyananForms,new ReturnGallonsFormModal(out,btn_id,jtablename,lalagyanan));
+        }else if (containernum==13) {
+//            JOptionPane.showMessageDialog(null,"asdas");
+            new ContainerController(lalagyananForms,new SalesFofrmModal(out,btn_id,jtablename,lalagyanan));
         }
     }
 }

@@ -84,6 +84,8 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
         deletebtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 180, 216));
+        setMinimumSize(new java.awt.Dimension(350, 600));
+        setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
@@ -172,16 +174,16 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_DateReturnPropertyChange
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-//        try {
-//            gallonsmodel = new GallonsModel(String.valueOf(btn_id),Size.getText(),Color.getText(),Gallon_Type.getText(),supplierControll.supplierList().get(Supplier_Id.getSelectedIndex()).getID(),df.format(Date_delivered.getDate()),Double.parseDouble(Price.getText()),(int) Stocks.getValue());
-//            if (gallonsControll.updateGallon(gallonsmodel,returngallonTable)) {
-//                out.dispose();
-//                new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
-//
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(GallonsFormModal.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+       try {
+             returngallonModel = new Return_GallonsModel(0,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateReturn.getDate()));
+         if (borrowandreturngallonsControl.updateReturnGallon(returngallonModel,returngallonTable)) {
+                out.dispose();
+               new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
+
+            }
+         } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
@@ -198,10 +200,10 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
-//        if(gallonsControll.deleteGallon(btn_id,returngallonTable)){
-//            out.dispose();
-//            new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
-//        }
+        if(borrowandreturngallonsControl.deleteReturnGallons(btn_id,returngallonTable)){
+            out.dispose();
+            new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
+        }
     }//GEN-LAST:event_deletebtnActionPerformed
 
 

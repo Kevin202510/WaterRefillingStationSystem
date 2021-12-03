@@ -5,6 +5,9 @@
  */
 package Views.Reports;
 
+import Controllers.SalesControllers;
+import Forms.FrameFormModal;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -16,12 +19,20 @@ public class SalesReport extends javax.swing.JPanel {
     /**
      * Creates new form Sales
      */
+    SalesControllers saleControll = new SalesControllers();
     JPanel lalagyanan;
+
     
     public SalesReport(JPanel lalagyanan) {
         initComponents();
         this.lalagyanan = lalagyanan;
+        InitRun();
+        SalesTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
     }
+     private void InitRun(){
+        saleControll.showSales(SalesTable);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,38 +44,39 @@ public class SalesReport extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        SalesTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 180, 216));
         setMinimumSize(new java.awt.Dimension(1080, 480));
         setPreferredSize(new java.awt.Dimension(1080, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        SalesTable.setAutoCreateRowSorter(true);
+        SalesTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        SalesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Purchase Date", "Quantity", "Gallon Id", "User Id", "Customer Id"
+                "Id", "Sales Date", "Amount", "User Id"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 0, 102));
-        jTable1.setRowHeight(25);
-        jTable1.setShowGrid(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        SalesTable.setGridColor(new java.awt.Color(255, 0, 102));
+        SalesTable.setRowHeight(25);
+        SalesTable.setShowGrid(true);
+        SalesTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(SalesTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 1060, 390));
 
@@ -74,16 +86,32 @@ public class SalesReport extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Sales Report");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 260, 40));
+
+        addBtn.setBackground(new java.awt.Color(0, 180, 216));
+        addBtn.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1060, 80));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        new FrameFormModal(13,0,SalesTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable SalesTable;
+    private javax.swing.JButton addBtn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -73,6 +73,11 @@ public class ReturnGallons extends javax.swing.JPanel {
         returngallontable.setGridColor(new java.awt.Color(102, 102, 102));
         returngallontable.setRowHeight(25);
         returngallontable.setShowGrid(true);
+        returngallontable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returngallontableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(returngallontable);
 
         jPanel1.setBackground(new java.awt.Color(255, 232, 182));
@@ -134,6 +139,11 @@ public class ReturnGallons extends javax.swing.JPanel {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         new FrameFormModal(12,0,returngallontable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
+
+    private void returngallontableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returngallontableMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_returngallontableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
