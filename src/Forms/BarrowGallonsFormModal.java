@@ -9,9 +9,9 @@ import Controllers.BorrowAndReturnGallonsController;
 import Controllers.ContainerController;
 import Controllers.CustomerController;
 import Controllers.GallonsController;
+import static Forms.ReturnGallonsFormModal.btn_id;
+import Models.Borrow_GallonsModel;
 import Models.Return_GallonsModel;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -21,46 +21,49 @@ import javax.swing.JTable;
 
 /**
  *
- * @author KevinCaluag
+ * @author ChelseaTorres
  */
-public class ReturnGallonsFormModal extends javax.swing.JPanel {
+public class BarrowGallonsFormModal extends javax.swing.JPanel {
 
     /**
-     * Creates new form ReturnGallonsFormModal
+     * Creates new form BarrowGallonsFormModal
      */
-    static JTable returngallonTable;
+    public BarrowGallonsFormModal() {
+        initComponents();
+    }
+
+     static JTable barrowgallonTable;
     static JFrame out;
     static JPanel lalagyanan;
     static int btn_id;
-    Return_GallonsModel returngallonModel;
+    Borrow_GallonsModel barrowngallonModel;
     BorrowAndReturnGallonsController borrowandreturngallonsControll = new BorrowAndReturnGallonsController();
     CustomerController customerControll = new CustomerController();
     GallonsController gallonControll = new GallonsController();
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     
-    public ReturnGallonsFormModal(JFrame out,int btn_id,JTable gallonsTable,JPanel lalagyanan) {
+    public BarrowGallonsFormModal(JFrame out,int btn_id,JTable borrowgallontbl,JPanel lalagyanan) {
         initComponents();
         this.btn_id = btn_id;
-        this.returngallonTable = gallonsTable;
+        this.barrowgallonTable = borrowgallontbl;
         this.lalagyanan = lalagyanan;
         this.out = out;
         borrowandreturngallonsControll.fetchComboBoxValue(Customer_Id,gallonType_Id);
         checkBtn(btn_id);
     }
-    
-    private void checkBtn(int btn_id){
+      private void checkBtn(int btn_id){
         if (btn_id==0) {
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
 //            Code.setText(gallonsControll.generateGallonCode());
         }else{
-            borrowandreturngallonsControll.getReturnGallonsInfo(btn_id,Customer_Id,gallonType_Id,gallonQuantity,DateReturn);
+            borrowandreturngallonsControll.getBarrowGallonsInfo(btn_id,Customer_Id,gallonType_Id,gallonQuantity,DateBarrow);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,21 +74,18 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        Customer_Id = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        Customer_Id = new javax.swing.JComboBox<>();
         gallonType_Id = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         gallonQuantity = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
-        DateReturn = new com.toedter.calendar.JDateChooser();
+        DateBarrow = new com.toedter.calendar.JDateChooser();
         updatebtn = new javax.swing.JButton();
         addbtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 180, 216));
-        setMinimumSize(new java.awt.Dimension(350, 600));
-        setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
@@ -99,13 +99,13 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 40));
 
-        add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 190, 30));
-
         jLabel3.setText("Customer Name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 90, 30));
 
         jLabel4.setText("Gallon Type");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, 30));
+
+        add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 190, 30));
 
         add(gallonType_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 190, 30));
 
@@ -120,15 +120,15 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
         });
         add(gallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 190, 30));
 
-        jLabel10.setText("Date Barrow");
+        jLabel10.setText("Date Return");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 90, 30));
 
-        DateReturn.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        DateBarrow.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                DateReturnPropertyChange(evt);
+                DateBarrowPropertyChange(evt);
             }
         });
-        add(DateReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 190, 30));
+        add(DateBarrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 190, 30));
 
         updatebtn.setText("UPDATE");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -156,32 +156,32 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        out.dispose();
+       out.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void gallonQuantityStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_gallonQuantityStateChanged
-//        if(Integer.parseInt(gallonQuantity.getValue().toString())>=5){
-//            Promo_Id.setEnabled(true);
-//            promothis = Promo_Id.getSelectedItem().toString();
-//        }else{
-//            Promo_Id.setEnabled(false);
-//            promothis = "Not Applicable";
-//        }
+        //        if(Integer.parseInt(gallonQuantity.getValue().toString())>=5){
+            //            Promo_Id.setEnabled(true);
+            //            promothis = Promo_Id.getSelectedItem().toString();
+            //        }else{
+            //            Promo_Id.setEnabled(false);
+            //            promothis = "Not Applicable";
+            //        }
     }//GEN-LAST:event_gallonQuantityStateChanged
 
-    private void DateReturnPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateReturnPropertyChange
-//        setMinimumDate();
-    }//GEN-LAST:event_DateReturnPropertyChange
+    private void DateBarrowPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateBarrowPropertyChange
+        //        setMinimumDate();
+    }//GEN-LAST:event_DateBarrowPropertyChange
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-       try {
-             returngallonModel = new Return_GallonsModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateReturn.getDate()));
-         if (borrowandreturngallonsControll.updateReturnGallon(returngallonModel,returngallonTable)) {
+        try {
+            barrowngallonModel = new Borrow_GallonsModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateBarrow.getDate()));
+            if (borrowandreturngallonsControll.updateBorrowGallon(barrowngallonModel,barrowgallonTable)) {
                 out.dispose();
-               new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
+                new ContainerController(lalagyanan,new Views.BorrowAndReturnGallons.BARGLogs(lalagyanan));
 
             }
-         } catch (SQLException ex) {
+        } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_updatebtnActionPerformed
@@ -189,8 +189,8 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
 
         try {
-            returngallonModel = new Return_GallonsModel(0,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateReturn.getDate()));
-            if (borrowandreturngallonsControll.addReturnGallon(returngallonModel,returngallonTable)) {
+            barrowngallonModel = new Borrow_GallonsModel(0,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateBarrow.getDate()));
+            if (borrowandreturngallonsControll.addBorrowGallon(barrowngallonModel,barrowgallonTable)) {
                 out.dispose();
                 new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
             }
@@ -200,16 +200,15 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
-        if(borrowandreturngallonsControll.deleteReturnGallons(btn_id,returngallonTable)){
+        if(borrowandreturngallonsControll.deleteBarrowGallons(btn_id,barrowgallonTable)){
             out.dispose();
-            new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));
-        }
+            new ContainerController(lalagyanan,new Views.Gallons.Gallons(lalagyanan));        }
     }//GEN-LAST:event_deletebtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Customer_Id;
-    private com.toedter.calendar.JDateChooser DateReturn;
+    private com.toedter.calendar.JDateChooser DateBarrow;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
     private javax.swing.JSpinner gallonQuantity;

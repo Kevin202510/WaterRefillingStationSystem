@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Forms.BarrowGallonsFormModal;
 import Forms.CustomersFormModal;
 import Forms.DeliveriesModal;
 import Forms.GallonsFormModal;
@@ -79,6 +80,9 @@ public class FormsControllers {
         }else if (containernum==13) {
 //            JOptionPane.showMessageDialog(null,"asdas");
             new ContainerController(lalagyananForms,new SalesFofrmModal(out,btn_id,jtablename,lalagyanan));
+        }else if (containernum==14) {
+//            JOptionPane.showMessageDialog(null,"asdas");
+            new ContainerController(lalagyananForms,new BarrowGallonsFormModal(out,btn_id,jtablename,lalagyanan));
         }
     }
 }

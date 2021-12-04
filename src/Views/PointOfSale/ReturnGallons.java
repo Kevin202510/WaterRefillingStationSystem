@@ -141,8 +141,8 @@ public class ReturnGallons extends javax.swing.JPanel {
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void returngallontableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returngallontableMouseClicked
-        // TODO add your handling code here:
-        
+        int id = (int) returngallontable.getValueAt(returngallontable.getSelectedRow(),0);
+        new FrameFormModal(12,id,returngallontable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_returngallontableMouseClicked
 
 

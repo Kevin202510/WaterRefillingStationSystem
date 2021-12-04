@@ -10,6 +10,7 @@ import Models.CustomerModel;
 import Models.GallonsModel;
 import Models.Return_GallonsModel;
 import Models.SupplierModel;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -44,11 +46,11 @@ public class BorrowAndReturnGallonsController {
     String baguhinAngCustomer = "UPDATE customers SET Fname = ?, Mname = ?,Lname = ?,Address = ?,Contact = ?,isSuki = ? WHERE ID = ?";
     String tanggalinAngCustomer = "DELETE FROM customers WHERE ID = ?";
     String addReturnGallon = "INSERT INTO `return_gallon`(`Customer_Id`, `Gallon_Id`, `Gallon_Quantity`, `Date_Return`) VALUES(?,?,?,?)";
-    String addBarrowGallon = "INSERT INTO `barrow_gallon`(`Customer_Id`, `Gallon_Id`, `Gallon_Quantity`, `Date_Borrowed`) VALUES(?,?,?,?)";
+    String addBarrowGallon = "INSERT INTO `barrow_gallons`(`Customer_Id`, `Gallon_Id`, `Gallon_Quantity`, `Date_Borrowed`) VALUES(?,?,?,?)";
     String baguhinAngReturnGallon = "UPDATE return_gallon SET Customer_Id = ? , Gallon_Id = ? ,Gallon_Quantity = ?, Date_Return = ? WHERE Id = ?";
-    String baguhinAngBarrowGallon = "UPDATE barrow_gallon SET Customer_Id = ? , Gallon_Id = ? ,Gallon_Quantity = ?, Date_Borrowed = ? WHERE Id = ?";
+    String baguhinAngBarrowGallon = "UPDATE barrow_gallons SET Customer_Id = ? , Gallon_Id = ? ,Gallon_Quantity = ?, Date_Borrowed = ? WHERE Id = ?";
     String tanggalinAngReturnGallon = "DELETE FROM return_gallon WHERE Id = ?";
-    String tanggalinAngBarrowGallon = "DELETE FROM barrow_gallon WHERE Id = ?";
+    String tanggalinAngBarrowGallon = "DELETE FROM barrow_gallons WHERE Id = ?";
     public BorrowAndReturnGallonsController(){
         try {
             borrowGallonlist();
@@ -200,6 +202,39 @@ public class BorrowAndReturnGallonsController {
         return true;
      }  
       
+      public void getReturnGallonsInfo(int Id,JComboBox Customer_Id,JComboBox gallonType_Id,JSpinner gallonQuantity,JDateChooser DateReturn){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM return_gallon LEFT JOIN customers on customers.ID = return_gallon.Customer_Id LEFT JOIN gallons ON gallons.Code = return_gallon.Gallon_Id where return_gallon.Id = " + Id);
+
+            while(rs.next()){
+                Customer_Id.setSelectedItem(rs.getString("customers.Fname") + " " + rs.getString("customers.Mname") + " " + rs.getString("customers.Lname"));
+                gallonType_Id.setSelectedItem(rs.getString("gallons.Gallon_Type"));
+                gallonQuantity.setValue(rs.getInt("Gallon_Quantity"));
+                DateReturn.setDate(rs.getDate("Date_Return"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BorrowAndReturnGallonsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+      
+      
+       public void getBarrowGallonsInfo(int Id,JComboBox Customer_Id,JComboBox gallonType_Id,JSpinner gallonQuantity,JDateChooser DateBarrow){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM barrow_gallons LEFT JOIN customers on customers.ID = barrow_gallons.Customer_Id LEFT JOIN gallons ON gallons.Code = barrow_gallons.Gallon_Id where barrow_gallons.Id = " + Id);
+
+            while(rs.next()){
+                Customer_Id.setSelectedItem(rs.getString("customers.Fname") + " " + rs.getString("customers.Mname") + " " + rs.getString("customers.Lname"));
+                gallonType_Id.setSelectedItem(rs.getString("gallons.Gallon_Type"));
+                gallonQuantity.setValue(rs.getInt("Gallon_Quantity"));
+                DateBarrow.setDate(rs.getDate("Date_Barrow"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BorrowAndReturnGallonsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }       
+      
       public boolean updateReturnGallon(Return_GallonsModel returngallonModel,JTable returngallonTable){
       try {
             PreparedStatement st = con.prepareStatement(baguhinAngReturnGallon);
@@ -207,6 +242,7 @@ public class BorrowAndReturnGallonsController {
             st.setString(2, returngallonModel.getGallon_Code());
             st.setInt(3, returngallonModel.getGallon_Quantity());
             st.setString(4, returngallonModel.getDate_Return());
+            st.setInt(5, returngallonModel.getID());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)returngallonTable.getModel();
@@ -227,6 +263,7 @@ public class BorrowAndReturnGallonsController {
             st.setString(2, barrowgallonModel.getGallon_Code());
             st.setInt(3, barrowgallonModel.getGallon_Quantity());
             st.setString(4, barrowgallonModel.getDate_Borrowed ());
+            st.setInt(5, barrowgallonModel.getID());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)borrowgallontbl.getModel();
