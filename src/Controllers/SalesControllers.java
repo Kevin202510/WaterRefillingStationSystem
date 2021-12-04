@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,22 +43,27 @@ public class SalesControllers {
         SalesModel sales;
         
         while(rs.next()){
-            sales = new SalesModel(rs.getInt("Id"),rs.getString("Purchase_date"),rs.getInt("Quantity"),rs.getInt("Gallon_Id"),rs.getInt("User_Id"),rs.getInt("Customer_Id"));
+            sales = new SalesModel(rs.getInt("Id"),rs.getString("Sales_Date"),rs.getInt("Amount"),rs.getInt("User_Id"));
             salesList.add(sales);
         }
         return salesList;   
     }
     
-    public void showSales(){
+    public void showSales(JTable SalesTable){
 
+         DefaultTableModel model = (DefaultTableModel)SalesTable.getModel();
+         Object[] row = new Object[8];
          for (int i = 0; i < salesList.size(); i++) {
-             JOptionPane.showMessageDialog(null,salesList.get(i).getCustomer_Id());
-
+            row[0] = salesList.get(i).getId();
+            row[1] = salesList.get(i).getSales_Date();
+            row[2] = salesList.get(i).getAmount();
+            row[3] = salesList.get(i).getUser_Id();
+//            row[7] = test;
+            model.addRow(row);
          }
-    
-}
-     public static void main(String[] args) {
-        SalesControllers test = new SalesControllers();
-        test.showSales();
     }
+    // public static void main(String[] args) {
+      //  SalesControllers test = new SalesControllers();
+        //test.showSales();
+    //}
 }

@@ -6,6 +6,7 @@
 package Views.BorrowAndReturnGallons;
 
 import Controllers.BorrowAndReturnGallonsController;
+import Forms.FrameFormModal;
 import java.awt.Font;
 import javax.swing.JPanel;
 
@@ -48,8 +49,10 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         returngallontable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        addBtn1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         borrowgallontbl = new javax.swing.JTable();
 
@@ -79,6 +82,11 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         returngallontable.setShowGrid(true);
         returngallontable.setShowHorizontalLines(false);
         returngallontable.setShowVerticalLines(false);
+        returngallontable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returngallontableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(returngallontable);
         if (returngallontable.getColumnModel().getColumnCount() > 0) {
             returngallontable.getColumnModel().getColumn(0).setMinWidth(50);
@@ -92,21 +100,34 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Manage Return Gallons");
 
+        addBtn.setBackground(new java.awt.Color(0, 180, 216));
+        addBtn.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        addBtn.setText("+");
+        addBtn.setBorderPainted(false);
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(564, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addBtn)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(0, 0, 0)
+                .addComponent(addBtn)
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 232, 182));
@@ -115,20 +136,33 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Manage Borrow Gallons");
 
+        addBtn1.setBackground(new java.awt.Color(0, 180, 216));
+        addBtn1.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        addBtn1.setText("+");
+        addBtn1.setBorderPainted(false);
+        addBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(538, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addBtn1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addBtn1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -155,6 +189,11 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         borrowgallontbl.setShowGrid(true);
         borrowgallontbl.setShowHorizontalLines(false);
         borrowgallontbl.setShowVerticalLines(false);
+        borrowgallontbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                borrowgallontblMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(borrowgallontbl);
         if (borrowgallontbl.getColumnModel().getColumnCount() > 0) {
             borrowgallontbl.getColumnModel().getColumn(0).setMinWidth(40);
@@ -169,7 +208,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -181,7 +220,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                 .addGap(5, 5, 5)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -190,8 +229,30 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void returngallontableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returngallontableMouseClicked
+        int id = (int) returngallontable.getValueAt(returngallontable.getSelectedRow(),0);
+        new FrameFormModal(12,id,returngallontable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_returngallontableMouseClicked
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        new FrameFormModal(12,0,returngallontable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void addBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtn1ActionPerformed
+        // TODO add your handling code here:
+        new FrameFormModal(14,0,borrowgallontbl,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_addBtn1ActionPerformed
+
+    private void borrowgallontblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowgallontblMouseClicked
+        // TODO add your handling code here:
+        int id = (int) borrowgallontbl.getValueAt(borrowgallontbl.getSelectedRow(),0);
+        new FrameFormModal(14,id,borrowgallontbl,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_borrowgallontblMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
+    private javax.swing.JButton addBtn1;
     private javax.swing.JTable borrowgallontbl;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
