@@ -10,12 +10,12 @@ package Models;
  * @author KevinCaluag
  */
 public class TransactionsModel {
-    int ID,Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType,isBorrowed_Gallons,paymentOption;
+    int transactionId,Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType,isBorrowed_Gallons,paymentOption;
     String DOorDR,Gallon_Id,DDorDP;
     double salePrice,totalAmount;
     
-    public TransactionsModel(int ID,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
-        this.ID = ID;
+    public TransactionsModel(int transactionId,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+        this.transactionId = transactionId;
         this.Customer_Id = Customer_Id;
         this.DOorDR = DOorDR;
         this.DDorDP = DDorDP;
@@ -69,7 +69,7 @@ public class TransactionsModel {
         return totalAmount;
     }public int getpaymentOption(){
         return paymentOption;
-    }public int getID(){
-        return ID;
+    }public int gettransactionId(){
+        return transactionId;
     }
 }

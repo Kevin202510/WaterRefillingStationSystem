@@ -305,7 +305,8 @@ public class CustomersFormModal extends javax.swing.JPanel {
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
+             (c == KeyEvent.VK_DELETE)||
+             (c == KeyEvent.VK_SPACE))) {
                getToolkit().beep();
              evt.consume();
           }
@@ -318,7 +319,8 @@ public class CustomersFormModal extends javax.swing.JPanel {
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
+             (c == KeyEvent.VK_DELETE)||
+             (c == KeyEvent.VK_SPACE))) {
                getToolkit().beep();
              evt.consume();
           }
@@ -331,23 +333,15 @@ public class CustomersFormModal extends javax.swing.JPanel {
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
+             (c == KeyEvent.VK_DELETE)||
+             (c == KeyEvent.VK_SPACE))) {
                getToolkit().beep();
              evt.consume();
           }
     }//GEN-LAST:event_customerLnameKeyTyped
 
     private void customerAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerAddressKeyTyped
-        // TODO add your handling code here:
-        
-            char c = evt.getKeyChar();
-          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
-             (c == KeyEvent.VK_PERIOD) ||
-             (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
-               getToolkit().beep();
-             evt.consume();
-          }
+
     }//GEN-LAST:event_customerAddressKeyTyped
 
     private void customerContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerContactKeyTyped

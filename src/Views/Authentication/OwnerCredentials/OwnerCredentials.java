@@ -275,7 +275,7 @@ public class OwnerCredentials extends javax.swing.JFrame {
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
+             (c == KeyEvent.VK_SPACE))) {
                getToolkit().beep();
              evt.consume();
           }

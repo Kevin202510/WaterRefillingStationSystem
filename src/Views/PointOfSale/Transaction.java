@@ -353,7 +353,9 @@ public class Transaction extends javax.swing.JPanel {
           }else{
               transactionControll.addToCart(cartTable, row);
           }
+          JOptionPane.showMessageDialog(null,x);
           double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
+//          JOptionPane.showMessageDialog(null,rowAmount);
           totalAmount += rowAmount;
           totlab.setVisible(true);
           totalAmountOfCart.setText(String.valueOf(totalAmount));
@@ -370,6 +372,7 @@ public class Transaction extends javax.swing.JPanel {
 //     }
     
     double totalAmount;
+    double tosaveTotalAmount;
     
     private void trylang() throws SQLException{
         DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
@@ -384,12 +387,12 @@ public class Transaction extends javax.swing.JPanel {
         int x;
         int transactionsId = 0;
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
+        ResultSet rs = st.executeQuery("SELECT MAX( Transaction_Id ) FROM transactions");
 
         if (rs.next()) {
-            transactionsId += rs.getInt("MAX( id )");
+            transactionsId = rs.getInt("MAX( Transaction_Id )") + 1;
         }
-                
+        
             for(x = 0; x<cartTable.getRowCount();x++){
          
                 for(int i=0;i<=Customer_Id.getItemCount();i++){
@@ -435,8 +438,8 @@ public class Transaction extends javax.swing.JPanel {
 //                }
 
             double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
-            totalAmount += rowAmount;
-            transactionsId+=1;
+            JOptionPane.showMessageDialog(null,rowAmount);
+            tosaveTotalAmount += rowAmount;
             JOptionPane.showMessageDialog(null,transactionsId);
             
             try {
@@ -446,15 +449,24 @@ public class Transaction extends javax.swing.JPanel {
                 Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        int option = JOptionPane.showConfirmDialog(null,"You Total Amount :" + totalAmount +" Pay Now", "Select an Option",JOptionPane.YES_NO_OPTION);
+            
+        int option = JOptionPane.showConfirmDialog(null,"You Total Amount :" + tosaveTotalAmount +" Pay Now", "Select an Option",JOptionPane.YES_NO_OPTION);
+        
         if(option==0){
             double payment = Double.parseDouble(JOptionPane.showInputDialog(null,"Enter Amount")); 
-            transactionControll.addDeliveries(cartTable);
+            if (payment>=tosaveTotalAmount) {
+                transactionControll.addDeliveries(cartTable);
+                transactionControll.insertTLModel(tosaveTotalAmount, option,0);
+            }else{
+                transactionControll.addDeliveries(cartTable);
+                double balance = tosaveTotalAmount - payment;
+                transactionControll.insertTLModel(tosaveTotalAmount, option ,balance);
+            }
         }else{
             transactionControll.addDeliveries(cartTable);
         }
-        transactionControll.insertTLModel(totalAmount, option);
-        totlab.setText("0.00");
+        
+        totalAmountOfCart.setText("0.00");
     }
     
     private void DateOrderPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateOrderPropertyChange

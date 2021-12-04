@@ -12,15 +12,16 @@ package Models;
 public class Transactions_LogsModel {
     
     private int ID,IdInit,Customer_Id,Gallon_Id,Gallon_Quantity,ServiceType,Status,User_Id,Transaction_Id,PaymentStatus;
-    private double Total_Amount;
+    private double Total_Amount,balance;
         private String Transaction_Date,Transaction_Time;
         private String Customer_Fullname,Gallon_Name,User_Fullname,PromoName;
     
         
-        public Transactions_LogsModel(int ID,int Transaction_Id,double Total_Amount,int PaymentStatus,String Transaction_Date,String Transaction_Time){
+        public Transactions_LogsModel(int ID,int Transaction_Id,double Total_Amount,double balance,int PaymentStatus,String Transaction_Date,String Transaction_Time){
         this.ID=ID;
         this.Transaction_Id = Transaction_Id;
         this.Total_Amount=Total_Amount;
+        this.balance = balance;
         this.PaymentStatus = PaymentStatus;
         this.Transaction_Date=Transaction_Date;
         this.Transaction_Time=Transaction_Time;
@@ -97,12 +98,18 @@ public class Transactions_LogsModel {
              return PaymentStatus;
          }public double getTotalAmount(){
              return Total_Amount;
+         }public double getBalance(){
+             return balance;
          }public String getpaymentStatVal(){
              String paymentStatVal;
              if (PaymentStatus==1) {
                 paymentStatVal = "Pending";
             }else{
-                 paymentStatVal = "Paid";
+                 if(balance==0){
+                    paymentStatVal = "Paid";
+                 }else{
+                     paymentStatVal = "Paid with Balance";
+                 }
              }
              return paymentStatVal;
          }

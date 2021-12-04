@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/DashboardsAndButtons/Dashboard.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/DashboardsAndButtons/DeveloperAndAdminButtons.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/PointOfSale/Pos.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Controllers/ButtonsController.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/PointOfSale/TransactionLogs.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/PointOfSale/Transaction.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Models/Transactions_LogsModel.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Models/TransactionsModel.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Controllers/Transaction_LogsController.java</file>
         </group>
     </open-files>
 </project-private>

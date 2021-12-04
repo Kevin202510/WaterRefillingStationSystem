@@ -72,11 +72,11 @@ public class TransactionLogs extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Gallon Type", "Quantity", "Promo", "Service Type", "Total Amount", "Transaction Date", "Transaction Time", "<html><center>Payment Status</center><html>"
+                "ID", "Customer Fullname", "Gallon Type", "Quantity", "Promo", "Service Type", "Total Amount", "Balance", "Transaction Date", "Transaction Time", "<html><center>Payment Status</center><html>"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

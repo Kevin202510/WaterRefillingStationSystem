@@ -41,7 +41,7 @@ public class TransactionController {
     public ArrayList<TransactionsModel> transactionslists = new ArrayList<>();
     public ArrayList<Transactions_LogsModel> transactionslistss = new ArrayList<>();
     
-    String magdagdagNgTransactions = "INSERT INTO `transactions`(`ID`,`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Transaction_Id`,`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     
 //    public TransactionController(){
 //        try {
@@ -105,9 +105,9 @@ public class TransactionController {
     }
     
     
-    public ArrayList<TransactionsModel> supplierList(int ID,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+    public ArrayList<TransactionsModel> supplierList(int transactionId,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
         TransactionsModel transactionmodel;
-            transactionmodel = new TransactionsModel(ID,Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
+            transactionmodel = new TransactionsModel(transactionId,Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
 //            JOptionPane.showMessageDialog(null,ID);
             transactionslist.add(transactionmodel);
         return transactionslist;   
@@ -165,7 +165,7 @@ public class TransactionController {
          try {
              PreparedStatement st = con.prepareStatement(magdagdagNgTransactions);
              for (int i = 0; i < transactionslist.size(); i++) {
-                st.setInt(1, transactionslist.get(i).getID());
+                st.setInt(1, transactionslist.get(i).gettransactionId());
                 st.setInt(2, transactionslist.get(i).getCustomer_Id());
                 st.setString(3, getDateFormat(transactionslist.get(i).getDDorDR()));
                 st.setString(4, getDateFormat(transactionslist.get(i).getDDorDP()));
@@ -222,12 +222,12 @@ public class TransactionController {
      }
      
      
-     public void insertTLModel(double totalAmount,int PaymentStatus){
-         for (int i = 0; i < transactionslist.size(); i++) {
-            Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,transactionslist.get(i).getID(),totalAmount,PaymentStatus,getDateNow(),getTimeNow());
+     public void insertTLModel(double totalAmount,int PaymentStatus,double balance){
+//         for (int i = 0; i < transactionslist.size(); i++) {
+            Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,transactionslist.get(transactionslist.size()-1).gettransactionId(),totalAmount,balance,PaymentStatus,getDateNow(),getTimeNow());
             Transaction_LogsController tlc = new Transaction_LogsController();
             tlc.addTransactionLogs(transactionlogsModel);
-         }
+//         }
         transactionslist.clear();
         transactionslists.clear();
     }
