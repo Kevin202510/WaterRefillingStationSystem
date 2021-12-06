@@ -10,6 +10,8 @@ import Controllers.WaterTypeController;
 import java.awt.Font;
 import javax.swing.JPanel;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
 
 
@@ -33,6 +35,9 @@ public class WaterTypes extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         InitRun();
         watertypeTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        Color theadcolor = Color.decode("#90E0EF");
+        watertypeTable.getTableHeader().setBackground(theadcolor);
+        watertypeTable.getTableHeader().setPreferredSize(new Dimension(100, 40));        
     }
     private void InitRun(){
         watertypeControll.showWaterType(watertypeTable);
@@ -81,7 +86,7 @@ public class WaterTypes extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(watertypeTable);
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));

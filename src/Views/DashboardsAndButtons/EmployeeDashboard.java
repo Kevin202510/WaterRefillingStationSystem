@@ -68,12 +68,11 @@ public class EmployeeDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1250, 800));
 
         jPanel1.setBackground(new java.awt.Color(0, 180, 216));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 620));
 
-        jPanel2.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(995, 111));
 
         systemName.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N

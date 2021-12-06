@@ -171,7 +171,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/Icons/cust.png"/>
+              <Image iconType="3" name="/Images/Icons/Untitled - Copy.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -232,7 +232,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/Icons/pos.png"/>
+              <Image iconType="3" name="/Images/Icons/POS2 - Copy.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -314,7 +314,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/Icons/supplier.png"/>
+              <Image iconType="3" name="/Images/Icons/sup2 - Copy.png"/>
             </Property>
           </Properties>
         </Component>
@@ -370,7 +370,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/Icons/gallons.png"/>
+              <Image iconType="3" name="/Images/Icons/gals2 - Copy (2).png"/>
             </Property>
           </Properties>
           <Constraints>

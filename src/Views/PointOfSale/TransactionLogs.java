@@ -6,6 +6,8 @@
 package Views.PointOfSale;
 
 import Controllers.Transaction_LogsController;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
@@ -27,8 +29,11 @@ public class TransactionLogs extends javax.swing.JPanel {
     public TransactionLogs(JPanel lalagyanan) {
         initComponents();
         this.lalagyanan = lalagyanan;
-        transaction_logstable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
-        transactionlogsControll.showTransaction_Logs(transaction_logstable);    
+      
+        transaction_logstable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,12));
+        Color theadcolor = Color.decode("#90E0EF");
+        transaction_logstable.getTableHeader().setBackground(theadcolor);
+        transaction_logstable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
 
     /**
@@ -49,13 +54,13 @@ public class TransactionLogs extends javax.swing.JPanel {
         setBackground(new java.awt.Color(144, 224, 239));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Transaction Logs");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 340, 40));
 
         jtxt_room_search.setFont(new java.awt.Font("MS Gothic", 0, 11)); // NOI18N
         jtxt_room_search.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -84,7 +89,7 @@ public class TransactionLogs extends javax.swing.JPanel {
             }
         });
         transaction_logstable.setGridColor(new java.awt.Color(102, 102, 102));
-        transaction_logstable.setRowHeight(25);
+        transaction_logstable.setRowHeight(35);
         transaction_logstable.setShowGrid(true);
         transaction_logstable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(transaction_logstable);

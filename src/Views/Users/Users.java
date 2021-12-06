@@ -96,8 +96,9 @@ public class Users extends javax.swing.JPanel {
             userTable.getColumnModel().getColumn(2).setMaxWidth(250);
         }
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 102));
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Manage Users");
@@ -117,14 +118,13 @@ public class Users extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
-                        .addContainerGap(376, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(addBtn)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

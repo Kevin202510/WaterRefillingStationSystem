@@ -7,6 +7,8 @@ package Views.Gallons;
 
 import Controllers.GallonsController;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JPanel;
 
@@ -27,7 +29,10 @@ public class Gallons extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         InitRun();
-        gallonTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+         gallonTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,12));
+        Color theadcolor = Color.decode("#90E0EF");
+        gallonTable.getTableHeader().setBackground(theadcolor);
+        gallonTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     
     private void InitRun(){
@@ -71,7 +76,7 @@ public class Gallons extends javax.swing.JPanel {
             }
         });
         gallonTable.setGridColor(new java.awt.Color(102, 102, 102));
-        gallonTable.setRowHeight(25);
+        gallonTable.setRowHeight(35);
         gallonTable.setShowGrid(true);
         gallonTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,7 +102,7 @@ public class Gallons extends javax.swing.JPanel {
             gallonTable.getColumnModel().getColumn(4).setMaxWidth(200);
         }
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         addBtn.setBackground(new java.awt.Color(0, 180, 216));
         addBtn.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
@@ -118,18 +123,18 @@ public class Gallons extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(addBtn)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addBtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addBtn)
                 .addContainerGap(19, Short.MAX_VALUE))
         );

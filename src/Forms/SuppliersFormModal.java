@@ -88,64 +88,70 @@ public class SuppliersFormModal extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
 
-        setBackground(new java.awt.Color(85, 64, 118));
+        setBackground(new java.awt.Color(102, 153, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         setNextFocusableComponent(Fname);
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Suppliers");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 177, 37));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 177, 37));
 
+        updatebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         updatebtn.setText("UPDATE");
+        updatebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatebtnActionPerformed(evt);
             }
         });
-        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 100, 43));
+        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 190, 30));
 
+        addbtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         addbtn.setText("ADD");
+        addbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         addbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addbtnActionPerformed(evt);
             }
         });
-        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 100, 43));
+        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 190, 30));
 
+        deletebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         deletebtn.setText("DELETE");
+        deletebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletebtnActionPerformed(evt);
             }
         });
-        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 100, 43));
+        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 190, 30));
 
-        jLabel7.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("First Name");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 30));
 
-        jLabel8.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Last Name");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 30));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 30));
 
-        jLabel9.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Middle Name");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 30));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 90, 30));
 
-        jLabel10.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Company Name");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 90, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 90, 30));
 
         Fname.setBackground(new Color(0,0,0,1));
         Fname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Fname.setForeground(new java.awt.Color(255, 255, 255));
         Fname.setBorder(null);
         Fname.setOpaque(false);
         Fname.addActionListener(new java.awt.event.ActionListener() {
@@ -158,11 +164,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 FnameKeyTyped(evt);
             }
         });
-        add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 200, 30));
+        add(Fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 200, 30));
 
         Mname.setBackground(new Color(0,0,0,1));
-        Mname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Mname.setForeground(new java.awt.Color(255, 255, 255));
+        Mname.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        Mname.setForeground(new java.awt.Color(51, 51, 51));
         Mname.setBorder(null);
         Mname.setOpaque(false);
         Mname.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -170,11 +176,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 MnameKeyTyped(evt);
             }
         });
-        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 200, 30));
+        add(Mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 200, 30));
 
         Lname.setBackground(new Color(0,0,0,1));
-        Lname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Lname.setForeground(new java.awt.Color(255, 255, 255));
+        Lname.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        Lname.setForeground(new java.awt.Color(51, 51, 51));
         Lname.setBorder(null);
         Lname.setOpaque(false);
         Lname.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -182,11 +188,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 LnameKeyTyped(evt);
             }
         });
-        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 200, 30));
+        add(Lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 200, 30));
 
         Company_name.setBackground(new Color(0,0,0,1));
-        Company_name.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Company_name.setForeground(new java.awt.Color(255, 255, 255));
+        Company_name.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        Company_name.setForeground(new java.awt.Color(51, 51, 51));
         Company_name.setBorder(null);
         Company_name.setOpaque(false);
         Company_name.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -194,7 +200,7 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 Company_nameKeyTyped(evt);
             }
         });
-        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 200, 30));
+        add(Company_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 200, 30));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton3.setText("X");
@@ -208,16 +214,16 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 40, 30));
 
-        jLabel11.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("MS Gothic", 1, 13)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Company Address");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 130, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 120, 30));
 
         Company_Address.setBackground(new Color(0,0,0,1));
-        Company_Address.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Company_Address.setForeground(new java.awt.Color(255, 255, 255));
+        Company_Address.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        Company_Address.setForeground(new java.awt.Color(51, 51, 51));
         Company_Address.setBorder(null);
         Company_Address.setOpaque(false);
         Company_Address.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -225,11 +231,11 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 Company_AddressKeyTyped(evt);
             }
         });
-        add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 200, 30));
+        add(Company_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 200, 30));
 
         Contact.setBackground(new Color(0,0,0,1));
-        Contact.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Contact.setForeground(new java.awt.Color(255, 255, 255));
+        Contact.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        Contact.setForeground(new java.awt.Color(51, 51, 51));
         Contact.setBorder(null);
         Contact.setOpaque(false);
         Contact.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -237,18 +243,18 @@ public class SuppliersFormModal extends javax.swing.JPanel {
                 ContactKeyTyped(evt);
             }
         });
-        add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 200, 30));
+        add(Contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 200, 30));
 
-        jLabel12.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
         jLabel12.setText("Contact");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 90, 30));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 200, 10));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 200, 10));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 200, 10));
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 200, 10));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 200, 10));
-        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 200, 10));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 60, 30));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 200, 10));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 200, 10));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 200, 10));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 200, 10));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 200, 10));
+        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 200, 10));
 
         getAccessibleContext().setAccessibleParent(Fname);
     }// </editor-fold>//GEN-END:initComponents

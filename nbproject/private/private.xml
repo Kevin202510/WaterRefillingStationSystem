@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ChelseaTorres/Desktop/WaterRefillingStationSystem/src/Forms/CustomersFormModal.java</file>
+            <file>file:/C:/secretcode/WaterRefillingStationSystem/src/Views/PointOfSale/Transaction.java</file>
+            <file>file:/C:/secretcode/WaterRefillingStationSystem/src/Views/PointOfSale/ReturnGallons.java</file>
+            <file>file:/C:/secretcode/WaterRefillingStationSystem/src/Views/Gallons/Gallons.java</file>
+            <file>file:/C:/secretcode/WaterRefillingStationSystem/src/Views/DashboardsAndButtons/DeveloperAndAdminButtons.java</file>
+            <file>file:/C:/secretcode/WaterRefillingStationSystem/src/Views/PointOfSale/Deliveries.java</file>
+            <file>file:/C:/secretcode/WaterRefillingStationSystem/src/Views/PointOfSale/Pos.java</file>
         </group>
     </open-files>
 </project-private>

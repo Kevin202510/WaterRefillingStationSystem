@@ -80,70 +80,91 @@ public class PromosModal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel1.setPreferredSize(new java.awt.Dimension(350, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Name");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 143, 81, 30));
-        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 143, 196, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 140, 50, 30));
 
+        Name.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 196, 30));
+
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Date Started");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 81, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 350, 100, 30));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setTabSize(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 200, 130));
-        jPanel1.add(Date_Started, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 200, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 200, 130));
+        jPanel1.add(Date_Started, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 200, 30));
 
+        jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Description");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 81, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 250, 90, 30));
 
+        jLabel4.setFont(new java.awt.Font("MS PGothic", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Date Started");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 81, 30));
-        jPanel1.add(Date_End, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 200, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 410, 90, 30));
+        jPanel1.add(Date_End, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 200, 30));
 
+        jLabel5.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Promos");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 240, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 240, 30));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         jButton2.setText("X");
         jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 10, 40, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 10, 50, 30));
 
+        updatebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         updatebtn.setText("UPDATE");
+        updatebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 546, 100, 43));
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 180, 40));
 
+        addbtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         addbtn.setText("ADD");
+        addbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         addbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 100, 43));
+        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 180, 40));
 
+        deletebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         deletebtn.setText("DELETE");
+        deletebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 546, 100, 43));
+        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 180, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,7 +261,6 @@ public class PromosModal extends javax.swing.JFrame {
     private javax.swing.JTextField Name;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

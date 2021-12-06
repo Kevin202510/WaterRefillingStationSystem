@@ -39,7 +39,7 @@ public class BARGLogs extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1080, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(255, 232, 182));

@@ -43,17 +43,18 @@ public class SalesFofrmModal extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         OKButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(85, 64, 118));
+        setBackground(new java.awt.Color(102, 153, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         setMinimumSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Sales");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 240, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 240, 30));
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         jButton2.setText("X");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
@@ -64,19 +65,19 @@ public class SalesFofrmModal extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
-        add(Date_From, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 200, 30));
-        add(Date_To, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 200, 30));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 40, 30));
+        add(Date_From, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 200, 30));
+        add(Date_To, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 200, 30));
 
-        jLabel3.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Date From");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 81, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 81, 30));
 
-        jLabel4.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Date To");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 81, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 81, 30));
 
         OKButton.setText("OK");
         OKButton.addActionListener(new java.awt.event.ActionListener() {

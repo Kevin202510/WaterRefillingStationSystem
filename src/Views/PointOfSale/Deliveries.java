@@ -7,6 +7,9 @@ package Views.PointOfSale;
 
 import Controllers.DeliveriesController;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -25,6 +28,10 @@ public class Deliveries extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
        InitRun();
+        deliveriesTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,12));
+        Color theadcolor = Color.decode("#90E0EF");
+        deliveriesTable.getTableHeader().setBackground(theadcolor);
+        deliveriesTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     
     private void InitRun(){
@@ -66,7 +73,7 @@ public class Deliveries extends javax.swing.JPanel {
             }
         });
         deliveriesTable.setGridColor(new java.awt.Color(102, 102, 102));
-        deliveriesTable.setRowHeight(25);
+        deliveriesTable.setRowHeight(35);
         deliveriesTable.setShowGrid(true);
         deliveriesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -75,14 +82,14 @@ public class Deliveries extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveriesTable);
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 232, 182));
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Deliveries");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 360, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 360, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

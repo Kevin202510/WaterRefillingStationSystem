@@ -7,6 +7,8 @@ package Views.Reports;
 
 import Controllers.SalesControllers;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JPanel;
 
@@ -28,6 +30,9 @@ public class SalesReport extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         InitRun();
         SalesTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        Color theadcolor = Color.decode("#90E0EF");
+        SalesTable.getTableHeader().setBackground(theadcolor);
+        SalesTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
      private void InitRun(){
         saleControll.showSales(SalesTable);
@@ -80,7 +85,7 @@ public class SalesReport extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 1060, 390));
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N

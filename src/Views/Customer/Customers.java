@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JPanel;
 import Controllers.CustomerController;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 
 /**
@@ -29,6 +31,9 @@ public class Customers extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         InitRun();
         customersTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        Color theadcolor = Color.decode("#90E0EF");
+        customersTable.getTableHeader().setBackground(theadcolor);
+        customersTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     
     private void InitRun(){
@@ -85,7 +90,7 @@ public class Customers extends javax.swing.JPanel {
             customersTable.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));

@@ -8,6 +8,8 @@ package Views.Promos;
 import Controllers.PromosController;
 import Forms.PromosModal;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JPanel;
 
@@ -28,6 +30,9 @@ public class Promos extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         InitRun();
         promosTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        Color theadcolor = Color.decode("#90E0EF");
+        promosTable.getTableHeader().setBackground(theadcolor);
+        promosTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     
      private void InitRun(){
@@ -62,8 +67,8 @@ public class Promos extends javax.swing.JPanel {
                 "Id", "Promo Name", "Description", "Date Started", "Date End"
             }
         ));
-        promosTable.setGridColor(new java.awt.Color(255, 0, 102));
-        promosTable.setRowHeight(25);
+        promosTable.setGridColor(new java.awt.Color(102, 102, 102));
+        promosTable.setRowHeight(35);
         promosTable.setShowGrid(true);
         promosTable.getTableHeader().setReorderingAllowed(false);
         promosTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -87,7 +92,7 @@ public class Promos extends javax.swing.JPanel {
             promosTable.getColumnModel().getColumn(3).setMaxWidth(255);
         }
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
