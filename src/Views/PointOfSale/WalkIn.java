@@ -7,6 +7,10 @@ package Views.PointOfSale;
 
 import Controllers.WalkInController;
 import Forms.FrameFormModal;
+import Forms.walkinUpdateStatus;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -25,6 +29,10 @@ public class WalkIn extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
        InitRun();
+       deliveriesTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,12));
+        Color theadcolor = Color.decode("#90E0EF");
+        deliveriesTable.getTableHeader().setBackground(theadcolor);
+        deliveriesTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     
     private void InitRun(){
@@ -67,7 +75,7 @@ public class WalkIn extends javax.swing.JPanel {
             }
         });
         deliveriesTable.setGridColor(new java.awt.Color(102, 102, 102));
-        deliveriesTable.setRowHeight(25);
+        deliveriesTable.setRowHeight(35);
         deliveriesTable.setShowGrid(true);
         deliveriesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -76,7 +84,7 @@ public class WalkIn extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveriesTable);
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -87,7 +95,7 @@ public class WalkIn extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -122,7 +130,7 @@ public class WalkIn extends javax.swing.JPanel {
 
     private void deliveriesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesTableMouseClicked
         int id = (int) deliveriesTable.getValueAt(deliveriesTable.getSelectedRow(),0);
-        new FrameFormModal(9,id,deliveriesTable,lalagyanan).setVisible(true);
+        new walkinUpdateStatus(id,deliveriesTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_deliveriesTableMouseClicked
 
 

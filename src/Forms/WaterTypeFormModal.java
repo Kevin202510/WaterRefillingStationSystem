@@ -76,17 +76,20 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(85, 64, 118));
+        setBackground(new java.awt.Color(102, 153, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         setMinimumSize(new java.awt.Dimension(350, 600));
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Water Types");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, 20));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, 50));
 
+        updatebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         updatebtn.setText("UPDATE");
+        updatebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatebtnActionPerformed(evt);
@@ -94,7 +97,9 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
         });
         add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 100, 43));
 
+        deletebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         deletebtn.setText("DELETE");
+        deletebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletebtnActionPerformed(evt);
@@ -102,7 +107,9 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
         });
         add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 100, 43));
 
+        addbtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         addbtn.setText("ADD");
+        addbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         addbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addbtnActionPerformed(evt);
@@ -110,14 +117,13 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
         });
         add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 100, 43));
 
-        jLabel2.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Water Type");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 70, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, 30));
 
         Name.setBackground(new Color(0,0,0,1));
         Name.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Name.setForeground(new java.awt.Color(255, 255, 255));
         Name.setAutoscrolls(false);
         Name.setBorder(null);
         Name.setOpaque(false);
@@ -131,17 +137,16 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 NameKeyTyped(evt);
             }
         });
-        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 200, 30));
-        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 200, 10));
+        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 200, 30));
+        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 200, 10));
 
-        jLabel9.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Price PerGallon");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 110, 30));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 120, 30));
 
         PricePerGallon.setBackground(new Color(0,0,0,1));
         PricePerGallon.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        PricePerGallon.setForeground(new java.awt.Color(255, 255, 255));
         PricePerGallon.setBorder(null);
         PricePerGallon.setOpaque(false);
         PricePerGallon.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -149,17 +154,16 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 PricePerGallonKeyTyped(evt);
             }
         });
-        add(PricePerGallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 200, 30));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 200, 10));
+        add(PricePerGallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, 30));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 180, 10));
 
-        jLabel10.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Price PerButtle");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 110, 30));
+        jLabel10.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Price Per Bottle");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 130, 30));
 
         PricePerBottle.setBackground(new Color(0,0,0,1));
         PricePerBottle.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        PricePerBottle.setForeground(new java.awt.Color(255, 255, 255));
         PricePerBottle.setBorder(null);
         PricePerBottle.setOpaque(false);
         PricePerBottle.addActionListener(new java.awt.event.ActionListener() {
@@ -172,10 +176,11 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 PricePerBottleKeyTyped(evt);
             }
         });
-        add(PricePerBottle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 200, 30));
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 200, 10));
+        add(PricePerBottle, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 180, 30));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 180, 10));
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(51, 51, 51));
         jButton2.setText("X");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
@@ -186,7 +191,7 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 40, 30));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 40, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed

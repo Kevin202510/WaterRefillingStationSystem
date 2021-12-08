@@ -8,6 +8,8 @@ package Views.Supplier;
 import Controllers.SupplierController;
 import Forms.FrameFormModal;
 import Forms.SuppliersFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JPanel;
 
@@ -26,6 +28,9 @@ public class Supplier extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         InitRun();
         suppliersTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        Color theadcolor = Color.decode("#90E0EF");
+        suppliersTable.getTableHeader().setBackground(theadcolor);
+        suppliersTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     private void InitRun(){
         suplierControll.showSuppliers(suppliersTable);
@@ -69,8 +74,8 @@ public class Supplier extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        suppliersTable.setGridColor(new java.awt.Color(255, 153, 153));
-        suppliersTable.setRowHeight(25);
+        suppliersTable.setGridColor(new java.awt.Color(102, 102, 102));
+        suppliersTable.setRowHeight(35);
         suppliersTable.setShowGrid(true);
         suppliersTable.getTableHeader().setReorderingAllowed(false);
         suppliersTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,7 +99,7 @@ public class Supplier extends javax.swing.JPanel {
             suppliersTable.getColumnModel().getColumn(3).setMaxWidth(255);
         }
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));

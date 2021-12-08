@@ -120,7 +120,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         hovCustomers.add(customers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/cust.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/Untitled - Copy.png"))); // NOI18N
         hovCustomers.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
         add(hovCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 50));
@@ -144,7 +144,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         hovPOS.add(sales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/pos.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/POS2 - Copy.png"))); // NOI18N
         hovPOS.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 30));
 
         add(hovPOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 265, -1, -1));
@@ -166,7 +166,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         });
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/supplier.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/sup2 - Copy.png"))); // NOI18N
 
         javax.swing.GroupLayout hovRefilledLayout = new javax.swing.GroupLayout(hovRefilled);
         hovRefilled.setLayout(hovRefilledLayout);
@@ -212,7 +212,7 @@ public class EmployeesButtons extends javax.swing.JPanel {
         hovPos.add(pos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/gallons.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icons/gals2 - Copy (2).png"))); // NOI18N
         hovPos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
 
         add(hovPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 50));

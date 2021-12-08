@@ -76,15 +76,11 @@ public class Transaction_LogsController {
          for (int i = 0; i < transactionslogslist.size(); i++) {
             row[0] = transactionslogslist.get(i).getID();
             row[1] = transactionslogsListwithjointable.get(i).getCustomer_Fullname();
-            row[2] = transactionslogsListwithjointable.get(i).getGallon_Name();
-            row[3] = transactionslogsListwithjointable.get(i).getGallon_Quantity();
-            row[4] = transactionslogsListwithjointable.get(i).getPromoName();
-            row[5] = transactionslogsListwithjointable.get(i).getServiceTypeVal();
-            row[6] = transactionslogslist.get(i).getTotalAmount();
-            row[7] = transactionslogslist.get(i).getBalance();
-            row[8] = transactionslogslist.get(i).getTransaction_Date();
-            row[9] = transactionslogslist.get(i).getTransaction_Time();
-            row[10] = transactionslogslist.get(i).getpaymentStatVal();
+            row[2] = transactionslogslist.get(i).getTotalAmount();
+            row[3] = transactionslogslist.get(i).getBalance();
+            row[4] = transactionslogslist.get(i).getTransaction_Date();
+            row[5] = transactionslogslist.get(i).getTransaction_Time();
+            row[6] = transactionslogslist.get(i).getpaymentStatVal();
             model.addRow(row);
          }
     }

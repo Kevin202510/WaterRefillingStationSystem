@@ -33,6 +33,11 @@ public class DeliveriesModel {
         this.User_Fullname = User_Fname + " " + User_Mname + " " + User_Lname;
     }
     
+    public DeliveriesModel(int id,int status){
+        this.Id = id;
+        this.Status = status;
+    }
+    
     public int getId(){
         return Id;
     } public int getCustomer_Id(){
@@ -48,7 +53,7 @@ public class DeliveriesModel {
     } public int getPromo_Id(){
         return Promo_Id;
     } public int getStatus(){
-        return Promo_Id;
+        return Status;
     }public String getStat(){
         if (Status==0) {
             return "Pending";

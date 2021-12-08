@@ -39,9 +39,9 @@ public final class DeliveriesController {
     
     String kuninLahatNgDeliveries = "SELECT * FROM deliveries";
     String kuninLahatNgDeliveriesWithJoinTable = "SELECT * FROM `transactions` LEFT JOIN customers ON customers.ID = transactions.Customer_Id " +
-"LEFT JOIN gallons ON gallons.Code = transactions.Gallon_Id LEFT JOIN promos ON promos.Id = transactions.Promo_Id " +
-"LEFT JOIN users ON users.Id = transactions.User_Id " +
-"WHERE transactions.Status = 0 AND transactions.ServiceType = 1";
+                                                "LEFT JOIN gallons ON gallons.Code = transactions.Gallon_Id LEFT JOIN promos ON promos.Id = transactions.Promo_Id " +
+                                                "LEFT JOIN users ON users.Id = transactions.User_Id " +
+                                                "WHERE transactions.Status = 0 AND transactions.ServiceType = 1";
     String magdagdagNgDeliveries = "INSERT INTO `deliveries`(`Customer_Id`, `Date_Delivered`, `Quantity`, `Promo_Id`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?)";
    
     public DeliveriesController(){
@@ -55,22 +55,36 @@ public final class DeliveriesController {
     
     public boolean updateDeliveries(DeliveriesModel deliveriesModel,JTable deliveriesTable){
           try {
-              String updates = "UPDATE deliveries SET Id = ? , Customer_Id = ? ,Date_Delivered = ?,Quantity = ?,Promo_Id = ?,Status = ?,User_Id = ? WHERE Id = '" + deliveriesModel.getId() + "'";
+              String updates = "UPDATE transactions SET Status = ? WHERE ID = " + deliveriesModel.getId();
               PreparedStatement st = con.prepareStatement(updates);
-              st.setInt(1, deliveriesModel.getId());
-              st.setInt(2, deliveriesModel.getCustomer_Id());
-              st.setString(3, deliveriesModel.getDate_Delivered());
-              st.setInt(4, deliveriesModel.getQuantity());
-              st.setInt(5, deliveriesModel.getPromo_Id());
-              st.setInt(6, deliveriesModel.getStatus());
-              st.setInt(7, deliveriesModel.getUser_Id());
+              st.setInt(1, deliveriesModel.getStatus());
+              JOptionPane.showMessageDialog(null,deliveriesModel.getStatus());
               int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
                 model.setRowCount(0);
-            //            new Alerts("update").setVisible(true);
             }else{
-//                new Alerts("error").setVisible(true);
+                return false;
+            }
+              
+              
+          } catch (SQLException ex) {
+              Logger.getLogger(DeliveriesController.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          return true;
+    }
+    
+    public boolean updateWalkIn(DeliveriesModel deliveriesModel,JTable deliveriesTable){
+          try {
+              String updates = "UPDATE transactions SET Status = ? WHERE ID = " + deliveriesModel.getId();
+              PreparedStatement st = con.prepareStatement(updates);
+              st.setInt(1, deliveriesModel.getStatus());
+              JOptionPane.showMessageDialog(null,deliveriesModel.getStatus());
+              int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
+                model.setRowCount(0);
+            }else{
                 return false;
             }
               

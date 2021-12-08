@@ -14,6 +14,9 @@ import Controllers.UsersController;
 import Controllers.WaterTypeController;
 import Models.SupplierModel;
 import Models.TransactionsModel;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -55,6 +58,11 @@ public class Transaction extends javax.swing.JPanel {
         this.lalagyanan = lalagyanan;
         transactionControll.fetchComboBoxValue(Customer_Id, Promo_Id,waterType_Id,gallonType_Id);
         Promo_Id.setEnabled(false);
+        cartTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,12));
+        Color theadcolor = Color.decode("#90E0EF");
+        cartTable.getTableHeader().setBackground(theadcolor);
+        cartTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
+        payBtn.setEnabled(false);
     }
 
     /**
@@ -122,7 +130,7 @@ public class Transaction extends javax.swing.JPanel {
             }
         });
         cartTable.setGridColor(new java.awt.Color(102, 102, 102));
-        cartTable.setRowHeight(25);
+        cartTable.setRowHeight(35);
         cartTable.setShowGrid(true);
         cartTable.getTableHeader().setReorderingAllowed(false);
         cartTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,13 +145,13 @@ public class Transaction extends javax.swing.JPanel {
             cartTable.getColumnModel().getColumn(7).setMaxWidth(45);
         }
 
-        jPanel2.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 160, 30));
 
         jLabel3.setText("Customer Name");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 30));
 
         jPanel2.add(gallonType_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 160, 30));
 
@@ -181,10 +189,10 @@ public class Transaction extends javax.swing.JPanel {
         jPanel2.add(addToCartBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 90, 40));
 
         jLabel9.setText("Quantity");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 60, 30));
 
         jLabel10.setText("Date Order");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 30));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 80, 30));
         jPanel2.add(DateToBeDeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 160, 30));
 
         DateOrder.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -195,7 +203,7 @@ public class Transaction extends javax.swing.JPanel {
         jPanel2.add(DateOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 160, 30));
 
         jLabel11.setText("Promo");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 30));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 60, 30));
 
         gallonQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         gallonQuantity.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -214,12 +222,12 @@ public class Transaction extends javax.swing.JPanel {
         jPanel2.add(payBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 100, 40));
 
         jLabel8.setText("Price");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 60, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 30, 30));
 
         jPanel2.add(waterType_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 160, 30));
 
         jLabel12.setText("Water Type");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 80, 30));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 70, 30));
 
         pindicate.setText("Indicate");
         price.add(pindicate);
@@ -248,7 +256,7 @@ public class Transaction extends javax.swing.JPanel {
         });
         jPanel2.add(p30, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 70, 40));
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         totalAmountOfCart.setFont(new java.awt.Font("MS Gothic", 1, 56)); // NOI18N
         totalAmountOfCart.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -286,18 +294,12 @@ public class Transaction extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -310,7 +312,6 @@ public class Transaction extends javax.swing.JPanel {
      int isborrowed;
      
     private void addToCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnActionPerformed
-        //            String name = customerControll.customerlist().get(Customer_Id.getS).getFullname().
         DateFormat dateFormat = new SimpleDateFormat("MMM-dd-yyyy");  
         strDates = dateFormat.format(DateOrder.getDate());
         strDates1 = dateFormat.format(DateToBeDeliver.getDate());
@@ -359,6 +360,8 @@ public class Transaction extends javax.swing.JPanel {
           totalAmount += rowAmount;
           totlab.setVisible(true);
           totalAmountOfCart.setText(String.valueOf(totalAmount));
+          payBtn.setEnabled(true);
+          Customer_Id.setEnabled(false);
     }//GEN-LAST:event_addToCartBtnActionPerformed
 
           
@@ -378,7 +381,7 @@ public class Transaction extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
         String code1,code2,code3, rw0,DDorDR,DDorDP, msf=null;
         int custid=0;
-        int servicetype=0;
+        int servicetype = 0;
         int waterType=0;
         int promoid=0;
         int status=0;
@@ -440,9 +443,9 @@ public class Transaction extends javax.swing.JPanel {
             double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
             JOptionPane.showMessageDialog(null,rowAmount);
             tosaveTotalAmount += rowAmount;
-            JOptionPane.showMessageDialog(null,transactionsId);
             
             try {
+                JOptionPane.showMessageDialog(null,servicetype);
                 transactionControll.supplierList(transactionsId,custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid, Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
                 transactionControll.trasactionList(isborrowed);
             } catch (SQLException ex) {
@@ -465,8 +468,21 @@ public class Transaction extends javax.swing.JPanel {
         }else{
             transactionControll.addDeliveries(cartTable);
         }
-        
         totalAmountOfCart.setText("0.00");
+        resetForm();
+    }
+    
+    private void resetForm(){
+        Customer_Id.setEnabled(true);
+        gallonType_Id.setSelectedIndex(0);
+        gallonQuantity.setValue(0);
+        DateOrder.setDate(null);
+        DateToBeDeliver.setDate(null);
+        serviceOffered.setSelectedIndex(0);
+        waterType_Id.setSelectedIndex(0);
+        price.clearSelection();
+        isborrowgallons.clearSelection();
+        payBtn.setEnabled(false);
     }
     
     private void DateOrderPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DateOrderPropertyChange

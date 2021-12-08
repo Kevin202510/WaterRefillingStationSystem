@@ -45,7 +45,7 @@ public class Reports extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(1100, 620));
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));

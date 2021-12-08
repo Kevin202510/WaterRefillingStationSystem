@@ -73,9 +73,9 @@ public class Transactions_LogsModel {
         }public String getServiceTypeVal(){
             String sval;
             if(ServiceType==0){
-                sval = "Deliver";
-            }else{
                 sval = "Walk In";
+            }else{
+                sval = "Deliver";
             }
             return sval;
          }public String getStatusVal(){

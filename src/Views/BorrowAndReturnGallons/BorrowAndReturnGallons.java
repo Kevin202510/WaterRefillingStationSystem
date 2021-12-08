@@ -7,6 +7,8 @@ package Views.BorrowAndReturnGallons;
 
 import Controllers.BorrowAndReturnGallonsController;
 import Forms.FrameFormModal;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JPanel;
 
@@ -27,8 +29,14 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
         InitRun();
-        borrowgallontbl.getTableHeader().setFont(new Font("MS Gothic", Font.BOLD, 15));
-        returngallontable.getTableHeader().setFont(new Font("MS Gothic", Font.BOLD, 15));
+        borrowgallontbl.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        Color theadcolor = Color.decode("#90E0EF");
+        borrowgallontbl.getTableHeader().setBackground(theadcolor);
+        borrowgallontbl.getTableHeader().setPreferredSize(new Dimension(100, 40));
+        
+        returngallontable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,15));
+        
+        
     }
     
      private void InitRun(){
@@ -94,7 +102,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
             returngallontable.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
-        jPanel1.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -130,7 +138,7 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 232, 182));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 102));
 
         jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));

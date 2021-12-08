@@ -118,23 +118,23 @@ public class UserFormModal extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(350, 610));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(64, 43, 100));
+        jPanel2.setBackground(new java.awt.Color(40, 172, 234));
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 610));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Password");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 100, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 80, 30));
 
-        jLabel3.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Last Name");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 100, 30));
-        jPanel2.add(userProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 53, 176, 75));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 100, 30));
+        jPanel2.add(userProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 210, -1));
 
         userLname.setBackground(new Color(0,0,0,1));
-        userLname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userLname.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userLname.setForeground(new java.awt.Color(255, 255, 255));
         userLname.setBorder(null);
         userLname.setOpaque(false);
@@ -146,7 +146,7 @@ public class UserFormModal extends javax.swing.JPanel {
         jPanel2.add(userLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 210, 30));
 
         userMname.setBackground(new Color(0,0,0,1));
-        userMname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userMname.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userMname.setForeground(new java.awt.Color(255, 255, 255));
         userMname.setBorder(null);
         userMname.setOpaque(false);
@@ -157,24 +157,24 @@ public class UserFormModal extends javax.swing.JPanel {
         });
         jPanel2.add(userMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 30));
 
-        jLabel4.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Date of Birth");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 100, 30));
 
-        jLabel9.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Middle Name");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 100, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 100, 30));
 
-        jLabel5.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Address");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, 30));
-        jPanel2.add(userDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 30));
+        jPanel2.add(userDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 210, 30));
 
         userAddress.setBackground(new Color(0,0,0,1));
-        userAddress.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userAddress.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userAddress.setForeground(new java.awt.Color(255, 255, 255));
         userAddress.setBorder(null);
         userAddress.setOpaque(false);
@@ -185,21 +185,23 @@ public class UserFormModal extends javax.swing.JPanel {
         });
         jPanel2.add(userAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 210, 30));
 
-        jLabel6.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contact");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 100, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 80, 30));
 
+        updatebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         updatebtn.setText("UPDATE");
+        updatebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel2.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 100, 43));
+        jPanel2.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 220, 30));
 
         userContact.setBackground(new Color(0,0,0,1));
-        userContact.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userContact.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userContact.setForeground(new java.awt.Color(255, 255, 255));
         userContact.setBorder(null);
         userContact.setOpaque(false);
@@ -221,16 +223,18 @@ public class UserFormModal extends javax.swing.JPanel {
         });
         jPanel2.add(profilename, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 90, 30));
 
+        deletebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         deletebtn.setText("DELETE");
+        deletebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletebtnActionPerformed(evt);
             }
         });
-        jPanel2.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 540, 100, 43));
+        jPanel2.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 220, 30));
 
         userUsername.setBackground(new Color(0,0,0,1));
-        userUsername.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userUsername.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userUsername.setForeground(new java.awt.Color(255, 255, 255));
         userUsername.setBorder(null);
         userUsername.setOpaque(false);
@@ -241,21 +245,23 @@ public class UserFormModal extends javax.swing.JPanel {
         });
         jPanel2.add(userUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 210, 30));
 
+        addbtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         addbtn.setText("ADD");
+        addbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         addbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 100, 43));
+        jPanel2.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 220, 30));
 
-        jLabel7.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Username");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 80, 30));
 
         userFname.setBackground(new Color(0,0,0,1));
-        userFname.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userFname.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userFname.setForeground(new java.awt.Color(255, 255, 255));
         userFname.setBorder(null);
         userFname.setOpaque(false);
@@ -266,10 +272,10 @@ public class UserFormModal extends javax.swing.JPanel {
         });
         jPanel2.add(userFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 210, 30));
 
-        jLabel10.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("First Name");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 100, 30));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 100, 30));
 
         jbtn_addpic.setBackground(new java.awt.Color(0, 204, 204));
         jbtn_addpic.setFont(new java.awt.Font("Arial Narrow", 0, 1)); // NOI18N
@@ -283,10 +289,10 @@ public class UserFormModal extends javax.swing.JPanel {
                 jbtn_addpicActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtn_addpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 91, 40, -1));
+        jPanel2.add(jbtn_addpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 30, 30));
 
         userPassword.setBackground(new Color(0,0,0,1));
-        userPassword.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
+        userPassword.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
         userPassword.setForeground(new java.awt.Color(255, 255, 255));
         userPassword.setBorder(null);
         userPassword.setOpaque(false);
@@ -297,9 +303,11 @@ public class UserFormModal extends javax.swing.JPanel {
         });
         jPanel2.add(userPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, 30));
 
+        userRole_id.setFont(new java.awt.Font("MS Gothic", 1, 15)); // NOI18N
         jPanel2.add(userRole_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 210, 32));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("X");
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
@@ -310,7 +318,7 @@ public class UserFormModal extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 10, 60, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 60, 40));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 210, 10));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 210, 10));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 210, 10));

@@ -82,8 +82,10 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
         updatebtn = new javax.swing.JButton();
         addbtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
+        label1 = new java.awt.Label();
 
-        setBackground(new java.awt.Color(0, 180, 216));
+        setBackground(new java.awt.Color(102, 153, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         setMinimumSize(new java.awt.Dimension(350, 600));
         setPreferredSize(new java.awt.Dimension(350, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,20 +99,28 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 40));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 50, 40));
 
-        add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 190, 30));
+        Customer_Id.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        add(Customer_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 190, 30));
 
+        jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Customer Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 90, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 100, 30));
 
+        jLabel4.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Gallon Type");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, 30));
 
-        add(gallonType_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 190, 30));
+        gallonType_Id.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        add(gallonType_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 190, 30));
 
+        jLabel9.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Quantity");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 30));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 90, 30));
 
         gallonQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         gallonQuantity.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -118,41 +128,55 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
                 gallonQuantityStateChanged(evt);
             }
         });
-        add(gallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 190, 30));
+        add(gallonQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 190, 30));
 
-        jLabel10.setText("Date Barrow");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 90, 30));
+        jLabel10.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Date Barrowed");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 100, 30));
 
         DateReturn.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 DateReturnPropertyChange(evt);
             }
         });
-        add(DateReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 190, 30));
+        add(DateReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 190, 30));
 
+        updatebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         updatebtn.setText("UPDATE");
+        updatebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatebtnActionPerformed(evt);
             }
         });
-        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 100, 43));
+        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 190, 30));
 
+        addbtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         addbtn.setText("ADD");
+        addbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         addbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addbtnActionPerformed(evt);
             }
         });
-        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 100, 43));
+        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 190, 30));
 
+        deletebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         deletebtn.setText("DELETE");
+        deletebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 153, 255), null, null));
         deletebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletebtnActionPerformed(evt);
             }
         });
-        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 100, 43));
+        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 190, 30));
+
+        label1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        label1.setForeground(new java.awt.Color(51, 51, 51));
+        label1.setName("Returned Gallons"); // NOI18N
+        label1.setText("Returned Gallons");
+        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -219,6 +243,7 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
+    private java.awt.Label label1;
     public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }
