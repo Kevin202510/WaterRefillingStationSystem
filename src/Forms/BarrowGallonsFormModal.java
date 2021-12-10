@@ -100,7 +100,7 @@ public class BarrowGallonsFormModal extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 50, 40));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 50, 40));
 
         jLabel3.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,29 +188,29 @@ public class BarrowGallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_DateBarrowPropertyChange
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-        try {
-            barrowngallonModel = new Borrow_GallonsModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateBarrow.getDate()));
-            if (borrowandreturngallonsControll.updateBorrowGallon(barrowngallonModel,barrowgallonTable)) {
-                out.dispose();
-                new ContainerController(lalagyanan,new Views.BorrowAndReturnGallons.BARGLogs(lalagyanan));
-
-            }
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try {
+//            barrowngallonModel = new Borrow_GallonsModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateBarrow.getDate()));
+//            if (borrowandreturngallonsControll.updateBorrowGallon(barrowngallonModel,barrowgallonTable)) {
+//                out.dispose();
+//                new ContainerController(lalagyanan,new Views.BorrowAndReturnGallons.BorrowAndReturnGallons(lalagyanan));
+//
+//            }
+//        } catch (SQLException ex) {
+//            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
 
-        try {
-            barrowngallonModel = new Borrow_GallonsModel(0,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateBarrow.getDate()));
-            if (borrowandreturngallonsControll.addBorrowGallon(barrowngallonModel,barrowgallonTable)) {
-                out.dispose();
-                new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
-            }
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try {
+//            barrowngallonModel = new Borrow_GallonsModel(0,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateBarrow.getDate()));
+//            if (borrowandreturngallonsControll.addBorrowGallon(barrowngallonModel,barrowgallonTable)) {
+//                out.dispose();
+//                new ContainerController(lalagyanan,new Views.BorrowAndReturnGallons.BorrowAndReturnGallons(lalagyanan));
+//            }
+//        } catch (SQLException ex) {
+//            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed

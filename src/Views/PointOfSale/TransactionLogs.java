@@ -6,9 +6,13 @@
 package Views.PointOfSale;
 
 import Controllers.Transaction_LogsController;
+import Forms.FrameFormModal;
+import Forms.TransactionDeliverForm;
+import Forms.TransactionLogsUpdateModal;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -78,11 +82,11 @@ public class TransactionLogs extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Total Amount", "Balance", "Transaction Date", "Transaction Time", "<html><center>Payment Status</center><html>"
+                "ID", "RecieptCode", "Customer Fullname", "Total Amount", "Balance", "Transaction Date", "Transaction Time", "<html><center>Payment Status</center><html>"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, true, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -93,6 +97,11 @@ public class TransactionLogs extends javax.swing.JPanel {
         transaction_logstable.setRowHeight(35);
         transaction_logstable.setShowGrid(true);
         transaction_logstable.getTableHeader().setReorderingAllowed(false);
+        transaction_logstable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                transaction_logstableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(transaction_logstable);
         if (transaction_logstable.getColumnModel().getColumnCount() > 0) {
             transaction_logstable.getColumnModel().getColumn(0).setPreferredWidth(20);
@@ -122,6 +131,11 @@ public class TransactionLogs extends javax.swing.JPanel {
         search();
 
     }//GEN-LAST:event_jtxt_room_searchKeyPressed
+
+    private void transaction_logstableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaction_logstableMouseClicked
+        int id = Integer.parseInt(transaction_logstable.getValueAt(transaction_logstable.getSelectedRow(), 0).toString());
+        new TransactionLogsUpdateModal(id,transaction_logstable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_transaction_logstableMouseClicked
 
     private void search() {                                            
         // ROOMS SEARCH

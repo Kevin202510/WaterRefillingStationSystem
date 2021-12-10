@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Models.Borrow_GallonsModel;
 import Models.CustomerModel;
 import Models.DeliveriesModel;
 import Models.TransactionsModel;
@@ -22,6 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -41,7 +43,7 @@ public class TransactionController {
     public ArrayList<TransactionsModel> transactionslists = new ArrayList<>();
     public ArrayList<Transactions_LogsModel> transactionslistss = new ArrayList<>();
     
-    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Transaction_Id`,`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    String magdagdagNgTransactions = "INSERT INTO `transactions`(`Transaction_Id`,`Customer_Id`, `DOorDR`, `DDorDP`, `watertype_Id`,`unitPrice`, `Gallon_Id`, `Quantity`,`isBorrowed_Gallons`, `Promo_Id`, `ServiceType`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
     
 //    public TransactionController(){
 //        try {
@@ -105,9 +107,9 @@ public class TransactionController {
     }
     
     
-    public ArrayList<TransactionsModel> supplierList(int transactionId,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+    public ArrayList<TransactionsModel> supplierList(int transactionId,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id,double unitPrice, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
         TransactionsModel transactionmodel;
-            transactionmodel = new TransactionsModel(transactionId,Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,Quantity,Promo_Id,ServiceType,Status,User_Id);
+            transactionmodel = new TransactionsModel(transactionId,Customer_Id,DOorDR,DDorDP,salePrice,waterType,Gallon_Id,unitPrice,Quantity,Promo_Id,ServiceType,Status,User_Id);
 //            JOptionPane.showMessageDialog(null,ID);
             transactionslist.add(transactionmodel);
         return transactionslist;   
@@ -161,6 +163,8 @@ public class TransactionController {
         return date;
     }
     
+    Borrow_GallonsModel barrowngallonModel;
+    
      public void addDeliveries(JTable cartTable){
          try {
              PreparedStatement st = con.prepareStatement(magdagdagNgTransactions);
@@ -170,20 +174,25 @@ public class TransactionController {
                 st.setString(3, getDateFormat(transactionslist.get(i).getDDorDR()));
                 st.setString(4, getDateFormat(transactionslist.get(i).getDDorDP()));
                 st.setInt(5, transactionslist.get(i).getwaterType());
-                st.setString(6, transactionslist.get(i).getGallonCode());
-                st.setInt(7, transactionslist.get(i).getQuantity());
-                st.setInt(8, transactionslists.get(i).isBorrowed_Gallons());
+                st.setDouble(6, transactionslist.get(i).getunitPrice());
+                st.setString(7, transactionslist.get(i).getGallonCode());
+                st.setInt(8, transactionslist.get(i).getQuantity());
+                st.setInt(9, transactionslists.get(i).isBorrowed_Gallons());
+//                JOptionPane.showMessageDialog(null,transactionslists.get(i).isBorrowed_Gallons());
                  if (transactionslists.get(i).isBorrowed_Gallons()==1) {
+//                     JOptionPane.showMessageDialog(null,i);
+                     barrowngallonModel = new Borrow_GallonsModel(0,transactionslist.get(i).getCustomer_Id(),transactionslist.get(i).getGallonCode(),transactionslist.get(i).getQuantity(),getDateNow(),0);
+                     addBorrowGallon(barrowngallonModel);
                      minusGallonStocks(transactionslist.get(i).getGallonCode(),transactionslist.get(i).getQuantity());
                  }
                 if(transactionslist.get(i).getPromo_Id()==0){
-                    st.setNull(9, java.sql.Types.INTEGER);
+                    st.setNull(10, java.sql.Types.INTEGER);
                 }else{
-                    st.setInt(9, transactionslist.get(i).getPromo_Id());
+                    st.setInt(10, transactionslist.get(i).getPromo_Id());
                 }
-                st.setInt(10, transactionslist.get(i).getServiceType());
-                st.setInt(11, transactionslist.get(i).getStatus());
-                st.setInt(12, transactionslist.get(i).getUser_Id());
+                st.setInt(11, transactionslist.get(i).getServiceType());
+                st.setInt(12, transactionslist.get(i).getStatus());
+                st.setInt(13, transactionslist.get(i).getUser_Id());
                 st.executeUpdate();
                 if (i == transactionslist.size()-1) {
                     DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
@@ -195,6 +204,21 @@ public class TransactionController {
         }
 //        return true;
         
+     }
+     
+     public void addBorrowGallon(Borrow_GallonsModel barrowgallonModel){
+        try {
+            String addBarrowGallon = "INSERT INTO `barrow_gallons`(`Customer_Id`, `Gallon_Id`, `Gallon_Quantity`, `Date_Borrowed`,`Status`) VALUES(?,?,?,?,?)";
+            PreparedStatement st = con.prepareStatement(addBarrowGallon);
+            st.setInt(1, barrowgallonModel.getCostumer_Id());
+            st.setString(2, barrowgallonModel.getGallon_Code());
+            st.setInt(3, barrowgallonModel.getGallon_Quantity());
+            st.setString(4, barrowgallonModel.getDate_Borrowed());
+            st.setInt(5, barrowgallonModel.getStatus());
+            int i = st.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TransactionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
      }
      
      public void minusGallonStocks(String gallonCode,int quant){
@@ -221,14 +245,24 @@ public class TransactionController {
         }
      }
      
+      public String generateORCode(){
+        Random random = new Random();
+        String Code="";
+        for (int i = 1; i <= 10; i++) {
+            int value = random.nextInt(5);
+            Code += String.valueOf(value);
+        }
+        return Code;
+    }  
+     
      
      public void insertTLModel(double totalAmount,int PaymentStatus,double balance){
 //         for (int i = 0; i < transactionslist.size(); i++) {
-            Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,transactionslist.get(transactionslist.size()-1).gettransactionId(),totalAmount,balance,PaymentStatus,getDateNow(),getTimeNow());
+            Transactions_LogsModel transactionlogsModel = new Transactions_LogsModel(0,transactionslist.get(transactionslist.size()-1).gettransactionId(),generateORCode(),totalAmount,balance,PaymentStatus,getDateNow(),getTimeNow());
             Transaction_LogsController tlc = new Transaction_LogsController();
             tlc.addTransactionLogs(transactionlogsModel);
 //         }
-        transactionslist.clear();
-        transactionslists.clear();
+//        transactionslist.clear();
+//        transactionslists.clear();
     }
 }

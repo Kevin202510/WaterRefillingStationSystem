@@ -32,7 +32,7 @@ public class WaterTypeController {
     java.sql.Connection con = sql.getConnection();
     
     String kuninLahatNgWaterType = "SELECT * FROM water_types";
-    String baguhinAngwatertype = "UPDATE water_types SET Name = ? ,PricePerGallon = ?,PricePerBottle = ? WHERE Id = ?";
+    String baguhinAngwatertype = "UPDATE water_types SET Name = ? WHERE Id = ?";
     
      public WaterTypeController(){
         try {
@@ -50,7 +50,7 @@ public class WaterTypeController {
         WaterTypeModel watertype;
         
         while(rs.next()){
-            watertype = new WaterTypeModel(rs.getInt("Id"),rs.getString("Name"),rs.getDouble("PricePerGallon"),rs.getDouble("PricePerBottle"));
+            watertype = new WaterTypeModel(rs.getInt("Id"),rs.getString("Name"));
             watertypelist.add(watertype);
         }
         return watertypelist;   
@@ -62,8 +62,6 @@ public class WaterTypeController {
          for (int i = 0; i < watertypelist.size(); i++) {
             row[0] = watertypelist.get(i).getId();
             row[1] = watertypelist.get(i).getName();
-            row[2] = watertypelist.get(i).getPricePerGallon();
-            row[3] = watertypelist.get(i).getPricePerBottle();
 //            row[7] = test;
             model.addRow(row);
          }
@@ -75,8 +73,6 @@ public class WaterTypeController {
           
              while(rs.next()){
                  Name.setText(rs.getString("Name"));
-                 PricePerGallon.setText(rs.getString("PricePerGallon"));
-                 PricePerBottle.setText(rs.getString("PricePerBottle"));
              }} catch (SQLException ex) {
              Logger.getLogger(PromosController.class.getName()).log(Level.SEVERE, null, ex);
          }
@@ -91,10 +87,8 @@ public class WaterTypeController {
       
      public boolean addWaterTypes(WaterTypeModel watertypeModel,JTable watertypeTable){
         try {
-            PreparedStatement st = con.prepareStatement("INSERT INTO `water_types`(`Name`, `PricePerGallon`, `PricePerBottle`) VALUES (?,?,?)");
+            PreparedStatement st = con.prepareStatement("INSERT INTO `water_types`(`Name`) VALUES (?)");
             st.setString(1,watertypeModel.getName());
-            st.setDouble(2,watertypeModel.getPricePerGallon());
-            st.setDouble(3,watertypeModel.getPricePerBottle());
             
             int i = st.executeUpdate();
             if (i > 0) {
@@ -115,9 +109,7 @@ public class WaterTypeController {
         try {
             PreparedStatement st = con.prepareStatement(baguhinAngwatertype);
             st.setString(1,watertypeModel.getName());
-            st.setDouble(2,watertypeModel.getPricePerGallon());
-            st.setDouble(3,watertypeModel.getPricePerBottle());
-            st.setInt(4,watertypeModel.getId());
+            st.setInt(2,watertypeModel.getId());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)watertypeTable.getModel();

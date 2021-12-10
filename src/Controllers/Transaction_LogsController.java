@@ -32,7 +32,7 @@ public class Transaction_LogsController {
     
 
     String kuninLahatNgTransactions_logs= "SELECT * FROM transactions_logs";
-    String magdagdagngTransactions_Logs = "INSERT INTO `transactions_logs`(`Transaction_Id`, `Total_Amount`,balance, `paymentStatus`, `Transaction_Date`, `Transaction_Time`) VALUES (?,?,?,?,?,?)";
+    String magdagdagngTransactions_Logs = "INSERT INTO `transactions_logs`(`Transaction_Id`, `Total_Amount`, `ORcode`,balance, `paymentStatus`, `Transaction_Date`, `Transaction_Time`) VALUES (?,?,?,?,?,?,?)";
     String kuninLahatNgTransactions_logsWithJoinTable = "SELECT * FROM transactions_logs LEFT JOIN transactions ON transactions_logs.Transaction_Id = transactions.Transaction_Id " +
                                                         "LEFT JOIN customers ON transactions.Customer_Id = customers.ID LEFT JOIN water_types on transactions.watertype_Id = water_types.Id " +
                                                         "LEFT JOIN gallons ON transactions.Gallon_Id = gallons.Code LEFT JOIN promos ON transactions.Promo_Id = promos.Id " +
@@ -53,7 +53,7 @@ public class Transaction_LogsController {
         Transactions_LogsModel transactionlog;
         
         while(rs.next()){
-            transactionlog = new Transactions_LogsModel(rs.getInt("ID"),rs.getInt("Transaction_Id"),rs.getDouble("Total_Amount"),rs.getDouble("balance"),rs.getInt("paymentStatus"),rs.getString("Transaction_Date"),rs.getString("Transaction_Time"));
+            transactionlog = new Transactions_LogsModel(rs.getInt("ID"),rs.getInt("Transaction_Id"),rs.getString("ORcode"),rs.getDouble("Total_Amount"),rs.getDouble("balance"),rs.getInt("paymentStatus"),rs.getString("Transaction_Date"),rs.getString("Transaction_Time"));
             transactionslogslist.add(transactionlog);
         }
         return transactionslogslist;   
@@ -75,14 +75,30 @@ public class Transaction_LogsController {
          Object[] row = new Object[11];
          for (int i = 0; i < transactionslogslist.size(); i++) {
             row[0] = transactionslogslist.get(i).getID();
-            row[1] = transactionslogsListwithjointable.get(i).getCustomer_Fullname();
-            row[2] = transactionslogslist.get(i).getTotalAmount();
-            row[3] = transactionslogslist.get(i).getBalance();
-            row[4] = transactionslogslist.get(i).getTransaction_Date();
-            row[5] = transactionslogslist.get(i).getTransaction_Time();
-            row[6] = transactionslogslist.get(i).getpaymentStatVal();
+            row[1] = transactionslogslist.get(i).getORcode();
+            row[2] = transactionslogsListwithjointable.get(i).getCustomer_Fullname();
+            row[3] = transactionslogslist.get(i).getTotalAmount();
+            row[4] = transactionslogslist.get(i).getBalance();
+            row[5] = transactionslogslist.get(i).getTransaction_Date();
+            row[6] = transactionslogslist.get(i).getTransaction_Time();
+            row[7] = transactionslogslist.get(i).getpaymentStatVal();
             model.addRow(row);
          }
+    }
+    
+    public int getServiceType(int transaction_logsId){
+        int serviceTypeId = 0;
+         try {
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * from transactions_logs LEFT JOIN transactions ON transactions.Transaction_Id = transactions_logs.Transaction_Id WHERE transactions_logs.Id = '"+transaction_logsId+"'");
+             if (rs.next()) {
+                 serviceTypeId = rs.getInt("transactions.ServiceType");
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Transaction_LogsController.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         
+         return serviceTypeId;
     }
     
     public void addTransactionLogs(Transactions_LogsModel transactionlogsModel){
@@ -90,10 +106,11 @@ public class Transaction_LogsController {
             PreparedStatement st = con.prepareStatement(magdagdagngTransactions_Logs);
             st.setInt(1,transactionlogsModel.getTransactions_Id());
             st.setDouble(2,transactionlogsModel.getTotalAmount());
-            st.setDouble(3,transactionlogsModel.getBalance());
-            st.setInt(4,transactionlogsModel.getPaymentStatus());
-            st.setString(5,transactionlogsModel.getTransaction_Date());
-            st.setString(6,transactionlogsModel.getTransaction_Time()); 
+            st.setString(3,transactionlogsModel.getORcode());
+            st.setDouble(4,transactionlogsModel.getBalance());
+            st.setInt(5,transactionlogsModel.getPaymentStatus());
+            st.setString(6,transactionlogsModel.getTransaction_Date());
+            st.setString(7,transactionlogsModel.getTransaction_Time()); 
             
             int i = st.executeUpdate();
 //            if (i > 0) {

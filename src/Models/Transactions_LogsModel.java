@@ -13,15 +13,16 @@ public class Transactions_LogsModel {
     
     private int ID,IdInit,Customer_Id,Gallon_Id,Gallon_Quantity,ServiceType,Status,User_Id,Transaction_Id,PaymentStatus;
     private double Total_Amount,balance;
-        private String Transaction_Date,Transaction_Time;
+        private String Transaction_Date,Transaction_Time,ORcode;
         private String Customer_Fullname,Gallon_Name,User_Fullname,PromoName;
     
         
-        public Transactions_LogsModel(int ID,int Transaction_Id,double Total_Amount,double balance,int PaymentStatus,String Transaction_Date,String Transaction_Time){
+        public Transactions_LogsModel(int ID,int Transaction_Id,String ORcode,double Total_Amount,double balance,int PaymentStatus,String Transaction_Date,String Transaction_Time){
         this.ID=ID;
         this.Transaction_Id = Transaction_Id;
         this.Total_Amount=Total_Amount;
         this.balance = balance;
+        this.ORcode = ORcode;
         this.PaymentStatus = PaymentStatus;
         this.Transaction_Date=Transaction_Date;
         this.Transaction_Time=Transaction_Time;
@@ -65,6 +66,8 @@ public class Transactions_LogsModel {
             return User_Fullname;
          }public String getGallon_Name(){
             return Gallon_Name;
+        }public String getORcode(){
+            return ORcode;
         }public String getPromoName(){
             if(PromoName==null){
                 PromoName = "No Promo";
@@ -82,6 +85,8 @@ public class Transactions_LogsModel {
             String statval;
             if(Status==0){
                 statval = "Pending";
+            }else if(Status==3){
+                statval = "Pending No Available Gallon";
             }else{
                 if (ServiceType==0) {
                     statval = "Delivered Sucessfully";
@@ -103,7 +108,7 @@ public class Transactions_LogsModel {
          }public String getpaymentStatVal(){
              String paymentStatVal;
              if (PaymentStatus==1) {
-                paymentStatVal = "Pending";
+                paymentStatVal = "Not Paid";
             }else{
                  if(balance==0){
                     paymentStatVal = "Paid";

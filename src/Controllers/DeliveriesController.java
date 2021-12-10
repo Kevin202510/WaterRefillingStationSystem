@@ -38,10 +38,8 @@ public final class DeliveriesController {
 
     
     String kuninLahatNgDeliveries = "SELECT * FROM deliveries";
-    String kuninLahatNgDeliveriesWithJoinTable = "SELECT * FROM `transactions` LEFT JOIN customers ON customers.ID = transactions.Customer_Id " +
-                                                "LEFT JOIN gallons ON gallons.Code = transactions.Gallon_Id LEFT JOIN promos ON promos.Id = transactions.Promo_Id " +
-                                                "LEFT JOIN users ON users.Id = transactions.User_Id " +
-                                                "WHERE transactions.Status = 0 AND transactions.ServiceType = 1";
+    String kuninLahatNgDeliveriesWithJoinTable = "SELECT * FROM `transactions` LEFT JOIN customers ON customers.ID = transactions.Customer_Id LEFT JOIN gallons ON gallons.Code= transactions.Gallon_Id LEFT JOIN promos ON promos.Id = transactions.Promo_Id LEFT JOIN users ON users.Id = transactions.User_Id\n" +
+                                                 "WHERE transactions.ServiceType = 1 AND (transactions.Status = 0 OR transactions.Status = 3);";
     String magdagdagNgDeliveries = "INSERT INTO `deliveries`(`Customer_Id`, `Date_Delivered`, `Quantity`, `Promo_Id`, `Status`, `User_Id`) VALUES (?,?,?,?,?,?)";
    
     public DeliveriesController(){
@@ -127,7 +125,7 @@ public final class DeliveriesController {
         DeliveriesModel deliveries;
         
         while(rs.next()){
-            deliveries = new DeliveriesModel(rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"),rs.getString("Gallon_Type"),rs.getString("promos.Name"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"));
+            deliveries = new DeliveriesModel(rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"),rs.getString("customers.Address"),rs.getString("Gallon_Type"),rs.getString("promos.Name"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"));
             deliveriesListwithjointable.add(deliveries);
         }
         return deliveriesListwithjointable;   
@@ -145,37 +143,12 @@ public final class DeliveriesController {
          row[5] = deliveriesList.get(i).getQuantity();
          row[6] = deliveriesListwithjointable.get(i).getPromo_Description();
          row[7] = deliveriesList.get(i).getStat();
-         row[8] = deliveriesListwithjointable.get(i).getUser_Fullname();
+         row[8] = deliveriesListwithjointable.get(i).getCustomerAddress();
          model.addRow(row);
       }
     }
        
-    public boolean addDeliveries(DeliveriesModel deliveriesModel,JTable deliveriesTable){
-        try {
-            PreparedStatement st = con.prepareStatement(magdagdagNgDeliveries);
-            st.setInt(1, deliveriesModel.getCustomer_Id());
-            st.setString(2,deliveriesModel.getDate_Delivered());
-            st.setInt(3, deliveriesModel.getQuantity());
-            st.setInt(4, deliveriesModel.getPromo_Id());
-            st.setInt(5, deliveriesModel.getStatus());
-            st.setInt(6, deliveriesModel.getUser_Id());
-            int i = st.executeUpdate();
-            if (i > 0) {
-                DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
-                model.setRowCount(0);
-//                userList();
-//                showUsers(userTable);
-            } else {
-//                new Alerts("error").setVisible(true);
-//                return false;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return true;
-    }
-       
-    public void getDeliveriesInfo(int id,JComboBox Customer_Id,JDateChooser Date_Order,JDateChooser Date_Delivered,JSpinner Quantity,JComboBox Promo_Id,JComboBox Status,JComboBox User_Id){
+    public void getDeliveriesInfo(int id,JComboBox Customer_Id,JDateChooser Date_Order,JDateChooser Date_Delivered,JSpinner Quantity,JComboBox Promo_Id,JComboBox Status){
           try {
               Statement st = con.createStatement();
               ResultSet rs = st.executeQuery("SELECT * FROM `transactions` LEFT JOIN customers ON customers.ID = transactions.Customer_Id " +
@@ -190,13 +163,12 @@ public final class DeliveriesController {
                   Quantity.setValue(rs.getInt("transactions.Quantity"));
                   Promo_Id.setSelectedItem(rs.getString("promos.Description"));
                   Status.setSelectedIndex(rs.getInt("transactions.Status"));
-                  User_Id.setSelectedItem(rs.getString("users.Fname") + " " + rs.getString("users.Mname") + " " + rs.getString("users.Lname") );
               } } catch (SQLException ex) {
               Logger.getLogger(DeliveriesController.class.getName()).log(Level.SEVERE, null, ex);
           }
     }
        
-    public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox User_Id,JComboBox Gallon_Id){
+    public void fetchComboBoxValue(JComboBox customerName,JComboBox Promo_Id,JComboBox Gallon_Id){
         
           try {
               Statement st = con.createStatement();
@@ -211,13 +183,6 @@ public final class DeliveriesController {
               
               while(rs1.next()){
                   Promo_Id.addItem(rs1.getString("Description"));
-              }
-              
-              Statement st2 = con.createStatement();
-              ResultSet rs2 = st2.executeQuery("SELECT * FROM `users`");
-              
-              while(rs2.next()){
-                  User_Id.addItem(rs2.getString("Fname") + " " + rs2.getString("Mname") + " " + rs2.getString("Lname"));
               }
               
               Statement st3 = con.createStatement();

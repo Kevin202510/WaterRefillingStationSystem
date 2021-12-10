@@ -14,8 +14,6 @@ import Forms.PromoFormModal;
 import Forms.ReturnGallonsFormModal;
 import Forms.SalesFofrmModal;
 import Forms.UserFormModal;
-import Forms.WalkInModal;
-import Forms.WaterTypeFormModal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
@@ -72,9 +70,6 @@ public class FormsControllers {
             new ContainerController(lalagyananForms,new CustomersFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==9) {
             new ContainerController(lalagyananForms,new DeliveriesModal(out,btn_id,jtablename,lalagyanan));
-        }else if (containernum==10) {
-//            JOptionPane.showMessageDialog(null,"asdas");
-            new ContainerController(lalagyananForms,new WaterTypeFormModal(out,btn_id,jtablename,lalagyanan));
         }else if (containernum==12) {
 //            JOptionPane.showMessageDialog(null,"asdas");
             new ContainerController(lalagyananForms,new ReturnGallonsFormModal(out,btn_id,jtablename,lalagyanan));
@@ -84,9 +79,6 @@ public class FormsControllers {
         }else if (containernum==14) {
 //            JOptionPane.showMessageDialog(null,"asdas");
             new ContainerController(lalagyananForms,new BarrowGallonsFormModal(out,btn_id,jtablename,lalagyanan));
-        }else if (containernum==15) {
-//            JOptionPane.showMessageDialog(null,"asdas");
-            new ContainerController(lalagyananForms,new WalkInModal(out,btn_id,jtablename,lalagyanan));
         }
     }
 }

@@ -4,12 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/walkinUpdateStatus.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Controllers/FormsControllers.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/deliveriesUpdateStatus.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/PointOfSale/Deliveries.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/DeliveriesModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/WalkInModal.java</file>
-            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/FrameFormModal.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/TransactionDeliverForm.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/PointOfSale/TransactionLogs.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Views/PointOfSale/Transaction.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Models/Transactions_LogsModel.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Controllers/GallonsController.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/TransactionLogsUpdateModal.java</file>
+            <file>file:/C:/Users/KevinCaluag/Desktop/Java%20Case%20Study/WaterRefillingStationSystem/src/Forms/TransactionLogsModal.java</file>
         </group>
     </open-files>
 </project-private>

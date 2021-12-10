@@ -7,21 +7,23 @@ package Forms;
 
 import Controllers.ContainerController;
 import Controllers.WaterTypeController;
-import Models.PromosModel;
 import Models.WaterTypeModel;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
  *
- * @author Tricia Gadiaza
+ * @author KevinCaluag
  */
-public class WaterTypeFormModal extends javax.swing.JPanel {
- static JTable watertypeTable;
+public class WaterType extends javax.swing.JFrame {
+
+    /**
+     * Creates new form WaterType
+     */
+   static JTable watertypeTable;
     static JPanel lalagyanan;
     static JFrame out;
     static int btn_id; 
@@ -31,13 +33,11 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
     /**
      * Creates new form WaterTypeFormModal
      */
-    public WaterTypeFormModal(JFrame out,int btn_id,JTable watertypeTable,JPanel lalagyanan) {
+    public WaterType(int btn_id,JTable watertypeTable,JPanel lalagyanan) {
         initComponents();
         this.btn_id = btn_id;
         this.watertypeTable = watertypeTable;
         this.lalagyanan = lalagyanan;
-        this.out = out;
-//        JOptionPane.showMessageDialog(null,"asdas");
         checkBtn(btn_id);
     }
      private void checkBtn(int btn_id){
@@ -45,7 +45,7 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
         }else{
-            watertypeControll.getWaterTypesInfo(btn_id, Name, PricePerGallon, PricePerBottle);
+//            watertypeControll.getWaterTypesInfo(btn_id, Name, PricePerGallon, PricePerBottle);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -61,6 +61,7 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         updatebtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
@@ -68,24 +69,21 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         Name = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
-        PricePerGallon = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
-        PricePerBottle = new javax.swing.JTextField();
-        jSeparator4 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 153, 255));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        setMinimumSize(new java.awt.Dimension(350, 600));
-        setPreferredSize(new java.awt.Dimension(350, 600));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        jPanel1.setMinimumSize(new java.awt.Dimension(350, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(350, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Water Types");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, 50));
 
         updatebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         updatebtn.setText("UPDATE");
@@ -95,7 +93,7 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 updatebtnActionPerformed(evt);
             }
         });
-        add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 100, 43));
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 100, 43));
 
         deletebtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         deletebtn.setText("DELETE");
@@ -105,7 +103,7 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 deletebtnActionPerformed(evt);
             }
         });
-        add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 100, 43));
+        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 100, 43));
 
         addbtn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         addbtn.setText("ADD");
@@ -115,12 +113,12 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 addbtnActionPerformed(evt);
             }
         });
-        add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 100, 43));
+        jPanel1.add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 100, 43));
 
         jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Water Type");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, 30));
 
         Name.setBackground(new Color(0,0,0,1));
         Name.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
@@ -137,47 +135,8 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 NameKeyTyped(evt);
             }
         });
-        add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 200, 30));
-        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 200, 10));
-
-        jLabel9.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Price PerGallon");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 120, 30));
-
-        PricePerGallon.setBackground(new Color(0,0,0,1));
-        PricePerGallon.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        PricePerGallon.setBorder(null);
-        PricePerGallon.setOpaque(false);
-        PricePerGallon.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                PricePerGallonKeyTyped(evt);
-            }
-        });
-        add(PricePerGallon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 180, 30));
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 180, 10));
-
-        jLabel10.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Price Per Bottle");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 130, 30));
-
-        PricePerBottle.setBackground(new Color(0,0,0,1));
-        PricePerBottle.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        PricePerBottle.setBorder(null);
-        PricePerBottle.setOpaque(false);
-        PricePerBottle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PricePerBottleActionPerformed(evt);
-            }
-        });
-        PricePerBottle.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                PricePerBottleKeyTyped(evt);
-            }
-        });
-        add(PricePerBottle, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 180, 30));
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 180, 10));
+        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 200, 30));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 200, 10));
 
         jButton2.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
@@ -191,30 +150,35 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 40, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 40, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 317));
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
 
-       watertypeModel = new WaterTypeModel(btn_id,Name.getText(),Double.parseDouble(PricePerGallon.getText()),Double.parseDouble(PricePerBottle.getText()));
+        watertypeModel = new WaterTypeModel(btn_id,Name.getText());
         if(watertypeControll.updateWaterTypes(watertypeModel, watertypeTable)){
-            out.dispose();
-            new ContainerController(lalagyanan,new Views.WaterType.WaterTypes(lalagyanan));
+            this.dispose();
+            new ContainerController(lalagyanan,new Views.PointOfSale.WaterTypes(lalagyanan));
         }
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
         if(watertypeControll.deleteWaterTypes(btn_id,watertypeTable)){
-            out.dispose();
-            new ContainerController(lalagyanan,new Views.WaterType.WaterTypes(lalagyanan));
+            this.dispose();
+            new ContainerController(lalagyanan,new Views.PointOfSale.WaterTypes(lalagyanan));
         }
     }//GEN-LAST:event_deletebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        watertypeModel = new WaterTypeModel(0,Name.getText(),Double.parseDouble(PricePerGallon.getText()),Double.parseDouble(PricePerBottle.getText()));
+        watertypeModel = new WaterTypeModel(0,Name.getText());
         if (watertypeControll.addWaterTypes(watertypeModel,watertypeTable)) {
-           out.dispose();
-            new ContainerController(lalagyanan,new Views.WaterType.WaterTypes(lalagyanan));
+            this.dispose();
+            new ContainerController(lalagyanan,new Views.PointOfSale.WaterTypes(lalagyanan));
         }
     }//GEN-LAST:event_addbtnActionPerformed
 
@@ -222,65 +186,66 @@ public class WaterTypeFormModal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_NameActionPerformed
 
-    private void PricePerBottleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PricePerBottleActionPerformed
+    private void NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_PricePerBottleActionPerformed
+
+        char c = evt.getKeyChar();
+        if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
+            (c == KeyEvent.VK_PERIOD) ||
+            (c == KeyEvent.VK_BACK_SPACE) ||
+            (c == KeyEvent.VK_DELETE))) {
+        getToolkit().beep();
+        evt.consume();
+        }
+    }//GEN-LAST:event_NameKeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         out.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void NameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyTyped
-        // TODO add your handling code here:
-        
-            char c = evt.getKeyChar();
-          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
-             (c == KeyEvent.VK_PERIOD) ||
-             (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
-               getToolkit().beep();
-             evt.consume();
-          }
-    }//GEN-LAST:event_NameKeyTyped
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(WaterType.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(WaterType.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(WaterType.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(WaterType.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    private void PricePerGallonKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PricePerGallonKeyTyped
-        // TODO add your handling code here:
-         char c = evt.getKeyChar();
-          if (!((c >= '0') && (c <= '9') ||
-             (c == KeyEvent.VK_PERIOD) ||
-             (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
-               getToolkit().beep();
-             evt.consume();
-          }
-    }//GEN-LAST:event_PricePerGallonKeyTyped
-
-    private void PricePerBottleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PricePerBottleKeyTyped
-        // TODO add your handling code here:
-         char c = evt.getKeyChar();
-          if (!((c >= '0') && (c <= '9') ||
-             (c == KeyEvent.VK_PERIOD) ||
-             (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
-               getToolkit().beep();
-             evt.consume();
-          }
-    }//GEN-LAST:event_PricePerBottleKeyTyped
-
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new WaterType(btn_id,watertypeTable,lalagyanan).setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Name;
-    private javax.swing.JTextField PricePerBottle;
-    private javax.swing.JTextField PricePerGallon;
     public javax.swing.JButton addbtn;
     public javax.swing.JButton deletebtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator6;
     public javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables

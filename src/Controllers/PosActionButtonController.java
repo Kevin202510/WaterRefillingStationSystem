@@ -12,6 +12,7 @@ import Views.PointOfSale.ReturnGallons;
 import Views.PointOfSale.Transaction;
 import Views.PointOfSale.TransactionLogs;
 import Views.PointOfSale.WalkIn;
+import Views.PointOfSale.WaterTypes;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,6 +42,10 @@ public class PosActionButtonController {
    
    public void TransactionLogsButton(JButton buy){
         new ContainerController(lalagyananpospanel,new TransactionLogs(lalagyananpospanel));
+    }
+   
+    public void WaterTypeButton(JButton buy){
+        new ContainerController(lalagyananpospanel,new WaterTypes(lalagyananpospanel));
     }
    
    public void TransactionButton(JLabel transaction){

@@ -7,9 +7,12 @@ package Views.BorrowAndReturnGallons;
 
 import Controllers.BorrowAndReturnGallonsController;
 import Forms.FrameFormModal;
+import Forms.ReturnGallons;
+import Forms.ReturnGallonsModal;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -252,9 +255,8 @@ public class BorrowAndReturnGallons extends javax.swing.JPanel {
     }//GEN-LAST:event_addBtn1ActionPerformed
 
     private void borrowgallontblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowgallontblMouseClicked
-        // TODO add your handling code here:
         int id = (int) borrowgallontbl.getValueAt(borrowgallontbl.getSelectedRow(),0);
-        new FrameFormModal(14,id,borrowgallontbl,lalagyanan).setVisible(true);
+        new ReturnGallons(id,lalagyanan,returngallontable,borrowgallontbl).setVisible(true);
     }//GEN-LAST:event_borrowgallontblMouseClicked
 
 

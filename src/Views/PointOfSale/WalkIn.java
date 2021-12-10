@@ -29,14 +29,14 @@ public class WalkIn extends javax.swing.JPanel {
         initComponents();
         this.lalagyanan = lalagyanan;
        InitRun();
-       deliveriesTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,12));
+       walkinTable.getTableHeader().setFont(new Font("MS Gothic",Font.BOLD,12));
         Color theadcolor = Color.decode("#90E0EF");
-        deliveriesTable.getTableHeader().setBackground(theadcolor);
-        deliveriesTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
+        walkinTable.getTableHeader().setBackground(theadcolor);
+        walkinTable.getTableHeader().setPreferredSize(new Dimension(100, 40));
     }
     
     private void InitRun(){
-        walkinControll.showDeliveries(deliveriesTable);
+        walkinControll.showWalkin(walkinTable);
     }
 
     /**
@@ -49,16 +49,16 @@ public class WalkIn extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        deliveriesTable = new javax.swing.JTable();
+        walkinTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 180, 216));
         setPreferredSize(new java.awt.Dimension(990, 480));
 
-        deliveriesTable.setAutoCreateRowSorter(true);
-        deliveriesTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
-        deliveriesTable.setModel(new javax.swing.table.DefaultTableModel(
+        walkinTable.setAutoCreateRowSorter(true);
+        walkinTable.setFont(new java.awt.Font("MS Gothic", 0, 15)); // NOI18N
+        walkinTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -74,15 +74,15 @@ public class WalkIn extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        deliveriesTable.setGridColor(new java.awt.Color(102, 102, 102));
-        deliveriesTable.setRowHeight(35);
-        deliveriesTable.setShowGrid(true);
-        deliveriesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        walkinTable.setGridColor(new java.awt.Color(102, 102, 102));
+        walkinTable.setRowHeight(35);
+        walkinTable.setShowGrid(true);
+        walkinTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deliveriesTableMouseClicked(evt);
+                walkinTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(deliveriesTable);
+        jScrollPane1.setViewportView(walkinTable);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -128,16 +128,16 @@ public class WalkIn extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deliveriesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveriesTableMouseClicked
-        int id = (int) deliveriesTable.getValueAt(deliveriesTable.getSelectedRow(),0);
-        new walkinUpdateStatus(id,deliveriesTable,lalagyanan).setVisible(true);
-    }//GEN-LAST:event_deliveriesTableMouseClicked
+    private void walkinTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_walkinTableMouseClicked
+        int id = (int) walkinTable.getValueAt(walkinTable.getSelectedRow(),0);
+        new walkinUpdateStatus(id,walkinTable,lalagyanan).setVisible(true);
+    }//GEN-LAST:event_walkinTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable deliveriesTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable walkinTable;
     // End of variables declaration//GEN-END:variables
 }

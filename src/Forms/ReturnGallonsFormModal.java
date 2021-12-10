@@ -54,7 +54,7 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
             deletebtn.setVisible(false);
 //            Code.setText(gallonsControll.generateGallonCode());
         }else{
-            borrowandreturngallonsControll.getReturnGallonsInfo(btn_id,Customer_Id,gallonType_Id,gallonQuantity,DateReturn);
+//            borrowandreturngallonsControll.getReturnGallonsInfo(btn_id,Customer_Id,gallonType_Id,gallonQuantity,DateReturn);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -198,29 +198,29 @@ public class ReturnGallonsFormModal extends javax.swing.JPanel {
     }//GEN-LAST:event_DateReturnPropertyChange
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-       try {
-             returngallonModel = new Return_GallonsModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateReturn.getDate()));
-         if (borrowandreturngallonsControll.updateReturnGallon(returngallonModel,returngallonTable)) {
-                out.dispose();
-               new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
-
-            }
-         } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//       try {
+//             returngallonModel = new Return_GallonsModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateReturn.getDate()));
+//         if (borrowandreturngallonsControll.updateReturnGallon(returngallonModel,returngallonTable)) {
+//                out.dispose();
+//               new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
+//
+//            }
+//         } catch (SQLException ex) {
+//            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-
-        try {
-            returngallonModel = new Return_GallonsModel(0,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateReturn.getDate()));
-            if (borrowandreturngallonsControll.addReturnGallon(returngallonModel,returngallonTable)) {
-                out.dispose();
-                new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
-            }
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//
+//        try {
+//            returngallonModel = new Return_GallonsModel(0,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),gallonControll.gallonList().get(gallonType_Id.getSelectedIndex()).getCode(),Integer.parseInt(gallonQuantity.getValue().toString()),df.format(DateReturn.getDate()));
+////            if (borrowandreturngallonsControll.addReturnGallon(returngallonModel,returngallonTable)) {
+////                out.dispose();
+////                new ContainerController(lalagyanan,new Views.PointOfSale.ReturnGallons(lalagyanan));
+////            }
+//        } catch (SQLException ex) {
+//            java.util.logging.Logger.getLogger(ReturnGallonsFormModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed

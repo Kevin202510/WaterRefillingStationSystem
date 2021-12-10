@@ -10,17 +10,18 @@ package Models;
  * @author CALUAG FAMILY
  */
 public class Borrow_GallonsModel {
-    private int ID,Customer_Id,Gallon_Quantity;
+    private int ID,Customer_Id,Gallon_Quantity,Status;
     private String Date_Borrowed,Gallon_Code;
     private String Customer_Fullname,Gallon_Type;
 
     
-    public Borrow_GallonsModel(int ID,int Customer_Id,String Gallon_Code,int Gallon_Quantity,String Date_Borrowed){
+    public Borrow_GallonsModel(int ID,int Customer_Id,String Gallon_Code,int Gallon_Quantity,String Date_Borrowed,int Status){
         this.ID = ID;
         this.Customer_Id = Customer_Id;
         this.Gallon_Code = Gallon_Code;
         this.Gallon_Quantity = Gallon_Quantity;
         this.Date_Borrowed = Date_Borrowed;
+        this.Status = Status;
     }
     
     public Borrow_GallonsModel(String CFname,String CMname,String CLname,String Gallon_Type){
@@ -36,6 +37,8 @@ public class Borrow_GallonsModel {
         return Gallon_Code;
     }public int getGallon_Quantity(){
         return Gallon_Quantity;
+    }public int getStatus(){
+        return Status;
     }public String getDate_Borrowed(){
         return Date_Borrowed;
     }

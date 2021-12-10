@@ -128,32 +128,32 @@ public class WaterTypes extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(5, 5, 5))
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-                .addGap(5, 5, 5))
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
 //        JOptionPane.showMessageDialog(null,"asdas");
-        new FrameFormModal(10,0,watertypeTable,lalagyanan).setVisible(true);
+//        new FrameFormModal(10,0,watertypeTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void watertypeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_watertypeTableMouseClicked
         // TODO add your handling code here:
           int id = (int) watertypeTable.getValueAt(watertypeTable.getSelectedRow(),0);
-        new FrameFormModal(10,id,watertypeTable,lalagyanan).setVisible(true);
+//        new FrameFormModal(10,id,watertypeTable,lalagyanan).setVisible(true);
     }//GEN-LAST:event_watertypeTableMouseClicked
 
 

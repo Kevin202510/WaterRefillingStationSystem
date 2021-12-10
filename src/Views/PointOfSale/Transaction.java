@@ -118,7 +118,7 @@ public class Transaction extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Customer Fullname", "Water Type", "Gallon Type", "Price", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver"
+                "ID", "Customer Fullname", "Water Type", "Gallon Type", "Unit Price", "Gallon Quantity", "Promo", "Borrowed Gallon", "Service", "Date Order", "Date To Deliver"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -164,6 +164,7 @@ public class Transaction extends javax.swing.JPanel {
         serviceOffered.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Walk In", "Deliver" }));
         jPanel2.add(serviceOffered, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 160, 30));
 
+        Promo_Id.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No Available" }));
         jPanel2.add(Promo_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 160, 30));
 
         jLabel6.setText("Date To Be Deliver");
@@ -318,10 +319,10 @@ public class Transaction extends javax.swing.JPanel {
         String isborrow="";
         if(isborrowgallon.isSelected()){
             isborrow = "Yes";
-            isborrowed = 1;
+//            isborrowed = 1;
         }if(notborrowgallon.isSelected()){
             isborrow = "No";
-            isborrowed = 0;
+//            isborrowed = 0;
         }
         
         Object[] row = { cartTable.getRowCount()+1,Customer_Id.getSelectedItem() ,waterType_Id.getSelectedItem(),gallonType_Id.getSelectedItem(),salePrice, gallonQuantity.getValue(),promothis , isborrow , serviceOffered.getSelectedItem(),strDates,strDates1};
@@ -354,7 +355,7 @@ public class Transaction extends javax.swing.JPanel {
           }else{
               transactionControll.addToCart(cartTable, row);
           }
-          JOptionPane.showMessageDialog(null,x);
+//          JOptionPane.showMessageDialog(null,x);
           double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
 //          JOptionPane.showMessageDialog(null,rowAmount);
           totalAmount += rowAmount;
@@ -365,14 +366,15 @@ public class Transaction extends javax.swing.JPanel {
     }//GEN-LAST:event_addToCartBtnActionPerformed
 
           
-//    public void transactionsListDataId() throws SQLException{
-//         Statement st = con.createStatement();
-//         ResultSet rs = st.executeQuery("SELECT MAX( id ) FROM transactions");
-//        
-//        if(rs.next()){
-//            transactionsId = rs.getInt("MAX( id )");
-//         }
-//     }
+//    public int getSGStocks(){
+//        try {
+//            Statement st = con.createStatement();
+//            ResultSet rs = st.executeQuery("SELECT * from gallons");
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+//        } 
+//    }
     
     double totalAmount;
     double tosaveTotalAmount;
@@ -387,6 +389,7 @@ public class Transaction extends javax.swing.JPanel {
         int status=0;
         int borrgall=0;
         String gallonid = "";
+        double unitp=0;
         int x;
         int transactionsId = 0;
         Statement st = con.createStatement();
@@ -434,6 +437,11 @@ public class Transaction extends javax.swing.JPanel {
                     }
                 }
                 
+                if (cartTable.getValueAt(x, 7).toString().equals("Yes")) {
+                    isborrowed = 1;
+                }else{
+                    isborrowed = 0;
+                }
 //                for(int k=0; k<=serviceOffered.getItemCount();k++){
 //                    if (cartTable.getValueAt(x, 7).toString().equals(serviceOffered.getItemAt(k))) {
 //                            waterType = k;   
@@ -441,12 +449,13 @@ public class Transaction extends javax.swing.JPanel {
 //                }
 
             double rowAmount = Double.parseDouble(cartTable.getValueAt(x,4).toString())*Integer.parseInt(cartTable.getValueAt(x,5).toString());
-            JOptionPane.showMessageDialog(null,rowAmount);
+//            JOptionPane.showMessageDialog(null,rowAmount);
             tosaveTotalAmount += rowAmount;
             
             try {
-                JOptionPane.showMessageDialog(null,servicetype);
-                transactionControll.supplierList(transactionsId,custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid, Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
+//                JOptionPane.showMessageDialog(null,servicetype);
+                transactionControll.supplierList(transactionsId,custid, cartTable.getValueAt(x,9).toString(), cartTable.getValueAt(x,10).toString(),Double.parseDouble(cartTable.getValueAt(x,4).toString()),watertypeControll.watertypeList().get(waterType_Id.getSelectedIndex()).getId(), gallonid,Double.parseDouble(cartTable.getValueAt(x, 4).toString()),Integer.parseInt(cartTable.getValueAt(x,5).toString()), promoid, servicetype, 0, 1);
+//                JOptionPane.showMessageDialog(null,"Nanghiram : " + x  +" " + isborrowed);
                 transactionControll.trasactionList(isborrowed);
             } catch (SQLException ex) {
                 Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
@@ -462,11 +471,13 @@ public class Transaction extends javax.swing.JPanel {
                 transactionControll.insertTLModel(tosaveTotalAmount, option,0);
             }else{
                 transactionControll.addDeliveries(cartTable);
-                double balance = tosaveTotalAmount - payment;
+                double balance = tosaveTotalAmount;
                 transactionControll.insertTLModel(tosaveTotalAmount, option ,balance);
             }
         }else{
             transactionControll.addDeliveries(cartTable);
+            double balance = tosaveTotalAmount;
+            transactionControll.insertTLModel(tosaveTotalAmount, option ,balance);
         }
         totalAmountOfCart.setText("0.00");
         resetForm();

@@ -62,7 +62,7 @@ public class Deliveries extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Customer Name", "Date_Order", "Date Delivered", "Gallon Name", "Quantity", "Promo", "Status", "Delivered By"
+                "Id", "Customer Name", "Date_Order", "Date Delivered", "Gallon Name", "Quantity", "Promo", "Status", "Address"
             }
         ) {
             boolean[] canEdit = new boolean [] {

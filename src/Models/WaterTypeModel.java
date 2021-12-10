@@ -11,25 +11,18 @@ package Models;
  */
 public class WaterTypeModel {
      private int Id;
-     private double PricePerGallon,PricePerBottle;
      private String Name;
     
-    public WaterTypeModel(int Id,String Name,double PricePerGallon, double PricePerBottle){
+    public WaterTypeModel(int Id,String Name){
     
         this.Id=Id;
         this.Name=Name;
-        this.PricePerGallon=PricePerGallon;
-        this.PricePerBottle=PricePerBottle;
     
     }
       public int getId(){
         return Id;
     }public String getName(){
         return Name;
-    }public double getPricePerGallon(){
-        return PricePerGallon;
-    }public double getPricePerBottle(){
-        return PricePerBottle;
     }
 }
 

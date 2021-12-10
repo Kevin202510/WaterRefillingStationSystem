@@ -12,7 +12,7 @@ package Models;
 public class DeliveriesModel {
     private int Id,Customer_Id,Quantity,Promo_Id,Status,User_Id;
     private String Date_Delivered,Date_Order,Gallon_Id;
-    private String Customer_Fullname,Gallon_Name,Promo_Description,User_Fullname;
+    private String Customer_Fullname,Gallon_Name,Promo_Description,User_Fullname,Customer_Address;
     
     public DeliveriesModel(int Id,int Customer_Id,String Date_Order,String Date_Delivered,String Gallon_Id,int Quantity,int Promo_Id,int Status,int User_Id){
         this.Id = Id;
@@ -26,9 +26,10 @@ public class DeliveriesModel {
         this.User_Id = User_Id;
     }
     
-    public DeliveriesModel(String Customer_Fname,String Customer_Mname,String Customer_Lname,String Gallon_Name,String Promo_Description,String User_Fname,String User_Mname,String User_Lname){
+    public DeliveriesModel(String Customer_Fname,String Customer_Mname,String Customer_Lname,String Customer_Address,String Gallon_Name,String Promo_Description,String User_Fname,String User_Mname,String User_Lname){
         this.Customer_Fullname = Customer_Fname + " " + Customer_Mname + " " + Customer_Lname;
         this.Gallon_Name = Gallon_Name;
+        this.Customer_Address = Customer_Address;
         this.Promo_Description = Promo_Description;
         this.User_Fullname = User_Fname + " " + User_Mname + " " + User_Lname;
     }
@@ -57,6 +58,8 @@ public class DeliveriesModel {
     }public String getStat(){
         if (Status==0) {
             return "Pending";
+        }else if (Status==3) {
+            return "Pending No Available Gallon";
         }return "Delivered";
     }
     public int getUser_Id(){
@@ -67,6 +70,8 @@ public class DeliveriesModel {
     
    public String getCustomer_Fullname(){
        return Customer_Fullname;
+   }public String getCustomerAddress(){
+       return Customer_Address;
    }public String getUser_Fullname(){
        return User_Fullname;
    }public String getGallon_Name(){

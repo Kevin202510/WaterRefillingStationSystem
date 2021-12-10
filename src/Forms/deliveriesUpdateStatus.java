@@ -7,12 +7,20 @@ package Forms;
 
 import Controllers.ContainerController;
 import Controllers.DeliveriesController;
+import Controllers.SQLController;
 import static Forms.DeliveriesModal.btn_id;
 import static Forms.DeliveriesModal.deliveriestable;
 import static Forms.DeliveriesModal.lalagyanan;
 import static Forms.DeliveriesModal.out;
+import static Forms.TransactionDeliverForm.transactionlogsId;
 import Models.DeliveriesModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -31,6 +39,8 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
     static int btn_id;
     DeliveriesModel deliveriesModel;
     DeliveriesController deliveriesControll = new DeliveriesController();
+    SQLController sql = new SQLController();
+    java.sql.Connection con = sql.getConnection();
     
     public deliveriesUpdateStatus(int btn_id,JTable deliveriestable,JPanel lalagyanan) {
         this.btn_id = btn_id;
@@ -38,6 +48,13 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
         this.lalagyanan = lalagyanan;
         this.out = out;
         initComponents();
+        getTransactionLogId();
+        getTransactionsLogId();
+        if (transids==0) {
+            statval.setEditable(true);
+        }else{
+            statval.setEditable(false);
+        }
     }
 
     /**
@@ -54,6 +71,7 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
         statval = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -65,7 +83,7 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Delivery Status");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 160, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 160, 30));
 
         statval.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         statval.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -74,10 +92,10 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
                 statvalKeyPressed(evt);
             }
         });
-        jPanel1.add(statval, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 80, 40));
+        jPanel1.add(statval, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 80, 40));
 
         jButton1.setText("Delete");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 130, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 130, 40));
 
         jButton2.setText("Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -85,9 +103,19 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 40));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 130, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 210));
+        jButton3.setText("X");
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 0, 50, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 230));
 
         pack();
         setLocationRelativeTo(null);
@@ -103,9 +131,43 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_statvalKeyPressed
 
+    int transid;
+    int transids;
+    public void getTransactionLogId(){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM transactions WHERE ID = '" +btn_id+"'");
+            if (rs.next()) {
+                transid = rs.getInt("Transaction_Id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(deliveriesUpdateStatus.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void getTransactionsLogId(){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM transactions_logs WHERE Transaction_Id = '" +transid+"'");
+            if (rs.next()) {
+                transids = rs.getInt("paymentStatus");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(deliveriesUpdateStatus.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new FrameFormModal(9,btn_id,deliveriestable,lalagyanan).setVisible(true);
+        if (transids==0) {
+            JOptionPane.showMessageDialog(this,"You Cannot Update This Data");
+        }else{
+            new TransactionDeliverForm(btn_id,deliveriestable,this,lalagyanan).setVisible(true);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +207,7 @@ public class deliveriesUpdateStatus extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField statval;

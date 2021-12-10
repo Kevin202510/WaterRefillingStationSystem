@@ -54,13 +54,13 @@ public class DeliveriesModal extends javax.swing.JPanel {
     }
     private void checkBtn(int btn_id){
         if (btn_id==0) {   
-            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id, User_Id,Gallon_Id);
+            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id,Gallon_Id);
             Date_Delivered.setDate(deliveriesControll.getDateNow());
             updatebtn.setVisible(false);
             deletebtn.setVisible(false);
         }else{
-            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id, User_Id, Gallon_Id);
-            deliveriesControll.getDeliveriesInfo(btn_id, Customer_Id,Date_Order,Date_Delivered, Quantity, Promo_Id, Status, User_Id);
+            deliveriesControll.fetchComboBoxValue(Customer_Id, Promo_Id, Gallon_Id);
+            deliveriesControll.getDeliveriesInfo(btn_id, Customer_Id,Date_Order,Date_Delivered, Quantity, Promo_Id, Status);
             addbtn.setVisible(false);
             updatebtn.setVisible(true);
             deletebtn.setVisible(true);
@@ -246,15 +246,15 @@ public class DeliveriesModal extends javax.swing.JPanel {
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-        try {
-            deliveriesModel = new DeliveriesModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),dateFormat.format(Date_Order.getDate()),dateFormat.format(Date_Delivered.getDate()),gallonsControll.gallonList().get(Gallon_Id.getSelectedIndex()).getCode(),(int) Quantity.getValue(),promoControll.promosList().get(Promo_Id.getSelectedIndex()).getId(),Status.getSelectedIndex(),userControll.userList().get(User_Id.getSelectedIndex()).getId());
-            if (deliveriesControll.addDeliveries(deliveriesModel, deliveriestable)) {
-                out.dispose();
-                new ContainerController(lalagyanan,new Views.PointOfSale.Deliveries(lalagyanan));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DeliveriesModal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            deliveriesModel = new DeliveriesModel(btn_id,customerControll.customerlist().get(Customer_Id.getSelectedIndex()).getID(),dateFormat.format(Date_Order.getDate()),dateFormat.format(Date_Delivered.getDate()),gallonsControll.gallonList().get(Gallon_Id.getSelectedIndex()).getCode(),(int) Quantity.getValue(),promoControll.promosList().get(Promo_Id.getSelectedIndex()).getId(),Status.getSelectedIndex(),userControll.userList().get(User_Id.getSelectedIndex()).getId());
+//            if (deliveriesControll.addDeliveries(deliveriesModel, deliveriestable)) {
+//                out.dispose();
+//                new ContainerController(lalagyanan,new Views.PointOfSale.Deliveries(lalagyanan));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DeliveriesModal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed

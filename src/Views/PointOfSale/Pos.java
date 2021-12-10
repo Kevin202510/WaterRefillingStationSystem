@@ -47,11 +47,11 @@ public class Pos extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btndeliver = new javax.swing.JButton();
-        btntransactionlogs = new javax.swing.JButton();
+        waterTypes = new javax.swing.JButton();
         btnwalkin = new javax.swing.JButton();
-        barrowandreturn = new javax.swing.JButton();
         transactions = new javax.swing.JLabel();
         btnPos = new javax.swing.JButton();
+        btntransactionlogs = new javax.swing.JButton();
         lalagyananpospanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 180, 216));
@@ -77,14 +77,14 @@ public class Pos extends javax.swing.JPanel {
             }
         });
 
-        btntransactionlogs.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
-        btntransactionlogs.setForeground(new java.awt.Color(51, 51, 51));
-        btntransactionlogs.setText("<html><center>Transaction Logs</center></html>");
-        btntransactionlogs.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 3));
-        btntransactionlogs.setContentAreaFilled(false);
-        btntransactionlogs.addActionListener(new java.awt.event.ActionListener() {
+        waterTypes.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        waterTypes.setForeground(new java.awt.Color(51, 51, 51));
+        waterTypes.setText("Water Types");
+        waterTypes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 3));
+        waterTypes.setContentAreaFilled(false);
+        waterTypes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btntransactionlogsActionPerformed(evt);
+                waterTypesActionPerformed(evt);
             }
         });
 
@@ -97,17 +97,6 @@ public class Pos extends javax.swing.JPanel {
         btnwalkin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnwalkinActionPerformed(evt);
-            }
-        });
-
-        barrowandreturn.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
-        barrowandreturn.setForeground(new java.awt.Color(51, 51, 51));
-        barrowandreturn.setText("<html><center>Return  Gallons</center></html>");
-        barrowandreturn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 3));
-        barrowandreturn.setContentAreaFilled(false);
-        barrowandreturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                barrowandreturnActionPerformed(evt);
             }
         });
 
@@ -125,49 +114,54 @@ public class Pos extends javax.swing.JPanel {
             }
         });
 
+        btntransactionlogs.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
+        btntransactionlogs.setForeground(new java.awt.Color(51, 51, 51));
+        btntransactionlogs.setText("<html><center>Transaction Logs</center></html>");
+        btntransactionlogs.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 3));
+        btntransactionlogs.setContentAreaFilled(false);
+        btntransactionlogs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntransactionlogsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 633, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                        .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                        .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                        .addComponent(btntransactionlogs, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(barrowandreturn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(btntransactionlogs, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(waterTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(transactions))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGap(29, 29, 29)
+                        .addComponent(transactions)))
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(barrowandreturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btntransactionlogs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(btnPos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndeliver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnwalkin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btntransactionlogs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(waterTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         lalagyananpospanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -182,7 +176,7 @@ public class Pos extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE)
-                    .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE))
+                    .addComponent(lalagyananpospanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -204,21 +198,20 @@ public class Pos extends javax.swing.JPanel {
         buttonControll.WalkInButton(btnwalkin);
     }//GEN-LAST:event_btnwalkinActionPerformed
 
-    private void btntransactionlogsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransactionlogsActionPerformed
-        buttonControll.TransactionLogsButton(btntransactionlogs);
-    }//GEN-LAST:event_btntransactionlogsActionPerformed
-
-    private void barrowandreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barrowandreturnActionPerformed
-        buttonControll.ReturnGallonButton(barrowandreturn);
-    }//GEN-LAST:event_barrowandreturnActionPerformed
+    private void waterTypesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterTypesActionPerformed
+        buttonControll.WaterTypeButton(waterTypes);
+    }//GEN-LAST:event_waterTypesActionPerformed
 
     private void btnPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPosActionPerformed
         buttonControll.PosButton(btnPos);
     }//GEN-LAST:event_btnPosActionPerformed
 
+    private void btntransactionlogsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransactionlogsActionPerformed
+        buttonControll.TransactionLogsButton(btntransactionlogs);
+    }//GEN-LAST:event_btntransactionlogsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton barrowandreturn;
     private javax.swing.JButton btnPos;
     private javax.swing.JButton btndeliver;
     private javax.swing.JButton btntransactionlogs;
@@ -227,5 +220,6 @@ public class Pos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel lalagyananpospanel;
     private javax.swing.JLabel transactions;
+    private javax.swing.JButton waterTypes;
     // End of variables declaration//GEN-END:variables
 }

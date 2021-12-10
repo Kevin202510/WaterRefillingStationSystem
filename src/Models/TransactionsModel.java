@@ -12,12 +12,13 @@ package Models;
 public class TransactionsModel {
     int transactionId,Customer_Id,Quantity,Promo_Id,ServiceType,Status,User_Id,waterType,isBorrowed_Gallons,paymentOption;
     String DOorDR,Gallon_Id,DDorDP;
-    double salePrice,totalAmount;
+    double salePrice,totalAmount,unitPrice;
     
-    public TransactionsModel(int transactionId,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
+    public TransactionsModel(int transactionId,int Customer_Id, String DOorDR, String DDorDP,double salePrice,int waterType,String Gallon_Id,double unitPrice, int Quantity, int Promo_Id, int ServiceType, int Status, int User_Id){
         this.transactionId = transactionId;
         this.Customer_Id = Customer_Id;
         this.DOorDR = DOorDR;
+        this.unitPrice = unitPrice;
         this.DDorDP = DDorDP;
         this.Gallon_Id = Gallon_Id;
         this.Quantity = Quantity;
@@ -67,6 +68,8 @@ public class TransactionsModel {
     }
     public double gettotalAmount(){
         return totalAmount;
+    }public double getunitPrice(){
+        return unitPrice;
     }public int getpaymentOption(){
         return paymentOption;
     }public int gettransactionId(){

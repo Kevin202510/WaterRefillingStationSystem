@@ -7,11 +7,15 @@ package Forms;
 
 import Controllers.ContainerController;
 import Controllers.DeliveriesController;
-import static Forms.deliveriesUpdateStatus.btn_id;
-import static Forms.deliveriesUpdateStatus.deliveriestable;
-import static Forms.deliveriesUpdateStatus.lalagyanan;
+import Controllers.SQLController;
 import Models.DeliveriesModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -24,19 +28,28 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
     /**
      * Creates new form walkinUpdateStatus
      */
-    static JTable deliveriestable;
+    static JTable walkinTable;
     static JPanel lalagyanan;
     static JFrame out;
     static int btn_id;
     DeliveriesModel deliveriesModel;
     DeliveriesController deliveriesControll = new DeliveriesController();
+    SQLController sql = new SQLController();
+    java.sql.Connection con = sql.getConnection();
     
-    public walkinUpdateStatus(int btn_id,JTable deliveriestable,JPanel lalagyanan) {
+    public walkinUpdateStatus(int btn_id,JTable walkinTable,JPanel lalagyanan) {
         this.btn_id = btn_id;
-        this.deliveriestable = deliveriestable;
+        this.walkinTable = walkinTable;
         this.lalagyanan = lalagyanan;
         this.out = out;
         initComponents();
+        getTransactionLogId();
+        getTransactionsLogId();
+        if (transids==0) {
+            statval.setEditable(true);
+        }else{
+            statval.setEditable(false);
+        }
     }
 
     /**
@@ -53,6 +66,7 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
         statval = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -64,7 +78,7 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("WalkIn Status");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 160, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 160, 30));
 
         statval.setFont(new java.awt.Font("MS Gothic", 1, 14)); // NOI18N
         statval.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -73,10 +87,10 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
                 statvalKeyPressed(evt);
             }
         });
-        jPanel1.add(statval, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 80, 40));
+        jPanel1.add(statval, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 80, 40));
 
         jButton1.setText("Delete");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 140, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 140, 40));
 
         jButton2.setText("Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,9 +98,19 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 140, 40));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 210));
+        jButton3.setText("X");
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 0, 50, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 260));
 
         pack();
         setLocationRelativeTo(null);
@@ -95,16 +119,53 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
     private void statvalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_statvalKeyPressed
         if (evt.getKeyCode()==10) {
             deliveriesModel = new DeliveriesModel(btn_id,Integer.parseInt(statval.getText()));
-            if (deliveriesControll.updateWalkIn(deliveriesModel, deliveriestable)) {
+            if (deliveriesControll.updateWalkIn(deliveriesModel, walkinTable)) {
                 this.dispose();
                 new ContainerController(lalagyanan,new Views.PointOfSale.WalkIn(lalagyanan));
             }
         }
     }//GEN-LAST:event_statvalKeyPressed
 
+    
+    int transid;
+    int transids;
+    public void getTransactionLogId(){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM transactions WHERE ID = '" +btn_id+"'");
+            if (rs.next()) {
+                transid = rs.getInt("Transaction_Id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WalkInTransactionForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void getTransactionsLogId(){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM transactions_logs WHERE Transaction_Id = '" +transid+"'");
+            if (rs.next()) {
+                transids = rs.getInt("paymentStatus");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(WalkInTransactionForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new FrameFormModal(15,btn_id,deliveriestable,lalagyanan).setVisible(true);
+        if (transids==0) {
+            JOptionPane.showMessageDialog(this,"You Cannot Update This Data");
+        }else{
+            new WalkInTransactionForm(btn_id,walkinTable,this,lalagyanan).setVisible(true);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,7 +197,7 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new walkinUpdateStatus(btn_id,deliveriestable,lalagyanan).setVisible(true);
+                new walkinUpdateStatus(btn_id,walkinTable,lalagyanan).setVisible(true);
             }
         });
     }
@@ -144,6 +205,7 @@ public class walkinUpdateStatus extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField statval;

@@ -6,6 +6,7 @@
 package Controllers;
 
 import Models.DeliveriesModel;
+import Models.WalkinModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,14 +22,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class WalkInController {
     
-    ArrayList<DeliveriesModel> deliveriesList = new ArrayList<>();
-    ArrayList<DeliveriesModel> deliveriesListwithjointable = new ArrayList<>();
+    ArrayList<WalkinModel> deliveriesList = new ArrayList<>();
+    ArrayList<WalkinModel> deliveriesListwithjointable = new ArrayList<>();
     SQLController sql = new SQLController();
     java.sql.Connection con = sql.getConnection();
-    String kuninLahatNgWalkInWithJoinTable = "SELECT * FROM `transactions` LEFT JOIN customers ON customers.ID = transactions.Customer_Id " +
-                                            "LEFT JOIN gallons ON gallons.Code = transactions.Gallon_Id LEFT JOIN promos ON promos.Id = transactions.Promo_Id " +
-                                            "LEFT JOIN users ON users.Id = transactions.User_Id " +
-                                            "WHERE transactions.Status = 0 AND transactions.ServiceType = 0";
+    String kuninLahatNgWalkInWithJoinTable = "SELECT * FROM `transactions` LEFT JOIN customers ON customers.ID = transactions.Customer_Id LEFT JOIN gallons ON gallons.Code= transactions.Gallon_Id LEFT JOIN promos ON promos.Id = transactions.Promo_Id LEFT JOIN users ON users.Id = transactions.User_Id\n" +
+                                             "WHERE transactions.ServiceType = 0 AND (transactions.Status = 0 OR transactions.Status = 3);";
     
     public WalkInController(){
         try {
@@ -39,31 +38,31 @@ public class WalkInController {
         }
     }
     
-    public ArrayList<DeliveriesModel> deliveriesList() throws SQLException{
+    public ArrayList<WalkinModel> deliveriesList() throws SQLException{
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(kuninLahatNgWalkInWithJoinTable);
-        DeliveriesModel deliveries;
+        WalkinModel walkinmodel;
         
         while(rs.next()){
-            deliveries = new DeliveriesModel(rs.getInt("Id"),rs.getInt("transactions.Customer_Id"),rs.getString("transactions.DOorDR"),rs.getString("transactions.DDorDP"),rs.getString("transactions.Gallon_Id"),rs.getInt("transactions.Quantity"),rs.getInt("transactions.Promo_Id"),rs.getInt("transactions.Status"),rs.getInt("transactions.User_Id"));
-            deliveriesList.add(deliveries);
+            walkinmodel = new WalkinModel(rs.getInt("Id"),rs.getInt("transactions.Customer_Id"),rs.getString("transactions.DOorDR"),rs.getString("transactions.DDorDP"),rs.getString("transactions.Gallon_Id"),rs.getInt("transactions.Quantity"),rs.getInt("transactions.Promo_Id"),rs.getInt("transactions.Status"),rs.getInt("transactions.User_Id"));
+            deliveriesList.add(walkinmodel);
         }
         return deliveriesList;   
     }
       
-    public ArrayList<DeliveriesModel> deliveriesListWithJoinTable() throws SQLException{
+    public ArrayList<WalkinModel> deliveriesListWithJoinTable() throws SQLException{
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(kuninLahatNgWalkInWithJoinTable);
-        DeliveriesModel deliveries;
+        WalkinModel walkinmodel;
         
         while(rs.next()){
-            deliveries = new DeliveriesModel(rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"),rs.getString("Gallon_Type"),rs.getString("promos.Name"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"));
-            deliveriesListwithjointable.add(deliveries);
+            walkinmodel = new WalkinModel(rs.getString("customers.Fname"),rs.getString("customers.Mname"),rs.getString("customers.Lname"),rs.getString("customers.Address"),rs.getString("Gallon_Type"),rs.getString("promos.Name"),rs.getString("users.Fname"),rs.getString("users.Mname"),rs.getString("users.Lname"));
+            deliveriesListwithjointable.add(walkinmodel);
         }
         return deliveriesListwithjointable;   
     }  
     
-    public void showDeliveries(JTable deliveriesTable){
+    public void showWalkin(JTable deliveriesTable){
       DefaultTableModel model = (DefaultTableModel)deliveriesTable.getModel();
       Object[] row = new Object[9];
       for (int i = 0; i < deliveriesListwithjointable.size(); i++) {
@@ -75,7 +74,7 @@ public class WalkInController {
          row[5] = deliveriesList.get(i).getQuantity();
          row[6] = deliveriesListwithjointable.get(i).getPromo_Description();
          row[7] = deliveriesList.get(i).getStat();
-         row[8] = deliveriesListwithjointable.get(i).getUser_Fullname();
+         row[8] = deliveriesListwithjointable.get(i).getCustomerAddress();
          model.addRow(row);
       }
     }
